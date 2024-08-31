@@ -1,0 +1,43 @@
+{
+  "name": "symphony-js",
+  "version": "1.0.0",
+  "description": "Typescript Protobuf Messages for Symphony chain",
+  "author": "Jazz877",
+  "main": "index.js",
+  "module": "esm/index.js",
+  "types": "index.d.ts",
+  "homepage": "https://github.com/Orchestra-Labs/symphony-js",
+  "license": "SEE LICENSE IN LICENSE",
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "scripts": {
+    "codegen": "esno ./scripts/codegen.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Orchestra-Labs/symphony-js"
+  },
+  "bugs": {
+    "url": "https://github.com/Orchestra-Labs/symphony-js/issues"
+  },
+  "devDependencies": {
+    "@cosmology/ast": "^1.8.1",
+    "@cosmology/telescope": "^1.8.3",
+    "@types/node": "^20.12.7",
+    "@types/rimraf": "^3.0.2",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "case": "^1.6.3",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "esno": "^4.7.0",
+    "minimatch": "^10.0.1",
+    "rimraf": "3.0.2",
+    "typescript": "^5.1.6"
+  },
+  "packageManager": "yarn@4.4.1"
+}
