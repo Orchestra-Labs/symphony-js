@@ -1,6 +1,6 @@
 {
   "name": "@orchestra_labs/symphonyjs",
-  "version": "1.0.8",
+  "version": "1.0.9-0",
   "description": "Typescript Protobuf Messages for Symphony chain",
   "author": "Orchestra-Labs",
   "main": "src/index.js",
