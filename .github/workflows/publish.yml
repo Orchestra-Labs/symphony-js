@@ -13,13 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Check triggers
+      - name: Check branch is main
         run: |
           echo "${GITHUB_REF}"
-          echo "${GITHUB_REF##*refs/tags/v*}"
-          if [[ "${GITHUB_REF}" != "refs/heads/main" || -z "${GITHUB_REF##*refs/tags/v*}" ]]; then
-            echo "Not on main branch or no matching tag found. Exiting..."
-            exit 1
+          if [[ "${GITHUB_REF}" != "refs/heads/main" ]]; then
+            echo "Not on main branch. Exiting..."
+            exit 0
           fi
 
       - name: Check if NPM_TOKEN exists
@@ -29,10 +28,10 @@ jobs:
             exit 1
           fi
 
-      - name: Extract Node.js version from @types/node in package.json
+      - name: Extract Node.js version from package.json
         id: extract_node_version
         run: |
-          NODE_VERSION=$(jq -r '.devDependencies["@types/node"]' package.json | grep -oP '\d+\.\d+\.\d+')
+          NODE_VERSION=$(jq -r '.devDependencies["@types/node"]' package.json | grep -oP '\d+\.\d+\.\d+' | cut -d '.' -f 1)
           echo "NODE_VERSION=${NODE_VERSION}"
           echo "NODE_VERSION=${NODE_VERSION}" >> $GITHUB_ENV
 
