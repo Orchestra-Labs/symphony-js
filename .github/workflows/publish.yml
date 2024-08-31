@@ -48,7 +48,7 @@ jobs:
       - name: Configure npm authentication
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      # Not necessary for publish to NPM.  Used for GitHub records
+      # Separate from NPM.  Purpose: Update GitHub records, then update NPM
       - name: Create and push tag
         run: |
           TAG_NAME="v$(jq -r .version package.json)"
@@ -60,10 +60,3 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Create and push tag
-        run: |
-          TAG_NAME="v$(jq -r .version package.json)"
-          echo "Creating tag $TAG_NAME"
-          git tag $TAG_NAME
-          git push origin $TAG_NAME
