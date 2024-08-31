@@ -1,3 +1,4 @@
+# Yarn-related files
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -5,13 +6,15 @@
 !.yarn/sdks
 !.yarn/versions
 
-# Swap the comments on the following lines if you wish to use zero-installs
-# In that case, don't forget to run `yarn config set enableGlobalCache false`!
+# Uncomment the following line if using Yarn Zero-Installs
 # Documentation here: https://yarnpkg.com/features/caching#zero-installs
+# !.yarn/cache
 
-#!.yarn/cache
+# Ignore PnP files
 .pnp.*
 
+# Ignore IDE settings
 .idea
 
-./node_modules/*
+# Ignore Node.js dependencies
+node_modules/
