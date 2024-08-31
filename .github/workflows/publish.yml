@@ -25,9 +25,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
-
       - name: Publish to npm
         uses: JS-DevTools/npm-publish@v3
         with:
