@@ -12,7 +12,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc && pnpm format",
+    "build": "tsc && npm format",
     "codegen": "ts-node ./scripts/codegen.ts && pnpm format",
     "test-query": "ts-node ./scripts/symphony.ts",
     "format": "prettier '{**/*,*}.{js,ts,jsx,tsx,vue,astro}' --write"
