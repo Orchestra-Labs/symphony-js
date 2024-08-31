@@ -1,19 +1,19 @@
 //@ts-nocheck
-import { MsgCreateGauge, MsgAddToGauge, MsgCreateGroup } from "./tx";
+import { MsgCreateGauge, MsgAddToGauge, MsgCreateGroup } from './tx';
 export const AminoConverter = {
-  "/osmosis.incentives.MsgCreateGauge": {
-    aminoType: "osmosis/incentives/create-gauge",
+  '/osmosis.incentives.MsgCreateGauge': {
+    aminoType: 'osmosis/incentives/create-gauge',
     toAmino: MsgCreateGauge.toAmino,
-    fromAmino: MsgCreateGauge.fromAmino
+    fromAmino: MsgCreateGauge.fromAmino,
   },
-  "/osmosis.incentives.MsgAddToGauge": {
-    aminoType: "osmosis/incentives/add-to-gauge",
+  '/osmosis.incentives.MsgAddToGauge': {
+    aminoType: 'osmosis/incentives/add-to-gauge',
     toAmino: MsgAddToGauge.toAmino,
-    fromAmino: MsgAddToGauge.fromAmino
+    fromAmino: MsgAddToGauge.fromAmino,
   },
-  "/osmosis.incentives.MsgCreateGroup": {
-    aminoType: "osmosis/incentives/create-group",
+  '/osmosis.incentives.MsgCreateGroup': {
+    aminoType: 'osmosis/incentives/create-group',
     toAmino: MsgCreateGroup.toAmino,
-    fromAmino: MsgCreateGroup.fromAmino
-  }
+    fromAmino: MsgCreateGroup.fromAmino,
+  },
 };

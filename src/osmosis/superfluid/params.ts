@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { Decimal } from "@cosmjs/math";
-import { GlobalDecoderRegistry } from "../../registry";
+import { BinaryReader, BinaryWriter } from '../../binary';
+import { Decimal } from '@cosmjs/math';
+import { GlobalDecoderRegistry } from '../../registry';
 /** Params holds parameters for the superfluid module */
 export interface Params {
   /**
@@ -13,7 +13,7 @@ export interface Params {
   minimumRiskFactor: string;
 }
 export interface ParamsProtoMsg {
-  typeUrl: "/osmosis.superfluid.Params";
+  typeUrl: '/osmosis.superfluid.Params';
   value: Uint8Array;
 }
 /** Params holds parameters for the superfluid module */
@@ -27,7 +27,7 @@ export interface ParamsAmino {
   minimum_risk_factor?: string;
 }
 export interface ParamsAminoMsg {
-  type: "osmosis/params";
+  type: 'osmosis/params';
   value: ParamsAmino;
 }
 /** Params holds parameters for the superfluid module */
@@ -36,36 +36,56 @@ export interface ParamsSDKType {
 }
 function createBaseParams(): Params {
   return {
-    minimumRiskFactor: ""
+    minimumRiskFactor: '',
   };
 }
 export const Params = {
-  typeUrl: "/osmosis.superfluid.Params",
-  aminoType: "osmosis/params",
+  typeUrl: '/osmosis.superfluid.Params',
+  aminoType: 'osmosis/params',
   is(o: any): o is Params {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.minimumRiskFactor === "string");
+    return (
+      o &&
+      (o.$typeUrl === Params.typeUrl || typeof o.minimumRiskFactor === 'string')
+    );
   },
   isSDK(o: any): o is ParamsSDKType {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.minimum_risk_factor === "string");
+    return (
+      o &&
+      (o.$typeUrl === Params.typeUrl ||
+        typeof o.minimum_risk_factor === 'string')
+    );
   },
   isAmino(o: any): o is ParamsAmino {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.minimum_risk_factor === "string");
+    return (
+      o &&
+      (o.$typeUrl === Params.typeUrl ||
+        typeof o.minimum_risk_factor === 'string')
+    );
   },
-  encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.minimumRiskFactor !== "") {
-      writer.uint32(10).string(Decimal.fromUserInput(message.minimumRiskFactor, 18).atomics);
+  encode(
+    message: Params,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.minimumRiskFactor !== '') {
+      writer
+        .uint32(10)
+        .string(Decimal.fromUserInput(message.minimumRiskFactor, 18).atomics);
     }
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): Params {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseParams();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.minimumRiskFactor = Decimal.fromAtomics(reader.string(), 18).toString();
+          message.minimumRiskFactor = Decimal.fromAtomics(
+            reader.string(),
+            18,
+          ).toString();
           break;
         default:
           reader.skipType(tag & 7);
@@ -76,19 +96,23 @@ export const Params = {
   },
   fromPartial(object: Partial<Params>): Params {
     const message = createBaseParams();
-    message.minimumRiskFactor = object.minimumRiskFactor ?? "";
+    message.minimumRiskFactor = object.minimumRiskFactor ?? '';
     return message;
   },
   fromAmino(object: ParamsAmino): Params {
     const message = createBaseParams();
-    if (object.minimum_risk_factor !== undefined && object.minimum_risk_factor !== null) {
+    if (
+      object.minimum_risk_factor !== undefined &&
+      object.minimum_risk_factor !== null
+    ) {
       message.minimumRiskFactor = object.minimum_risk_factor;
     }
     return message;
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
-    obj.minimum_risk_factor = message.minimumRiskFactor === "" ? undefined : message.minimumRiskFactor;
+    obj.minimum_risk_factor =
+      message.minimumRiskFactor === '' ? undefined : message.minimumRiskFactor;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {
@@ -96,8 +120,8 @@ export const Params = {
   },
   toAminoMsg(message: Params): ParamsAminoMsg {
     return {
-      type: "osmosis/params",
-      value: Params.toAmino(message)
+      type: 'osmosis/params',
+      value: Params.toAmino(message),
     };
   },
   fromProtoMsg(message: ParamsProtoMsg): Params {
@@ -108,10 +132,13 @@ export const Params = {
   },
   toProtoMsg(message: Params): ParamsProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.Params",
-      value: Params.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.Params',
+      value: Params.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(Params.typeUrl, Params);
-GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  Params.aminoType,
+  Params.typeUrl,
+);

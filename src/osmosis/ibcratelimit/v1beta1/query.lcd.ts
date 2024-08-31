@@ -1,13 +1,9 @@
 //@ts-nocheck
-import { LCDClient } from "@cosmology/lcd";
-import { ParamsRequest, ParamsResponseSDKType } from "./query";
+import { LCDClient } from '@cosmology/lcd';
+import { ParamsRequest, ParamsResponseSDKType } from './query';
 export class LCDQueryClient {
   req: LCDClient;
-  constructor({
-    requestClient
-  }: {
-    requestClient: LCDClient;
-  }) {
+  constructor({ requestClient }: { requestClient: LCDClient }) {
     this.req = requestClient;
     this.params = this.params.bind(this);
   }

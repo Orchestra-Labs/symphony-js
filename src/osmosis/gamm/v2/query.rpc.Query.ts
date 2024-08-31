@@ -1,8 +1,8 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
-import { BinaryReader } from "../../../binary";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
-import { QuerySpotPriceRequest, QuerySpotPriceResponse } from "./query";
+import { Rpc } from '../../../helpers';
+import { BinaryReader } from '../../../binary';
+import { QueryClient, createProtobufRpcClient } from '@cosmjs/stargate';
+import { QuerySpotPriceRequest, QuerySpotPriceResponse } from './query';
 export interface Query {
   /** Deprecated: please use alternate in x/poolmanager */
   spotPrice(request: QuerySpotPriceRequest): Promise<QuerySpotPriceResponse>;
@@ -15,8 +15,14 @@ export class QueryClientImpl implements Query {
   }
   spotPrice(request: QuerySpotPriceRequest): Promise<QuerySpotPriceResponse> {
     const data = QuerySpotPriceRequest.encode(request).finish();
-    const promise = this.rpc.request("osmosis.gamm.v2.Query", "SpotPrice", data);
-    return promise.then(data => QuerySpotPriceResponse.decode(new BinaryReader(data)));
+    const promise = this.rpc.request(
+      'osmosis.gamm.v2.Query',
+      'SpotPrice',
+      data,
+    );
+    return promise.then(data =>
+      QuerySpotPriceResponse.decode(new BinaryReader(data)),
+    );
   }
 }
 export const createRpcQueryExtension = (base: QueryClient) => {
@@ -25,6 +31,6 @@ export const createRpcQueryExtension = (base: QueryClient) => {
   return {
     spotPrice(request: QuerySpotPriceRequest): Promise<QuerySpotPriceResponse> {
       return queryService.spotPrice(request);
-    }
+    },
   };
 };

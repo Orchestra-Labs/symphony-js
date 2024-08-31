@@ -1,7 +1,11 @@
 //@ts-nocheck
-import { Duration, DurationAmino, DurationSDKType } from "../../../google/protobuf/duration";
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
+import {
+  Duration,
+  DurationAmino,
+  DurationSDKType,
+} from '../../../google/protobuf/duration';
+import { BinaryReader, BinaryWriter } from '../../../binary';
+import { GlobalDecoderRegistry } from '../../../registry';
 export interface Params {
   /**
    * minted_denom is the denomination of the coin expected to be minted by the
@@ -12,7 +16,7 @@ export interface Params {
   mintedDenom: string;
 }
 export interface ParamsProtoMsg {
-  typeUrl: "/osmosis.poolincentives.v1beta1.Params";
+  typeUrl: '/osmosis.poolincentives.v1beta1.Params';
   value: Uint8Array;
 }
 export interface ParamsAmino {
@@ -25,7 +29,7 @@ export interface ParamsAmino {
   minted_denom?: string;
 }
 export interface ParamsAminoMsg {
-  type: "osmosis/poolincentives/params";
+  type: 'osmosis/poolincentives/params';
   value: ParamsAmino;
 }
 export interface ParamsSDKType {
@@ -35,14 +39,14 @@ export interface LockableDurationsInfo {
   lockableDurations: Duration[];
 }
 export interface LockableDurationsInfoProtoMsg {
-  typeUrl: "/osmosis.poolincentives.v1beta1.LockableDurationsInfo";
+  typeUrl: '/osmosis.poolincentives.v1beta1.LockableDurationsInfo';
   value: Uint8Array;
 }
 export interface LockableDurationsInfoAmino {
   lockable_durations?: DurationAmino[];
 }
 export interface LockableDurationsInfoAminoMsg {
-  type: "osmosis/poolincentives/lockable-durations-info";
+  type: 'osmosis/poolincentives/lockable-durations-info';
   value: LockableDurationsInfoAmino;
 }
 export interface LockableDurationsInfoSDKType {
@@ -53,7 +57,7 @@ export interface DistrInfo {
   records: DistrRecord[];
 }
 export interface DistrInfoProtoMsg {
-  typeUrl: "/osmosis.poolincentives.v1beta1.DistrInfo";
+  typeUrl: '/osmosis.poolincentives.v1beta1.DistrInfo';
   value: Uint8Array;
 }
 export interface DistrInfoAmino {
@@ -61,7 +65,7 @@ export interface DistrInfoAmino {
   records?: DistrRecordAmino[];
 }
 export interface DistrInfoAminoMsg {
-  type: "osmosis/poolincentives/distr-info";
+  type: 'osmosis/poolincentives/distr-info';
   value: DistrInfoAmino;
 }
 export interface DistrInfoSDKType {
@@ -73,7 +77,7 @@ export interface DistrRecord {
   weight: string;
 }
 export interface DistrRecordProtoMsg {
-  typeUrl: "/osmosis.poolincentives.v1beta1.DistrRecord";
+  typeUrl: '/osmosis.poolincentives.v1beta1.DistrRecord';
   value: Uint8Array;
 }
 export interface DistrRecordAmino {
@@ -81,7 +85,7 @@ export interface DistrRecordAmino {
   weight?: string;
 }
 export interface DistrRecordAminoMsg {
-  type: "osmosis/poolincentives/distr-record";
+  type: 'osmosis/poolincentives/distr-record';
   value: DistrRecordAmino;
 }
 export interface DistrRecordSDKType {
@@ -94,7 +98,7 @@ export interface PoolToGauge {
   duration: Duration;
 }
 export interface PoolToGaugeProtoMsg {
-  typeUrl: "/osmosis.poolincentives.v1beta1.PoolToGauge";
+  typeUrl: '/osmosis.poolincentives.v1beta1.PoolToGauge';
   value: Uint8Array;
 }
 export interface PoolToGaugeAmino {
@@ -103,7 +107,7 @@ export interface PoolToGaugeAmino {
   duration?: DurationAmino;
 }
 export interface PoolToGaugeAminoMsg {
-  type: "osmosis/poolincentives/pool-to-gauge";
+  type: 'osmosis/poolincentives/pool-to-gauge';
   value: PoolToGaugeAmino;
 }
 export interface PoolToGaugeSDKType {
@@ -115,14 +119,14 @@ export interface AnyPoolToInternalGauges {
   poolToGauge: PoolToGauge[];
 }
 export interface AnyPoolToInternalGaugesProtoMsg {
-  typeUrl: "/osmosis.poolincentives.v1beta1.AnyPoolToInternalGauges";
+  typeUrl: '/osmosis.poolincentives.v1beta1.AnyPoolToInternalGauges';
   value: Uint8Array;
 }
 export interface AnyPoolToInternalGaugesAmino {
   pool_to_gauge?: PoolToGaugeAmino[];
 }
 export interface AnyPoolToInternalGaugesAminoMsg {
-  type: "osmosis/poolincentives/any-pool-to-internal-gauges";
+  type: 'osmosis/poolincentives/any-pool-to-internal-gauges';
   value: AnyPoolToInternalGaugesAmino;
 }
 export interface AnyPoolToInternalGaugesSDKType {
@@ -132,14 +136,14 @@ export interface ConcentratedPoolToNoLockGauges {
   poolToGauge: PoolToGauge[];
 }
 export interface ConcentratedPoolToNoLockGaugesProtoMsg {
-  typeUrl: "/osmosis.poolincentives.v1beta1.ConcentratedPoolToNoLockGauges";
+  typeUrl: '/osmosis.poolincentives.v1beta1.ConcentratedPoolToNoLockGauges';
   value: Uint8Array;
 }
 export interface ConcentratedPoolToNoLockGaugesAmino {
   pool_to_gauge?: PoolToGaugeAmino[];
 }
 export interface ConcentratedPoolToNoLockGaugesAminoMsg {
-  type: "osmosis/poolincentives/concentrated-pool-to-no-lock-gauges";
+  type: 'osmosis/poolincentives/concentrated-pool-to-no-lock-gauges';
   value: ConcentratedPoolToNoLockGaugesAmino;
 }
 export interface ConcentratedPoolToNoLockGaugesSDKType {
@@ -147,29 +151,39 @@ export interface ConcentratedPoolToNoLockGaugesSDKType {
 }
 function createBaseParams(): Params {
   return {
-    mintedDenom: ""
+    mintedDenom: '',
   };
 }
 export const Params = {
-  typeUrl: "/osmosis.poolincentives.v1beta1.Params",
-  aminoType: "osmosis/poolincentives/params",
+  typeUrl: '/osmosis.poolincentives.v1beta1.Params',
+  aminoType: 'osmosis/poolincentives/params',
   is(o: any): o is Params {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.mintedDenom === "string");
+    return (
+      o && (o.$typeUrl === Params.typeUrl || typeof o.mintedDenom === 'string')
+    );
   },
   isSDK(o: any): o is ParamsSDKType {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.minted_denom === "string");
+    return (
+      o && (o.$typeUrl === Params.typeUrl || typeof o.minted_denom === 'string')
+    );
   },
   isAmino(o: any): o is ParamsAmino {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.minted_denom === "string");
+    return (
+      o && (o.$typeUrl === Params.typeUrl || typeof o.minted_denom === 'string')
+    );
   },
-  encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.mintedDenom !== "") {
+  encode(
+    message: Params,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.mintedDenom !== '') {
       writer.uint32(10).string(message.mintedDenom);
     }
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): Params {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseParams();
     while (reader.pos < end) {
@@ -187,7 +201,7 @@ export const Params = {
   },
   fromPartial(object: Partial<Params>): Params {
     const message = createBaseParams();
-    message.mintedDenom = object.mintedDenom ?? "";
+    message.mintedDenom = object.mintedDenom ?? '';
     return message;
   },
   fromAmino(object: ParamsAmino): Params {
@@ -199,7 +213,8 @@ export const Params = {
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
-    obj.minted_denom = message.mintedDenom === "" ? undefined : message.mintedDenom;
+    obj.minted_denom =
+      message.mintedDenom === '' ? undefined : message.mintedDenom;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {
@@ -207,8 +222,8 @@ export const Params = {
   },
   toAminoMsg(message: Params): ParamsAminoMsg {
     return {
-      type: "osmosis/poolincentives/params",
-      value: Params.toAmino(message)
+      type: 'osmosis/poolincentives/params',
+      value: Params.toAmino(message),
     };
   },
   fromProtoMsg(message: ParamsProtoMsg): Params {
@@ -219,45 +234,74 @@ export const Params = {
   },
   toProtoMsg(message: Params): ParamsProtoMsg {
     return {
-      typeUrl: "/osmosis.poolincentives.v1beta1.Params",
-      value: Params.encode(message).finish()
+      typeUrl: '/osmosis.poolincentives.v1beta1.Params',
+      value: Params.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(Params.typeUrl, Params);
-GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  Params.aminoType,
+  Params.typeUrl,
+);
 function createBaseLockableDurationsInfo(): LockableDurationsInfo {
   return {
-    lockableDurations: []
+    lockableDurations: [],
   };
 }
 export const LockableDurationsInfo = {
-  typeUrl: "/osmosis.poolincentives.v1beta1.LockableDurationsInfo",
-  aminoType: "osmosis/poolincentives/lockable-durations-info",
+  typeUrl: '/osmosis.poolincentives.v1beta1.LockableDurationsInfo',
+  aminoType: 'osmosis/poolincentives/lockable-durations-info',
   is(o: any): o is LockableDurationsInfo {
-    return o && (o.$typeUrl === LockableDurationsInfo.typeUrl || Array.isArray(o.lockableDurations) && (!o.lockableDurations.length || Duration.is(o.lockableDurations[0])));
+    return (
+      o &&
+      (o.$typeUrl === LockableDurationsInfo.typeUrl ||
+        (Array.isArray(o.lockableDurations) &&
+          (!o.lockableDurations.length || Duration.is(o.lockableDurations[0]))))
+    );
   },
   isSDK(o: any): o is LockableDurationsInfoSDKType {
-    return o && (o.$typeUrl === LockableDurationsInfo.typeUrl || Array.isArray(o.lockable_durations) && (!o.lockable_durations.length || Duration.isSDK(o.lockable_durations[0])));
+    return (
+      o &&
+      (o.$typeUrl === LockableDurationsInfo.typeUrl ||
+        (Array.isArray(o.lockable_durations) &&
+          (!o.lockable_durations.length ||
+            Duration.isSDK(o.lockable_durations[0]))))
+    );
   },
   isAmino(o: any): o is LockableDurationsInfoAmino {
-    return o && (o.$typeUrl === LockableDurationsInfo.typeUrl || Array.isArray(o.lockable_durations) && (!o.lockable_durations.length || Duration.isAmino(o.lockable_durations[0])));
+    return (
+      o &&
+      (o.$typeUrl === LockableDurationsInfo.typeUrl ||
+        (Array.isArray(o.lockable_durations) &&
+          (!o.lockable_durations.length ||
+            Duration.isAmino(o.lockable_durations[0]))))
+    );
   },
-  encode(message: LockableDurationsInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: LockableDurationsInfo,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     for (const v of message.lockableDurations) {
       Duration.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): LockableDurationsInfo {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): LockableDurationsInfo {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseLockableDurationsInfo();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.lockableDurations.push(Duration.decode(reader, reader.uint32()));
+          message.lockableDurations.push(
+            Duration.decode(reader, reader.uint32()),
+          );
           break;
         default:
           reader.skipType(tag & 7);
@@ -268,18 +312,22 @@ export const LockableDurationsInfo = {
   },
   fromPartial(object: Partial<LockableDurationsInfo>): LockableDurationsInfo {
     const message = createBaseLockableDurationsInfo();
-    message.lockableDurations = object.lockableDurations?.map(e => Duration.fromPartial(e)) || [];
+    message.lockableDurations =
+      object.lockableDurations?.map(e => Duration.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: LockableDurationsInfoAmino): LockableDurationsInfo {
     const message = createBaseLockableDurationsInfo();
-    message.lockableDurations = object.lockable_durations?.map(e => Duration.fromAmino(e)) || [];
+    message.lockableDurations =
+      object.lockable_durations?.map(e => Duration.fromAmino(e)) || [];
     return message;
   },
   toAmino(message: LockableDurationsInfo): LockableDurationsInfoAmino {
     const obj: any = {};
     if (message.lockableDurations) {
-      obj.lockable_durations = message.lockableDurations.map(e => e ? Duration.toAmino(e) : undefined);
+      obj.lockable_durations = message.lockableDurations.map(e =>
+        e ? Duration.toAmino(e) : undefined,
+      );
     } else {
       obj.lockable_durations = message.lockableDurations;
     }
@@ -290,8 +338,8 @@ export const LockableDurationsInfo = {
   },
   toAminoMsg(message: LockableDurationsInfo): LockableDurationsInfoAminoMsg {
     return {
-      type: "osmosis/poolincentives/lockable-durations-info",
-      value: LockableDurationsInfo.toAmino(message)
+      type: 'osmosis/poolincentives/lockable-durations-info',
+      value: LockableDurationsInfo.toAmino(message),
     };
   },
   fromProtoMsg(message: LockableDurationsInfoProtoMsg): LockableDurationsInfo {
@@ -302,33 +350,60 @@ export const LockableDurationsInfo = {
   },
   toProtoMsg(message: LockableDurationsInfo): LockableDurationsInfoProtoMsg {
     return {
-      typeUrl: "/osmosis.poolincentives.v1beta1.LockableDurationsInfo",
-      value: LockableDurationsInfo.encode(message).finish()
+      typeUrl: '/osmosis.poolincentives.v1beta1.LockableDurationsInfo',
+      value: LockableDurationsInfo.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(LockableDurationsInfo.typeUrl, LockableDurationsInfo);
-GlobalDecoderRegistry.registerAminoProtoMapping(LockableDurationsInfo.aminoType, LockableDurationsInfo.typeUrl);
+GlobalDecoderRegistry.register(
+  LockableDurationsInfo.typeUrl,
+  LockableDurationsInfo,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  LockableDurationsInfo.aminoType,
+  LockableDurationsInfo.typeUrl,
+);
 function createBaseDistrInfo(): DistrInfo {
   return {
-    totalWeight: "",
-    records: []
+    totalWeight: '',
+    records: [],
   };
 }
 export const DistrInfo = {
-  typeUrl: "/osmosis.poolincentives.v1beta1.DistrInfo",
-  aminoType: "osmosis/poolincentives/distr-info",
+  typeUrl: '/osmosis.poolincentives.v1beta1.DistrInfo',
+  aminoType: 'osmosis/poolincentives/distr-info',
   is(o: any): o is DistrInfo {
-    return o && (o.$typeUrl === DistrInfo.typeUrl || typeof o.totalWeight === "string" && Array.isArray(o.records) && (!o.records.length || DistrRecord.is(o.records[0])));
+    return (
+      o &&
+      (o.$typeUrl === DistrInfo.typeUrl ||
+        (typeof o.totalWeight === 'string' &&
+          Array.isArray(o.records) &&
+          (!o.records.length || DistrRecord.is(o.records[0]))))
+    );
   },
   isSDK(o: any): o is DistrInfoSDKType {
-    return o && (o.$typeUrl === DistrInfo.typeUrl || typeof o.total_weight === "string" && Array.isArray(o.records) && (!o.records.length || DistrRecord.isSDK(o.records[0])));
+    return (
+      o &&
+      (o.$typeUrl === DistrInfo.typeUrl ||
+        (typeof o.total_weight === 'string' &&
+          Array.isArray(o.records) &&
+          (!o.records.length || DistrRecord.isSDK(o.records[0]))))
+    );
   },
   isAmino(o: any): o is DistrInfoAmino {
-    return o && (o.$typeUrl === DistrInfo.typeUrl || typeof o.total_weight === "string" && Array.isArray(o.records) && (!o.records.length || DistrRecord.isAmino(o.records[0])));
+    return (
+      o &&
+      (o.$typeUrl === DistrInfo.typeUrl ||
+        (typeof o.total_weight === 'string' &&
+          Array.isArray(o.records) &&
+          (!o.records.length || DistrRecord.isAmino(o.records[0]))))
+    );
   },
-  encode(message: DistrInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.totalWeight !== "") {
+  encode(
+    message: DistrInfo,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.totalWeight !== '') {
       writer.uint32(10).string(message.totalWeight);
     }
     for (const v of message.records) {
@@ -337,7 +412,8 @@ export const DistrInfo = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): DistrInfo {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseDistrInfo();
     while (reader.pos < end) {
@@ -358,8 +434,9 @@ export const DistrInfo = {
   },
   fromPartial(object: Partial<DistrInfo>): DistrInfo {
     const message = createBaseDistrInfo();
-    message.totalWeight = object.totalWeight ?? "";
-    message.records = object.records?.map(e => DistrRecord.fromPartial(e)) || [];
+    message.totalWeight = object.totalWeight ?? '';
+    message.records =
+      object.records?.map(e => DistrRecord.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: DistrInfoAmino): DistrInfo {
@@ -372,9 +449,12 @@ export const DistrInfo = {
   },
   toAmino(message: DistrInfo): DistrInfoAmino {
     const obj: any = {};
-    obj.total_weight = message.totalWeight === "" ? undefined : message.totalWeight;
+    obj.total_weight =
+      message.totalWeight === '' ? undefined : message.totalWeight;
     if (message.records) {
-      obj.records = message.records.map(e => e ? DistrRecord.toAmino(e) : undefined);
+      obj.records = message.records.map(e =>
+        e ? DistrRecord.toAmino(e) : undefined,
+      );
     } else {
       obj.records = message.records;
     }
@@ -385,8 +465,8 @@ export const DistrInfo = {
   },
   toAminoMsg(message: DistrInfo): DistrInfoAminoMsg {
     return {
-      type: "osmosis/poolincentives/distr-info",
-      value: DistrInfo.toAmino(message)
+      type: 'osmosis/poolincentives/distr-info',
+      value: DistrInfo.toAmino(message),
     };
   },
   fromProtoMsg(message: DistrInfoProtoMsg): DistrInfo {
@@ -397,42 +477,61 @@ export const DistrInfo = {
   },
   toProtoMsg(message: DistrInfo): DistrInfoProtoMsg {
     return {
-      typeUrl: "/osmosis.poolincentives.v1beta1.DistrInfo",
-      value: DistrInfo.encode(message).finish()
+      typeUrl: '/osmosis.poolincentives.v1beta1.DistrInfo',
+      value: DistrInfo.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(DistrInfo.typeUrl, DistrInfo);
-GlobalDecoderRegistry.registerAminoProtoMapping(DistrInfo.aminoType, DistrInfo.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  DistrInfo.aminoType,
+  DistrInfo.typeUrl,
+);
 function createBaseDistrRecord(): DistrRecord {
   return {
     gaugeId: BigInt(0),
-    weight: ""
+    weight: '',
   };
 }
 export const DistrRecord = {
-  typeUrl: "/osmosis.poolincentives.v1beta1.DistrRecord",
-  aminoType: "osmosis/poolincentives/distr-record",
+  typeUrl: '/osmosis.poolincentives.v1beta1.DistrRecord',
+  aminoType: 'osmosis/poolincentives/distr-record',
   is(o: any): o is DistrRecord {
-    return o && (o.$typeUrl === DistrRecord.typeUrl || typeof o.gaugeId === "bigint" && typeof o.weight === "string");
+    return (
+      o &&
+      (o.$typeUrl === DistrRecord.typeUrl ||
+        (typeof o.gaugeId === 'bigint' && typeof o.weight === 'string'))
+    );
   },
   isSDK(o: any): o is DistrRecordSDKType {
-    return o && (o.$typeUrl === DistrRecord.typeUrl || typeof o.gauge_id === "bigint" && typeof o.weight === "string");
+    return (
+      o &&
+      (o.$typeUrl === DistrRecord.typeUrl ||
+        (typeof o.gauge_id === 'bigint' && typeof o.weight === 'string'))
+    );
   },
   isAmino(o: any): o is DistrRecordAmino {
-    return o && (o.$typeUrl === DistrRecord.typeUrl || typeof o.gauge_id === "bigint" && typeof o.weight === "string");
+    return (
+      o &&
+      (o.$typeUrl === DistrRecord.typeUrl ||
+        (typeof o.gauge_id === 'bigint' && typeof o.weight === 'string'))
+    );
   },
-  encode(message: DistrRecord, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: DistrRecord,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.gaugeId !== BigInt(0)) {
       writer.uint32(8).uint64(message.gaugeId);
     }
-    if (message.weight !== "") {
+    if (message.weight !== '') {
       writer.uint32(18).string(message.weight);
     }
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): DistrRecord {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseDistrRecord();
     while (reader.pos < end) {
@@ -453,8 +552,11 @@ export const DistrRecord = {
   },
   fromPartial(object: Partial<DistrRecord>): DistrRecord {
     const message = createBaseDistrRecord();
-    message.gaugeId = object.gaugeId !== undefined && object.gaugeId !== null ? BigInt(object.gaugeId.toString()) : BigInt(0);
-    message.weight = object.weight ?? "";
+    message.gaugeId =
+      object.gaugeId !== undefined && object.gaugeId !== null
+        ? BigInt(object.gaugeId.toString())
+        : BigInt(0);
+    message.weight = object.weight ?? '';
     return message;
   },
   fromAmino(object: DistrRecordAmino): DistrRecord {
@@ -469,8 +571,9 @@ export const DistrRecord = {
   },
   toAmino(message: DistrRecord): DistrRecordAmino {
     const obj: any = {};
-    obj.gauge_id = message.gaugeId !== BigInt(0) ? message.gaugeId.toString() : undefined;
-    obj.weight = message.weight === "" ? undefined : message.weight;
+    obj.gauge_id =
+      message.gaugeId !== BigInt(0) ? message.gaugeId.toString() : undefined;
+    obj.weight = message.weight === '' ? undefined : message.weight;
     return obj;
   },
   fromAminoMsg(object: DistrRecordAminoMsg): DistrRecord {
@@ -478,8 +581,8 @@ export const DistrRecord = {
   },
   toAminoMsg(message: DistrRecord): DistrRecordAminoMsg {
     return {
-      type: "osmosis/poolincentives/distr-record",
-      value: DistrRecord.toAmino(message)
+      type: 'osmosis/poolincentives/distr-record',
+      value: DistrRecord.toAmino(message),
     };
   },
   fromProtoMsg(message: DistrRecordProtoMsg): DistrRecord {
@@ -490,33 +593,57 @@ export const DistrRecord = {
   },
   toProtoMsg(message: DistrRecord): DistrRecordProtoMsg {
     return {
-      typeUrl: "/osmosis.poolincentives.v1beta1.DistrRecord",
-      value: DistrRecord.encode(message).finish()
+      typeUrl: '/osmosis.poolincentives.v1beta1.DistrRecord',
+      value: DistrRecord.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(DistrRecord.typeUrl, DistrRecord);
-GlobalDecoderRegistry.registerAminoProtoMapping(DistrRecord.aminoType, DistrRecord.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  DistrRecord.aminoType,
+  DistrRecord.typeUrl,
+);
 function createBasePoolToGauge(): PoolToGauge {
   return {
     poolId: BigInt(0),
     gaugeId: BigInt(0),
-    duration: Duration.fromPartial({})
+    duration: Duration.fromPartial({}),
   };
 }
 export const PoolToGauge = {
-  typeUrl: "/osmosis.poolincentives.v1beta1.PoolToGauge",
-  aminoType: "osmosis/poolincentives/pool-to-gauge",
+  typeUrl: '/osmosis.poolincentives.v1beta1.PoolToGauge',
+  aminoType: 'osmosis/poolincentives/pool-to-gauge',
   is(o: any): o is PoolToGauge {
-    return o && (o.$typeUrl === PoolToGauge.typeUrl || typeof o.poolId === "bigint" && typeof o.gaugeId === "bigint" && Duration.is(o.duration));
+    return (
+      o &&
+      (o.$typeUrl === PoolToGauge.typeUrl ||
+        (typeof o.poolId === 'bigint' &&
+          typeof o.gaugeId === 'bigint' &&
+          Duration.is(o.duration)))
+    );
   },
   isSDK(o: any): o is PoolToGaugeSDKType {
-    return o && (o.$typeUrl === PoolToGauge.typeUrl || typeof o.pool_id === "bigint" && typeof o.gauge_id === "bigint" && Duration.isSDK(o.duration));
+    return (
+      o &&
+      (o.$typeUrl === PoolToGauge.typeUrl ||
+        (typeof o.pool_id === 'bigint' &&
+          typeof o.gauge_id === 'bigint' &&
+          Duration.isSDK(o.duration)))
+    );
   },
   isAmino(o: any): o is PoolToGaugeAmino {
-    return o && (o.$typeUrl === PoolToGauge.typeUrl || typeof o.pool_id === "bigint" && typeof o.gauge_id === "bigint" && Duration.isAmino(o.duration));
+    return (
+      o &&
+      (o.$typeUrl === PoolToGauge.typeUrl ||
+        (typeof o.pool_id === 'bigint' &&
+          typeof o.gauge_id === 'bigint' &&
+          Duration.isAmino(o.duration)))
+    );
   },
-  encode(message: PoolToGauge, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: PoolToGauge,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.poolId !== BigInt(0)) {
       writer.uint32(8).uint64(message.poolId);
     }
@@ -529,7 +656,8 @@ export const PoolToGauge = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): PoolToGauge {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePoolToGauge();
     while (reader.pos < end) {
@@ -553,9 +681,18 @@ export const PoolToGauge = {
   },
   fromPartial(object: Partial<PoolToGauge>): PoolToGauge {
     const message = createBasePoolToGauge();
-    message.poolId = object.poolId !== undefined && object.poolId !== null ? BigInt(object.poolId.toString()) : BigInt(0);
-    message.gaugeId = object.gaugeId !== undefined && object.gaugeId !== null ? BigInt(object.gaugeId.toString()) : BigInt(0);
-    message.duration = object.duration !== undefined && object.duration !== null ? Duration.fromPartial(object.duration) : undefined;
+    message.poolId =
+      object.poolId !== undefined && object.poolId !== null
+        ? BigInt(object.poolId.toString())
+        : BigInt(0);
+    message.gaugeId =
+      object.gaugeId !== undefined && object.gaugeId !== null
+        ? BigInt(object.gaugeId.toString())
+        : BigInt(0);
+    message.duration =
+      object.duration !== undefined && object.duration !== null
+        ? Duration.fromPartial(object.duration)
+        : undefined;
     return message;
   },
   fromAmino(object: PoolToGaugeAmino): PoolToGauge {
@@ -573,9 +710,13 @@ export const PoolToGauge = {
   },
   toAmino(message: PoolToGauge): PoolToGaugeAmino {
     const obj: any = {};
-    obj.pool_id = message.poolId !== BigInt(0) ? message.poolId.toString() : undefined;
-    obj.gauge_id = message.gaugeId !== BigInt(0) ? message.gaugeId.toString() : undefined;
-    obj.duration = message.duration ? Duration.toAmino(message.duration) : undefined;
+    obj.pool_id =
+      message.poolId !== BigInt(0) ? message.poolId.toString() : undefined;
+    obj.gauge_id =
+      message.gaugeId !== BigInt(0) ? message.gaugeId.toString() : undefined;
+    obj.duration = message.duration
+      ? Duration.toAmino(message.duration)
+      : undefined;
     return obj;
   },
   fromAminoMsg(object: PoolToGaugeAminoMsg): PoolToGauge {
@@ -583,8 +724,8 @@ export const PoolToGauge = {
   },
   toAminoMsg(message: PoolToGauge): PoolToGaugeAminoMsg {
     return {
-      type: "osmosis/poolincentives/pool-to-gauge",
-      value: PoolToGauge.toAmino(message)
+      type: 'osmosis/poolincentives/pool-to-gauge',
+      value: PoolToGauge.toAmino(message),
     };
   },
   fromProtoMsg(message: PoolToGaugeProtoMsg): PoolToGauge {
@@ -595,38 +736,63 @@ export const PoolToGauge = {
   },
   toProtoMsg(message: PoolToGauge): PoolToGaugeProtoMsg {
     return {
-      typeUrl: "/osmosis.poolincentives.v1beta1.PoolToGauge",
-      value: PoolToGauge.encode(message).finish()
+      typeUrl: '/osmosis.poolincentives.v1beta1.PoolToGauge',
+      value: PoolToGauge.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(PoolToGauge.typeUrl, PoolToGauge);
-GlobalDecoderRegistry.registerAminoProtoMapping(PoolToGauge.aminoType, PoolToGauge.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  PoolToGauge.aminoType,
+  PoolToGauge.typeUrl,
+);
 function createBaseAnyPoolToInternalGauges(): AnyPoolToInternalGauges {
   return {
-    poolToGauge: []
+    poolToGauge: [],
   };
 }
 export const AnyPoolToInternalGauges = {
-  typeUrl: "/osmosis.poolincentives.v1beta1.AnyPoolToInternalGauges",
-  aminoType: "osmosis/poolincentives/any-pool-to-internal-gauges",
+  typeUrl: '/osmosis.poolincentives.v1beta1.AnyPoolToInternalGauges',
+  aminoType: 'osmosis/poolincentives/any-pool-to-internal-gauges',
   is(o: any): o is AnyPoolToInternalGauges {
-    return o && (o.$typeUrl === AnyPoolToInternalGauges.typeUrl || Array.isArray(o.poolToGauge) && (!o.poolToGauge.length || PoolToGauge.is(o.poolToGauge[0])));
+    return (
+      o &&
+      (o.$typeUrl === AnyPoolToInternalGauges.typeUrl ||
+        (Array.isArray(o.poolToGauge) &&
+          (!o.poolToGauge.length || PoolToGauge.is(o.poolToGauge[0]))))
+    );
   },
   isSDK(o: any): o is AnyPoolToInternalGaugesSDKType {
-    return o && (o.$typeUrl === AnyPoolToInternalGauges.typeUrl || Array.isArray(o.pool_to_gauge) && (!o.pool_to_gauge.length || PoolToGauge.isSDK(o.pool_to_gauge[0])));
+    return (
+      o &&
+      (o.$typeUrl === AnyPoolToInternalGauges.typeUrl ||
+        (Array.isArray(o.pool_to_gauge) &&
+          (!o.pool_to_gauge.length || PoolToGauge.isSDK(o.pool_to_gauge[0]))))
+    );
   },
   isAmino(o: any): o is AnyPoolToInternalGaugesAmino {
-    return o && (o.$typeUrl === AnyPoolToInternalGauges.typeUrl || Array.isArray(o.pool_to_gauge) && (!o.pool_to_gauge.length || PoolToGauge.isAmino(o.pool_to_gauge[0])));
+    return (
+      o &&
+      (o.$typeUrl === AnyPoolToInternalGauges.typeUrl ||
+        (Array.isArray(o.pool_to_gauge) &&
+          (!o.pool_to_gauge.length || PoolToGauge.isAmino(o.pool_to_gauge[0]))))
+    );
   },
-  encode(message: AnyPoolToInternalGauges, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: AnyPoolToInternalGauges,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     for (const v of message.poolToGauge) {
       PoolToGauge.encode(v!, writer.uint32(18).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): AnyPoolToInternalGauges {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): AnyPoolToInternalGauges {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseAnyPoolToInternalGauges();
     while (reader.pos < end) {
@@ -642,74 +808,116 @@ export const AnyPoolToInternalGauges = {
     }
     return message;
   },
-  fromPartial(object: Partial<AnyPoolToInternalGauges>): AnyPoolToInternalGauges {
+  fromPartial(
+    object: Partial<AnyPoolToInternalGauges>,
+  ): AnyPoolToInternalGauges {
     const message = createBaseAnyPoolToInternalGauges();
-    message.poolToGauge = object.poolToGauge?.map(e => PoolToGauge.fromPartial(e)) || [];
+    message.poolToGauge =
+      object.poolToGauge?.map(e => PoolToGauge.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: AnyPoolToInternalGaugesAmino): AnyPoolToInternalGauges {
     const message = createBaseAnyPoolToInternalGauges();
-    message.poolToGauge = object.pool_to_gauge?.map(e => PoolToGauge.fromAmino(e)) || [];
+    message.poolToGauge =
+      object.pool_to_gauge?.map(e => PoolToGauge.fromAmino(e)) || [];
     return message;
   },
   toAmino(message: AnyPoolToInternalGauges): AnyPoolToInternalGaugesAmino {
     const obj: any = {};
     if (message.poolToGauge) {
-      obj.pool_to_gauge = message.poolToGauge.map(e => e ? PoolToGauge.toAmino(e) : undefined);
+      obj.pool_to_gauge = message.poolToGauge.map(e =>
+        e ? PoolToGauge.toAmino(e) : undefined,
+      );
     } else {
       obj.pool_to_gauge = message.poolToGauge;
     }
     return obj;
   },
-  fromAminoMsg(object: AnyPoolToInternalGaugesAminoMsg): AnyPoolToInternalGauges {
+  fromAminoMsg(
+    object: AnyPoolToInternalGaugesAminoMsg,
+  ): AnyPoolToInternalGauges {
     return AnyPoolToInternalGauges.fromAmino(object.value);
   },
-  toAminoMsg(message: AnyPoolToInternalGauges): AnyPoolToInternalGaugesAminoMsg {
+  toAminoMsg(
+    message: AnyPoolToInternalGauges,
+  ): AnyPoolToInternalGaugesAminoMsg {
     return {
-      type: "osmosis/poolincentives/any-pool-to-internal-gauges",
-      value: AnyPoolToInternalGauges.toAmino(message)
+      type: 'osmosis/poolincentives/any-pool-to-internal-gauges',
+      value: AnyPoolToInternalGauges.toAmino(message),
     };
   },
-  fromProtoMsg(message: AnyPoolToInternalGaugesProtoMsg): AnyPoolToInternalGauges {
+  fromProtoMsg(
+    message: AnyPoolToInternalGaugesProtoMsg,
+  ): AnyPoolToInternalGauges {
     return AnyPoolToInternalGauges.decode(message.value);
   },
   toProto(message: AnyPoolToInternalGauges): Uint8Array {
     return AnyPoolToInternalGauges.encode(message).finish();
   },
-  toProtoMsg(message: AnyPoolToInternalGauges): AnyPoolToInternalGaugesProtoMsg {
+  toProtoMsg(
+    message: AnyPoolToInternalGauges,
+  ): AnyPoolToInternalGaugesProtoMsg {
     return {
-      typeUrl: "/osmosis.poolincentives.v1beta1.AnyPoolToInternalGauges",
-      value: AnyPoolToInternalGauges.encode(message).finish()
+      typeUrl: '/osmosis.poolincentives.v1beta1.AnyPoolToInternalGauges',
+      value: AnyPoolToInternalGauges.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(AnyPoolToInternalGauges.typeUrl, AnyPoolToInternalGauges);
-GlobalDecoderRegistry.registerAminoProtoMapping(AnyPoolToInternalGauges.aminoType, AnyPoolToInternalGauges.typeUrl);
+GlobalDecoderRegistry.register(
+  AnyPoolToInternalGauges.typeUrl,
+  AnyPoolToInternalGauges,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  AnyPoolToInternalGauges.aminoType,
+  AnyPoolToInternalGauges.typeUrl,
+);
 function createBaseConcentratedPoolToNoLockGauges(): ConcentratedPoolToNoLockGauges {
   return {
-    poolToGauge: []
+    poolToGauge: [],
   };
 }
 export const ConcentratedPoolToNoLockGauges = {
-  typeUrl: "/osmosis.poolincentives.v1beta1.ConcentratedPoolToNoLockGauges",
-  aminoType: "osmosis/poolincentives/concentrated-pool-to-no-lock-gauges",
+  typeUrl: '/osmosis.poolincentives.v1beta1.ConcentratedPoolToNoLockGauges',
+  aminoType: 'osmosis/poolincentives/concentrated-pool-to-no-lock-gauges',
   is(o: any): o is ConcentratedPoolToNoLockGauges {
-    return o && (o.$typeUrl === ConcentratedPoolToNoLockGauges.typeUrl || Array.isArray(o.poolToGauge) && (!o.poolToGauge.length || PoolToGauge.is(o.poolToGauge[0])));
+    return (
+      o &&
+      (o.$typeUrl === ConcentratedPoolToNoLockGauges.typeUrl ||
+        (Array.isArray(o.poolToGauge) &&
+          (!o.poolToGauge.length || PoolToGauge.is(o.poolToGauge[0]))))
+    );
   },
   isSDK(o: any): o is ConcentratedPoolToNoLockGaugesSDKType {
-    return o && (o.$typeUrl === ConcentratedPoolToNoLockGauges.typeUrl || Array.isArray(o.pool_to_gauge) && (!o.pool_to_gauge.length || PoolToGauge.isSDK(o.pool_to_gauge[0])));
+    return (
+      o &&
+      (o.$typeUrl === ConcentratedPoolToNoLockGauges.typeUrl ||
+        (Array.isArray(o.pool_to_gauge) &&
+          (!o.pool_to_gauge.length || PoolToGauge.isSDK(o.pool_to_gauge[0]))))
+    );
   },
   isAmino(o: any): o is ConcentratedPoolToNoLockGaugesAmino {
-    return o && (o.$typeUrl === ConcentratedPoolToNoLockGauges.typeUrl || Array.isArray(o.pool_to_gauge) && (!o.pool_to_gauge.length || PoolToGauge.isAmino(o.pool_to_gauge[0])));
+    return (
+      o &&
+      (o.$typeUrl === ConcentratedPoolToNoLockGauges.typeUrl ||
+        (Array.isArray(o.pool_to_gauge) &&
+          (!o.pool_to_gauge.length || PoolToGauge.isAmino(o.pool_to_gauge[0]))))
+    );
   },
-  encode(message: ConcentratedPoolToNoLockGauges, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: ConcentratedPoolToNoLockGauges,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     for (const v of message.poolToGauge) {
       PoolToGauge.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ConcentratedPoolToNoLockGauges {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): ConcentratedPoolToNoLockGauges {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseConcentratedPoolToNoLockGauges();
     while (reader.pos < end) {
@@ -725,46 +933,70 @@ export const ConcentratedPoolToNoLockGauges = {
     }
     return message;
   },
-  fromPartial(object: Partial<ConcentratedPoolToNoLockGauges>): ConcentratedPoolToNoLockGauges {
+  fromPartial(
+    object: Partial<ConcentratedPoolToNoLockGauges>,
+  ): ConcentratedPoolToNoLockGauges {
     const message = createBaseConcentratedPoolToNoLockGauges();
-    message.poolToGauge = object.poolToGauge?.map(e => PoolToGauge.fromPartial(e)) || [];
+    message.poolToGauge =
+      object.poolToGauge?.map(e => PoolToGauge.fromPartial(e)) || [];
     return message;
   },
-  fromAmino(object: ConcentratedPoolToNoLockGaugesAmino): ConcentratedPoolToNoLockGauges {
+  fromAmino(
+    object: ConcentratedPoolToNoLockGaugesAmino,
+  ): ConcentratedPoolToNoLockGauges {
     const message = createBaseConcentratedPoolToNoLockGauges();
-    message.poolToGauge = object.pool_to_gauge?.map(e => PoolToGauge.fromAmino(e)) || [];
+    message.poolToGauge =
+      object.pool_to_gauge?.map(e => PoolToGauge.fromAmino(e)) || [];
     return message;
   },
-  toAmino(message: ConcentratedPoolToNoLockGauges): ConcentratedPoolToNoLockGaugesAmino {
+  toAmino(
+    message: ConcentratedPoolToNoLockGauges,
+  ): ConcentratedPoolToNoLockGaugesAmino {
     const obj: any = {};
     if (message.poolToGauge) {
-      obj.pool_to_gauge = message.poolToGauge.map(e => e ? PoolToGauge.toAmino(e) : undefined);
+      obj.pool_to_gauge = message.poolToGauge.map(e =>
+        e ? PoolToGauge.toAmino(e) : undefined,
+      );
     } else {
       obj.pool_to_gauge = message.poolToGauge;
     }
     return obj;
   },
-  fromAminoMsg(object: ConcentratedPoolToNoLockGaugesAminoMsg): ConcentratedPoolToNoLockGauges {
+  fromAminoMsg(
+    object: ConcentratedPoolToNoLockGaugesAminoMsg,
+  ): ConcentratedPoolToNoLockGauges {
     return ConcentratedPoolToNoLockGauges.fromAmino(object.value);
   },
-  toAminoMsg(message: ConcentratedPoolToNoLockGauges): ConcentratedPoolToNoLockGaugesAminoMsg {
+  toAminoMsg(
+    message: ConcentratedPoolToNoLockGauges,
+  ): ConcentratedPoolToNoLockGaugesAminoMsg {
     return {
-      type: "osmosis/poolincentives/concentrated-pool-to-no-lock-gauges",
-      value: ConcentratedPoolToNoLockGauges.toAmino(message)
+      type: 'osmosis/poolincentives/concentrated-pool-to-no-lock-gauges',
+      value: ConcentratedPoolToNoLockGauges.toAmino(message),
     };
   },
-  fromProtoMsg(message: ConcentratedPoolToNoLockGaugesProtoMsg): ConcentratedPoolToNoLockGauges {
+  fromProtoMsg(
+    message: ConcentratedPoolToNoLockGaugesProtoMsg,
+  ): ConcentratedPoolToNoLockGauges {
     return ConcentratedPoolToNoLockGauges.decode(message.value);
   },
   toProto(message: ConcentratedPoolToNoLockGauges): Uint8Array {
     return ConcentratedPoolToNoLockGauges.encode(message).finish();
   },
-  toProtoMsg(message: ConcentratedPoolToNoLockGauges): ConcentratedPoolToNoLockGaugesProtoMsg {
+  toProtoMsg(
+    message: ConcentratedPoolToNoLockGauges,
+  ): ConcentratedPoolToNoLockGaugesProtoMsg {
     return {
-      typeUrl: "/osmosis.poolincentives.v1beta1.ConcentratedPoolToNoLockGauges",
-      value: ConcentratedPoolToNoLockGauges.encode(message).finish()
+      typeUrl: '/osmosis.poolincentives.v1beta1.ConcentratedPoolToNoLockGauges',
+      value: ConcentratedPoolToNoLockGauges.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(ConcentratedPoolToNoLockGauges.typeUrl, ConcentratedPoolToNoLockGauges);
-GlobalDecoderRegistry.registerAminoProtoMapping(ConcentratedPoolToNoLockGauges.aminoType, ConcentratedPoolToNoLockGauges.typeUrl);
+GlobalDecoderRegistry.register(
+  ConcentratedPoolToNoLockGauges.typeUrl,
+  ConcentratedPoolToNoLockGauges,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  ConcentratedPoolToNoLockGauges.aminoType,
+  ConcentratedPoolToNoLockGauges.typeUrl,
+);

@@ -1,11 +1,19 @@
 //@ts-nocheck
-import { QueryCondition, QueryConditionAmino, QueryConditionSDKType } from "../lockup/lock";
-import { Coin, CoinAmino, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
-import { Timestamp } from "../../google/protobuf/timestamp";
-import { Duration, DurationAmino, DurationSDKType } from "../../google/protobuf/duration";
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { toTimestamp, fromTimestamp } from "../../helpers";
-import { GlobalDecoderRegistry } from "../../registry";
+import {
+  QueryCondition,
+  QueryConditionAmino,
+  QueryConditionSDKType,
+} from '../lockup/lock';
+import { Coin, CoinAmino, CoinSDKType } from '../../cosmos/base/v1beta1/coin';
+import { Timestamp } from '../../google/protobuf/timestamp';
+import {
+  Duration,
+  DurationAmino,
+  DurationSDKType,
+} from '../../google/protobuf/duration';
+import { BinaryReader, BinaryWriter } from '../../binary';
+import { toTimestamp, fromTimestamp } from '../../helpers';
+import { GlobalDecoderRegistry } from '../../registry';
 /**
  * Gauge is an object that stores and distributes yields to recipients who
  * satisfy certain conditions. Currently gauges support conditions around the
@@ -48,7 +56,7 @@ export interface Gauge {
   distributedCoins: Coin[];
 }
 export interface GaugeProtoMsg {
-  typeUrl: "/osmosis.incentives.Gauge";
+  typeUrl: '/osmosis.incentives.Gauge';
   value: Uint8Array;
 }
 /**
@@ -93,7 +101,7 @@ export interface GaugeAmino {
   distributed_coins?: CoinAmino[];
 }
 export interface GaugeAminoMsg {
-  type: "osmosis/incentives/gauge";
+  type: 'osmosis/incentives/gauge';
   value: GaugeAmino;
 }
 /**
@@ -116,7 +124,7 @@ export interface LockableDurationsInfo {
   lockableDurations: Duration[];
 }
 export interface LockableDurationsInfoProtoMsg {
-  typeUrl: "/osmosis.incentives.LockableDurationsInfo";
+  typeUrl: '/osmosis.incentives.LockableDurationsInfo';
   value: Uint8Array;
 }
 export interface LockableDurationsInfoAmino {
@@ -124,7 +132,7 @@ export interface LockableDurationsInfoAmino {
   lockable_durations?: DurationAmino[];
 }
 export interface LockableDurationsInfoAminoMsg {
-  type: "osmosis/incentives/lockable-durations-info";
+  type: 'osmosis/incentives/lockable-durations-info';
   value: LockableDurationsInfoAmino;
 }
 export interface LockableDurationsInfoSDKType {
@@ -139,22 +147,65 @@ function createBaseGauge(): Gauge {
     startTime: new Date(),
     numEpochsPaidOver: BigInt(0),
     filledEpochs: BigInt(0),
-    distributedCoins: []
+    distributedCoins: [],
   };
 }
 export const Gauge = {
-  typeUrl: "/osmosis.incentives.Gauge",
-  aminoType: "osmosis/incentives/gauge",
+  typeUrl: '/osmosis.incentives.Gauge',
+  aminoType: 'osmosis/incentives/gauge',
   is(o: any): o is Gauge {
-    return o && (o.$typeUrl === Gauge.typeUrl || typeof o.id === "bigint" && typeof o.isPerpetual === "boolean" && QueryCondition.is(o.distributeTo) && Array.isArray(o.coins) && (!o.coins.length || Coin.is(o.coins[0])) && Timestamp.is(o.startTime) && typeof o.numEpochsPaidOver === "bigint" && typeof o.filledEpochs === "bigint" && Array.isArray(o.distributedCoins) && (!o.distributedCoins.length || Coin.is(o.distributedCoins[0])));
+    return (
+      o &&
+      (o.$typeUrl === Gauge.typeUrl ||
+        (typeof o.id === 'bigint' &&
+          typeof o.isPerpetual === 'boolean' &&
+          QueryCondition.is(o.distributeTo) &&
+          Array.isArray(o.coins) &&
+          (!o.coins.length || Coin.is(o.coins[0])) &&
+          Timestamp.is(o.startTime) &&
+          typeof o.numEpochsPaidOver === 'bigint' &&
+          typeof o.filledEpochs === 'bigint' &&
+          Array.isArray(o.distributedCoins) &&
+          (!o.distributedCoins.length || Coin.is(o.distributedCoins[0]))))
+    );
   },
   isSDK(o: any): o is GaugeSDKType {
-    return o && (o.$typeUrl === Gauge.typeUrl || typeof o.id === "bigint" && typeof o.is_perpetual === "boolean" && QueryCondition.isSDK(o.distribute_to) && Array.isArray(o.coins) && (!o.coins.length || Coin.isSDK(o.coins[0])) && Timestamp.isSDK(o.start_time) && typeof o.num_epochs_paid_over === "bigint" && typeof o.filled_epochs === "bigint" && Array.isArray(o.distributed_coins) && (!o.distributed_coins.length || Coin.isSDK(o.distributed_coins[0])));
+    return (
+      o &&
+      (o.$typeUrl === Gauge.typeUrl ||
+        (typeof o.id === 'bigint' &&
+          typeof o.is_perpetual === 'boolean' &&
+          QueryCondition.isSDK(o.distribute_to) &&
+          Array.isArray(o.coins) &&
+          (!o.coins.length || Coin.isSDK(o.coins[0])) &&
+          Timestamp.isSDK(o.start_time) &&
+          typeof o.num_epochs_paid_over === 'bigint' &&
+          typeof o.filled_epochs === 'bigint' &&
+          Array.isArray(o.distributed_coins) &&
+          (!o.distributed_coins.length || Coin.isSDK(o.distributed_coins[0]))))
+    );
   },
   isAmino(o: any): o is GaugeAmino {
-    return o && (o.$typeUrl === Gauge.typeUrl || typeof o.id === "bigint" && typeof o.is_perpetual === "boolean" && QueryCondition.isAmino(o.distribute_to) && Array.isArray(o.coins) && (!o.coins.length || Coin.isAmino(o.coins[0])) && Timestamp.isAmino(o.start_time) && typeof o.num_epochs_paid_over === "bigint" && typeof o.filled_epochs === "bigint" && Array.isArray(o.distributed_coins) && (!o.distributed_coins.length || Coin.isAmino(o.distributed_coins[0])));
+    return (
+      o &&
+      (o.$typeUrl === Gauge.typeUrl ||
+        (typeof o.id === 'bigint' &&
+          typeof o.is_perpetual === 'boolean' &&
+          QueryCondition.isAmino(o.distribute_to) &&
+          Array.isArray(o.coins) &&
+          (!o.coins.length || Coin.isAmino(o.coins[0])) &&
+          Timestamp.isAmino(o.start_time) &&
+          typeof o.num_epochs_paid_over === 'bigint' &&
+          typeof o.filled_epochs === 'bigint' &&
+          Array.isArray(o.distributed_coins) &&
+          (!o.distributed_coins.length ||
+            Coin.isAmino(o.distributed_coins[0]))))
+    );
   },
-  encode(message: Gauge, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: Gauge,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.id !== BigInt(0)) {
       writer.uint32(8).uint64(message.id);
     }
@@ -162,13 +213,19 @@ export const Gauge = {
       writer.uint32(16).bool(message.isPerpetual);
     }
     if (message.distributeTo !== undefined) {
-      QueryCondition.encode(message.distributeTo, writer.uint32(26).fork()).ldelim();
+      QueryCondition.encode(
+        message.distributeTo,
+        writer.uint32(26).fork(),
+      ).ldelim();
     }
     for (const v of message.coins) {
       Coin.encode(v!, writer.uint32(34).fork()).ldelim();
     }
     if (message.startTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.startTime), writer.uint32(42).fork()).ldelim();
+      Timestamp.encode(
+        toTimestamp(message.startTime),
+        writer.uint32(42).fork(),
+      ).ldelim();
     }
     if (message.numEpochsPaidOver !== BigInt(0)) {
       writer.uint32(48).uint64(message.numEpochsPaidOver);
@@ -182,7 +239,8 @@ export const Gauge = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): Gauge {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseGauge();
     while (reader.pos < end) {
@@ -201,7 +259,9 @@ export const Gauge = {
           message.coins.push(Coin.decode(reader, reader.uint32()));
           break;
         case 5:
-          message.startTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.startTime = fromTimestamp(
+            Timestamp.decode(reader, reader.uint32()),
+          );
           break;
         case 6:
           message.numEpochsPaidOver = reader.uint64();
@@ -221,14 +281,28 @@ export const Gauge = {
   },
   fromPartial(object: Partial<Gauge>): Gauge {
     const message = createBaseGauge();
-    message.id = object.id !== undefined && object.id !== null ? BigInt(object.id.toString()) : BigInt(0);
+    message.id =
+      object.id !== undefined && object.id !== null
+        ? BigInt(object.id.toString())
+        : BigInt(0);
     message.isPerpetual = object.isPerpetual ?? false;
-    message.distributeTo = object.distributeTo !== undefined && object.distributeTo !== null ? QueryCondition.fromPartial(object.distributeTo) : undefined;
+    message.distributeTo =
+      object.distributeTo !== undefined && object.distributeTo !== null
+        ? QueryCondition.fromPartial(object.distributeTo)
+        : undefined;
     message.coins = object.coins?.map(e => Coin.fromPartial(e)) || [];
     message.startTime = object.startTime ?? undefined;
-    message.numEpochsPaidOver = object.numEpochsPaidOver !== undefined && object.numEpochsPaidOver !== null ? BigInt(object.numEpochsPaidOver.toString()) : BigInt(0);
-    message.filledEpochs = object.filledEpochs !== undefined && object.filledEpochs !== null ? BigInt(object.filledEpochs.toString()) : BigInt(0);
-    message.distributedCoins = object.distributedCoins?.map(e => Coin.fromPartial(e)) || [];
+    message.numEpochsPaidOver =
+      object.numEpochsPaidOver !== undefined &&
+      object.numEpochsPaidOver !== null
+        ? BigInt(object.numEpochsPaidOver.toString())
+        : BigInt(0);
+    message.filledEpochs =
+      object.filledEpochs !== undefined && object.filledEpochs !== null
+        ? BigInt(object.filledEpochs.toString())
+        : BigInt(0);
+    message.distributedCoins =
+      object.distributedCoins?.map(e => Coin.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: GaugeAmino): Gauge {
@@ -246,30 +320,47 @@ export const Gauge = {
     if (object.start_time !== undefined && object.start_time !== null) {
       message.startTime = fromTimestamp(Timestamp.fromAmino(object.start_time));
     }
-    if (object.num_epochs_paid_over !== undefined && object.num_epochs_paid_over !== null) {
+    if (
+      object.num_epochs_paid_over !== undefined &&
+      object.num_epochs_paid_over !== null
+    ) {
       message.numEpochsPaidOver = BigInt(object.num_epochs_paid_over);
     }
     if (object.filled_epochs !== undefined && object.filled_epochs !== null) {
       message.filledEpochs = BigInt(object.filled_epochs);
     }
-    message.distributedCoins = object.distributed_coins?.map(e => Coin.fromAmino(e)) || [];
+    message.distributedCoins =
+      object.distributed_coins?.map(e => Coin.fromAmino(e)) || [];
     return message;
   },
   toAmino(message: Gauge): GaugeAmino {
     const obj: any = {};
     obj.id = message.id !== BigInt(0) ? message.id.toString() : undefined;
-    obj.is_perpetual = message.isPerpetual === false ? undefined : message.isPerpetual;
-    obj.distribute_to = message.distributeTo ? QueryCondition.toAmino(message.distributeTo) : undefined;
+    obj.is_perpetual =
+      message.isPerpetual === false ? undefined : message.isPerpetual;
+    obj.distribute_to = message.distributeTo
+      ? QueryCondition.toAmino(message.distributeTo)
+      : undefined;
     if (message.coins) {
-      obj.coins = message.coins.map(e => e ? Coin.toAmino(e) : undefined);
+      obj.coins = message.coins.map(e => (e ? Coin.toAmino(e) : undefined));
     } else {
       obj.coins = message.coins;
     }
-    obj.start_time = message.startTime ? Timestamp.toAmino(toTimestamp(message.startTime)) : undefined;
-    obj.num_epochs_paid_over = message.numEpochsPaidOver !== BigInt(0) ? message.numEpochsPaidOver.toString() : undefined;
-    obj.filled_epochs = message.filledEpochs !== BigInt(0) ? message.filledEpochs.toString() : undefined;
+    obj.start_time = message.startTime
+      ? Timestamp.toAmino(toTimestamp(message.startTime))
+      : undefined;
+    obj.num_epochs_paid_over =
+      message.numEpochsPaidOver !== BigInt(0)
+        ? message.numEpochsPaidOver.toString()
+        : undefined;
+    obj.filled_epochs =
+      message.filledEpochs !== BigInt(0)
+        ? message.filledEpochs.toString()
+        : undefined;
     if (message.distributedCoins) {
-      obj.distributed_coins = message.distributedCoins.map(e => e ? Coin.toAmino(e) : undefined);
+      obj.distributed_coins = message.distributedCoins.map(e =>
+        e ? Coin.toAmino(e) : undefined,
+      );
     } else {
       obj.distributed_coins = message.distributedCoins;
     }
@@ -280,8 +371,8 @@ export const Gauge = {
   },
   toAminoMsg(message: Gauge): GaugeAminoMsg {
     return {
-      type: "osmosis/incentives/gauge",
-      value: Gauge.toAmino(message)
+      type: 'osmosis/incentives/gauge',
+      value: Gauge.toAmino(message),
     };
   },
   fromProtoMsg(message: GaugeProtoMsg): Gauge {
@@ -292,45 +383,71 @@ export const Gauge = {
   },
   toProtoMsg(message: Gauge): GaugeProtoMsg {
     return {
-      typeUrl: "/osmosis.incentives.Gauge",
-      value: Gauge.encode(message).finish()
+      typeUrl: '/osmosis.incentives.Gauge',
+      value: Gauge.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(Gauge.typeUrl, Gauge);
 GlobalDecoderRegistry.registerAminoProtoMapping(Gauge.aminoType, Gauge.typeUrl);
 function createBaseLockableDurationsInfo(): LockableDurationsInfo {
   return {
-    lockableDurations: []
+    lockableDurations: [],
   };
 }
 export const LockableDurationsInfo = {
-  typeUrl: "/osmosis.incentives.LockableDurationsInfo",
-  aminoType: "osmosis/incentives/lockable-durations-info",
+  typeUrl: '/osmosis.incentives.LockableDurationsInfo',
+  aminoType: 'osmosis/incentives/lockable-durations-info',
   is(o: any): o is LockableDurationsInfo {
-    return o && (o.$typeUrl === LockableDurationsInfo.typeUrl || Array.isArray(o.lockableDurations) && (!o.lockableDurations.length || Duration.is(o.lockableDurations[0])));
+    return (
+      o &&
+      (o.$typeUrl === LockableDurationsInfo.typeUrl ||
+        (Array.isArray(o.lockableDurations) &&
+          (!o.lockableDurations.length || Duration.is(o.lockableDurations[0]))))
+    );
   },
   isSDK(o: any): o is LockableDurationsInfoSDKType {
-    return o && (o.$typeUrl === LockableDurationsInfo.typeUrl || Array.isArray(o.lockable_durations) && (!o.lockable_durations.length || Duration.isSDK(o.lockable_durations[0])));
+    return (
+      o &&
+      (o.$typeUrl === LockableDurationsInfo.typeUrl ||
+        (Array.isArray(o.lockable_durations) &&
+          (!o.lockable_durations.length ||
+            Duration.isSDK(o.lockable_durations[0]))))
+    );
   },
   isAmino(o: any): o is LockableDurationsInfoAmino {
-    return o && (o.$typeUrl === LockableDurationsInfo.typeUrl || Array.isArray(o.lockable_durations) && (!o.lockable_durations.length || Duration.isAmino(o.lockable_durations[0])));
+    return (
+      o &&
+      (o.$typeUrl === LockableDurationsInfo.typeUrl ||
+        (Array.isArray(o.lockable_durations) &&
+          (!o.lockable_durations.length ||
+            Duration.isAmino(o.lockable_durations[0]))))
+    );
   },
-  encode(message: LockableDurationsInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: LockableDurationsInfo,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     for (const v of message.lockableDurations) {
       Duration.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): LockableDurationsInfo {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): LockableDurationsInfo {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseLockableDurationsInfo();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.lockableDurations.push(Duration.decode(reader, reader.uint32()));
+          message.lockableDurations.push(
+            Duration.decode(reader, reader.uint32()),
+          );
           break;
         default:
           reader.skipType(tag & 7);
@@ -341,18 +458,22 @@ export const LockableDurationsInfo = {
   },
   fromPartial(object: Partial<LockableDurationsInfo>): LockableDurationsInfo {
     const message = createBaseLockableDurationsInfo();
-    message.lockableDurations = object.lockableDurations?.map(e => Duration.fromPartial(e)) || [];
+    message.lockableDurations =
+      object.lockableDurations?.map(e => Duration.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: LockableDurationsInfoAmino): LockableDurationsInfo {
     const message = createBaseLockableDurationsInfo();
-    message.lockableDurations = object.lockable_durations?.map(e => Duration.fromAmino(e)) || [];
+    message.lockableDurations =
+      object.lockable_durations?.map(e => Duration.fromAmino(e)) || [];
     return message;
   },
   toAmino(message: LockableDurationsInfo): LockableDurationsInfoAmino {
     const obj: any = {};
     if (message.lockableDurations) {
-      obj.lockable_durations = message.lockableDurations.map(e => e ? Duration.toAmino(e) : undefined);
+      obj.lockable_durations = message.lockableDurations.map(e =>
+        e ? Duration.toAmino(e) : undefined,
+      );
     } else {
       obj.lockable_durations = message.lockableDurations;
     }
@@ -363,8 +484,8 @@ export const LockableDurationsInfo = {
   },
   toAminoMsg(message: LockableDurationsInfo): LockableDurationsInfoAminoMsg {
     return {
-      type: "osmosis/incentives/lockable-durations-info",
-      value: LockableDurationsInfo.toAmino(message)
+      type: 'osmosis/incentives/lockable-durations-info',
+      value: LockableDurationsInfo.toAmino(message),
     };
   },
   fromProtoMsg(message: LockableDurationsInfoProtoMsg): LockableDurationsInfo {
@@ -375,10 +496,16 @@ export const LockableDurationsInfo = {
   },
   toProtoMsg(message: LockableDurationsInfo): LockableDurationsInfoProtoMsg {
     return {
-      typeUrl: "/osmosis.incentives.LockableDurationsInfo",
-      value: LockableDurationsInfo.encode(message).finish()
+      typeUrl: '/osmosis.incentives.LockableDurationsInfo',
+      value: LockableDurationsInfo.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(LockableDurationsInfo.typeUrl, LockableDurationsInfo);
-GlobalDecoderRegistry.registerAminoProtoMapping(LockableDurationsInfo.aminoType, LockableDurationsInfo.typeUrl);
+GlobalDecoderRegistry.register(
+  LockableDurationsInfo.typeUrl,
+  LockableDurationsInfo,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  LockableDurationsInfo.aminoType,
+  LockableDurationsInfo.typeUrl,
+);

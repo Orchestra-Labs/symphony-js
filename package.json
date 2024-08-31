@@ -2,7 +2,7 @@
   "name": "symphony-js",
   "version": "1.0.0",
   "description": "Typescript Protobuf Messages for Symphony chain",
-  "author": "Jazz877",
+  "author": "Orchestra-Labs",
   "main": "index.js",
   "module": "esm/index.js",
   "types": "index.d.ts",
@@ -13,7 +13,9 @@
     "directory": "dist"
   },
   "scripts": {
-    "codegen": "esno ./scripts/codegen.ts"
+    "codegen": "ts-node ./scripts/codegen.ts && pnpm format",
+    "test-query": "ts-node ./scripts/symphony.ts",
+    "format": "prettier '{**/*,*}.{js,ts,jsx,tsx,vue,astro}' --write"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,15 @@
   },
   "bugs": {
     "url": "https://github.com/Orchestra-Labs/symphony-js/issues"
+  },
+  "dependencies": {
+    "@cosmjs/tendermint-rpc": "^0.32.4",
+    "@cosmjs/proto-signing": "^0.32.4",
+    "@cosmjs/amino": "^0.32.3",
+    "@cosmjs/crypto": "^0.32.3",
+    "@cosmjs/encoding": "^0.32.3",
+    "@cosmjs/stargate": "^0.32.3",
+    "@cosmology/lcd": "^0.13.4"
   },
   "devDependencies": {
     "@cosmology/ast": "^1.8.1",
@@ -34,10 +45,10 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-unused-imports": "^3.0.0",
-    "esno": "^4.7.0",
     "minimatch": "^10.0.1",
     "rimraf": "3.0.2",
+    "ts-node": "^10.4.0",
     "typescript": "^5.1.6"
   },
-  "packageManager": "yarn@4.4.1"
+  "packageManager": "pnpm@9.9.0"
 }

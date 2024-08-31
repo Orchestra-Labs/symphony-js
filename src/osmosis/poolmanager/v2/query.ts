@@ -1,6 +1,6 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
+import { BinaryReader, BinaryWriter } from '../../../binary';
+import { GlobalDecoderRegistry } from '../../../registry';
 /**
  * SpotPriceRequest defines the gRPC request structure for a SpotPrice
  * query.
@@ -11,7 +11,7 @@ export interface SpotPriceRequest {
   quoteAssetDenom: string;
 }
 export interface SpotPriceRequestProtoMsg {
-  typeUrl: "/osmosis.poolmanager.v2.SpotPriceRequest";
+  typeUrl: '/osmosis.poolmanager.v2.SpotPriceRequest';
   value: Uint8Array;
 }
 /**
@@ -24,7 +24,7 @@ export interface SpotPriceRequestAmino {
   quote_asset_denom?: string;
 }
 export interface SpotPriceRequestAminoMsg {
-  type: "osmosis/poolmanager/v2/spot-price-request";
+  type: 'osmosis/poolmanager/v2/spot-price-request';
   value: SpotPriceRequestAmino;
 }
 /**
@@ -45,7 +45,7 @@ export interface SpotPriceResponse {
   spotPrice: string;
 }
 export interface SpotPriceResponseProtoMsg {
-  typeUrl: "/osmosis.poolmanager.v2.SpotPriceResponse";
+  typeUrl: '/osmosis.poolmanager.v2.SpotPriceResponse';
   value: Uint8Array;
 }
 /**
@@ -57,7 +57,7 @@ export interface SpotPriceResponseAmino {
   spot_price?: string;
 }
 export interface SpotPriceResponseAminoMsg {
-  type: "osmosis/poolmanager/v2/spot-price-response";
+  type: 'osmosis/poolmanager/v2/spot-price-response';
   value: SpotPriceResponseAmino;
 }
 /**
@@ -70,36 +70,58 @@ export interface SpotPriceResponseSDKType {
 function createBaseSpotPriceRequest(): SpotPriceRequest {
   return {
     poolId: BigInt(0),
-    baseAssetDenom: "",
-    quoteAssetDenom: ""
+    baseAssetDenom: '',
+    quoteAssetDenom: '',
   };
 }
 export const SpotPriceRequest = {
-  typeUrl: "/osmosis.poolmanager.v2.SpotPriceRequest",
-  aminoType: "osmosis/poolmanager/v2/spot-price-request",
+  typeUrl: '/osmosis.poolmanager.v2.SpotPriceRequest',
+  aminoType: 'osmosis/poolmanager/v2/spot-price-request',
   is(o: any): o is SpotPriceRequest {
-    return o && (o.$typeUrl === SpotPriceRequest.typeUrl || typeof o.poolId === "bigint" && typeof o.baseAssetDenom === "string" && typeof o.quoteAssetDenom === "string");
+    return (
+      o &&
+      (o.$typeUrl === SpotPriceRequest.typeUrl ||
+        (typeof o.poolId === 'bigint' &&
+          typeof o.baseAssetDenom === 'string' &&
+          typeof o.quoteAssetDenom === 'string'))
+    );
   },
   isSDK(o: any): o is SpotPriceRequestSDKType {
-    return o && (o.$typeUrl === SpotPriceRequest.typeUrl || typeof o.pool_id === "bigint" && typeof o.base_asset_denom === "string" && typeof o.quote_asset_denom === "string");
+    return (
+      o &&
+      (o.$typeUrl === SpotPriceRequest.typeUrl ||
+        (typeof o.pool_id === 'bigint' &&
+          typeof o.base_asset_denom === 'string' &&
+          typeof o.quote_asset_denom === 'string'))
+    );
   },
   isAmino(o: any): o is SpotPriceRequestAmino {
-    return o && (o.$typeUrl === SpotPriceRequest.typeUrl || typeof o.pool_id === "bigint" && typeof o.base_asset_denom === "string" && typeof o.quote_asset_denom === "string");
+    return (
+      o &&
+      (o.$typeUrl === SpotPriceRequest.typeUrl ||
+        (typeof o.pool_id === 'bigint' &&
+          typeof o.base_asset_denom === 'string' &&
+          typeof o.quote_asset_denom === 'string'))
+    );
   },
-  encode(message: SpotPriceRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: SpotPriceRequest,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.poolId !== BigInt(0)) {
       writer.uint32(8).uint64(message.poolId);
     }
-    if (message.baseAssetDenom !== "") {
+    if (message.baseAssetDenom !== '') {
       writer.uint32(18).string(message.baseAssetDenom);
     }
-    if (message.quoteAssetDenom !== "") {
+    if (message.quoteAssetDenom !== '') {
       writer.uint32(26).string(message.quoteAssetDenom);
     }
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): SpotPriceRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSpotPriceRequest();
     while (reader.pos < end) {
@@ -123,9 +145,12 @@ export const SpotPriceRequest = {
   },
   fromPartial(object: Partial<SpotPriceRequest>): SpotPriceRequest {
     const message = createBaseSpotPriceRequest();
-    message.poolId = object.poolId !== undefined && object.poolId !== null ? BigInt(object.poolId.toString()) : BigInt(0);
-    message.baseAssetDenom = object.baseAssetDenom ?? "";
-    message.quoteAssetDenom = object.quoteAssetDenom ?? "";
+    message.poolId =
+      object.poolId !== undefined && object.poolId !== null
+        ? BigInt(object.poolId.toString())
+        : BigInt(0);
+    message.baseAssetDenom = object.baseAssetDenom ?? '';
+    message.quoteAssetDenom = object.quoteAssetDenom ?? '';
     return message;
   },
   fromAmino(object: SpotPriceRequestAmino): SpotPriceRequest {
@@ -133,19 +158,28 @@ export const SpotPriceRequest = {
     if (object.pool_id !== undefined && object.pool_id !== null) {
       message.poolId = BigInt(object.pool_id);
     }
-    if (object.base_asset_denom !== undefined && object.base_asset_denom !== null) {
+    if (
+      object.base_asset_denom !== undefined &&
+      object.base_asset_denom !== null
+    ) {
       message.baseAssetDenom = object.base_asset_denom;
     }
-    if (object.quote_asset_denom !== undefined && object.quote_asset_denom !== null) {
+    if (
+      object.quote_asset_denom !== undefined &&
+      object.quote_asset_denom !== null
+    ) {
       message.quoteAssetDenom = object.quote_asset_denom;
     }
     return message;
   },
   toAmino(message: SpotPriceRequest): SpotPriceRequestAmino {
     const obj: any = {};
-    obj.pool_id = message.poolId !== BigInt(0) ? message.poolId.toString() : undefined;
-    obj.base_asset_denom = message.baseAssetDenom === "" ? undefined : message.baseAssetDenom;
-    obj.quote_asset_denom = message.quoteAssetDenom === "" ? undefined : message.quoteAssetDenom;
+    obj.pool_id =
+      message.poolId !== BigInt(0) ? message.poolId.toString() : undefined;
+    obj.base_asset_denom =
+      message.baseAssetDenom === '' ? undefined : message.baseAssetDenom;
+    obj.quote_asset_denom =
+      message.quoteAssetDenom === '' ? undefined : message.quoteAssetDenom;
     return obj;
   },
   fromAminoMsg(object: SpotPriceRequestAminoMsg): SpotPriceRequest {
@@ -153,8 +187,8 @@ export const SpotPriceRequest = {
   },
   toAminoMsg(message: SpotPriceRequest): SpotPriceRequestAminoMsg {
     return {
-      type: "osmosis/poolmanager/v2/spot-price-request",
-      value: SpotPriceRequest.toAmino(message)
+      type: 'osmosis/poolmanager/v2/spot-price-request',
+      value: SpotPriceRequest.toAmino(message),
     };
   },
   fromProtoMsg(message: SpotPriceRequestProtoMsg): SpotPriceRequest {
@@ -165,38 +199,57 @@ export const SpotPriceRequest = {
   },
   toProtoMsg(message: SpotPriceRequest): SpotPriceRequestProtoMsg {
     return {
-      typeUrl: "/osmosis.poolmanager.v2.SpotPriceRequest",
-      value: SpotPriceRequest.encode(message).finish()
+      typeUrl: '/osmosis.poolmanager.v2.SpotPriceRequest',
+      value: SpotPriceRequest.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(SpotPriceRequest.typeUrl, SpotPriceRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(SpotPriceRequest.aminoType, SpotPriceRequest.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  SpotPriceRequest.aminoType,
+  SpotPriceRequest.typeUrl,
+);
 function createBaseSpotPriceResponse(): SpotPriceResponse {
   return {
-    spotPrice: ""
+    spotPrice: '',
   };
 }
 export const SpotPriceResponse = {
-  typeUrl: "/osmosis.poolmanager.v2.SpotPriceResponse",
-  aminoType: "osmosis/poolmanager/v2/spot-price-response",
+  typeUrl: '/osmosis.poolmanager.v2.SpotPriceResponse',
+  aminoType: 'osmosis/poolmanager/v2/spot-price-response',
   is(o: any): o is SpotPriceResponse {
-    return o && (o.$typeUrl === SpotPriceResponse.typeUrl || typeof o.spotPrice === "string");
+    return (
+      o &&
+      (o.$typeUrl === SpotPriceResponse.typeUrl ||
+        typeof o.spotPrice === 'string')
+    );
   },
   isSDK(o: any): o is SpotPriceResponseSDKType {
-    return o && (o.$typeUrl === SpotPriceResponse.typeUrl || typeof o.spot_price === "string");
+    return (
+      o &&
+      (o.$typeUrl === SpotPriceResponse.typeUrl ||
+        typeof o.spot_price === 'string')
+    );
   },
   isAmino(o: any): o is SpotPriceResponseAmino {
-    return o && (o.$typeUrl === SpotPriceResponse.typeUrl || typeof o.spot_price === "string");
+    return (
+      o &&
+      (o.$typeUrl === SpotPriceResponse.typeUrl ||
+        typeof o.spot_price === 'string')
+    );
   },
-  encode(message: SpotPriceResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.spotPrice !== "") {
+  encode(
+    message: SpotPriceResponse,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.spotPrice !== '') {
       writer.uint32(10).string(message.spotPrice);
     }
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): SpotPriceResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSpotPriceResponse();
     while (reader.pos < end) {
@@ -214,7 +267,7 @@ export const SpotPriceResponse = {
   },
   fromPartial(object: Partial<SpotPriceResponse>): SpotPriceResponse {
     const message = createBaseSpotPriceResponse();
-    message.spotPrice = object.spotPrice ?? "";
+    message.spotPrice = object.spotPrice ?? '';
     return message;
   },
   fromAmino(object: SpotPriceResponseAmino): SpotPriceResponse {
@@ -226,7 +279,7 @@ export const SpotPriceResponse = {
   },
   toAmino(message: SpotPriceResponse): SpotPriceResponseAmino {
     const obj: any = {};
-    obj.spot_price = message.spotPrice === "" ? undefined : message.spotPrice;
+    obj.spot_price = message.spotPrice === '' ? undefined : message.spotPrice;
     return obj;
   },
   fromAminoMsg(object: SpotPriceResponseAminoMsg): SpotPriceResponse {
@@ -234,8 +287,8 @@ export const SpotPriceResponse = {
   },
   toAminoMsg(message: SpotPriceResponse): SpotPriceResponseAminoMsg {
     return {
-      type: "osmosis/poolmanager/v2/spot-price-response",
-      value: SpotPriceResponse.toAmino(message)
+      type: 'osmosis/poolmanager/v2/spot-price-response',
+      value: SpotPriceResponse.toAmino(message),
     };
   },
   fromProtoMsg(message: SpotPriceResponseProtoMsg): SpotPriceResponse {
@@ -246,10 +299,13 @@ export const SpotPriceResponse = {
   },
   toProtoMsg(message: SpotPriceResponse): SpotPriceResponseProtoMsg {
     return {
-      typeUrl: "/osmosis.poolmanager.v2.SpotPriceResponse",
-      value: SpotPriceResponse.encode(message).finish()
+      typeUrl: '/osmosis.poolmanager.v2.SpotPriceResponse',
+      value: SpotPriceResponse.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(SpotPriceResponse.typeUrl, SpotPriceResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(SpotPriceResponse.aminoType, SpotPriceResponse.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  SpotPriceResponse.aminoType,
+  SpotPriceResponse.typeUrl,
+);

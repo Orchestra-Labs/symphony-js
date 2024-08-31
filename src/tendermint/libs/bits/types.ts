@@ -1,12 +1,12 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
+import { BinaryReader, BinaryWriter } from '../../../binary';
+import { GlobalDecoderRegistry } from '../../../registry';
 export interface BitArray {
   bits: bigint;
   elems: bigint[];
 }
 export interface BitArrayProtoMsg {
-  typeUrl: "/tendermint.libs.bits.BitArray";
+  typeUrl: '/tendermint.libs.bits.BitArray';
   value: Uint8Array;
 }
 export interface BitArrayAmino {
@@ -14,7 +14,7 @@ export interface BitArrayAmino {
   elems?: string[];
 }
 export interface BitArrayAminoMsg {
-  type: "/tendermint.libs.bits.BitArray";
+  type: '/tendermint.libs.bits.BitArray';
   value: BitArrayAmino;
 }
 export interface BitArraySDKType {
@@ -24,21 +24,42 @@ export interface BitArraySDKType {
 function createBaseBitArray(): BitArray {
   return {
     bits: BigInt(0),
-    elems: []
+    elems: [],
   };
 }
 export const BitArray = {
-  typeUrl: "/tendermint.libs.bits.BitArray",
+  typeUrl: '/tendermint.libs.bits.BitArray',
   is(o: any): o is BitArray {
-    return o && (o.$typeUrl === BitArray.typeUrl || typeof o.bits === "bigint" && Array.isArray(o.elems) && (!o.elems.length || typeof o.elems[0] === "bigint"));
+    return (
+      o &&
+      (o.$typeUrl === BitArray.typeUrl ||
+        (typeof o.bits === 'bigint' &&
+          Array.isArray(o.elems) &&
+          (!o.elems.length || typeof o.elems[0] === 'bigint')))
+    );
   },
   isSDK(o: any): o is BitArraySDKType {
-    return o && (o.$typeUrl === BitArray.typeUrl || typeof o.bits === "bigint" && Array.isArray(o.elems) && (!o.elems.length || typeof o.elems[0] === "bigint"));
+    return (
+      o &&
+      (o.$typeUrl === BitArray.typeUrl ||
+        (typeof o.bits === 'bigint' &&
+          Array.isArray(o.elems) &&
+          (!o.elems.length || typeof o.elems[0] === 'bigint')))
+    );
   },
   isAmino(o: any): o is BitArrayAmino {
-    return o && (o.$typeUrl === BitArray.typeUrl || typeof o.bits === "bigint" && Array.isArray(o.elems) && (!o.elems.length || typeof o.elems[0] === "bigint"));
+    return (
+      o &&
+      (o.$typeUrl === BitArray.typeUrl ||
+        (typeof o.bits === 'bigint' &&
+          Array.isArray(o.elems) &&
+          (!o.elems.length || typeof o.elems[0] === 'bigint')))
+    );
   },
-  encode(message: BitArray, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: BitArray,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.bits !== BigInt(0)) {
       writer.uint32(8).int64(message.bits);
     }
@@ -50,7 +71,8 @@ export const BitArray = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): BitArray {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseBitArray();
     while (reader.pos < end) {
@@ -78,7 +100,10 @@ export const BitArray = {
   },
   fromPartial(object: Partial<BitArray>): BitArray {
     const message = createBaseBitArray();
-    message.bits = object.bits !== undefined && object.bits !== null ? BigInt(object.bits.toString()) : BigInt(0);
+    message.bits =
+      object.bits !== undefined && object.bits !== null
+        ? BigInt(object.bits.toString())
+        : BigInt(0);
     message.elems = object.elems?.map(e => BigInt(e.toString())) || [];
     return message;
   },
@@ -111,9 +136,9 @@ export const BitArray = {
   },
   toProtoMsg(message: BitArray): BitArrayProtoMsg {
     return {
-      typeUrl: "/tendermint.libs.bits.BitArray",
-      value: BitArray.encode(message).finish()
+      typeUrl: '/tendermint.libs.bits.BitArray',
+      value: BitArray.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(BitArray.typeUrl, BitArray);

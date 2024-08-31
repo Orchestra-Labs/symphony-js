@@ -1,6 +1,6 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { GlobalDecoderRegistry } from "../../../../registry";
+import { BinaryReader, BinaryWriter } from '../../../../binary';
+import { GlobalDecoderRegistry } from '../../../../registry';
 /** ===================== InstantiateMsg */
 export interface InstantiateMsg {
   /**
@@ -10,7 +10,7 @@ export interface InstantiateMsg {
   poolAssetDenoms: string[];
 }
 export interface InstantiateMsgProtoMsg {
-  typeUrl: "/osmosis.cosmwasmpool.v1beta1.InstantiateMsg";
+  typeUrl: '/osmosis.cosmwasmpool.v1beta1.InstantiateMsg';
   value: Uint8Array;
 }
 /** ===================== InstantiateMsg */
@@ -22,7 +22,7 @@ export interface InstantiateMsgAmino {
   pool_asset_denoms?: string[];
 }
 export interface InstantiateMsgAminoMsg {
-  type: "osmosis/cosmwasmpool/instantiate-msg";
+  type: 'osmosis/cosmwasmpool/instantiate-msg';
   value: InstantiateMsgAmino;
 }
 /** ===================== InstantiateMsg */
@@ -31,29 +31,51 @@ export interface InstantiateMsgSDKType {
 }
 function createBaseInstantiateMsg(): InstantiateMsg {
   return {
-    poolAssetDenoms: []
+    poolAssetDenoms: [],
   };
 }
 export const InstantiateMsg = {
-  typeUrl: "/osmosis.cosmwasmpool.v1beta1.InstantiateMsg",
-  aminoType: "osmosis/cosmwasmpool/instantiate-msg",
+  typeUrl: '/osmosis.cosmwasmpool.v1beta1.InstantiateMsg',
+  aminoType: 'osmosis/cosmwasmpool/instantiate-msg',
   is(o: any): o is InstantiateMsg {
-    return o && (o.$typeUrl === InstantiateMsg.typeUrl || Array.isArray(o.poolAssetDenoms) && (!o.poolAssetDenoms.length || typeof o.poolAssetDenoms[0] === "string"));
+    return (
+      o &&
+      (o.$typeUrl === InstantiateMsg.typeUrl ||
+        (Array.isArray(o.poolAssetDenoms) &&
+          (!o.poolAssetDenoms.length ||
+            typeof o.poolAssetDenoms[0] === 'string')))
+    );
   },
   isSDK(o: any): o is InstantiateMsgSDKType {
-    return o && (o.$typeUrl === InstantiateMsg.typeUrl || Array.isArray(o.pool_asset_denoms) && (!o.pool_asset_denoms.length || typeof o.pool_asset_denoms[0] === "string"));
+    return (
+      o &&
+      (o.$typeUrl === InstantiateMsg.typeUrl ||
+        (Array.isArray(o.pool_asset_denoms) &&
+          (!o.pool_asset_denoms.length ||
+            typeof o.pool_asset_denoms[0] === 'string')))
+    );
   },
   isAmino(o: any): o is InstantiateMsgAmino {
-    return o && (o.$typeUrl === InstantiateMsg.typeUrl || Array.isArray(o.pool_asset_denoms) && (!o.pool_asset_denoms.length || typeof o.pool_asset_denoms[0] === "string"));
+    return (
+      o &&
+      (o.$typeUrl === InstantiateMsg.typeUrl ||
+        (Array.isArray(o.pool_asset_denoms) &&
+          (!o.pool_asset_denoms.length ||
+            typeof o.pool_asset_denoms[0] === 'string')))
+    );
   },
-  encode(message: InstantiateMsg, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: InstantiateMsg,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     for (const v of message.poolAssetDenoms) {
       writer.uint32(10).string(v!);
     }
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): InstantiateMsg {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseInstantiateMsg();
     while (reader.pos < end) {
@@ -93,8 +115,8 @@ export const InstantiateMsg = {
   },
   toAminoMsg(message: InstantiateMsg): InstantiateMsgAminoMsg {
     return {
-      type: "osmosis/cosmwasmpool/instantiate-msg",
-      value: InstantiateMsg.toAmino(message)
+      type: 'osmosis/cosmwasmpool/instantiate-msg',
+      value: InstantiateMsg.toAmino(message),
     };
   },
   fromProtoMsg(message: InstantiateMsgProtoMsg): InstantiateMsg {
@@ -105,10 +127,13 @@ export const InstantiateMsg = {
   },
   toProtoMsg(message: InstantiateMsg): InstantiateMsgProtoMsg {
     return {
-      typeUrl: "/osmosis.cosmwasmpool.v1beta1.InstantiateMsg",
-      value: InstantiateMsg.encode(message).finish()
+      typeUrl: '/osmosis.cosmwasmpool.v1beta1.InstantiateMsg',
+      value: InstantiateMsg.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(InstantiateMsg.typeUrl, InstantiateMsg);
-GlobalDecoderRegistry.registerAminoProtoMapping(InstantiateMsg.aminoType, InstantiateMsg.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  InstantiateMsg.aminoType,
+  InstantiateMsg.typeUrl,
+);

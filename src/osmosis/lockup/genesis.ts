@@ -1,8 +1,15 @@
 //@ts-nocheck
-import { PeriodLock, PeriodLockAmino, PeriodLockSDKType, SyntheticLock, SyntheticLockAmino, SyntheticLockSDKType } from "./lock";
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { GlobalDecoderRegistry } from "../../registry";
+import {
+  PeriodLock,
+  PeriodLockAmino,
+  PeriodLockSDKType,
+  SyntheticLock,
+  SyntheticLockAmino,
+  SyntheticLockSDKType,
+} from './lock';
+import { Params, ParamsAmino, ParamsSDKType } from './params';
+import { BinaryReader, BinaryWriter } from '../../binary';
+import { GlobalDecoderRegistry } from '../../registry';
 /** GenesisState defines the lockup module's genesis state. */
 export interface GenesisState {
   lastLockId: bigint;
@@ -11,7 +18,7 @@ export interface GenesisState {
   params?: Params;
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: "/osmosis.lockup.GenesisState";
+  typeUrl: '/osmosis.lockup.GenesisState';
   value: Uint8Array;
 }
 /** GenesisState defines the lockup module's genesis state. */
@@ -22,7 +29,7 @@ export interface GenesisStateAmino {
   params?: ParamsAmino;
 }
 export interface GenesisStateAminoMsg {
-  type: "osmosis/lockup/genesis-state";
+  type: 'osmosis/lockup/genesis-state';
   value: GenesisStateAmino;
 }
 /** GenesisState defines the lockup module's genesis state. */
@@ -37,22 +44,51 @@ function createBaseGenesisState(): GenesisState {
     lastLockId: BigInt(0),
     locks: [],
     syntheticLocks: [],
-    params: undefined
+    params: undefined,
   };
 }
 export const GenesisState = {
-  typeUrl: "/osmosis.lockup.GenesisState",
-  aminoType: "osmosis/lockup/genesis-state",
+  typeUrl: '/osmosis.lockup.GenesisState',
+  aminoType: 'osmosis/lockup/genesis-state',
   is(o: any): o is GenesisState {
-    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.lastLockId === "bigint" && Array.isArray(o.locks) && (!o.locks.length || PeriodLock.is(o.locks[0])) && Array.isArray(o.syntheticLocks) && (!o.syntheticLocks.length || SyntheticLock.is(o.syntheticLocks[0])));
+    return (
+      o &&
+      (o.$typeUrl === GenesisState.typeUrl ||
+        (typeof o.lastLockId === 'bigint' &&
+          Array.isArray(o.locks) &&
+          (!o.locks.length || PeriodLock.is(o.locks[0])) &&
+          Array.isArray(o.syntheticLocks) &&
+          (!o.syntheticLocks.length || SyntheticLock.is(o.syntheticLocks[0]))))
+    );
   },
   isSDK(o: any): o is GenesisStateSDKType {
-    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.last_lock_id === "bigint" && Array.isArray(o.locks) && (!o.locks.length || PeriodLock.isSDK(o.locks[0])) && Array.isArray(o.synthetic_locks) && (!o.synthetic_locks.length || SyntheticLock.isSDK(o.synthetic_locks[0])));
+    return (
+      o &&
+      (o.$typeUrl === GenesisState.typeUrl ||
+        (typeof o.last_lock_id === 'bigint' &&
+          Array.isArray(o.locks) &&
+          (!o.locks.length || PeriodLock.isSDK(o.locks[0])) &&
+          Array.isArray(o.synthetic_locks) &&
+          (!o.synthetic_locks.length ||
+            SyntheticLock.isSDK(o.synthetic_locks[0]))))
+    );
   },
   isAmino(o: any): o is GenesisStateAmino {
-    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.last_lock_id === "bigint" && Array.isArray(o.locks) && (!o.locks.length || PeriodLock.isAmino(o.locks[0])) && Array.isArray(o.synthetic_locks) && (!o.synthetic_locks.length || SyntheticLock.isAmino(o.synthetic_locks[0])));
+    return (
+      o &&
+      (o.$typeUrl === GenesisState.typeUrl ||
+        (typeof o.last_lock_id === 'bigint' &&
+          Array.isArray(o.locks) &&
+          (!o.locks.length || PeriodLock.isAmino(o.locks[0])) &&
+          Array.isArray(o.synthetic_locks) &&
+          (!o.synthetic_locks.length ||
+            SyntheticLock.isAmino(o.synthetic_locks[0]))))
+    );
   },
-  encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: GenesisState,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.lastLockId !== BigInt(0)) {
       writer.uint32(8).uint64(message.lastLockId);
     }
@@ -68,7 +104,8 @@ export const GenesisState = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): GenesisState {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseGenesisState();
     while (reader.pos < end) {
@@ -81,7 +118,9 @@ export const GenesisState = {
           message.locks.push(PeriodLock.decode(reader, reader.uint32()));
           break;
         case 3:
-          message.syntheticLocks.push(SyntheticLock.decode(reader, reader.uint32()));
+          message.syntheticLocks.push(
+            SyntheticLock.decode(reader, reader.uint32()),
+          );
           break;
         case 4:
           message.params = Params.decode(reader, reader.uint32());
@@ -95,10 +134,17 @@ export const GenesisState = {
   },
   fromPartial(object: Partial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
-    message.lastLockId = object.lastLockId !== undefined && object.lastLockId !== null ? BigInt(object.lastLockId.toString()) : BigInt(0);
+    message.lastLockId =
+      object.lastLockId !== undefined && object.lastLockId !== null
+        ? BigInt(object.lastLockId.toString())
+        : BigInt(0);
     message.locks = object.locks?.map(e => PeriodLock.fromPartial(e)) || [];
-    message.syntheticLocks = object.syntheticLocks?.map(e => SyntheticLock.fromPartial(e)) || [];
-    message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
+    message.syntheticLocks =
+      object.syntheticLocks?.map(e => SyntheticLock.fromPartial(e)) || [];
+    message.params =
+      object.params !== undefined && object.params !== null
+        ? Params.fromPartial(object.params)
+        : undefined;
     return message;
   },
   fromAmino(object: GenesisStateAmino): GenesisState {
@@ -107,7 +153,8 @@ export const GenesisState = {
       message.lastLockId = BigInt(object.last_lock_id);
     }
     message.locks = object.locks?.map(e => PeriodLock.fromAmino(e)) || [];
-    message.syntheticLocks = object.synthetic_locks?.map(e => SyntheticLock.fromAmino(e)) || [];
+    message.syntheticLocks =
+      object.synthetic_locks?.map(e => SyntheticLock.fromAmino(e)) || [];
     if (object.params !== undefined && object.params !== null) {
       message.params = Params.fromAmino(object.params);
     }
@@ -115,14 +162,21 @@ export const GenesisState = {
   },
   toAmino(message: GenesisState): GenesisStateAmino {
     const obj: any = {};
-    obj.last_lock_id = message.lastLockId !== BigInt(0) ? message.lastLockId.toString() : undefined;
+    obj.last_lock_id =
+      message.lastLockId !== BigInt(0)
+        ? message.lastLockId.toString()
+        : undefined;
     if (message.locks) {
-      obj.locks = message.locks.map(e => e ? PeriodLock.toAmino(e) : undefined);
+      obj.locks = message.locks.map(e =>
+        e ? PeriodLock.toAmino(e) : undefined,
+      );
     } else {
       obj.locks = message.locks;
     }
     if (message.syntheticLocks) {
-      obj.synthetic_locks = message.syntheticLocks.map(e => e ? SyntheticLock.toAmino(e) : undefined);
+      obj.synthetic_locks = message.syntheticLocks.map(e =>
+        e ? SyntheticLock.toAmino(e) : undefined,
+      );
     } else {
       obj.synthetic_locks = message.syntheticLocks;
     }
@@ -134,8 +188,8 @@ export const GenesisState = {
   },
   toAminoMsg(message: GenesisState): GenesisStateAminoMsg {
     return {
-      type: "osmosis/lockup/genesis-state",
-      value: GenesisState.toAmino(message)
+      type: 'osmosis/lockup/genesis-state',
+      value: GenesisState.toAmino(message),
     };
   },
   fromProtoMsg(message: GenesisStateProtoMsg): GenesisState {
@@ -146,10 +200,13 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: "/osmosis.lockup.GenesisState",
-      value: GenesisState.encode(message).finish()
+      typeUrl: '/osmosis.lockup.GenesisState',
+      value: GenesisState.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
-GlobalDecoderRegistry.registerAminoProtoMapping(GenesisState.aminoType, GenesisState.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  GenesisState.aminoType,
+  GenesisState.typeUrl,
+);

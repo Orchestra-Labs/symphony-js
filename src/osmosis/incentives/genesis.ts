@@ -1,10 +1,14 @@
 //@ts-nocheck
-import { Params, ParamsAmino, ParamsSDKType } from "./params";
-import { Gauge, GaugeAmino, GaugeSDKType } from "./gauge";
-import { Duration, DurationAmino, DurationSDKType } from "../../google/protobuf/duration";
-import { Group, GroupAmino, GroupSDKType } from "./group";
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { GlobalDecoderRegistry } from "../../registry";
+import { Params, ParamsAmino, ParamsSDKType } from './params';
+import { Gauge, GaugeAmino, GaugeSDKType } from './gauge';
+import {
+  Duration,
+  DurationAmino,
+  DurationSDKType,
+} from '../../google/protobuf/duration';
+import { Group, GroupAmino, GroupSDKType } from './group';
+import { BinaryReader, BinaryWriter } from '../../binary';
+import { GlobalDecoderRegistry } from '../../registry';
 /**
  * GenesisState defines the incentives module's various parameters when first
  * initialized
@@ -33,7 +37,7 @@ export interface GenesisState {
   groups: Group[];
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: "/osmosis.incentives.GenesisState";
+  typeUrl: '/osmosis.incentives.GenesisState';
   value: Uint8Array;
 }
 /**
@@ -64,7 +68,7 @@ export interface GenesisStateAmino {
   groups?: GroupAmino[];
 }
 export interface GenesisStateAminoMsg {
-  type: "osmosis/incentives/genesis-state";
+  type: 'osmosis/incentives/genesis-state';
   value: GenesisStateAmino;
 }
 /**
@@ -86,22 +90,67 @@ function createBaseGenesisState(): GenesisState {
     lockableDurations: [],
     lastGaugeId: BigInt(0),
     groupGauges: [],
-    groups: []
+    groups: [],
   };
 }
 export const GenesisState = {
-  typeUrl: "/osmosis.incentives.GenesisState",
-  aminoType: "osmosis/incentives/genesis-state",
+  typeUrl: '/osmosis.incentives.GenesisState',
+  aminoType: 'osmosis/incentives/genesis-state',
   is(o: any): o is GenesisState {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && Array.isArray(o.gauges) && (!o.gauges.length || Gauge.is(o.gauges[0])) && Array.isArray(o.lockableDurations) && (!o.lockableDurations.length || Duration.is(o.lockableDurations[0])) && typeof o.lastGaugeId === "bigint" && Array.isArray(o.groupGauges) && (!o.groupGauges.length || Gauge.is(o.groupGauges[0])) && Array.isArray(o.groups) && (!o.groups.length || Group.is(o.groups[0])));
+    return (
+      o &&
+      (o.$typeUrl === GenesisState.typeUrl ||
+        (Params.is(o.params) &&
+          Array.isArray(o.gauges) &&
+          (!o.gauges.length || Gauge.is(o.gauges[0])) &&
+          Array.isArray(o.lockableDurations) &&
+          (!o.lockableDurations.length ||
+            Duration.is(o.lockableDurations[0])) &&
+          typeof o.lastGaugeId === 'bigint' &&
+          Array.isArray(o.groupGauges) &&
+          (!o.groupGauges.length || Gauge.is(o.groupGauges[0])) &&
+          Array.isArray(o.groups) &&
+          (!o.groups.length || Group.is(o.groups[0]))))
+    );
   },
   isSDK(o: any): o is GenesisStateSDKType {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && Array.isArray(o.gauges) && (!o.gauges.length || Gauge.isSDK(o.gauges[0])) && Array.isArray(o.lockable_durations) && (!o.lockable_durations.length || Duration.isSDK(o.lockable_durations[0])) && typeof o.last_gauge_id === "bigint" && Array.isArray(o.group_gauges) && (!o.group_gauges.length || Gauge.isSDK(o.group_gauges[0])) && Array.isArray(o.groups) && (!o.groups.length || Group.isSDK(o.groups[0])));
+    return (
+      o &&
+      (o.$typeUrl === GenesisState.typeUrl ||
+        (Params.isSDK(o.params) &&
+          Array.isArray(o.gauges) &&
+          (!o.gauges.length || Gauge.isSDK(o.gauges[0])) &&
+          Array.isArray(o.lockable_durations) &&
+          (!o.lockable_durations.length ||
+            Duration.isSDK(o.lockable_durations[0])) &&
+          typeof o.last_gauge_id === 'bigint' &&
+          Array.isArray(o.group_gauges) &&
+          (!o.group_gauges.length || Gauge.isSDK(o.group_gauges[0])) &&
+          Array.isArray(o.groups) &&
+          (!o.groups.length || Group.isSDK(o.groups[0]))))
+    );
   },
   isAmino(o: any): o is GenesisStateAmino {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && Array.isArray(o.gauges) && (!o.gauges.length || Gauge.isAmino(o.gauges[0])) && Array.isArray(o.lockable_durations) && (!o.lockable_durations.length || Duration.isAmino(o.lockable_durations[0])) && typeof o.last_gauge_id === "bigint" && Array.isArray(o.group_gauges) && (!o.group_gauges.length || Gauge.isAmino(o.group_gauges[0])) && Array.isArray(o.groups) && (!o.groups.length || Group.isAmino(o.groups[0])));
+    return (
+      o &&
+      (o.$typeUrl === GenesisState.typeUrl ||
+        (Params.isAmino(o.params) &&
+          Array.isArray(o.gauges) &&
+          (!o.gauges.length || Gauge.isAmino(o.gauges[0])) &&
+          Array.isArray(o.lockable_durations) &&
+          (!o.lockable_durations.length ||
+            Duration.isAmino(o.lockable_durations[0])) &&
+          typeof o.last_gauge_id === 'bigint' &&
+          Array.isArray(o.group_gauges) &&
+          (!o.group_gauges.length || Gauge.isAmino(o.group_gauges[0])) &&
+          Array.isArray(o.groups) &&
+          (!o.groups.length || Group.isAmino(o.groups[0]))))
+    );
   },
-  encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: GenesisState,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
     }
@@ -123,7 +172,8 @@ export const GenesisState = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): GenesisState {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseGenesisState();
     while (reader.pos < end) {
@@ -136,7 +186,9 @@ export const GenesisState = {
           message.gauges.push(Gauge.decode(reader, reader.uint32()));
           break;
         case 3:
-          message.lockableDurations.push(Duration.decode(reader, reader.uint32()));
+          message.lockableDurations.push(
+            Duration.decode(reader, reader.uint32()),
+          );
           break;
         case 4:
           message.lastGaugeId = reader.uint64();
@@ -156,11 +208,19 @@ export const GenesisState = {
   },
   fromPartial(object: Partial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
-    message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null
+        ? Params.fromPartial(object.params)
+        : undefined;
     message.gauges = object.gauges?.map(e => Gauge.fromPartial(e)) || [];
-    message.lockableDurations = object.lockableDurations?.map(e => Duration.fromPartial(e)) || [];
-    message.lastGaugeId = object.lastGaugeId !== undefined && object.lastGaugeId !== null ? BigInt(object.lastGaugeId.toString()) : BigInt(0);
-    message.groupGauges = object.groupGauges?.map(e => Gauge.fromPartial(e)) || [];
+    message.lockableDurations =
+      object.lockableDurations?.map(e => Duration.fromPartial(e)) || [];
+    message.lastGaugeId =
+      object.lastGaugeId !== undefined && object.lastGaugeId !== null
+        ? BigInt(object.lastGaugeId.toString())
+        : BigInt(0);
+    message.groupGauges =
+      object.groupGauges?.map(e => Gauge.fromPartial(e)) || [];
     message.groups = object.groups?.map(e => Group.fromPartial(e)) || [];
     return message;
   },
@@ -170,11 +230,13 @@ export const GenesisState = {
       message.params = Params.fromAmino(object.params);
     }
     message.gauges = object.gauges?.map(e => Gauge.fromAmino(e)) || [];
-    message.lockableDurations = object.lockable_durations?.map(e => Duration.fromAmino(e)) || [];
+    message.lockableDurations =
+      object.lockable_durations?.map(e => Duration.fromAmino(e)) || [];
     if (object.last_gauge_id !== undefined && object.last_gauge_id !== null) {
       message.lastGaugeId = BigInt(object.last_gauge_id);
     }
-    message.groupGauges = object.group_gauges?.map(e => Gauge.fromAmino(e)) || [];
+    message.groupGauges =
+      object.group_gauges?.map(e => Gauge.fromAmino(e)) || [];
     message.groups = object.groups?.map(e => Group.fromAmino(e)) || [];
     return message;
   },
@@ -182,23 +244,30 @@ export const GenesisState = {
     const obj: any = {};
     obj.params = message.params ? Params.toAmino(message.params) : undefined;
     if (message.gauges) {
-      obj.gauges = message.gauges.map(e => e ? Gauge.toAmino(e) : undefined);
+      obj.gauges = message.gauges.map(e => (e ? Gauge.toAmino(e) : undefined));
     } else {
       obj.gauges = message.gauges;
     }
     if (message.lockableDurations) {
-      obj.lockable_durations = message.lockableDurations.map(e => e ? Duration.toAmino(e) : undefined);
+      obj.lockable_durations = message.lockableDurations.map(e =>
+        e ? Duration.toAmino(e) : undefined,
+      );
     } else {
       obj.lockable_durations = message.lockableDurations;
     }
-    obj.last_gauge_id = message.lastGaugeId !== BigInt(0) ? message.lastGaugeId.toString() : undefined;
+    obj.last_gauge_id =
+      message.lastGaugeId !== BigInt(0)
+        ? message.lastGaugeId.toString()
+        : undefined;
     if (message.groupGauges) {
-      obj.group_gauges = message.groupGauges.map(e => e ? Gauge.toAmino(e) : undefined);
+      obj.group_gauges = message.groupGauges.map(e =>
+        e ? Gauge.toAmino(e) : undefined,
+      );
     } else {
       obj.group_gauges = message.groupGauges;
     }
     if (message.groups) {
-      obj.groups = message.groups.map(e => e ? Group.toAmino(e) : undefined);
+      obj.groups = message.groups.map(e => (e ? Group.toAmino(e) : undefined));
     } else {
       obj.groups = message.groups;
     }
@@ -209,8 +278,8 @@ export const GenesisState = {
   },
   toAminoMsg(message: GenesisState): GenesisStateAminoMsg {
     return {
-      type: "osmosis/incentives/genesis-state",
-      value: GenesisState.toAmino(message)
+      type: 'osmosis/incentives/genesis-state',
+      value: GenesisState.toAmino(message),
     };
   },
   fromProtoMsg(message: GenesisStateProtoMsg): GenesisState {
@@ -221,10 +290,13 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: "/osmosis.incentives.GenesisState",
-      value: GenesisState.encode(message).finish()
+      typeUrl: '/osmosis.incentives.GenesisState',
+      value: GenesisState.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
-GlobalDecoderRegistry.registerAminoProtoMapping(GenesisState.aminoType, GenesisState.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  GenesisState.aminoType,
+  GenesisState.typeUrl,
+);

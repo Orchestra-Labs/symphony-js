@@ -1,13 +1,20 @@
 //@ts-nocheck
-import { LCDClient } from "@cosmology/lcd";
-import { ParamsRequest, ParamsResponseSDKType, ArithmeticTwapRequest, ArithmeticTwapResponseSDKType, ArithmeticTwapToNowRequest, ArithmeticTwapToNowResponseSDKType, GeometricTwapRequest, GeometricTwapResponseSDKType, GeometricTwapToNowRequest, GeometricTwapToNowResponseSDKType } from "./query";
+import { LCDClient } from '@cosmology/lcd';
+import {
+  ParamsRequest,
+  ParamsResponseSDKType,
+  ArithmeticTwapRequest,
+  ArithmeticTwapResponseSDKType,
+  ArithmeticTwapToNowRequest,
+  ArithmeticTwapToNowResponseSDKType,
+  GeometricTwapRequest,
+  GeometricTwapResponseSDKType,
+  GeometricTwapToNowRequest,
+  GeometricTwapToNowResponseSDKType,
+} from './query';
 export class LCDQueryClient {
   req: LCDClient;
-  constructor({
-    requestClient
-  }: {
-    requestClient: LCDClient;
-  }) {
+  constructor({ requestClient }: { requestClient: LCDClient }) {
     this.req = requestClient;
     this.params = this.params.bind(this);
     this.arithmeticTwap = this.arithmeticTwap.bind(this);
@@ -21,89 +28,103 @@ export class LCDQueryClient {
     return await this.req.get<ParamsResponseSDKType>(endpoint);
   }
   /* ArithmeticTwap */
-  async arithmeticTwap(params: ArithmeticTwapRequest): Promise<ArithmeticTwapResponseSDKType> {
+  async arithmeticTwap(
+    params: ArithmeticTwapRequest,
+  ): Promise<ArithmeticTwapResponseSDKType> {
     const options: any = {
-      params: {}
+      params: {},
     };
-    if (typeof params?.poolId !== "undefined") {
+    if (typeof params?.poolId !== 'undefined') {
       options.params.pool_id = params.poolId;
     }
-    if (typeof params?.baseAsset !== "undefined") {
+    if (typeof params?.baseAsset !== 'undefined') {
       options.params.base_asset = params.baseAsset;
     }
-    if (typeof params?.quoteAsset !== "undefined") {
+    if (typeof params?.quoteAsset !== 'undefined') {
       options.params.quote_asset = params.quoteAsset;
     }
-    if (typeof params?.startTime !== "undefined") {
+    if (typeof params?.startTime !== 'undefined') {
       options.params.start_time = params.startTime;
     }
-    if (typeof params?.endTime !== "undefined") {
+    if (typeof params?.endTime !== 'undefined') {
       options.params.end_time = params.endTime;
     }
     const endpoint = `osmosis/twap/v1beta1/ArithmeticTwap`;
     return await this.req.get<ArithmeticTwapResponseSDKType>(endpoint, options);
   }
   /* ArithmeticTwapToNow */
-  async arithmeticTwapToNow(params: ArithmeticTwapToNowRequest): Promise<ArithmeticTwapToNowResponseSDKType> {
+  async arithmeticTwapToNow(
+    params: ArithmeticTwapToNowRequest,
+  ): Promise<ArithmeticTwapToNowResponseSDKType> {
     const options: any = {
-      params: {}
+      params: {},
     };
-    if (typeof params?.poolId !== "undefined") {
+    if (typeof params?.poolId !== 'undefined') {
       options.params.pool_id = params.poolId;
     }
-    if (typeof params?.baseAsset !== "undefined") {
+    if (typeof params?.baseAsset !== 'undefined') {
       options.params.base_asset = params.baseAsset;
     }
-    if (typeof params?.quoteAsset !== "undefined") {
+    if (typeof params?.quoteAsset !== 'undefined') {
       options.params.quote_asset = params.quoteAsset;
     }
-    if (typeof params?.startTime !== "undefined") {
+    if (typeof params?.startTime !== 'undefined') {
       options.params.start_time = params.startTime;
     }
     const endpoint = `osmosis/twap/v1beta1/ArithmeticTwapToNow`;
-    return await this.req.get<ArithmeticTwapToNowResponseSDKType>(endpoint, options);
+    return await this.req.get<ArithmeticTwapToNowResponseSDKType>(
+      endpoint,
+      options,
+    );
   }
   /* GeometricTwap */
-  async geometricTwap(params: GeometricTwapRequest): Promise<GeometricTwapResponseSDKType> {
+  async geometricTwap(
+    params: GeometricTwapRequest,
+  ): Promise<GeometricTwapResponseSDKType> {
     const options: any = {
-      params: {}
+      params: {},
     };
-    if (typeof params?.poolId !== "undefined") {
+    if (typeof params?.poolId !== 'undefined') {
       options.params.pool_id = params.poolId;
     }
-    if (typeof params?.baseAsset !== "undefined") {
+    if (typeof params?.baseAsset !== 'undefined') {
       options.params.base_asset = params.baseAsset;
     }
-    if (typeof params?.quoteAsset !== "undefined") {
+    if (typeof params?.quoteAsset !== 'undefined') {
       options.params.quote_asset = params.quoteAsset;
     }
-    if (typeof params?.startTime !== "undefined") {
+    if (typeof params?.startTime !== 'undefined') {
       options.params.start_time = params.startTime;
     }
-    if (typeof params?.endTime !== "undefined") {
+    if (typeof params?.endTime !== 'undefined') {
       options.params.end_time = params.endTime;
     }
     const endpoint = `osmosis/twap/v1beta1/GeometricTwap`;
     return await this.req.get<GeometricTwapResponseSDKType>(endpoint, options);
   }
   /* GeometricTwapToNow */
-  async geometricTwapToNow(params: GeometricTwapToNowRequest): Promise<GeometricTwapToNowResponseSDKType> {
+  async geometricTwapToNow(
+    params: GeometricTwapToNowRequest,
+  ): Promise<GeometricTwapToNowResponseSDKType> {
     const options: any = {
-      params: {}
+      params: {},
     };
-    if (typeof params?.poolId !== "undefined") {
+    if (typeof params?.poolId !== 'undefined') {
       options.params.pool_id = params.poolId;
     }
-    if (typeof params?.baseAsset !== "undefined") {
+    if (typeof params?.baseAsset !== 'undefined') {
       options.params.base_asset = params.baseAsset;
     }
-    if (typeof params?.quoteAsset !== "undefined") {
+    if (typeof params?.quoteAsset !== 'undefined') {
       options.params.quote_asset = params.quoteAsset;
     }
-    if (typeof params?.startTime !== "undefined") {
+    if (typeof params?.startTime !== 'undefined') {
       options.params.start_time = params.startTime;
     }
     const endpoint = `osmosis/twap/v1beta1/GeometricTwapToNow`;
-    return await this.req.get<GeometricTwapToNowResponseSDKType>(endpoint, options);
+    return await this.req.get<GeometricTwapToNowResponseSDKType>(
+      endpoint,
+      options,
+    );
   }
 }

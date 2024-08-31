@@ -1,17 +1,17 @@
 //@ts-nocheck
-import { Coin, CoinAmino, CoinSDKType } from "../../cosmos/base/v1beta1/coin";
-import { Timestamp } from "../../google/protobuf/timestamp";
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { GlobalDecoderRegistry } from "../../registry";
-import { Decimal } from "@cosmjs/math";
-import { toTimestamp, fromTimestamp } from "../../helpers";
+import { Coin, CoinAmino, CoinSDKType } from '../../cosmos/base/v1beta1/coin';
+import { Timestamp } from '../../google/protobuf/timestamp';
+import { BinaryReader, BinaryWriter } from '../../binary';
+import { GlobalDecoderRegistry } from '../../registry';
+import { Decimal } from '@cosmjs/math';
+import { toTimestamp, fromTimestamp } from '../../helpers';
 export interface MsgSuperfluidDelegate {
   sender: string;
   lockId: bigint;
   valAddr: string;
 }
 export interface MsgSuperfluidDelegateProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidDelegate";
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidDelegate';
   value: Uint8Array;
 }
 export interface MsgSuperfluidDelegateAmino {
@@ -20,7 +20,7 @@ export interface MsgSuperfluidDelegateAmino {
   val_addr?: string;
 }
 export interface MsgSuperfluidDelegateAminoMsg {
-  type: "osmosis/superfluid-delegate";
+  type: 'osmosis/superfluid-delegate';
   value: MsgSuperfluidDelegateAmino;
 }
 export interface MsgSuperfluidDelegateSDKType {
@@ -30,12 +30,12 @@ export interface MsgSuperfluidDelegateSDKType {
 }
 export interface MsgSuperfluidDelegateResponse {}
 export interface MsgSuperfluidDelegateResponseProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidDelegateResponse";
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidDelegateResponse';
   value: Uint8Array;
 }
 export interface MsgSuperfluidDelegateResponseAmino {}
 export interface MsgSuperfluidDelegateResponseAminoMsg {
-  type: "osmosis/superfluid-delegate-response";
+  type: 'osmosis/superfluid-delegate-response';
   value: MsgSuperfluidDelegateResponseAmino;
 }
 export interface MsgSuperfluidDelegateResponseSDKType {}
@@ -44,7 +44,7 @@ export interface MsgSuperfluidUndelegate {
   lockId: bigint;
 }
 export interface MsgSuperfluidUndelegateProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidUndelegate";
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidUndelegate';
   value: Uint8Array;
 }
 export interface MsgSuperfluidUndelegateAmino {
@@ -52,7 +52,7 @@ export interface MsgSuperfluidUndelegateAmino {
   lock_id?: string;
 }
 export interface MsgSuperfluidUndelegateAminoMsg {
-  type: "osmosis/superfluid-undelegate";
+  type: 'osmosis/superfluid-undelegate';
   value: MsgSuperfluidUndelegateAmino;
 }
 export interface MsgSuperfluidUndelegateSDKType {
@@ -61,12 +61,12 @@ export interface MsgSuperfluidUndelegateSDKType {
 }
 export interface MsgSuperfluidUndelegateResponse {}
 export interface MsgSuperfluidUndelegateResponseProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidUndelegateResponse";
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidUndelegateResponse';
   value: Uint8Array;
 }
 export interface MsgSuperfluidUndelegateResponseAmino {}
 export interface MsgSuperfluidUndelegateResponseAminoMsg {
-  type: "osmosis/superfluid-undelegate-response";
+  type: 'osmosis/superfluid-undelegate-response';
   value: MsgSuperfluidUndelegateResponseAmino;
 }
 export interface MsgSuperfluidUndelegateResponseSDKType {}
@@ -75,7 +75,7 @@ export interface MsgSuperfluidUnbondLock {
   lockId: bigint;
 }
 export interface MsgSuperfluidUnbondLockProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidUnbondLock";
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidUnbondLock';
   value: Uint8Array;
 }
 export interface MsgSuperfluidUnbondLockAmino {
@@ -83,7 +83,7 @@ export interface MsgSuperfluidUnbondLockAmino {
   lock_id?: string;
 }
 export interface MsgSuperfluidUnbondLockAminoMsg {
-  type: "osmosis/superfluid-unbond-lock";
+  type: 'osmosis/superfluid-unbond-lock';
   value: MsgSuperfluidUnbondLockAmino;
 }
 export interface MsgSuperfluidUnbondLockSDKType {
@@ -92,12 +92,12 @@ export interface MsgSuperfluidUnbondLockSDKType {
 }
 export interface MsgSuperfluidUnbondLockResponse {}
 export interface MsgSuperfluidUnbondLockResponseProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidUnbondLockResponse";
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidUnbondLockResponse';
   value: Uint8Array;
 }
 export interface MsgSuperfluidUnbondLockResponseAmino {}
 export interface MsgSuperfluidUnbondLockResponseAminoMsg {
-  type: "osmosis/superfluid-unbond-lock-response";
+  type: 'osmosis/superfluid-unbond-lock-response';
   value: MsgSuperfluidUnbondLockResponseAmino;
 }
 export interface MsgSuperfluidUnbondLockResponseSDKType {}
@@ -108,7 +108,7 @@ export interface MsgSuperfluidUndelegateAndUnbondLock {
   coin: Coin;
 }
 export interface MsgSuperfluidUndelegateAndUnbondLockProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidUndelegateAndUnbondLock";
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidUndelegateAndUnbondLock';
   value: Uint8Array;
 }
 export interface MsgSuperfluidUndelegateAndUnbondLockAmino {
@@ -118,7 +118,7 @@ export interface MsgSuperfluidUndelegateAndUnbondLockAmino {
   coin?: CoinAmino;
 }
 export interface MsgSuperfluidUndelegateAndUnbondLockAminoMsg {
-  type: "osmosis/superfluid-undelegate-and-unbond-lock";
+  type: 'osmosis/superfluid-undelegate-and-unbond-lock';
   value: MsgSuperfluidUndelegateAndUnbondLockAmino;
 }
 export interface MsgSuperfluidUndelegateAndUnbondLockSDKType {
@@ -135,7 +135,7 @@ export interface MsgSuperfluidUndelegateAndUnbondLockResponse {
   lockId: bigint;
 }
 export interface MsgSuperfluidUndelegateAndUnbondLockResponseProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidUndelegateAndUnbondLockResponse";
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidUndelegateAndUnbondLockResponse';
   value: Uint8Array;
 }
 export interface MsgSuperfluidUndelegateAndUnbondLockResponseAmino {
@@ -147,7 +147,7 @@ export interface MsgSuperfluidUndelegateAndUnbondLockResponseAmino {
   lock_id?: string;
 }
 export interface MsgSuperfluidUndelegateAndUnbondLockResponseAminoMsg {
-  type: "osmosis/superfluid-undelegate-and-unbond-lock-response";
+  type: 'osmosis/superfluid-undelegate-and-unbond-lock-response';
   value: MsgSuperfluidUndelegateAndUnbondLockResponseAmino;
 }
 export interface MsgSuperfluidUndelegateAndUnbondLockResponseSDKType {
@@ -164,7 +164,7 @@ export interface MsgLockAndSuperfluidDelegate {
   valAddr: string;
 }
 export interface MsgLockAndSuperfluidDelegateProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgLockAndSuperfluidDelegate";
+  typeUrl: '/osmosis.superfluid.MsgLockAndSuperfluidDelegate';
   value: Uint8Array;
 }
 /**
@@ -178,7 +178,7 @@ export interface MsgLockAndSuperfluidDelegateAmino {
   val_addr?: string;
 }
 export interface MsgLockAndSuperfluidDelegateAminoMsg {
-  type: "osmosis/lock-and-superfluid-delegate";
+  type: 'osmosis/lock-and-superfluid-delegate';
   value: MsgLockAndSuperfluidDelegateAmino;
 }
 /**
@@ -195,14 +195,14 @@ export interface MsgLockAndSuperfluidDelegateResponse {
   iD: bigint;
 }
 export interface MsgLockAndSuperfluidDelegateResponseProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgLockAndSuperfluidDelegateResponse";
+  typeUrl: '/osmosis.superfluid.MsgLockAndSuperfluidDelegateResponse';
   value: Uint8Array;
 }
 export interface MsgLockAndSuperfluidDelegateResponseAmino {
   ID?: string;
 }
 export interface MsgLockAndSuperfluidDelegateResponseAminoMsg {
-  type: "osmosis/lock-and-superfluid-delegate-response";
+  type: 'osmosis/lock-and-superfluid-delegate-response';
   value: MsgLockAndSuperfluidDelegateResponseAmino;
 }
 export interface MsgLockAndSuperfluidDelegateResponseSDKType {
@@ -219,7 +219,7 @@ export interface MsgCreateFullRangePositionAndSuperfluidDelegate {
   poolId: bigint;
 }
 export interface MsgCreateFullRangePositionAndSuperfluidDelegateProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgCreateFullRangePositionAndSuperfluidDelegate";
+  typeUrl: '/osmosis.superfluid.MsgCreateFullRangePositionAndSuperfluidDelegate';
   value: Uint8Array;
 }
 /**
@@ -233,7 +233,7 @@ export interface MsgCreateFullRangePositionAndSuperfluidDelegateAmino {
   pool_id?: string;
 }
 export interface MsgCreateFullRangePositionAndSuperfluidDelegateAminoMsg {
-  type: "osmosis/full-range-and-sf-delegate";
+  type: 'osmosis/full-range-and-sf-delegate';
   value: MsgCreateFullRangePositionAndSuperfluidDelegateAmino;
 }
 /**
@@ -251,7 +251,7 @@ export interface MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
   positionID: bigint;
 }
 export interface MsgCreateFullRangePositionAndSuperfluidDelegateResponseProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgCreateFullRangePositionAndSuperfluidDelegateResponse";
+  typeUrl: '/osmosis.superfluid.MsgCreateFullRangePositionAndSuperfluidDelegateResponse';
   value: Uint8Array;
 }
 export interface MsgCreateFullRangePositionAndSuperfluidDelegateResponseAmino {
@@ -259,7 +259,7 @@ export interface MsgCreateFullRangePositionAndSuperfluidDelegateResponseAmino {
   positionID?: string;
 }
 export interface MsgCreateFullRangePositionAndSuperfluidDelegateResponseAminoMsg {
-  type: "osmosis/create-full-range-position-and-superfluid-delegate-response";
+  type: 'osmosis/create-full-range-position-and-superfluid-delegate-response';
   value: MsgCreateFullRangePositionAndSuperfluidDelegateResponseAmino;
 }
 export interface MsgCreateFullRangePositionAndSuperfluidDelegateResponseSDKType {
@@ -281,7 +281,7 @@ export interface MsgUnPoolWhitelistedPool {
   poolId: bigint;
 }
 export interface MsgUnPoolWhitelistedPoolProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgUnPoolWhitelistedPool";
+  typeUrl: '/osmosis.superfluid.MsgUnPoolWhitelistedPool';
   value: Uint8Array;
 }
 /**
@@ -299,7 +299,7 @@ export interface MsgUnPoolWhitelistedPoolAmino {
   pool_id?: string;
 }
 export interface MsgUnPoolWhitelistedPoolAminoMsg {
-  type: "osmosis/unpool-whitelisted-pool";
+  type: 'osmosis/unpool-whitelisted-pool';
   value: MsgUnPoolWhitelistedPoolAmino;
 }
 /**
@@ -320,14 +320,14 @@ export interface MsgUnPoolWhitelistedPoolResponse {
   exitedLockIds: bigint[];
 }
 export interface MsgUnPoolWhitelistedPoolResponseProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgUnPoolWhitelistedPoolResponse";
+  typeUrl: '/osmosis.superfluid.MsgUnPoolWhitelistedPoolResponse';
   value: Uint8Array;
 }
 export interface MsgUnPoolWhitelistedPoolResponseAmino {
   exited_lock_ids?: string[];
 }
 export interface MsgUnPoolWhitelistedPoolResponseAminoMsg {
-  type: "osmosis/un-pool-whitelisted-pool-response";
+  type: 'osmosis/un-pool-whitelisted-pool-response';
   value: MsgUnPoolWhitelistedPoolResponseAmino;
 }
 export interface MsgUnPoolWhitelistedPoolResponseSDKType {
@@ -345,7 +345,7 @@ export interface MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
   tokenOutMins: Coin[];
 }
 export interface MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition";
+  typeUrl: '/osmosis.superfluid.MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition';
   value: Uint8Array;
 }
 /**
@@ -360,7 +360,7 @@ export interface MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAmino {
   token_out_mins?: CoinAmino[];
 }
 export interface MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAminoMsg {
-  type: "osmosis/unlock-and-migrate";
+  type: 'osmosis/unlock-and-migrate';
   value: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAmino;
 }
 /**
@@ -380,7 +380,7 @@ export interface MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionRespons
   joinTime: Date;
 }
 export interface MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse";
+  typeUrl: '/osmosis.superfluid.MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse';
   value: Uint8Array;
 }
 export interface MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAmino {
@@ -390,7 +390,7 @@ export interface MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionRespons
   join_time?: string;
 }
 export interface MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAminoMsg {
-  type: "osmosis/unlock-and-migrate-shares-to-full-range-concentrated-position-response";
+  type: 'osmosis/unlock-and-migrate-shares-to-full-range-concentrated-position-response';
   value: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAmino;
 }
 export interface MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseSDKType {
@@ -407,7 +407,7 @@ export interface MsgAddToConcentratedLiquiditySuperfluidPosition {
   tokenDesired1: Coin;
 }
 export interface MsgAddToConcentratedLiquiditySuperfluidPositionProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgAddToConcentratedLiquiditySuperfluidPosition";
+  typeUrl: '/osmosis.superfluid.MsgAddToConcentratedLiquiditySuperfluidPosition';
   value: Uint8Array;
 }
 /** ===================== MsgAddToConcentratedLiquiditySuperfluidPosition */
@@ -418,7 +418,7 @@ export interface MsgAddToConcentratedLiquiditySuperfluidPositionAmino {
   token_desired1?: CoinAmino;
 }
 export interface MsgAddToConcentratedLiquiditySuperfluidPositionAminoMsg {
-  type: "osmosis/add-to-cl-superfluid-position";
+  type: 'osmosis/add-to-cl-superfluid-position';
   value: MsgAddToConcentratedLiquiditySuperfluidPositionAmino;
 }
 /** ===================== MsgAddToConcentratedLiquiditySuperfluidPosition */
@@ -441,7 +441,7 @@ export interface MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
   lockId: bigint;
 }
 export interface MsgAddToConcentratedLiquiditySuperfluidPositionResponseProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgAddToConcentratedLiquiditySuperfluidPositionResponse";
+  typeUrl: '/osmosis.superfluid.MsgAddToConcentratedLiquiditySuperfluidPositionResponse';
   value: Uint8Array;
 }
 export interface MsgAddToConcentratedLiquiditySuperfluidPositionResponseAmino {
@@ -457,7 +457,7 @@ export interface MsgAddToConcentratedLiquiditySuperfluidPositionResponseAmino {
   lock_id?: string;
 }
 export interface MsgAddToConcentratedLiquiditySuperfluidPositionResponseAminoMsg {
-  type: "osmosis/add-to-concentrated-liquidity-superfluid-position-response";
+  type: 'osmosis/add-to-concentrated-liquidity-superfluid-position-response';
   value: MsgAddToConcentratedLiquiditySuperfluidPositionResponseAmino;
 }
 export interface MsgAddToConcentratedLiquiditySuperfluidPositionResponseSDKType {
@@ -491,7 +491,7 @@ export interface MsgUnbondConvertAndStake {
   sharesToConvert: Coin;
 }
 export interface MsgUnbondConvertAndStakeProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgUnbondConvertAndStake";
+  typeUrl: '/osmosis.superfluid.MsgUnbondConvertAndStake';
   value: Uint8Array;
 }
 /** ===================== MsgUnbondConvertAndStake */
@@ -518,7 +518,7 @@ export interface MsgUnbondConvertAndStakeAmino {
   shares_to_convert?: CoinAmino;
 }
 export interface MsgUnbondConvertAndStakeAminoMsg {
-  type: "osmosis/unbond-convert-and-stake";
+  type: 'osmosis/unbond-convert-and-stake';
   value: MsgUnbondConvertAndStakeAmino;
 }
 /** ===================== MsgUnbondConvertAndStake */
@@ -533,14 +533,14 @@ export interface MsgUnbondConvertAndStakeResponse {
   totalAmtStaked: string;
 }
 export interface MsgUnbondConvertAndStakeResponseProtoMsg {
-  typeUrl: "/osmosis.superfluid.MsgUnbondConvertAndStakeResponse";
+  typeUrl: '/osmosis.superfluid.MsgUnbondConvertAndStakeResponse';
   value: Uint8Array;
 }
 export interface MsgUnbondConvertAndStakeResponseAmino {
   total_amt_staked?: string;
 }
 export interface MsgUnbondConvertAndStakeResponseAminoMsg {
-  type: "osmosis/unbond-convert-and-stake-response";
+  type: 'osmosis/unbond-convert-and-stake-response';
   value: MsgUnbondConvertAndStakeResponseAmino;
 }
 export interface MsgUnbondConvertAndStakeResponseSDKType {
@@ -548,37 +548,62 @@ export interface MsgUnbondConvertAndStakeResponseSDKType {
 }
 function createBaseMsgSuperfluidDelegate(): MsgSuperfluidDelegate {
   return {
-    sender: "",
+    sender: '',
     lockId: BigInt(0),
-    valAddr: ""
+    valAddr: '',
   };
 }
 export const MsgSuperfluidDelegate = {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidDelegate",
-  aminoType: "osmosis/superfluid-delegate",
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidDelegate',
+  aminoType: 'osmosis/superfluid-delegate',
   is(o: any): o is MsgSuperfluidDelegate {
-    return o && (o.$typeUrl === MsgSuperfluidDelegate.typeUrl || typeof o.sender === "string" && typeof o.lockId === "bigint" && typeof o.valAddr === "string");
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidDelegate.typeUrl ||
+        (typeof o.sender === 'string' &&
+          typeof o.lockId === 'bigint' &&
+          typeof o.valAddr === 'string'))
+    );
   },
   isSDK(o: any): o is MsgSuperfluidDelegateSDKType {
-    return o && (o.$typeUrl === MsgSuperfluidDelegate.typeUrl || typeof o.sender === "string" && typeof o.lock_id === "bigint" && typeof o.val_addr === "string");
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidDelegate.typeUrl ||
+        (typeof o.sender === 'string' &&
+          typeof o.lock_id === 'bigint' &&
+          typeof o.val_addr === 'string'))
+    );
   },
   isAmino(o: any): o is MsgSuperfluidDelegateAmino {
-    return o && (o.$typeUrl === MsgSuperfluidDelegate.typeUrl || typeof o.sender === "string" && typeof o.lock_id === "bigint" && typeof o.val_addr === "string");
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidDelegate.typeUrl ||
+        (typeof o.sender === 'string' &&
+          typeof o.lock_id === 'bigint' &&
+          typeof o.val_addr === 'string'))
+    );
   },
-  encode(message: MsgSuperfluidDelegate, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.sender !== "") {
+  encode(
+    message: MsgSuperfluidDelegate,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.sender !== '') {
       writer.uint32(10).string(message.sender);
     }
     if (message.lockId !== BigInt(0)) {
       writer.uint32(16).uint64(message.lockId);
     }
-    if (message.valAddr !== "") {
+    if (message.valAddr !== '') {
       writer.uint32(26).string(message.valAddr);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSuperfluidDelegate {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgSuperfluidDelegate {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSuperfluidDelegate();
     while (reader.pos < end) {
@@ -602,9 +627,12 @@ export const MsgSuperfluidDelegate = {
   },
   fromPartial(object: Partial<MsgSuperfluidDelegate>): MsgSuperfluidDelegate {
     const message = createBaseMsgSuperfluidDelegate();
-    message.sender = object.sender ?? "";
-    message.lockId = object.lockId !== undefined && object.lockId !== null ? BigInt(object.lockId.toString()) : BigInt(0);
-    message.valAddr = object.valAddr ?? "";
+    message.sender = object.sender ?? '';
+    message.lockId =
+      object.lockId !== undefined && object.lockId !== null
+        ? BigInt(object.lockId.toString())
+        : BigInt(0);
+    message.valAddr = object.valAddr ?? '';
     return message;
   },
   fromAmino(object: MsgSuperfluidDelegateAmino): MsgSuperfluidDelegate {
@@ -622,9 +650,10 @@ export const MsgSuperfluidDelegate = {
   },
   toAmino(message: MsgSuperfluidDelegate): MsgSuperfluidDelegateAmino {
     const obj: any = {};
-    obj.sender = message.sender === "" ? undefined : message.sender;
-    obj.lock_id = message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
-    obj.val_addr = message.valAddr === "" ? undefined : message.valAddr;
+    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.lock_id =
+      message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
+    obj.val_addr = message.valAddr === '' ? undefined : message.valAddr;
     return obj;
   },
   fromAminoMsg(object: MsgSuperfluidDelegateAminoMsg): MsgSuperfluidDelegate {
@@ -632,8 +661,8 @@ export const MsgSuperfluidDelegate = {
   },
   toAminoMsg(message: MsgSuperfluidDelegate): MsgSuperfluidDelegateAminoMsg {
     return {
-      type: "osmosis/superfluid-delegate",
-      value: MsgSuperfluidDelegate.toAmino(message)
+      type: 'osmosis/superfluid-delegate',
+      value: MsgSuperfluidDelegate.toAmino(message),
     };
   },
   fromProtoMsg(message: MsgSuperfluidDelegateProtoMsg): MsgSuperfluidDelegate {
@@ -644,19 +673,25 @@ export const MsgSuperfluidDelegate = {
   },
   toProtoMsg(message: MsgSuperfluidDelegate): MsgSuperfluidDelegateProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgSuperfluidDelegate",
-      value: MsgSuperfluidDelegate.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgSuperfluidDelegate',
+      value: MsgSuperfluidDelegate.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgSuperfluidDelegate.typeUrl, MsgSuperfluidDelegate);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgSuperfluidDelegate.aminoType, MsgSuperfluidDelegate.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgSuperfluidDelegate.typeUrl,
+  MsgSuperfluidDelegate,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgSuperfluidDelegate.aminoType,
+  MsgSuperfluidDelegate.typeUrl,
+);
 function createBaseMsgSuperfluidDelegateResponse(): MsgSuperfluidDelegateResponse {
   return {};
 }
 export const MsgSuperfluidDelegateResponse = {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidDelegateResponse",
-  aminoType: "osmosis/superfluid-delegate-response",
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidDelegateResponse',
+  aminoType: 'osmosis/superfluid-delegate-response',
   is(o: any): o is MsgSuperfluidDelegateResponse {
     return o && o.$typeUrl === MsgSuperfluidDelegateResponse.typeUrl;
   },
@@ -666,11 +701,18 @@ export const MsgSuperfluidDelegateResponse = {
   isAmino(o: any): o is MsgSuperfluidDelegateResponseAmino {
     return o && o.$typeUrl === MsgSuperfluidDelegateResponse.typeUrl;
   },
-  encode(_: MsgSuperfluidDelegateResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    _: MsgSuperfluidDelegateResponse,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSuperfluidDelegateResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgSuperfluidDelegateResponse {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSuperfluidDelegateResponse();
     while (reader.pos < end) {
@@ -683,62 +725,97 @@ export const MsgSuperfluidDelegateResponse = {
     }
     return message;
   },
-  fromPartial(_: Partial<MsgSuperfluidDelegateResponse>): MsgSuperfluidDelegateResponse {
+  fromPartial(
+    _: Partial<MsgSuperfluidDelegateResponse>,
+  ): MsgSuperfluidDelegateResponse {
     const message = createBaseMsgSuperfluidDelegateResponse();
     return message;
   },
-  fromAmino(_: MsgSuperfluidDelegateResponseAmino): MsgSuperfluidDelegateResponse {
+  fromAmino(
+    _: MsgSuperfluidDelegateResponseAmino,
+  ): MsgSuperfluidDelegateResponse {
     const message = createBaseMsgSuperfluidDelegateResponse();
     return message;
   },
-  toAmino(_: MsgSuperfluidDelegateResponse): MsgSuperfluidDelegateResponseAmino {
+  toAmino(
+    _: MsgSuperfluidDelegateResponse,
+  ): MsgSuperfluidDelegateResponseAmino {
     const obj: any = {};
     return obj;
   },
-  fromAminoMsg(object: MsgSuperfluidDelegateResponseAminoMsg): MsgSuperfluidDelegateResponse {
+  fromAminoMsg(
+    object: MsgSuperfluidDelegateResponseAminoMsg,
+  ): MsgSuperfluidDelegateResponse {
     return MsgSuperfluidDelegateResponse.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgSuperfluidDelegateResponse): MsgSuperfluidDelegateResponseAminoMsg {
+  toAminoMsg(
+    message: MsgSuperfluidDelegateResponse,
+  ): MsgSuperfluidDelegateResponseAminoMsg {
     return {
-      type: "osmosis/superfluid-delegate-response",
-      value: MsgSuperfluidDelegateResponse.toAmino(message)
+      type: 'osmosis/superfluid-delegate-response',
+      value: MsgSuperfluidDelegateResponse.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgSuperfluidDelegateResponseProtoMsg): MsgSuperfluidDelegateResponse {
+  fromProtoMsg(
+    message: MsgSuperfluidDelegateResponseProtoMsg,
+  ): MsgSuperfluidDelegateResponse {
     return MsgSuperfluidDelegateResponse.decode(message.value);
   },
   toProto(message: MsgSuperfluidDelegateResponse): Uint8Array {
     return MsgSuperfluidDelegateResponse.encode(message).finish();
   },
-  toProtoMsg(message: MsgSuperfluidDelegateResponse): MsgSuperfluidDelegateResponseProtoMsg {
+  toProtoMsg(
+    message: MsgSuperfluidDelegateResponse,
+  ): MsgSuperfluidDelegateResponseProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgSuperfluidDelegateResponse",
-      value: MsgSuperfluidDelegateResponse.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgSuperfluidDelegateResponse',
+      value: MsgSuperfluidDelegateResponse.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgSuperfluidDelegateResponse.typeUrl, MsgSuperfluidDelegateResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgSuperfluidDelegateResponse.aminoType, MsgSuperfluidDelegateResponse.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgSuperfluidDelegateResponse.typeUrl,
+  MsgSuperfluidDelegateResponse,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgSuperfluidDelegateResponse.aminoType,
+  MsgSuperfluidDelegateResponse.typeUrl,
+);
 function createBaseMsgSuperfluidUndelegate(): MsgSuperfluidUndelegate {
   return {
-    sender: "",
-    lockId: BigInt(0)
+    sender: '',
+    lockId: BigInt(0),
   };
 }
 export const MsgSuperfluidUndelegate = {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidUndelegate",
-  aminoType: "osmosis/superfluid-undelegate",
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidUndelegate',
+  aminoType: 'osmosis/superfluid-undelegate',
   is(o: any): o is MsgSuperfluidUndelegate {
-    return o && (o.$typeUrl === MsgSuperfluidUndelegate.typeUrl || typeof o.sender === "string" && typeof o.lockId === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidUndelegate.typeUrl ||
+        (typeof o.sender === 'string' && typeof o.lockId === 'bigint'))
+    );
   },
   isSDK(o: any): o is MsgSuperfluidUndelegateSDKType {
-    return o && (o.$typeUrl === MsgSuperfluidUndelegate.typeUrl || typeof o.sender === "string" && typeof o.lock_id === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidUndelegate.typeUrl ||
+        (typeof o.sender === 'string' && typeof o.lock_id === 'bigint'))
+    );
   },
   isAmino(o: any): o is MsgSuperfluidUndelegateAmino {
-    return o && (o.$typeUrl === MsgSuperfluidUndelegate.typeUrl || typeof o.sender === "string" && typeof o.lock_id === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidUndelegate.typeUrl ||
+        (typeof o.sender === 'string' && typeof o.lock_id === 'bigint'))
+    );
   },
-  encode(message: MsgSuperfluidUndelegate, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.sender !== "") {
+  encode(
+    message: MsgSuperfluidUndelegate,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.sender !== '') {
       writer.uint32(10).string(message.sender);
     }
     if (message.lockId !== BigInt(0)) {
@@ -746,8 +823,12 @@ export const MsgSuperfluidUndelegate = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSuperfluidUndelegate {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgSuperfluidUndelegate {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSuperfluidUndelegate();
     while (reader.pos < end) {
@@ -766,10 +847,15 @@ export const MsgSuperfluidUndelegate = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgSuperfluidUndelegate>): MsgSuperfluidUndelegate {
+  fromPartial(
+    object: Partial<MsgSuperfluidUndelegate>,
+  ): MsgSuperfluidUndelegate {
     const message = createBaseMsgSuperfluidUndelegate();
-    message.sender = object.sender ?? "";
-    message.lockId = object.lockId !== undefined && object.lockId !== null ? BigInt(object.lockId.toString()) : BigInt(0);
+    message.sender = object.sender ?? '';
+    message.lockId =
+      object.lockId !== undefined && object.lockId !== null
+        ? BigInt(object.lockId.toString())
+        : BigInt(0);
     return message;
   },
   fromAmino(object: MsgSuperfluidUndelegateAmino): MsgSuperfluidUndelegate {
@@ -784,40 +870,55 @@ export const MsgSuperfluidUndelegate = {
   },
   toAmino(message: MsgSuperfluidUndelegate): MsgSuperfluidUndelegateAmino {
     const obj: any = {};
-    obj.sender = message.sender === "" ? undefined : message.sender;
-    obj.lock_id = message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
+    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.lock_id =
+      message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
     return obj;
   },
-  fromAminoMsg(object: MsgSuperfluidUndelegateAminoMsg): MsgSuperfluidUndelegate {
+  fromAminoMsg(
+    object: MsgSuperfluidUndelegateAminoMsg,
+  ): MsgSuperfluidUndelegate {
     return MsgSuperfluidUndelegate.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgSuperfluidUndelegate): MsgSuperfluidUndelegateAminoMsg {
+  toAminoMsg(
+    message: MsgSuperfluidUndelegate,
+  ): MsgSuperfluidUndelegateAminoMsg {
     return {
-      type: "osmosis/superfluid-undelegate",
-      value: MsgSuperfluidUndelegate.toAmino(message)
+      type: 'osmosis/superfluid-undelegate',
+      value: MsgSuperfluidUndelegate.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgSuperfluidUndelegateProtoMsg): MsgSuperfluidUndelegate {
+  fromProtoMsg(
+    message: MsgSuperfluidUndelegateProtoMsg,
+  ): MsgSuperfluidUndelegate {
     return MsgSuperfluidUndelegate.decode(message.value);
   },
   toProto(message: MsgSuperfluidUndelegate): Uint8Array {
     return MsgSuperfluidUndelegate.encode(message).finish();
   },
-  toProtoMsg(message: MsgSuperfluidUndelegate): MsgSuperfluidUndelegateProtoMsg {
+  toProtoMsg(
+    message: MsgSuperfluidUndelegate,
+  ): MsgSuperfluidUndelegateProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgSuperfluidUndelegate",
-      value: MsgSuperfluidUndelegate.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgSuperfluidUndelegate',
+      value: MsgSuperfluidUndelegate.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgSuperfluidUndelegate.typeUrl, MsgSuperfluidUndelegate);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgSuperfluidUndelegate.aminoType, MsgSuperfluidUndelegate.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgSuperfluidUndelegate.typeUrl,
+  MsgSuperfluidUndelegate,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgSuperfluidUndelegate.aminoType,
+  MsgSuperfluidUndelegate.typeUrl,
+);
 function createBaseMsgSuperfluidUndelegateResponse(): MsgSuperfluidUndelegateResponse {
   return {};
 }
 export const MsgSuperfluidUndelegateResponse = {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidUndelegateResponse",
-  aminoType: "osmosis/superfluid-undelegate-response",
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidUndelegateResponse',
+  aminoType: 'osmosis/superfluid-undelegate-response',
   is(o: any): o is MsgSuperfluidUndelegateResponse {
     return o && o.$typeUrl === MsgSuperfluidUndelegateResponse.typeUrl;
   },
@@ -827,11 +928,18 @@ export const MsgSuperfluidUndelegateResponse = {
   isAmino(o: any): o is MsgSuperfluidUndelegateResponseAmino {
     return o && o.$typeUrl === MsgSuperfluidUndelegateResponse.typeUrl;
   },
-  encode(_: MsgSuperfluidUndelegateResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    _: MsgSuperfluidUndelegateResponse,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSuperfluidUndelegateResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgSuperfluidUndelegateResponse {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSuperfluidUndelegateResponse();
     while (reader.pos < end) {
@@ -844,62 +952,97 @@ export const MsgSuperfluidUndelegateResponse = {
     }
     return message;
   },
-  fromPartial(_: Partial<MsgSuperfluidUndelegateResponse>): MsgSuperfluidUndelegateResponse {
+  fromPartial(
+    _: Partial<MsgSuperfluidUndelegateResponse>,
+  ): MsgSuperfluidUndelegateResponse {
     const message = createBaseMsgSuperfluidUndelegateResponse();
     return message;
   },
-  fromAmino(_: MsgSuperfluidUndelegateResponseAmino): MsgSuperfluidUndelegateResponse {
+  fromAmino(
+    _: MsgSuperfluidUndelegateResponseAmino,
+  ): MsgSuperfluidUndelegateResponse {
     const message = createBaseMsgSuperfluidUndelegateResponse();
     return message;
   },
-  toAmino(_: MsgSuperfluidUndelegateResponse): MsgSuperfluidUndelegateResponseAmino {
+  toAmino(
+    _: MsgSuperfluidUndelegateResponse,
+  ): MsgSuperfluidUndelegateResponseAmino {
     const obj: any = {};
     return obj;
   },
-  fromAminoMsg(object: MsgSuperfluidUndelegateResponseAminoMsg): MsgSuperfluidUndelegateResponse {
+  fromAminoMsg(
+    object: MsgSuperfluidUndelegateResponseAminoMsg,
+  ): MsgSuperfluidUndelegateResponse {
     return MsgSuperfluidUndelegateResponse.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgSuperfluidUndelegateResponse): MsgSuperfluidUndelegateResponseAminoMsg {
+  toAminoMsg(
+    message: MsgSuperfluidUndelegateResponse,
+  ): MsgSuperfluidUndelegateResponseAminoMsg {
     return {
-      type: "osmosis/superfluid-undelegate-response",
-      value: MsgSuperfluidUndelegateResponse.toAmino(message)
+      type: 'osmosis/superfluid-undelegate-response',
+      value: MsgSuperfluidUndelegateResponse.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgSuperfluidUndelegateResponseProtoMsg): MsgSuperfluidUndelegateResponse {
+  fromProtoMsg(
+    message: MsgSuperfluidUndelegateResponseProtoMsg,
+  ): MsgSuperfluidUndelegateResponse {
     return MsgSuperfluidUndelegateResponse.decode(message.value);
   },
   toProto(message: MsgSuperfluidUndelegateResponse): Uint8Array {
     return MsgSuperfluidUndelegateResponse.encode(message).finish();
   },
-  toProtoMsg(message: MsgSuperfluidUndelegateResponse): MsgSuperfluidUndelegateResponseProtoMsg {
+  toProtoMsg(
+    message: MsgSuperfluidUndelegateResponse,
+  ): MsgSuperfluidUndelegateResponseProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgSuperfluidUndelegateResponse",
-      value: MsgSuperfluidUndelegateResponse.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgSuperfluidUndelegateResponse',
+      value: MsgSuperfluidUndelegateResponse.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgSuperfluidUndelegateResponse.typeUrl, MsgSuperfluidUndelegateResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgSuperfluidUndelegateResponse.aminoType, MsgSuperfluidUndelegateResponse.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgSuperfluidUndelegateResponse.typeUrl,
+  MsgSuperfluidUndelegateResponse,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgSuperfluidUndelegateResponse.aminoType,
+  MsgSuperfluidUndelegateResponse.typeUrl,
+);
 function createBaseMsgSuperfluidUnbondLock(): MsgSuperfluidUnbondLock {
   return {
-    sender: "",
-    lockId: BigInt(0)
+    sender: '',
+    lockId: BigInt(0),
   };
 }
 export const MsgSuperfluidUnbondLock = {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidUnbondLock",
-  aminoType: "osmosis/superfluid-unbond-lock",
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidUnbondLock',
+  aminoType: 'osmosis/superfluid-unbond-lock',
   is(o: any): o is MsgSuperfluidUnbondLock {
-    return o && (o.$typeUrl === MsgSuperfluidUnbondLock.typeUrl || typeof o.sender === "string" && typeof o.lockId === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidUnbondLock.typeUrl ||
+        (typeof o.sender === 'string' && typeof o.lockId === 'bigint'))
+    );
   },
   isSDK(o: any): o is MsgSuperfluidUnbondLockSDKType {
-    return o && (o.$typeUrl === MsgSuperfluidUnbondLock.typeUrl || typeof o.sender === "string" && typeof o.lock_id === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidUnbondLock.typeUrl ||
+        (typeof o.sender === 'string' && typeof o.lock_id === 'bigint'))
+    );
   },
   isAmino(o: any): o is MsgSuperfluidUnbondLockAmino {
-    return o && (o.$typeUrl === MsgSuperfluidUnbondLock.typeUrl || typeof o.sender === "string" && typeof o.lock_id === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidUnbondLock.typeUrl ||
+        (typeof o.sender === 'string' && typeof o.lock_id === 'bigint'))
+    );
   },
-  encode(message: MsgSuperfluidUnbondLock, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.sender !== "") {
+  encode(
+    message: MsgSuperfluidUnbondLock,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.sender !== '') {
       writer.uint32(10).string(message.sender);
     }
     if (message.lockId !== BigInt(0)) {
@@ -907,8 +1050,12 @@ export const MsgSuperfluidUnbondLock = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSuperfluidUnbondLock {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgSuperfluidUnbondLock {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSuperfluidUnbondLock();
     while (reader.pos < end) {
@@ -927,10 +1074,15 @@ export const MsgSuperfluidUnbondLock = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgSuperfluidUnbondLock>): MsgSuperfluidUnbondLock {
+  fromPartial(
+    object: Partial<MsgSuperfluidUnbondLock>,
+  ): MsgSuperfluidUnbondLock {
     const message = createBaseMsgSuperfluidUnbondLock();
-    message.sender = object.sender ?? "";
-    message.lockId = object.lockId !== undefined && object.lockId !== null ? BigInt(object.lockId.toString()) : BigInt(0);
+    message.sender = object.sender ?? '';
+    message.lockId =
+      object.lockId !== undefined && object.lockId !== null
+        ? BigInt(object.lockId.toString())
+        : BigInt(0);
     return message;
   },
   fromAmino(object: MsgSuperfluidUnbondLockAmino): MsgSuperfluidUnbondLock {
@@ -945,40 +1097,55 @@ export const MsgSuperfluidUnbondLock = {
   },
   toAmino(message: MsgSuperfluidUnbondLock): MsgSuperfluidUnbondLockAmino {
     const obj: any = {};
-    obj.sender = message.sender === "" ? undefined : message.sender;
-    obj.lock_id = message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
+    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.lock_id =
+      message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
     return obj;
   },
-  fromAminoMsg(object: MsgSuperfluidUnbondLockAminoMsg): MsgSuperfluidUnbondLock {
+  fromAminoMsg(
+    object: MsgSuperfluidUnbondLockAminoMsg,
+  ): MsgSuperfluidUnbondLock {
     return MsgSuperfluidUnbondLock.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgSuperfluidUnbondLock): MsgSuperfluidUnbondLockAminoMsg {
+  toAminoMsg(
+    message: MsgSuperfluidUnbondLock,
+  ): MsgSuperfluidUnbondLockAminoMsg {
     return {
-      type: "osmosis/superfluid-unbond-lock",
-      value: MsgSuperfluidUnbondLock.toAmino(message)
+      type: 'osmosis/superfluid-unbond-lock',
+      value: MsgSuperfluidUnbondLock.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgSuperfluidUnbondLockProtoMsg): MsgSuperfluidUnbondLock {
+  fromProtoMsg(
+    message: MsgSuperfluidUnbondLockProtoMsg,
+  ): MsgSuperfluidUnbondLock {
     return MsgSuperfluidUnbondLock.decode(message.value);
   },
   toProto(message: MsgSuperfluidUnbondLock): Uint8Array {
     return MsgSuperfluidUnbondLock.encode(message).finish();
   },
-  toProtoMsg(message: MsgSuperfluidUnbondLock): MsgSuperfluidUnbondLockProtoMsg {
+  toProtoMsg(
+    message: MsgSuperfluidUnbondLock,
+  ): MsgSuperfluidUnbondLockProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgSuperfluidUnbondLock",
-      value: MsgSuperfluidUnbondLock.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgSuperfluidUnbondLock',
+      value: MsgSuperfluidUnbondLock.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgSuperfluidUnbondLock.typeUrl, MsgSuperfluidUnbondLock);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgSuperfluidUnbondLock.aminoType, MsgSuperfluidUnbondLock.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgSuperfluidUnbondLock.typeUrl,
+  MsgSuperfluidUnbondLock,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgSuperfluidUnbondLock.aminoType,
+  MsgSuperfluidUnbondLock.typeUrl,
+);
 function createBaseMsgSuperfluidUnbondLockResponse(): MsgSuperfluidUnbondLockResponse {
   return {};
 }
 export const MsgSuperfluidUnbondLockResponse = {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidUnbondLockResponse",
-  aminoType: "osmosis/superfluid-unbond-lock-response",
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidUnbondLockResponse',
+  aminoType: 'osmosis/superfluid-unbond-lock-response',
   is(o: any): o is MsgSuperfluidUnbondLockResponse {
     return o && o.$typeUrl === MsgSuperfluidUnbondLockResponse.typeUrl;
   },
@@ -988,11 +1155,18 @@ export const MsgSuperfluidUnbondLockResponse = {
   isAmino(o: any): o is MsgSuperfluidUnbondLockResponseAmino {
     return o && o.$typeUrl === MsgSuperfluidUnbondLockResponse.typeUrl;
   },
-  encode(_: MsgSuperfluidUnbondLockResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    _: MsgSuperfluidUnbondLockResponse,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSuperfluidUnbondLockResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgSuperfluidUnbondLockResponse {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSuperfluidUnbondLockResponse();
     while (reader.pos < end) {
@@ -1005,63 +1179,104 @@ export const MsgSuperfluidUnbondLockResponse = {
     }
     return message;
   },
-  fromPartial(_: Partial<MsgSuperfluidUnbondLockResponse>): MsgSuperfluidUnbondLockResponse {
+  fromPartial(
+    _: Partial<MsgSuperfluidUnbondLockResponse>,
+  ): MsgSuperfluidUnbondLockResponse {
     const message = createBaseMsgSuperfluidUnbondLockResponse();
     return message;
   },
-  fromAmino(_: MsgSuperfluidUnbondLockResponseAmino): MsgSuperfluidUnbondLockResponse {
+  fromAmino(
+    _: MsgSuperfluidUnbondLockResponseAmino,
+  ): MsgSuperfluidUnbondLockResponse {
     const message = createBaseMsgSuperfluidUnbondLockResponse();
     return message;
   },
-  toAmino(_: MsgSuperfluidUnbondLockResponse): MsgSuperfluidUnbondLockResponseAmino {
+  toAmino(
+    _: MsgSuperfluidUnbondLockResponse,
+  ): MsgSuperfluidUnbondLockResponseAmino {
     const obj: any = {};
     return obj;
   },
-  fromAminoMsg(object: MsgSuperfluidUnbondLockResponseAminoMsg): MsgSuperfluidUnbondLockResponse {
+  fromAminoMsg(
+    object: MsgSuperfluidUnbondLockResponseAminoMsg,
+  ): MsgSuperfluidUnbondLockResponse {
     return MsgSuperfluidUnbondLockResponse.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgSuperfluidUnbondLockResponse): MsgSuperfluidUnbondLockResponseAminoMsg {
+  toAminoMsg(
+    message: MsgSuperfluidUnbondLockResponse,
+  ): MsgSuperfluidUnbondLockResponseAminoMsg {
     return {
-      type: "osmosis/superfluid-unbond-lock-response",
-      value: MsgSuperfluidUnbondLockResponse.toAmino(message)
+      type: 'osmosis/superfluid-unbond-lock-response',
+      value: MsgSuperfluidUnbondLockResponse.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgSuperfluidUnbondLockResponseProtoMsg): MsgSuperfluidUnbondLockResponse {
+  fromProtoMsg(
+    message: MsgSuperfluidUnbondLockResponseProtoMsg,
+  ): MsgSuperfluidUnbondLockResponse {
     return MsgSuperfluidUnbondLockResponse.decode(message.value);
   },
   toProto(message: MsgSuperfluidUnbondLockResponse): Uint8Array {
     return MsgSuperfluidUnbondLockResponse.encode(message).finish();
   },
-  toProtoMsg(message: MsgSuperfluidUnbondLockResponse): MsgSuperfluidUnbondLockResponseProtoMsg {
+  toProtoMsg(
+    message: MsgSuperfluidUnbondLockResponse,
+  ): MsgSuperfluidUnbondLockResponseProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgSuperfluidUnbondLockResponse",
-      value: MsgSuperfluidUnbondLockResponse.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgSuperfluidUnbondLockResponse',
+      value: MsgSuperfluidUnbondLockResponse.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgSuperfluidUnbondLockResponse.typeUrl, MsgSuperfluidUnbondLockResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgSuperfluidUnbondLockResponse.aminoType, MsgSuperfluidUnbondLockResponse.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgSuperfluidUnbondLockResponse.typeUrl,
+  MsgSuperfluidUnbondLockResponse,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgSuperfluidUnbondLockResponse.aminoType,
+  MsgSuperfluidUnbondLockResponse.typeUrl,
+);
 function createBaseMsgSuperfluidUndelegateAndUnbondLock(): MsgSuperfluidUndelegateAndUnbondLock {
   return {
-    sender: "",
+    sender: '',
     lockId: BigInt(0),
-    coin: Coin.fromPartial({})
+    coin: Coin.fromPartial({}),
   };
 }
 export const MsgSuperfluidUndelegateAndUnbondLock = {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidUndelegateAndUnbondLock",
-  aminoType: "osmosis/superfluid-undelegate-and-unbond-lock",
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidUndelegateAndUnbondLock',
+  aminoType: 'osmosis/superfluid-undelegate-and-unbond-lock',
   is(o: any): o is MsgSuperfluidUndelegateAndUnbondLock {
-    return o && (o.$typeUrl === MsgSuperfluidUndelegateAndUnbondLock.typeUrl || typeof o.sender === "string" && typeof o.lockId === "bigint" && Coin.is(o.coin));
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidUndelegateAndUnbondLock.typeUrl ||
+        (typeof o.sender === 'string' &&
+          typeof o.lockId === 'bigint' &&
+          Coin.is(o.coin)))
+    );
   },
   isSDK(o: any): o is MsgSuperfluidUndelegateAndUnbondLockSDKType {
-    return o && (o.$typeUrl === MsgSuperfluidUndelegateAndUnbondLock.typeUrl || typeof o.sender === "string" && typeof o.lock_id === "bigint" && Coin.isSDK(o.coin));
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidUndelegateAndUnbondLock.typeUrl ||
+        (typeof o.sender === 'string' &&
+          typeof o.lock_id === 'bigint' &&
+          Coin.isSDK(o.coin)))
+    );
   },
   isAmino(o: any): o is MsgSuperfluidUndelegateAndUnbondLockAmino {
-    return o && (o.$typeUrl === MsgSuperfluidUndelegateAndUnbondLock.typeUrl || typeof o.sender === "string" && typeof o.lock_id === "bigint" && Coin.isAmino(o.coin));
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidUndelegateAndUnbondLock.typeUrl ||
+        (typeof o.sender === 'string' &&
+          typeof o.lock_id === 'bigint' &&
+          Coin.isAmino(o.coin)))
+    );
   },
-  encode(message: MsgSuperfluidUndelegateAndUnbondLock, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.sender !== "") {
+  encode(
+    message: MsgSuperfluidUndelegateAndUnbondLock,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.sender !== '') {
       writer.uint32(10).string(message.sender);
     }
     if (message.lockId !== BigInt(0)) {
@@ -1072,8 +1287,12 @@ export const MsgSuperfluidUndelegateAndUnbondLock = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSuperfluidUndelegateAndUnbondLock {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgSuperfluidUndelegateAndUnbondLock {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSuperfluidUndelegateAndUnbondLock();
     while (reader.pos < end) {
@@ -1095,14 +1314,24 @@ export const MsgSuperfluidUndelegateAndUnbondLock = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgSuperfluidUndelegateAndUnbondLock>): MsgSuperfluidUndelegateAndUnbondLock {
+  fromPartial(
+    object: Partial<MsgSuperfluidUndelegateAndUnbondLock>,
+  ): MsgSuperfluidUndelegateAndUnbondLock {
     const message = createBaseMsgSuperfluidUndelegateAndUnbondLock();
-    message.sender = object.sender ?? "";
-    message.lockId = object.lockId !== undefined && object.lockId !== null ? BigInt(object.lockId.toString()) : BigInt(0);
-    message.coin = object.coin !== undefined && object.coin !== null ? Coin.fromPartial(object.coin) : undefined;
+    message.sender = object.sender ?? '';
+    message.lockId =
+      object.lockId !== undefined && object.lockId !== null
+        ? BigInt(object.lockId.toString())
+        : BigInt(0);
+    message.coin =
+      object.coin !== undefined && object.coin !== null
+        ? Coin.fromPartial(object.coin)
+        : undefined;
     return message;
   },
-  fromAmino(object: MsgSuperfluidUndelegateAndUnbondLockAmino): MsgSuperfluidUndelegateAndUnbondLock {
+  fromAmino(
+    object: MsgSuperfluidUndelegateAndUnbondLockAmino,
+  ): MsgSuperfluidUndelegateAndUnbondLock {
     const message = createBaseMsgSuperfluidUndelegateAndUnbondLock();
     if (object.sender !== undefined && object.sender !== null) {
       message.sender = object.sender;
@@ -1115,62 +1344,98 @@ export const MsgSuperfluidUndelegateAndUnbondLock = {
     }
     return message;
   },
-  toAmino(message: MsgSuperfluidUndelegateAndUnbondLock): MsgSuperfluidUndelegateAndUnbondLockAmino {
+  toAmino(
+    message: MsgSuperfluidUndelegateAndUnbondLock,
+  ): MsgSuperfluidUndelegateAndUnbondLockAmino {
     const obj: any = {};
-    obj.sender = message.sender === "" ? undefined : message.sender;
-    obj.lock_id = message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
+    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.lock_id =
+      message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
     obj.coin = message.coin ? Coin.toAmino(message.coin) : undefined;
     return obj;
   },
-  fromAminoMsg(object: MsgSuperfluidUndelegateAndUnbondLockAminoMsg): MsgSuperfluidUndelegateAndUnbondLock {
+  fromAminoMsg(
+    object: MsgSuperfluidUndelegateAndUnbondLockAminoMsg,
+  ): MsgSuperfluidUndelegateAndUnbondLock {
     return MsgSuperfluidUndelegateAndUnbondLock.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgSuperfluidUndelegateAndUnbondLock): MsgSuperfluidUndelegateAndUnbondLockAminoMsg {
+  toAminoMsg(
+    message: MsgSuperfluidUndelegateAndUnbondLock,
+  ): MsgSuperfluidUndelegateAndUnbondLockAminoMsg {
     return {
-      type: "osmosis/superfluid-undelegate-and-unbond-lock",
-      value: MsgSuperfluidUndelegateAndUnbondLock.toAmino(message)
+      type: 'osmosis/superfluid-undelegate-and-unbond-lock',
+      value: MsgSuperfluidUndelegateAndUnbondLock.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgSuperfluidUndelegateAndUnbondLockProtoMsg): MsgSuperfluidUndelegateAndUnbondLock {
+  fromProtoMsg(
+    message: MsgSuperfluidUndelegateAndUnbondLockProtoMsg,
+  ): MsgSuperfluidUndelegateAndUnbondLock {
     return MsgSuperfluidUndelegateAndUnbondLock.decode(message.value);
   },
   toProto(message: MsgSuperfluidUndelegateAndUnbondLock): Uint8Array {
     return MsgSuperfluidUndelegateAndUnbondLock.encode(message).finish();
   },
-  toProtoMsg(message: MsgSuperfluidUndelegateAndUnbondLock): MsgSuperfluidUndelegateAndUnbondLockProtoMsg {
+  toProtoMsg(
+    message: MsgSuperfluidUndelegateAndUnbondLock,
+  ): MsgSuperfluidUndelegateAndUnbondLockProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgSuperfluidUndelegateAndUnbondLock",
-      value: MsgSuperfluidUndelegateAndUnbondLock.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgSuperfluidUndelegateAndUnbondLock',
+      value: MsgSuperfluidUndelegateAndUnbondLock.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgSuperfluidUndelegateAndUnbondLock.typeUrl, MsgSuperfluidUndelegateAndUnbondLock);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgSuperfluidUndelegateAndUnbondLock.aminoType, MsgSuperfluidUndelegateAndUnbondLock.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgSuperfluidUndelegateAndUnbondLock.typeUrl,
+  MsgSuperfluidUndelegateAndUnbondLock,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgSuperfluidUndelegateAndUnbondLock.aminoType,
+  MsgSuperfluidUndelegateAndUnbondLock.typeUrl,
+);
 function createBaseMsgSuperfluidUndelegateAndUnbondLockResponse(): MsgSuperfluidUndelegateAndUnbondLockResponse {
   return {
-    lockId: BigInt(0)
+    lockId: BigInt(0),
   };
 }
 export const MsgSuperfluidUndelegateAndUnbondLockResponse = {
-  typeUrl: "/osmosis.superfluid.MsgSuperfluidUndelegateAndUnbondLockResponse",
-  aminoType: "osmosis/superfluid-undelegate-and-unbond-lock-response",
+  typeUrl: '/osmosis.superfluid.MsgSuperfluidUndelegateAndUnbondLockResponse',
+  aminoType: 'osmosis/superfluid-undelegate-and-unbond-lock-response',
   is(o: any): o is MsgSuperfluidUndelegateAndUnbondLockResponse {
-    return o && (o.$typeUrl === MsgSuperfluidUndelegateAndUnbondLockResponse.typeUrl || typeof o.lockId === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidUndelegateAndUnbondLockResponse.typeUrl ||
+        typeof o.lockId === 'bigint')
+    );
   },
   isSDK(o: any): o is MsgSuperfluidUndelegateAndUnbondLockResponseSDKType {
-    return o && (o.$typeUrl === MsgSuperfluidUndelegateAndUnbondLockResponse.typeUrl || typeof o.lock_id === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidUndelegateAndUnbondLockResponse.typeUrl ||
+        typeof o.lock_id === 'bigint')
+    );
   },
   isAmino(o: any): o is MsgSuperfluidUndelegateAndUnbondLockResponseAmino {
-    return o && (o.$typeUrl === MsgSuperfluidUndelegateAndUnbondLockResponse.typeUrl || typeof o.lock_id === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgSuperfluidUndelegateAndUnbondLockResponse.typeUrl ||
+        typeof o.lock_id === 'bigint')
+    );
   },
-  encode(message: MsgSuperfluidUndelegateAndUnbondLockResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: MsgSuperfluidUndelegateAndUnbondLockResponse,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.lockId !== BigInt(0)) {
       writer.uint32(8).uint64(message.lockId);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSuperfluidUndelegateAndUnbondLockResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgSuperfluidUndelegateAndUnbondLockResponse {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSuperfluidUndelegateAndUnbondLockResponse();
     while (reader.pos < end) {
@@ -1186,80 +1451,136 @@ export const MsgSuperfluidUndelegateAndUnbondLockResponse = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgSuperfluidUndelegateAndUnbondLockResponse>): MsgSuperfluidUndelegateAndUnbondLockResponse {
+  fromPartial(
+    object: Partial<MsgSuperfluidUndelegateAndUnbondLockResponse>,
+  ): MsgSuperfluidUndelegateAndUnbondLockResponse {
     const message = createBaseMsgSuperfluidUndelegateAndUnbondLockResponse();
-    message.lockId = object.lockId !== undefined && object.lockId !== null ? BigInt(object.lockId.toString()) : BigInt(0);
+    message.lockId =
+      object.lockId !== undefined && object.lockId !== null
+        ? BigInt(object.lockId.toString())
+        : BigInt(0);
     return message;
   },
-  fromAmino(object: MsgSuperfluidUndelegateAndUnbondLockResponseAmino): MsgSuperfluidUndelegateAndUnbondLockResponse {
+  fromAmino(
+    object: MsgSuperfluidUndelegateAndUnbondLockResponseAmino,
+  ): MsgSuperfluidUndelegateAndUnbondLockResponse {
     const message = createBaseMsgSuperfluidUndelegateAndUnbondLockResponse();
     if (object.lock_id !== undefined && object.lock_id !== null) {
       message.lockId = BigInt(object.lock_id);
     }
     return message;
   },
-  toAmino(message: MsgSuperfluidUndelegateAndUnbondLockResponse): MsgSuperfluidUndelegateAndUnbondLockResponseAmino {
+  toAmino(
+    message: MsgSuperfluidUndelegateAndUnbondLockResponse,
+  ): MsgSuperfluidUndelegateAndUnbondLockResponseAmino {
     const obj: any = {};
-    obj.lock_id = message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
+    obj.lock_id =
+      message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
     return obj;
   },
-  fromAminoMsg(object: MsgSuperfluidUndelegateAndUnbondLockResponseAminoMsg): MsgSuperfluidUndelegateAndUnbondLockResponse {
+  fromAminoMsg(
+    object: MsgSuperfluidUndelegateAndUnbondLockResponseAminoMsg,
+  ): MsgSuperfluidUndelegateAndUnbondLockResponse {
     return MsgSuperfluidUndelegateAndUnbondLockResponse.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgSuperfluidUndelegateAndUnbondLockResponse): MsgSuperfluidUndelegateAndUnbondLockResponseAminoMsg {
+  toAminoMsg(
+    message: MsgSuperfluidUndelegateAndUnbondLockResponse,
+  ): MsgSuperfluidUndelegateAndUnbondLockResponseAminoMsg {
     return {
-      type: "osmosis/superfluid-undelegate-and-unbond-lock-response",
-      value: MsgSuperfluidUndelegateAndUnbondLockResponse.toAmino(message)
+      type: 'osmosis/superfluid-undelegate-and-unbond-lock-response',
+      value: MsgSuperfluidUndelegateAndUnbondLockResponse.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgSuperfluidUndelegateAndUnbondLockResponseProtoMsg): MsgSuperfluidUndelegateAndUnbondLockResponse {
+  fromProtoMsg(
+    message: MsgSuperfluidUndelegateAndUnbondLockResponseProtoMsg,
+  ): MsgSuperfluidUndelegateAndUnbondLockResponse {
     return MsgSuperfluidUndelegateAndUnbondLockResponse.decode(message.value);
   },
   toProto(message: MsgSuperfluidUndelegateAndUnbondLockResponse): Uint8Array {
-    return MsgSuperfluidUndelegateAndUnbondLockResponse.encode(message).finish();
+    return MsgSuperfluidUndelegateAndUnbondLockResponse.encode(
+      message,
+    ).finish();
   },
-  toProtoMsg(message: MsgSuperfluidUndelegateAndUnbondLockResponse): MsgSuperfluidUndelegateAndUnbondLockResponseProtoMsg {
+  toProtoMsg(
+    message: MsgSuperfluidUndelegateAndUnbondLockResponse,
+  ): MsgSuperfluidUndelegateAndUnbondLockResponseProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgSuperfluidUndelegateAndUnbondLockResponse",
-      value: MsgSuperfluidUndelegateAndUnbondLockResponse.encode(message).finish()
+      typeUrl:
+        '/osmosis.superfluid.MsgSuperfluidUndelegateAndUnbondLockResponse',
+      value:
+        MsgSuperfluidUndelegateAndUnbondLockResponse.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgSuperfluidUndelegateAndUnbondLockResponse.typeUrl, MsgSuperfluidUndelegateAndUnbondLockResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgSuperfluidUndelegateAndUnbondLockResponse.aminoType, MsgSuperfluidUndelegateAndUnbondLockResponse.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgSuperfluidUndelegateAndUnbondLockResponse.typeUrl,
+  MsgSuperfluidUndelegateAndUnbondLockResponse,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgSuperfluidUndelegateAndUnbondLockResponse.aminoType,
+  MsgSuperfluidUndelegateAndUnbondLockResponse.typeUrl,
+);
 function createBaseMsgLockAndSuperfluidDelegate(): MsgLockAndSuperfluidDelegate {
   return {
-    sender: "",
+    sender: '',
     coins: [],
-    valAddr: ""
+    valAddr: '',
   };
 }
 export const MsgLockAndSuperfluidDelegate = {
-  typeUrl: "/osmosis.superfluid.MsgLockAndSuperfluidDelegate",
-  aminoType: "osmosis/lock-and-superfluid-delegate",
+  typeUrl: '/osmosis.superfluid.MsgLockAndSuperfluidDelegate',
+  aminoType: 'osmosis/lock-and-superfluid-delegate',
   is(o: any): o is MsgLockAndSuperfluidDelegate {
-    return o && (o.$typeUrl === MsgLockAndSuperfluidDelegate.typeUrl || typeof o.sender === "string" && Array.isArray(o.coins) && (!o.coins.length || Coin.is(o.coins[0])) && typeof o.valAddr === "string");
+    return (
+      o &&
+      (o.$typeUrl === MsgLockAndSuperfluidDelegate.typeUrl ||
+        (typeof o.sender === 'string' &&
+          Array.isArray(o.coins) &&
+          (!o.coins.length || Coin.is(o.coins[0])) &&
+          typeof o.valAddr === 'string'))
+    );
   },
   isSDK(o: any): o is MsgLockAndSuperfluidDelegateSDKType {
-    return o && (o.$typeUrl === MsgLockAndSuperfluidDelegate.typeUrl || typeof o.sender === "string" && Array.isArray(o.coins) && (!o.coins.length || Coin.isSDK(o.coins[0])) && typeof o.val_addr === "string");
+    return (
+      o &&
+      (o.$typeUrl === MsgLockAndSuperfluidDelegate.typeUrl ||
+        (typeof o.sender === 'string' &&
+          Array.isArray(o.coins) &&
+          (!o.coins.length || Coin.isSDK(o.coins[0])) &&
+          typeof o.val_addr === 'string'))
+    );
   },
   isAmino(o: any): o is MsgLockAndSuperfluidDelegateAmino {
-    return o && (o.$typeUrl === MsgLockAndSuperfluidDelegate.typeUrl || typeof o.sender === "string" && Array.isArray(o.coins) && (!o.coins.length || Coin.isAmino(o.coins[0])) && typeof o.val_addr === "string");
+    return (
+      o &&
+      (o.$typeUrl === MsgLockAndSuperfluidDelegate.typeUrl ||
+        (typeof o.sender === 'string' &&
+          Array.isArray(o.coins) &&
+          (!o.coins.length || Coin.isAmino(o.coins[0])) &&
+          typeof o.val_addr === 'string'))
+    );
   },
-  encode(message: MsgLockAndSuperfluidDelegate, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.sender !== "") {
+  encode(
+    message: MsgLockAndSuperfluidDelegate,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.sender !== '') {
       writer.uint32(10).string(message.sender);
     }
     for (const v of message.coins) {
       Coin.encode(v!, writer.uint32(18).fork()).ldelim();
     }
-    if (message.valAddr !== "") {
+    if (message.valAddr !== '') {
       writer.uint32(26).string(message.valAddr);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgLockAndSuperfluidDelegate {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgLockAndSuperfluidDelegate {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgLockAndSuperfluidDelegate();
     while (reader.pos < end) {
@@ -1281,14 +1602,18 @@ export const MsgLockAndSuperfluidDelegate = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgLockAndSuperfluidDelegate>): MsgLockAndSuperfluidDelegate {
+  fromPartial(
+    object: Partial<MsgLockAndSuperfluidDelegate>,
+  ): MsgLockAndSuperfluidDelegate {
     const message = createBaseMsgLockAndSuperfluidDelegate();
-    message.sender = object.sender ?? "";
+    message.sender = object.sender ?? '';
     message.coins = object.coins?.map(e => Coin.fromPartial(e)) || [];
-    message.valAddr = object.valAddr ?? "";
+    message.valAddr = object.valAddr ?? '';
     return message;
   },
-  fromAmino(object: MsgLockAndSuperfluidDelegateAmino): MsgLockAndSuperfluidDelegate {
+  fromAmino(
+    object: MsgLockAndSuperfluidDelegateAmino,
+  ): MsgLockAndSuperfluidDelegate {
     const message = createBaseMsgLockAndSuperfluidDelegate();
     if (object.sender !== undefined && object.sender !== null) {
       message.sender = object.sender;
@@ -1299,66 +1624,101 @@ export const MsgLockAndSuperfluidDelegate = {
     }
     return message;
   },
-  toAmino(message: MsgLockAndSuperfluidDelegate): MsgLockAndSuperfluidDelegateAmino {
+  toAmino(
+    message: MsgLockAndSuperfluidDelegate,
+  ): MsgLockAndSuperfluidDelegateAmino {
     const obj: any = {};
-    obj.sender = message.sender === "" ? undefined : message.sender;
+    obj.sender = message.sender === '' ? undefined : message.sender;
     if (message.coins) {
-      obj.coins = message.coins.map(e => e ? Coin.toAmino(e) : undefined);
+      obj.coins = message.coins.map(e => (e ? Coin.toAmino(e) : undefined));
     } else {
       obj.coins = message.coins;
     }
-    obj.val_addr = message.valAddr === "" ? undefined : message.valAddr;
+    obj.val_addr = message.valAddr === '' ? undefined : message.valAddr;
     return obj;
   },
-  fromAminoMsg(object: MsgLockAndSuperfluidDelegateAminoMsg): MsgLockAndSuperfluidDelegate {
+  fromAminoMsg(
+    object: MsgLockAndSuperfluidDelegateAminoMsg,
+  ): MsgLockAndSuperfluidDelegate {
     return MsgLockAndSuperfluidDelegate.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgLockAndSuperfluidDelegate): MsgLockAndSuperfluidDelegateAminoMsg {
+  toAminoMsg(
+    message: MsgLockAndSuperfluidDelegate,
+  ): MsgLockAndSuperfluidDelegateAminoMsg {
     return {
-      type: "osmosis/lock-and-superfluid-delegate",
-      value: MsgLockAndSuperfluidDelegate.toAmino(message)
+      type: 'osmosis/lock-and-superfluid-delegate',
+      value: MsgLockAndSuperfluidDelegate.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgLockAndSuperfluidDelegateProtoMsg): MsgLockAndSuperfluidDelegate {
+  fromProtoMsg(
+    message: MsgLockAndSuperfluidDelegateProtoMsg,
+  ): MsgLockAndSuperfluidDelegate {
     return MsgLockAndSuperfluidDelegate.decode(message.value);
   },
   toProto(message: MsgLockAndSuperfluidDelegate): Uint8Array {
     return MsgLockAndSuperfluidDelegate.encode(message).finish();
   },
-  toProtoMsg(message: MsgLockAndSuperfluidDelegate): MsgLockAndSuperfluidDelegateProtoMsg {
+  toProtoMsg(
+    message: MsgLockAndSuperfluidDelegate,
+  ): MsgLockAndSuperfluidDelegateProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgLockAndSuperfluidDelegate",
-      value: MsgLockAndSuperfluidDelegate.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgLockAndSuperfluidDelegate',
+      value: MsgLockAndSuperfluidDelegate.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgLockAndSuperfluidDelegate.typeUrl, MsgLockAndSuperfluidDelegate);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgLockAndSuperfluidDelegate.aminoType, MsgLockAndSuperfluidDelegate.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgLockAndSuperfluidDelegate.typeUrl,
+  MsgLockAndSuperfluidDelegate,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgLockAndSuperfluidDelegate.aminoType,
+  MsgLockAndSuperfluidDelegate.typeUrl,
+);
 function createBaseMsgLockAndSuperfluidDelegateResponse(): MsgLockAndSuperfluidDelegateResponse {
   return {
-    iD: BigInt(0)
+    iD: BigInt(0),
   };
 }
 export const MsgLockAndSuperfluidDelegateResponse = {
-  typeUrl: "/osmosis.superfluid.MsgLockAndSuperfluidDelegateResponse",
-  aminoType: "osmosis/lock-and-superfluid-delegate-response",
+  typeUrl: '/osmosis.superfluid.MsgLockAndSuperfluidDelegateResponse',
+  aminoType: 'osmosis/lock-and-superfluid-delegate-response',
   is(o: any): o is MsgLockAndSuperfluidDelegateResponse {
-    return o && (o.$typeUrl === MsgLockAndSuperfluidDelegateResponse.typeUrl || typeof o.iD === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgLockAndSuperfluidDelegateResponse.typeUrl ||
+        typeof o.iD === 'bigint')
+    );
   },
   isSDK(o: any): o is MsgLockAndSuperfluidDelegateResponseSDKType {
-    return o && (o.$typeUrl === MsgLockAndSuperfluidDelegateResponse.typeUrl || typeof o.ID === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgLockAndSuperfluidDelegateResponse.typeUrl ||
+        typeof o.ID === 'bigint')
+    );
   },
   isAmino(o: any): o is MsgLockAndSuperfluidDelegateResponseAmino {
-    return o && (o.$typeUrl === MsgLockAndSuperfluidDelegateResponse.typeUrl || typeof o.ID === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgLockAndSuperfluidDelegateResponse.typeUrl ||
+        typeof o.ID === 'bigint')
+    );
   },
-  encode(message: MsgLockAndSuperfluidDelegateResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: MsgLockAndSuperfluidDelegateResponse,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.iD !== BigInt(0)) {
       writer.uint32(8).uint64(message.iD);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgLockAndSuperfluidDelegateResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgLockAndSuperfluidDelegateResponse {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgLockAndSuperfluidDelegateResponse();
     while (reader.pos < end) {
@@ -1374,75 +1734,126 @@ export const MsgLockAndSuperfluidDelegateResponse = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgLockAndSuperfluidDelegateResponse>): MsgLockAndSuperfluidDelegateResponse {
+  fromPartial(
+    object: Partial<MsgLockAndSuperfluidDelegateResponse>,
+  ): MsgLockAndSuperfluidDelegateResponse {
     const message = createBaseMsgLockAndSuperfluidDelegateResponse();
-    message.iD = object.iD !== undefined && object.iD !== null ? BigInt(object.iD.toString()) : BigInt(0);
+    message.iD =
+      object.iD !== undefined && object.iD !== null
+        ? BigInt(object.iD.toString())
+        : BigInt(0);
     return message;
   },
-  fromAmino(object: MsgLockAndSuperfluidDelegateResponseAmino): MsgLockAndSuperfluidDelegateResponse {
+  fromAmino(
+    object: MsgLockAndSuperfluidDelegateResponseAmino,
+  ): MsgLockAndSuperfluidDelegateResponse {
     const message = createBaseMsgLockAndSuperfluidDelegateResponse();
     if (object.ID !== undefined && object.ID !== null) {
       message.iD = BigInt(object.ID);
     }
     return message;
   },
-  toAmino(message: MsgLockAndSuperfluidDelegateResponse): MsgLockAndSuperfluidDelegateResponseAmino {
+  toAmino(
+    message: MsgLockAndSuperfluidDelegateResponse,
+  ): MsgLockAndSuperfluidDelegateResponseAmino {
     const obj: any = {};
     obj.ID = message.iD !== BigInt(0) ? message.iD.toString() : undefined;
     return obj;
   },
-  fromAminoMsg(object: MsgLockAndSuperfluidDelegateResponseAminoMsg): MsgLockAndSuperfluidDelegateResponse {
+  fromAminoMsg(
+    object: MsgLockAndSuperfluidDelegateResponseAminoMsg,
+  ): MsgLockAndSuperfluidDelegateResponse {
     return MsgLockAndSuperfluidDelegateResponse.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgLockAndSuperfluidDelegateResponse): MsgLockAndSuperfluidDelegateResponseAminoMsg {
+  toAminoMsg(
+    message: MsgLockAndSuperfluidDelegateResponse,
+  ): MsgLockAndSuperfluidDelegateResponseAminoMsg {
     return {
-      type: "osmosis/lock-and-superfluid-delegate-response",
-      value: MsgLockAndSuperfluidDelegateResponse.toAmino(message)
+      type: 'osmosis/lock-and-superfluid-delegate-response',
+      value: MsgLockAndSuperfluidDelegateResponse.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgLockAndSuperfluidDelegateResponseProtoMsg): MsgLockAndSuperfluidDelegateResponse {
+  fromProtoMsg(
+    message: MsgLockAndSuperfluidDelegateResponseProtoMsg,
+  ): MsgLockAndSuperfluidDelegateResponse {
     return MsgLockAndSuperfluidDelegateResponse.decode(message.value);
   },
   toProto(message: MsgLockAndSuperfluidDelegateResponse): Uint8Array {
     return MsgLockAndSuperfluidDelegateResponse.encode(message).finish();
   },
-  toProtoMsg(message: MsgLockAndSuperfluidDelegateResponse): MsgLockAndSuperfluidDelegateResponseProtoMsg {
+  toProtoMsg(
+    message: MsgLockAndSuperfluidDelegateResponse,
+  ): MsgLockAndSuperfluidDelegateResponseProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgLockAndSuperfluidDelegateResponse",
-      value: MsgLockAndSuperfluidDelegateResponse.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgLockAndSuperfluidDelegateResponse',
+      value: MsgLockAndSuperfluidDelegateResponse.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgLockAndSuperfluidDelegateResponse.typeUrl, MsgLockAndSuperfluidDelegateResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgLockAndSuperfluidDelegateResponse.aminoType, MsgLockAndSuperfluidDelegateResponse.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgLockAndSuperfluidDelegateResponse.typeUrl,
+  MsgLockAndSuperfluidDelegateResponse,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgLockAndSuperfluidDelegateResponse.aminoType,
+  MsgLockAndSuperfluidDelegateResponse.typeUrl,
+);
 function createBaseMsgCreateFullRangePositionAndSuperfluidDelegate(): MsgCreateFullRangePositionAndSuperfluidDelegate {
   return {
-    sender: "",
+    sender: '',
     coins: [],
-    valAddr: "",
-    poolId: BigInt(0)
+    valAddr: '',
+    poolId: BigInt(0),
   };
 }
 export const MsgCreateFullRangePositionAndSuperfluidDelegate = {
-  typeUrl: "/osmosis.superfluid.MsgCreateFullRangePositionAndSuperfluidDelegate",
-  aminoType: "osmosis/full-range-and-sf-delegate",
+  typeUrl:
+    '/osmosis.superfluid.MsgCreateFullRangePositionAndSuperfluidDelegate',
+  aminoType: 'osmosis/full-range-and-sf-delegate',
   is(o: any): o is MsgCreateFullRangePositionAndSuperfluidDelegate {
-    return o && (o.$typeUrl === MsgCreateFullRangePositionAndSuperfluidDelegate.typeUrl || typeof o.sender === "string" && Array.isArray(o.coins) && (!o.coins.length || Coin.is(o.coins[0])) && typeof o.valAddr === "string" && typeof o.poolId === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgCreateFullRangePositionAndSuperfluidDelegate.typeUrl ||
+        (typeof o.sender === 'string' &&
+          Array.isArray(o.coins) &&
+          (!o.coins.length || Coin.is(o.coins[0])) &&
+          typeof o.valAddr === 'string' &&
+          typeof o.poolId === 'bigint'))
+    );
   },
   isSDK(o: any): o is MsgCreateFullRangePositionAndSuperfluidDelegateSDKType {
-    return o && (o.$typeUrl === MsgCreateFullRangePositionAndSuperfluidDelegate.typeUrl || typeof o.sender === "string" && Array.isArray(o.coins) && (!o.coins.length || Coin.isSDK(o.coins[0])) && typeof o.val_addr === "string" && typeof o.pool_id === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgCreateFullRangePositionAndSuperfluidDelegate.typeUrl ||
+        (typeof o.sender === 'string' &&
+          Array.isArray(o.coins) &&
+          (!o.coins.length || Coin.isSDK(o.coins[0])) &&
+          typeof o.val_addr === 'string' &&
+          typeof o.pool_id === 'bigint'))
+    );
   },
   isAmino(o: any): o is MsgCreateFullRangePositionAndSuperfluidDelegateAmino {
-    return o && (o.$typeUrl === MsgCreateFullRangePositionAndSuperfluidDelegate.typeUrl || typeof o.sender === "string" && Array.isArray(o.coins) && (!o.coins.length || Coin.isAmino(o.coins[0])) && typeof o.val_addr === "string" && typeof o.pool_id === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgCreateFullRangePositionAndSuperfluidDelegate.typeUrl ||
+        (typeof o.sender === 'string' &&
+          Array.isArray(o.coins) &&
+          (!o.coins.length || Coin.isAmino(o.coins[0])) &&
+          typeof o.val_addr === 'string' &&
+          typeof o.pool_id === 'bigint'))
+    );
   },
-  encode(message: MsgCreateFullRangePositionAndSuperfluidDelegate, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.sender !== "") {
+  encode(
+    message: MsgCreateFullRangePositionAndSuperfluidDelegate,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.sender !== '') {
       writer.uint32(10).string(message.sender);
     }
     for (const v of message.coins) {
       Coin.encode(v!, writer.uint32(18).fork()).ldelim();
     }
-    if (message.valAddr !== "") {
+    if (message.valAddr !== '') {
       writer.uint32(26).string(message.valAddr);
     }
     if (message.poolId !== BigInt(0)) {
@@ -1450,8 +1861,12 @@ export const MsgCreateFullRangePositionAndSuperfluidDelegate = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateFullRangePositionAndSuperfluidDelegate {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegate {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgCreateFullRangePositionAndSuperfluidDelegate();
     while (reader.pos < end) {
@@ -1476,15 +1891,22 @@ export const MsgCreateFullRangePositionAndSuperfluidDelegate = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgCreateFullRangePositionAndSuperfluidDelegate>): MsgCreateFullRangePositionAndSuperfluidDelegate {
+  fromPartial(
+    object: Partial<MsgCreateFullRangePositionAndSuperfluidDelegate>,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegate {
     const message = createBaseMsgCreateFullRangePositionAndSuperfluidDelegate();
-    message.sender = object.sender ?? "";
+    message.sender = object.sender ?? '';
     message.coins = object.coins?.map(e => Coin.fromPartial(e)) || [];
-    message.valAddr = object.valAddr ?? "";
-    message.poolId = object.poolId !== undefined && object.poolId !== null ? BigInt(object.poolId.toString()) : BigInt(0);
+    message.valAddr = object.valAddr ?? '';
+    message.poolId =
+      object.poolId !== undefined && object.poolId !== null
+        ? BigInt(object.poolId.toString())
+        : BigInt(0);
     return message;
   },
-  fromAmino(object: MsgCreateFullRangePositionAndSuperfluidDelegateAmino): MsgCreateFullRangePositionAndSuperfluidDelegate {
+  fromAmino(
+    object: MsgCreateFullRangePositionAndSuperfluidDelegateAmino,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegate {
     const message = createBaseMsgCreateFullRangePositionAndSuperfluidDelegate();
     if (object.sender !== undefined && object.sender !== null) {
       message.sender = object.sender;
@@ -1498,61 +1920,114 @@ export const MsgCreateFullRangePositionAndSuperfluidDelegate = {
     }
     return message;
   },
-  toAmino(message: MsgCreateFullRangePositionAndSuperfluidDelegate): MsgCreateFullRangePositionAndSuperfluidDelegateAmino {
+  toAmino(
+    message: MsgCreateFullRangePositionAndSuperfluidDelegate,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegateAmino {
     const obj: any = {};
-    obj.sender = message.sender === "" ? undefined : message.sender;
+    obj.sender = message.sender === '' ? undefined : message.sender;
     if (message.coins) {
-      obj.coins = message.coins.map(e => e ? Coin.toAmino(e) : undefined);
+      obj.coins = message.coins.map(e => (e ? Coin.toAmino(e) : undefined));
     } else {
       obj.coins = message.coins;
     }
-    obj.val_addr = message.valAddr === "" ? undefined : message.valAddr;
-    obj.pool_id = message.poolId !== BigInt(0) ? message.poolId.toString() : undefined;
+    obj.val_addr = message.valAddr === '' ? undefined : message.valAddr;
+    obj.pool_id =
+      message.poolId !== BigInt(0) ? message.poolId.toString() : undefined;
     return obj;
   },
-  fromAminoMsg(object: MsgCreateFullRangePositionAndSuperfluidDelegateAminoMsg): MsgCreateFullRangePositionAndSuperfluidDelegate {
-    return MsgCreateFullRangePositionAndSuperfluidDelegate.fromAmino(object.value);
+  fromAminoMsg(
+    object: MsgCreateFullRangePositionAndSuperfluidDelegateAminoMsg,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegate {
+    return MsgCreateFullRangePositionAndSuperfluidDelegate.fromAmino(
+      object.value,
+    );
   },
-  toAminoMsg(message: MsgCreateFullRangePositionAndSuperfluidDelegate): MsgCreateFullRangePositionAndSuperfluidDelegateAminoMsg {
+  toAminoMsg(
+    message: MsgCreateFullRangePositionAndSuperfluidDelegate,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegateAminoMsg {
     return {
-      type: "osmosis/full-range-and-sf-delegate",
-      value: MsgCreateFullRangePositionAndSuperfluidDelegate.toAmino(message)
+      type: 'osmosis/full-range-and-sf-delegate',
+      value: MsgCreateFullRangePositionAndSuperfluidDelegate.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgCreateFullRangePositionAndSuperfluidDelegateProtoMsg): MsgCreateFullRangePositionAndSuperfluidDelegate {
-    return MsgCreateFullRangePositionAndSuperfluidDelegate.decode(message.value);
+  fromProtoMsg(
+    message: MsgCreateFullRangePositionAndSuperfluidDelegateProtoMsg,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegate {
+    return MsgCreateFullRangePositionAndSuperfluidDelegate.decode(
+      message.value,
+    );
   },
-  toProto(message: MsgCreateFullRangePositionAndSuperfluidDelegate): Uint8Array {
-    return MsgCreateFullRangePositionAndSuperfluidDelegate.encode(message).finish();
+  toProto(
+    message: MsgCreateFullRangePositionAndSuperfluidDelegate,
+  ): Uint8Array {
+    return MsgCreateFullRangePositionAndSuperfluidDelegate.encode(
+      message,
+    ).finish();
   },
-  toProtoMsg(message: MsgCreateFullRangePositionAndSuperfluidDelegate): MsgCreateFullRangePositionAndSuperfluidDelegateProtoMsg {
+  toProtoMsg(
+    message: MsgCreateFullRangePositionAndSuperfluidDelegate,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegateProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgCreateFullRangePositionAndSuperfluidDelegate",
-      value: MsgCreateFullRangePositionAndSuperfluidDelegate.encode(message).finish()
+      typeUrl:
+        '/osmosis.superfluid.MsgCreateFullRangePositionAndSuperfluidDelegate',
+      value:
+        MsgCreateFullRangePositionAndSuperfluidDelegate.encode(
+          message,
+        ).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgCreateFullRangePositionAndSuperfluidDelegate.typeUrl, MsgCreateFullRangePositionAndSuperfluidDelegate);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgCreateFullRangePositionAndSuperfluidDelegate.aminoType, MsgCreateFullRangePositionAndSuperfluidDelegate.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgCreateFullRangePositionAndSuperfluidDelegate.typeUrl,
+  MsgCreateFullRangePositionAndSuperfluidDelegate,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgCreateFullRangePositionAndSuperfluidDelegate.aminoType,
+  MsgCreateFullRangePositionAndSuperfluidDelegate.typeUrl,
+);
 function createBaseMsgCreateFullRangePositionAndSuperfluidDelegateResponse(): MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
   return {
     lockID: BigInt(0),
-    positionID: BigInt(0)
+    positionID: BigInt(0),
   };
 }
 export const MsgCreateFullRangePositionAndSuperfluidDelegateResponse = {
-  typeUrl: "/osmosis.superfluid.MsgCreateFullRangePositionAndSuperfluidDelegateResponse",
-  aminoType: "osmosis/create-full-range-position-and-superfluid-delegate-response",
+  typeUrl:
+    '/osmosis.superfluid.MsgCreateFullRangePositionAndSuperfluidDelegateResponse',
+  aminoType:
+    'osmosis/create-full-range-position-and-superfluid-delegate-response',
   is(o: any): o is MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
-    return o && (o.$typeUrl === MsgCreateFullRangePositionAndSuperfluidDelegateResponse.typeUrl || typeof o.lockID === "bigint" && typeof o.positionID === "bigint");
+    return (
+      o &&
+      (o.$typeUrl ===
+        MsgCreateFullRangePositionAndSuperfluidDelegateResponse.typeUrl ||
+        (typeof o.lockID === 'bigint' && typeof o.positionID === 'bigint'))
+    );
   },
-  isSDK(o: any): o is MsgCreateFullRangePositionAndSuperfluidDelegateResponseSDKType {
-    return o && (o.$typeUrl === MsgCreateFullRangePositionAndSuperfluidDelegateResponse.typeUrl || typeof o.lockID === "bigint" && typeof o.positionID === "bigint");
+  isSDK(
+    o: any,
+  ): o is MsgCreateFullRangePositionAndSuperfluidDelegateResponseSDKType {
+    return (
+      o &&
+      (o.$typeUrl ===
+        MsgCreateFullRangePositionAndSuperfluidDelegateResponse.typeUrl ||
+        (typeof o.lockID === 'bigint' && typeof o.positionID === 'bigint'))
+    );
   },
-  isAmino(o: any): o is MsgCreateFullRangePositionAndSuperfluidDelegateResponseAmino {
-    return o && (o.$typeUrl === MsgCreateFullRangePositionAndSuperfluidDelegateResponse.typeUrl || typeof o.lockID === "bigint" && typeof o.positionID === "bigint");
+  isAmino(
+    o: any,
+  ): o is MsgCreateFullRangePositionAndSuperfluidDelegateResponseAmino {
+    return (
+      o &&
+      (o.$typeUrl ===
+        MsgCreateFullRangePositionAndSuperfluidDelegateResponse.typeUrl ||
+        (typeof o.lockID === 'bigint' && typeof o.positionID === 'bigint'))
+    );
   },
-  encode(message: MsgCreateFullRangePositionAndSuperfluidDelegateResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: MsgCreateFullRangePositionAndSuperfluidDelegateResponse,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.lockID !== BigInt(0)) {
       writer.uint32(8).uint64(message.lockID);
     }
@@ -1561,10 +2036,15 @@ export const MsgCreateFullRangePositionAndSuperfluidDelegateResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseMsgCreateFullRangePositionAndSuperfluidDelegateResponse();
+    const message =
+      createBaseMsgCreateFullRangePositionAndSuperfluidDelegateResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -1581,14 +2061,26 @@ export const MsgCreateFullRangePositionAndSuperfluidDelegateResponse = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgCreateFullRangePositionAndSuperfluidDelegateResponse>): MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
-    const message = createBaseMsgCreateFullRangePositionAndSuperfluidDelegateResponse();
-    message.lockID = object.lockID !== undefined && object.lockID !== null ? BigInt(object.lockID.toString()) : BigInt(0);
-    message.positionID = object.positionID !== undefined && object.positionID !== null ? BigInt(object.positionID.toString()) : BigInt(0);
+  fromPartial(
+    object: Partial<MsgCreateFullRangePositionAndSuperfluidDelegateResponse>,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
+    const message =
+      createBaseMsgCreateFullRangePositionAndSuperfluidDelegateResponse();
+    message.lockID =
+      object.lockID !== undefined && object.lockID !== null
+        ? BigInt(object.lockID.toString())
+        : BigInt(0);
+    message.positionID =
+      object.positionID !== undefined && object.positionID !== null
+        ? BigInt(object.positionID.toString())
+        : BigInt(0);
     return message;
   },
-  fromAmino(object: MsgCreateFullRangePositionAndSuperfluidDelegateResponseAmino): MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
-    const message = createBaseMsgCreateFullRangePositionAndSuperfluidDelegateResponse();
+  fromAmino(
+    object: MsgCreateFullRangePositionAndSuperfluidDelegateResponseAmino,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
+    const message =
+      createBaseMsgCreateFullRangePositionAndSuperfluidDelegateResponse();
     if (object.lockID !== undefined && object.lockID !== null) {
       message.lockID = BigInt(object.lockID);
     }
@@ -1597,56 +2089,106 @@ export const MsgCreateFullRangePositionAndSuperfluidDelegateResponse = {
     }
     return message;
   },
-  toAmino(message: MsgCreateFullRangePositionAndSuperfluidDelegateResponse): MsgCreateFullRangePositionAndSuperfluidDelegateResponseAmino {
+  toAmino(
+    message: MsgCreateFullRangePositionAndSuperfluidDelegateResponse,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegateResponseAmino {
     const obj: any = {};
-    obj.lockID = message.lockID !== BigInt(0) ? message.lockID.toString() : undefined;
-    obj.positionID = message.positionID !== BigInt(0) ? message.positionID.toString() : undefined;
+    obj.lockID =
+      message.lockID !== BigInt(0) ? message.lockID.toString() : undefined;
+    obj.positionID =
+      message.positionID !== BigInt(0)
+        ? message.positionID.toString()
+        : undefined;
     return obj;
   },
-  fromAminoMsg(object: MsgCreateFullRangePositionAndSuperfluidDelegateResponseAminoMsg): MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
-    return MsgCreateFullRangePositionAndSuperfluidDelegateResponse.fromAmino(object.value);
+  fromAminoMsg(
+    object: MsgCreateFullRangePositionAndSuperfluidDelegateResponseAminoMsg,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
+    return MsgCreateFullRangePositionAndSuperfluidDelegateResponse.fromAmino(
+      object.value,
+    );
   },
-  toAminoMsg(message: MsgCreateFullRangePositionAndSuperfluidDelegateResponse): MsgCreateFullRangePositionAndSuperfluidDelegateResponseAminoMsg {
+  toAminoMsg(
+    message: MsgCreateFullRangePositionAndSuperfluidDelegateResponse,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegateResponseAminoMsg {
     return {
-      type: "osmosis/create-full-range-position-and-superfluid-delegate-response",
-      value: MsgCreateFullRangePositionAndSuperfluidDelegateResponse.toAmino(message)
+      type: 'osmosis/create-full-range-position-and-superfluid-delegate-response',
+      value:
+        MsgCreateFullRangePositionAndSuperfluidDelegateResponse.toAmino(
+          message,
+        ),
     };
   },
-  fromProtoMsg(message: MsgCreateFullRangePositionAndSuperfluidDelegateResponseProtoMsg): MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
-    return MsgCreateFullRangePositionAndSuperfluidDelegateResponse.decode(message.value);
+  fromProtoMsg(
+    message: MsgCreateFullRangePositionAndSuperfluidDelegateResponseProtoMsg,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegateResponse {
+    return MsgCreateFullRangePositionAndSuperfluidDelegateResponse.decode(
+      message.value,
+    );
   },
-  toProto(message: MsgCreateFullRangePositionAndSuperfluidDelegateResponse): Uint8Array {
-    return MsgCreateFullRangePositionAndSuperfluidDelegateResponse.encode(message).finish();
+  toProto(
+    message: MsgCreateFullRangePositionAndSuperfluidDelegateResponse,
+  ): Uint8Array {
+    return MsgCreateFullRangePositionAndSuperfluidDelegateResponse.encode(
+      message,
+    ).finish();
   },
-  toProtoMsg(message: MsgCreateFullRangePositionAndSuperfluidDelegateResponse): MsgCreateFullRangePositionAndSuperfluidDelegateResponseProtoMsg {
+  toProtoMsg(
+    message: MsgCreateFullRangePositionAndSuperfluidDelegateResponse,
+  ): MsgCreateFullRangePositionAndSuperfluidDelegateResponseProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgCreateFullRangePositionAndSuperfluidDelegateResponse",
-      value: MsgCreateFullRangePositionAndSuperfluidDelegateResponse.encode(message).finish()
+      typeUrl:
+        '/osmosis.superfluid.MsgCreateFullRangePositionAndSuperfluidDelegateResponse',
+      value:
+        MsgCreateFullRangePositionAndSuperfluidDelegateResponse.encode(
+          message,
+        ).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgCreateFullRangePositionAndSuperfluidDelegateResponse.typeUrl, MsgCreateFullRangePositionAndSuperfluidDelegateResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgCreateFullRangePositionAndSuperfluidDelegateResponse.aminoType, MsgCreateFullRangePositionAndSuperfluidDelegateResponse.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgCreateFullRangePositionAndSuperfluidDelegateResponse.typeUrl,
+  MsgCreateFullRangePositionAndSuperfluidDelegateResponse,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgCreateFullRangePositionAndSuperfluidDelegateResponse.aminoType,
+  MsgCreateFullRangePositionAndSuperfluidDelegateResponse.typeUrl,
+);
 function createBaseMsgUnPoolWhitelistedPool(): MsgUnPoolWhitelistedPool {
   return {
-    sender: "",
-    poolId: BigInt(0)
+    sender: '',
+    poolId: BigInt(0),
   };
 }
 export const MsgUnPoolWhitelistedPool = {
-  typeUrl: "/osmosis.superfluid.MsgUnPoolWhitelistedPool",
-  aminoType: "osmosis/unpool-whitelisted-pool",
+  typeUrl: '/osmosis.superfluid.MsgUnPoolWhitelistedPool',
+  aminoType: 'osmosis/unpool-whitelisted-pool',
   is(o: any): o is MsgUnPoolWhitelistedPool {
-    return o && (o.$typeUrl === MsgUnPoolWhitelistedPool.typeUrl || typeof o.sender === "string" && typeof o.poolId === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgUnPoolWhitelistedPool.typeUrl ||
+        (typeof o.sender === 'string' && typeof o.poolId === 'bigint'))
+    );
   },
   isSDK(o: any): o is MsgUnPoolWhitelistedPoolSDKType {
-    return o && (o.$typeUrl === MsgUnPoolWhitelistedPool.typeUrl || typeof o.sender === "string" && typeof o.pool_id === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgUnPoolWhitelistedPool.typeUrl ||
+        (typeof o.sender === 'string' && typeof o.pool_id === 'bigint'))
+    );
   },
   isAmino(o: any): o is MsgUnPoolWhitelistedPoolAmino {
-    return o && (o.$typeUrl === MsgUnPoolWhitelistedPool.typeUrl || typeof o.sender === "string" && typeof o.pool_id === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === MsgUnPoolWhitelistedPool.typeUrl ||
+        (typeof o.sender === 'string' && typeof o.pool_id === 'bigint'))
+    );
   },
-  encode(message: MsgUnPoolWhitelistedPool, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.sender !== "") {
+  encode(
+    message: MsgUnPoolWhitelistedPool,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.sender !== '') {
       writer.uint32(10).string(message.sender);
     }
     if (message.poolId !== BigInt(0)) {
@@ -1654,8 +2196,12 @@ export const MsgUnPoolWhitelistedPool = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgUnPoolWhitelistedPool {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgUnPoolWhitelistedPool {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgUnPoolWhitelistedPool();
     while (reader.pos < end) {
@@ -1674,10 +2220,15 @@ export const MsgUnPoolWhitelistedPool = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgUnPoolWhitelistedPool>): MsgUnPoolWhitelistedPool {
+  fromPartial(
+    object: Partial<MsgUnPoolWhitelistedPool>,
+  ): MsgUnPoolWhitelistedPool {
     const message = createBaseMsgUnPoolWhitelistedPool();
-    message.sender = object.sender ?? "";
-    message.poolId = object.poolId !== undefined && object.poolId !== null ? BigInt(object.poolId.toString()) : BigInt(0);
+    message.sender = object.sender ?? '';
+    message.poolId =
+      object.poolId !== undefined && object.poolId !== null
+        ? BigInt(object.poolId.toString())
+        : BigInt(0);
     return message;
   },
   fromAmino(object: MsgUnPoolWhitelistedPoolAmino): MsgUnPoolWhitelistedPool {
@@ -1692,52 +2243,87 @@ export const MsgUnPoolWhitelistedPool = {
   },
   toAmino(message: MsgUnPoolWhitelistedPool): MsgUnPoolWhitelistedPoolAmino {
     const obj: any = {};
-    obj.sender = message.sender === "" ? undefined : message.sender;
-    obj.pool_id = message.poolId !== BigInt(0) ? message.poolId.toString() : undefined;
+    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.pool_id =
+      message.poolId !== BigInt(0) ? message.poolId.toString() : undefined;
     return obj;
   },
-  fromAminoMsg(object: MsgUnPoolWhitelistedPoolAminoMsg): MsgUnPoolWhitelistedPool {
+  fromAminoMsg(
+    object: MsgUnPoolWhitelistedPoolAminoMsg,
+  ): MsgUnPoolWhitelistedPool {
     return MsgUnPoolWhitelistedPool.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgUnPoolWhitelistedPool): MsgUnPoolWhitelistedPoolAminoMsg {
+  toAminoMsg(
+    message: MsgUnPoolWhitelistedPool,
+  ): MsgUnPoolWhitelistedPoolAminoMsg {
     return {
-      type: "osmosis/unpool-whitelisted-pool",
-      value: MsgUnPoolWhitelistedPool.toAmino(message)
+      type: 'osmosis/unpool-whitelisted-pool',
+      value: MsgUnPoolWhitelistedPool.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgUnPoolWhitelistedPoolProtoMsg): MsgUnPoolWhitelistedPool {
+  fromProtoMsg(
+    message: MsgUnPoolWhitelistedPoolProtoMsg,
+  ): MsgUnPoolWhitelistedPool {
     return MsgUnPoolWhitelistedPool.decode(message.value);
   },
   toProto(message: MsgUnPoolWhitelistedPool): Uint8Array {
     return MsgUnPoolWhitelistedPool.encode(message).finish();
   },
-  toProtoMsg(message: MsgUnPoolWhitelistedPool): MsgUnPoolWhitelistedPoolProtoMsg {
+  toProtoMsg(
+    message: MsgUnPoolWhitelistedPool,
+  ): MsgUnPoolWhitelistedPoolProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgUnPoolWhitelistedPool",
-      value: MsgUnPoolWhitelistedPool.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgUnPoolWhitelistedPool',
+      value: MsgUnPoolWhitelistedPool.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgUnPoolWhitelistedPool.typeUrl, MsgUnPoolWhitelistedPool);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUnPoolWhitelistedPool.aminoType, MsgUnPoolWhitelistedPool.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgUnPoolWhitelistedPool.typeUrl,
+  MsgUnPoolWhitelistedPool,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgUnPoolWhitelistedPool.aminoType,
+  MsgUnPoolWhitelistedPool.typeUrl,
+);
 function createBaseMsgUnPoolWhitelistedPoolResponse(): MsgUnPoolWhitelistedPoolResponse {
   return {
-    exitedLockIds: []
+    exitedLockIds: [],
   };
 }
 export const MsgUnPoolWhitelistedPoolResponse = {
-  typeUrl: "/osmosis.superfluid.MsgUnPoolWhitelistedPoolResponse",
-  aminoType: "osmosis/un-pool-whitelisted-pool-response",
+  typeUrl: '/osmosis.superfluid.MsgUnPoolWhitelistedPoolResponse',
+  aminoType: 'osmosis/un-pool-whitelisted-pool-response',
   is(o: any): o is MsgUnPoolWhitelistedPoolResponse {
-    return o && (o.$typeUrl === MsgUnPoolWhitelistedPoolResponse.typeUrl || Array.isArray(o.exitedLockIds) && (!o.exitedLockIds.length || typeof o.exitedLockIds[0] === "bigint"));
+    return (
+      o &&
+      (o.$typeUrl === MsgUnPoolWhitelistedPoolResponse.typeUrl ||
+        (Array.isArray(o.exitedLockIds) &&
+          (!o.exitedLockIds.length || typeof o.exitedLockIds[0] === 'bigint')))
+    );
   },
   isSDK(o: any): o is MsgUnPoolWhitelistedPoolResponseSDKType {
-    return o && (o.$typeUrl === MsgUnPoolWhitelistedPoolResponse.typeUrl || Array.isArray(o.exited_lock_ids) && (!o.exited_lock_ids.length || typeof o.exited_lock_ids[0] === "bigint"));
+    return (
+      o &&
+      (o.$typeUrl === MsgUnPoolWhitelistedPoolResponse.typeUrl ||
+        (Array.isArray(o.exited_lock_ids) &&
+          (!o.exited_lock_ids.length ||
+            typeof o.exited_lock_ids[0] === 'bigint')))
+    );
   },
   isAmino(o: any): o is MsgUnPoolWhitelistedPoolResponseAmino {
-    return o && (o.$typeUrl === MsgUnPoolWhitelistedPoolResponse.typeUrl || Array.isArray(o.exited_lock_ids) && (!o.exited_lock_ids.length || typeof o.exited_lock_ids[0] === "bigint"));
+    return (
+      o &&
+      (o.$typeUrl === MsgUnPoolWhitelistedPoolResponse.typeUrl ||
+        (Array.isArray(o.exited_lock_ids) &&
+          (!o.exited_lock_ids.length ||
+            typeof o.exited_lock_ids[0] === 'bigint')))
+    );
   },
-  encode(message: MsgUnPoolWhitelistedPoolResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: MsgUnPoolWhitelistedPoolResponse,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     writer.uint32(10).fork();
     for (const v of message.exitedLockIds) {
       writer.uint64(v);
@@ -1745,8 +2331,12 @@ export const MsgUnPoolWhitelistedPoolResponse = {
     writer.ldelim();
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgUnPoolWhitelistedPoolResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgUnPoolWhitelistedPoolResponse {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgUnPoolWhitelistedPoolResponse();
     while (reader.pos < end) {
@@ -1769,17 +2359,24 @@ export const MsgUnPoolWhitelistedPoolResponse = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgUnPoolWhitelistedPoolResponse>): MsgUnPoolWhitelistedPoolResponse {
+  fromPartial(
+    object: Partial<MsgUnPoolWhitelistedPoolResponse>,
+  ): MsgUnPoolWhitelistedPoolResponse {
     const message = createBaseMsgUnPoolWhitelistedPoolResponse();
-    message.exitedLockIds = object.exitedLockIds?.map(e => BigInt(e.toString())) || [];
+    message.exitedLockIds =
+      object.exitedLockIds?.map(e => BigInt(e.toString())) || [];
     return message;
   },
-  fromAmino(object: MsgUnPoolWhitelistedPoolResponseAmino): MsgUnPoolWhitelistedPoolResponse {
+  fromAmino(
+    object: MsgUnPoolWhitelistedPoolResponseAmino,
+  ): MsgUnPoolWhitelistedPoolResponse {
     const message = createBaseMsgUnPoolWhitelistedPoolResponse();
     message.exitedLockIds = object.exited_lock_ids?.map(e => BigInt(e)) || [];
     return message;
   },
-  toAmino(message: MsgUnPoolWhitelistedPoolResponse): MsgUnPoolWhitelistedPoolResponseAmino {
+  toAmino(
+    message: MsgUnPoolWhitelistedPoolResponse,
+  ): MsgUnPoolWhitelistedPoolResponseAmino {
     const obj: any = {};
     if (message.exitedLockIds) {
       obj.exited_lock_ids = message.exitedLockIds.map(e => e.toString());
@@ -1788,52 +2385,101 @@ export const MsgUnPoolWhitelistedPoolResponse = {
     }
     return obj;
   },
-  fromAminoMsg(object: MsgUnPoolWhitelistedPoolResponseAminoMsg): MsgUnPoolWhitelistedPoolResponse {
+  fromAminoMsg(
+    object: MsgUnPoolWhitelistedPoolResponseAminoMsg,
+  ): MsgUnPoolWhitelistedPoolResponse {
     return MsgUnPoolWhitelistedPoolResponse.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgUnPoolWhitelistedPoolResponse): MsgUnPoolWhitelistedPoolResponseAminoMsg {
+  toAminoMsg(
+    message: MsgUnPoolWhitelistedPoolResponse,
+  ): MsgUnPoolWhitelistedPoolResponseAminoMsg {
     return {
-      type: "osmosis/un-pool-whitelisted-pool-response",
-      value: MsgUnPoolWhitelistedPoolResponse.toAmino(message)
+      type: 'osmosis/un-pool-whitelisted-pool-response',
+      value: MsgUnPoolWhitelistedPoolResponse.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgUnPoolWhitelistedPoolResponseProtoMsg): MsgUnPoolWhitelistedPoolResponse {
+  fromProtoMsg(
+    message: MsgUnPoolWhitelistedPoolResponseProtoMsg,
+  ): MsgUnPoolWhitelistedPoolResponse {
     return MsgUnPoolWhitelistedPoolResponse.decode(message.value);
   },
   toProto(message: MsgUnPoolWhitelistedPoolResponse): Uint8Array {
     return MsgUnPoolWhitelistedPoolResponse.encode(message).finish();
   },
-  toProtoMsg(message: MsgUnPoolWhitelistedPoolResponse): MsgUnPoolWhitelistedPoolResponseProtoMsg {
+  toProtoMsg(
+    message: MsgUnPoolWhitelistedPoolResponse,
+  ): MsgUnPoolWhitelistedPoolResponseProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgUnPoolWhitelistedPoolResponse",
-      value: MsgUnPoolWhitelistedPoolResponse.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgUnPoolWhitelistedPoolResponse',
+      value: MsgUnPoolWhitelistedPoolResponse.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgUnPoolWhitelistedPoolResponse.typeUrl, MsgUnPoolWhitelistedPoolResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUnPoolWhitelistedPoolResponse.aminoType, MsgUnPoolWhitelistedPoolResponse.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgUnPoolWhitelistedPoolResponse.typeUrl,
+  MsgUnPoolWhitelistedPoolResponse,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgUnPoolWhitelistedPoolResponse.aminoType,
+  MsgUnPoolWhitelistedPoolResponse.typeUrl,
+);
 function createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPosition(): MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
   return {
-    sender: "",
+    sender: '',
     lockId: BigInt(0),
     sharesToMigrate: Coin.fromPartial({}),
-    tokenOutMins: []
+    tokenOutMins: [],
   };
 }
 export const MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition = {
-  typeUrl: "/osmosis.superfluid.MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition",
-  aminoType: "osmosis/unlock-and-migrate",
+  typeUrl:
+    '/osmosis.superfluid.MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition',
+  aminoType: 'osmosis/unlock-and-migrate',
   is(o: any): o is MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
-    return o && (o.$typeUrl === MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.typeUrl || typeof o.sender === "string" && typeof o.lockId === "bigint" && Coin.is(o.sharesToMigrate) && Array.isArray(o.tokenOutMins) && (!o.tokenOutMins.length || Coin.is(o.tokenOutMins[0])));
+    return (
+      o &&
+      (o.$typeUrl ===
+        MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.typeUrl ||
+        (typeof o.sender === 'string' &&
+          typeof o.lockId === 'bigint' &&
+          Coin.is(o.sharesToMigrate) &&
+          Array.isArray(o.tokenOutMins) &&
+          (!o.tokenOutMins.length || Coin.is(o.tokenOutMins[0]))))
+    );
   },
-  isSDK(o: any): o is MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionSDKType {
-    return o && (o.$typeUrl === MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.typeUrl || typeof o.sender === "string" && typeof o.lock_id === "bigint" && Coin.isSDK(o.shares_to_migrate) && Array.isArray(o.token_out_mins) && (!o.token_out_mins.length || Coin.isSDK(o.token_out_mins[0])));
+  isSDK(
+    o: any,
+  ): o is MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionSDKType {
+    return (
+      o &&
+      (o.$typeUrl ===
+        MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.typeUrl ||
+        (typeof o.sender === 'string' &&
+          typeof o.lock_id === 'bigint' &&
+          Coin.isSDK(o.shares_to_migrate) &&
+          Array.isArray(o.token_out_mins) &&
+          (!o.token_out_mins.length || Coin.isSDK(o.token_out_mins[0]))))
+    );
   },
-  isAmino(o: any): o is MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAmino {
-    return o && (o.$typeUrl === MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.typeUrl || typeof o.sender === "string" && typeof o.lock_id === "bigint" && Coin.isAmino(o.shares_to_migrate) && Array.isArray(o.token_out_mins) && (!o.token_out_mins.length || Coin.isAmino(o.token_out_mins[0])));
+  isAmino(
+    o: any,
+  ): o is MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAmino {
+    return (
+      o &&
+      (o.$typeUrl ===
+        MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.typeUrl ||
+        (typeof o.sender === 'string' &&
+          typeof o.lock_id === 'bigint' &&
+          Coin.isAmino(o.shares_to_migrate) &&
+          Array.isArray(o.token_out_mins) &&
+          (!o.token_out_mins.length || Coin.isAmino(o.token_out_mins[0]))))
+    );
   },
-  encode(message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.sender !== "") {
+  encode(
+    message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.sender !== '') {
       writer.uint32(10).string(message.sender);
     }
     if (message.lockId !== BigInt(0)) {
@@ -1847,10 +2493,15 @@ export const MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPosition();
+    const message =
+      createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPosition();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -1873,206 +2524,378 @@ export const MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition>): MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
-    const message = createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPosition();
-    message.sender = object.sender ?? "";
-    message.lockId = object.lockId !== undefined && object.lockId !== null ? BigInt(object.lockId.toString()) : BigInt(0);
-    message.sharesToMigrate = object.sharesToMigrate !== undefined && object.sharesToMigrate !== null ? Coin.fromPartial(object.sharesToMigrate) : undefined;
-    message.tokenOutMins = object.tokenOutMins?.map(e => Coin.fromPartial(e)) || [];
+  fromPartial(
+    object: Partial<MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition>,
+  ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
+    const message =
+      createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPosition();
+    message.sender = object.sender ?? '';
+    message.lockId =
+      object.lockId !== undefined && object.lockId !== null
+        ? BigInt(object.lockId.toString())
+        : BigInt(0);
+    message.sharesToMigrate =
+      object.sharesToMigrate !== undefined && object.sharesToMigrate !== null
+        ? Coin.fromPartial(object.sharesToMigrate)
+        : undefined;
+    message.tokenOutMins =
+      object.tokenOutMins?.map(e => Coin.fromPartial(e)) || [];
     return message;
   },
-  fromAmino(object: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAmino): MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
-    const message = createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPosition();
+  fromAmino(
+    object: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAmino,
+  ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
+    const message =
+      createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPosition();
     if (object.sender !== undefined && object.sender !== null) {
       message.sender = object.sender;
     }
     if (object.lock_id !== undefined && object.lock_id !== null) {
       message.lockId = BigInt(object.lock_id);
     }
-    if (object.shares_to_migrate !== undefined && object.shares_to_migrate !== null) {
+    if (
+      object.shares_to_migrate !== undefined &&
+      object.shares_to_migrate !== null
+    ) {
       message.sharesToMigrate = Coin.fromAmino(object.shares_to_migrate);
     }
-    message.tokenOutMins = object.token_out_mins?.map(e => Coin.fromAmino(e)) || [];
+    message.tokenOutMins =
+      object.token_out_mins?.map(e => Coin.fromAmino(e)) || [];
     return message;
   },
-  toAmino(message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAmino {
+  toAmino(
+    message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition,
+  ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAmino {
     const obj: any = {};
-    obj.sender = message.sender === "" ? undefined : message.sender;
-    obj.lock_id = message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
-    obj.shares_to_migrate = message.sharesToMigrate ? Coin.toAmino(message.sharesToMigrate) : undefined;
+    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.lock_id =
+      message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
+    obj.shares_to_migrate = message.sharesToMigrate
+      ? Coin.toAmino(message.sharesToMigrate)
+      : undefined;
     if (message.tokenOutMins) {
-      obj.token_out_mins = message.tokenOutMins.map(e => e ? Coin.toAmino(e) : undefined);
+      obj.token_out_mins = message.tokenOutMins.map(e =>
+        e ? Coin.toAmino(e) : undefined,
+      );
     } else {
       obj.token_out_mins = message.tokenOutMins;
     }
     return obj;
   },
-  fromAminoMsg(object: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAminoMsg): MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
-    return MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.fromAmino(object.value);
+  fromAminoMsg(
+    object: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAminoMsg,
+  ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
+    return MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.fromAmino(
+      object.value,
+    );
   },
-  toAminoMsg(message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAminoMsg {
+  toAminoMsg(
+    message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition,
+  ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionAminoMsg {
     return {
-      type: "osmosis/unlock-and-migrate",
-      value: MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.toAmino(message)
+      type: 'osmosis/unlock-and-migrate',
+      value:
+        MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.toAmino(
+          message,
+        ),
     };
   },
-  fromProtoMsg(message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionProtoMsg): MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
-    return MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.decode(message.value);
+  fromProtoMsg(
+    message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionProtoMsg,
+  ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition {
+    return MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.decode(
+      message.value,
+    );
   },
-  toProto(message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition): Uint8Array {
-    return MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.encode(message).finish();
+  toProto(
+    message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition,
+  ): Uint8Array {
+    return MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.encode(
+      message,
+    ).finish();
   },
-  toProtoMsg(message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionProtoMsg {
+  toProtoMsg(
+    message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition,
+  ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition",
-      value: MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.encode(message).finish()
+      typeUrl:
+        '/osmosis.superfluid.MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition',
+      value:
+        MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.encode(
+          message,
+        ).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.typeUrl, MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.aminoType, MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.typeUrl,
+  MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.aminoType,
+  MsgUnlockAndMigrateSharesToFullRangeConcentratedPosition.typeUrl,
+);
 function createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse(): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
   return {
-    amount0: "",
-    amount1: "",
-    liquidityCreated: "",
-    joinTime: new Date()
+    amount0: '',
+    amount1: '',
+    liquidityCreated: '',
+    joinTime: new Date(),
   };
 }
-export const MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse = {
-  typeUrl: "/osmosis.superfluid.MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse",
-  aminoType: "osmosis/unlock-and-migrate-shares-to-full-range-concentrated-position-response",
-  is(o: any): o is MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
-    return o && (o.$typeUrl === MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.typeUrl || typeof o.amount0 === "string" && typeof o.amount1 === "string" && typeof o.liquidityCreated === "string" && Timestamp.is(o.joinTime));
-  },
-  isSDK(o: any): o is MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseSDKType {
-    return o && (o.$typeUrl === MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.typeUrl || typeof o.amount0 === "string" && typeof o.amount1 === "string" && typeof o.liquidity_created === "string" && Timestamp.isSDK(o.join_time));
-  },
-  isAmino(o: any): o is MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAmino {
-    return o && (o.$typeUrl === MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.typeUrl || typeof o.amount0 === "string" && typeof o.amount1 === "string" && typeof o.liquidity_created === "string" && Timestamp.isAmino(o.join_time));
-  },
-  encode(message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.amount0 !== "") {
-      writer.uint32(10).string(message.amount0);
-    }
-    if (message.amount1 !== "") {
-      writer.uint32(18).string(message.amount1);
-    }
-    if (message.liquidityCreated !== "") {
-      writer.uint32(26).string(Decimal.fromUserInput(message.liquidityCreated, 18).atomics);
-    }
-    if (message.joinTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.joinTime), writer.uint32(34).fork()).ldelim();
-    }
-    return writer;
-  },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.amount0 = reader.string();
-          break;
-        case 2:
-          message.amount1 = reader.string();
-          break;
-        case 3:
-          message.liquidityCreated = Decimal.fromAtomics(reader.string(), 18).toString();
-          break;
-        case 4:
-          message.joinTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+export const MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse =
+  {
+    typeUrl:
+      '/osmosis.superfluid.MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse',
+    aminoType:
+      'osmosis/unlock-and-migrate-shares-to-full-range-concentrated-position-response',
+    is(
+      o: any,
+    ): o is MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
+      return (
+        o &&
+        (o.$typeUrl ===
+          MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.typeUrl ||
+          (typeof o.amount0 === 'string' &&
+            typeof o.amount1 === 'string' &&
+            typeof o.liquidityCreated === 'string' &&
+            Timestamp.is(o.joinTime)))
+      );
+    },
+    isSDK(
+      o: any,
+    ): o is MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseSDKType {
+      return (
+        o &&
+        (o.$typeUrl ===
+          MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.typeUrl ||
+          (typeof o.amount0 === 'string' &&
+            typeof o.amount1 === 'string' &&
+            typeof o.liquidity_created === 'string' &&
+            Timestamp.isSDK(o.join_time)))
+      );
+    },
+    isAmino(
+      o: any,
+    ): o is MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAmino {
+      return (
+        o &&
+        (o.$typeUrl ===
+          MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.typeUrl ||
+          (typeof o.amount0 === 'string' &&
+            typeof o.amount1 === 'string' &&
+            typeof o.liquidity_created === 'string' &&
+            Timestamp.isAmino(o.join_time)))
+      );
+    },
+    encode(
+      message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse,
+      writer: BinaryWriter = BinaryWriter.create(),
+    ): BinaryWriter {
+      if (message.amount0 !== '') {
+        writer.uint32(10).string(message.amount0);
       }
-    }
-    return message;
-  },
-  fromPartial(object: Partial<MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse>): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
-    const message = createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse();
-    message.amount0 = object.amount0 ?? "";
-    message.amount1 = object.amount1 ?? "";
-    message.liquidityCreated = object.liquidityCreated ?? "";
-    message.joinTime = object.joinTime ?? undefined;
-    return message;
-  },
-  fromAmino(object: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAmino): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
-    const message = createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse();
-    if (object.amount0 !== undefined && object.amount0 !== null) {
-      message.amount0 = object.amount0;
-    }
-    if (object.amount1 !== undefined && object.amount1 !== null) {
-      message.amount1 = object.amount1;
-    }
-    if (object.liquidity_created !== undefined && object.liquidity_created !== null) {
-      message.liquidityCreated = object.liquidity_created;
-    }
-    if (object.join_time !== undefined && object.join_time !== null) {
-      message.joinTime = fromTimestamp(Timestamp.fromAmino(object.join_time));
-    }
-    return message;
-  },
-  toAmino(message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAmino {
-    const obj: any = {};
-    obj.amount0 = message.amount0 === "" ? undefined : message.amount0;
-    obj.amount1 = message.amount1 === "" ? undefined : message.amount1;
-    obj.liquidity_created = message.liquidityCreated === "" ? undefined : message.liquidityCreated;
-    obj.join_time = message.joinTime ? Timestamp.toAmino(toTimestamp(message.joinTime)) : undefined;
-    return obj;
-  },
-  fromAminoMsg(object: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAminoMsg): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
-    return MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.fromAmino(object.value);
-  },
-  toAminoMsg(message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAminoMsg {
-    return {
-      type: "osmosis/unlock-and-migrate-shares-to-full-range-concentrated-position-response",
-      value: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.toAmino(message)
-    };
-  },
-  fromProtoMsg(message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseProtoMsg): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
-    return MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.decode(message.value);
-  },
-  toProto(message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse): Uint8Array {
-    return MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.encode(message).finish();
-  },
-  toProtoMsg(message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseProtoMsg {
-    return {
-      typeUrl: "/osmosis.superfluid.MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse",
-      value: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.encode(message).finish()
-    };
-  }
-};
-GlobalDecoderRegistry.register(MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.typeUrl, MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.aminoType, MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.typeUrl);
+      if (message.amount1 !== '') {
+        writer.uint32(18).string(message.amount1);
+      }
+      if (message.liquidityCreated !== '') {
+        writer
+          .uint32(26)
+          .string(Decimal.fromUserInput(message.liquidityCreated, 18).atomics);
+      }
+      if (message.joinTime !== undefined) {
+        Timestamp.encode(
+          toTimestamp(message.joinTime),
+          writer.uint32(34).fork(),
+        ).ldelim();
+      }
+      return writer;
+    },
+    decode(
+      input: BinaryReader | Uint8Array,
+      length?: number,
+    ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
+      const reader =
+        input instanceof BinaryReader ? input : new BinaryReader(input);
+      let end = length === undefined ? reader.len : reader.pos + length;
+      const message =
+        createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse();
+      while (reader.pos < end) {
+        const tag = reader.uint32();
+        switch (tag >>> 3) {
+          case 1:
+            message.amount0 = reader.string();
+            break;
+          case 2:
+            message.amount1 = reader.string();
+            break;
+          case 3:
+            message.liquidityCreated = Decimal.fromAtomics(
+              reader.string(),
+              18,
+            ).toString();
+            break;
+          case 4:
+            message.joinTime = fromTimestamp(
+              Timestamp.decode(reader, reader.uint32()),
+            );
+            break;
+          default:
+            reader.skipType(tag & 7);
+            break;
+        }
+      }
+      return message;
+    },
+    fromPartial(
+      object: Partial<MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse>,
+    ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
+      const message =
+        createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse();
+      message.amount0 = object.amount0 ?? '';
+      message.amount1 = object.amount1 ?? '';
+      message.liquidityCreated = object.liquidityCreated ?? '';
+      message.joinTime = object.joinTime ?? undefined;
+      return message;
+    },
+    fromAmino(
+      object: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAmino,
+    ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
+      const message =
+        createBaseMsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse();
+      if (object.amount0 !== undefined && object.amount0 !== null) {
+        message.amount0 = object.amount0;
+      }
+      if (object.amount1 !== undefined && object.amount1 !== null) {
+        message.amount1 = object.amount1;
+      }
+      if (
+        object.liquidity_created !== undefined &&
+        object.liquidity_created !== null
+      ) {
+        message.liquidityCreated = object.liquidity_created;
+      }
+      if (object.join_time !== undefined && object.join_time !== null) {
+        message.joinTime = fromTimestamp(Timestamp.fromAmino(object.join_time));
+      }
+      return message;
+    },
+    toAmino(
+      message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse,
+    ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAmino {
+      const obj: any = {};
+      obj.amount0 = message.amount0 === '' ? undefined : message.amount0;
+      obj.amount1 = message.amount1 === '' ? undefined : message.amount1;
+      obj.liquidity_created =
+        message.liquidityCreated === '' ? undefined : message.liquidityCreated;
+      obj.join_time = message.joinTime
+        ? Timestamp.toAmino(toTimestamp(message.joinTime))
+        : undefined;
+      return obj;
+    },
+    fromAminoMsg(
+      object: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAminoMsg,
+    ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
+      return MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.fromAmino(
+        object.value,
+      );
+    },
+    toAminoMsg(
+      message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse,
+    ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseAminoMsg {
+      return {
+        type: 'osmosis/unlock-and-migrate-shares-to-full-range-concentrated-position-response',
+        value:
+          MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.toAmino(
+            message,
+          ),
+      };
+    },
+    fromProtoMsg(
+      message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseProtoMsg,
+    ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse {
+      return MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.decode(
+        message.value,
+      );
+    },
+    toProto(
+      message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse,
+    ): Uint8Array {
+      return MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.encode(
+        message,
+      ).finish();
+    },
+    toProtoMsg(
+      message: MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse,
+    ): MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponseProtoMsg {
+      return {
+        typeUrl:
+          '/osmosis.superfluid.MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse',
+        value:
+          MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.encode(
+            message,
+          ).finish(),
+      };
+    },
+  };
+GlobalDecoderRegistry.register(
+  MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.typeUrl,
+  MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.aminoType,
+  MsgUnlockAndMigrateSharesToFullRangeConcentratedPositionResponse.typeUrl,
+);
 function createBaseMsgAddToConcentratedLiquiditySuperfluidPosition(): MsgAddToConcentratedLiquiditySuperfluidPosition {
   return {
     positionId: BigInt(0),
-    sender: "",
+    sender: '',
     tokenDesired0: Coin.fromPartial({}),
-    tokenDesired1: Coin.fromPartial({})
+    tokenDesired1: Coin.fromPartial({}),
   };
 }
 export const MsgAddToConcentratedLiquiditySuperfluidPosition = {
-  typeUrl: "/osmosis.superfluid.MsgAddToConcentratedLiquiditySuperfluidPosition",
-  aminoType: "osmosis/add-to-cl-superfluid-position",
+  typeUrl:
+    '/osmosis.superfluid.MsgAddToConcentratedLiquiditySuperfluidPosition',
+  aminoType: 'osmosis/add-to-cl-superfluid-position',
   is(o: any): o is MsgAddToConcentratedLiquiditySuperfluidPosition {
-    return o && (o.$typeUrl === MsgAddToConcentratedLiquiditySuperfluidPosition.typeUrl || typeof o.positionId === "bigint" && typeof o.sender === "string" && Coin.is(o.tokenDesired0) && Coin.is(o.tokenDesired1));
+    return (
+      o &&
+      (o.$typeUrl === MsgAddToConcentratedLiquiditySuperfluidPosition.typeUrl ||
+        (typeof o.positionId === 'bigint' &&
+          typeof o.sender === 'string' &&
+          Coin.is(o.tokenDesired0) &&
+          Coin.is(o.tokenDesired1)))
+    );
   },
   isSDK(o: any): o is MsgAddToConcentratedLiquiditySuperfluidPositionSDKType {
-    return o && (o.$typeUrl === MsgAddToConcentratedLiquiditySuperfluidPosition.typeUrl || typeof o.position_id === "bigint" && typeof o.sender === "string" && Coin.isSDK(o.token_desired0) && Coin.isSDK(o.token_desired1));
+    return (
+      o &&
+      (o.$typeUrl === MsgAddToConcentratedLiquiditySuperfluidPosition.typeUrl ||
+        (typeof o.position_id === 'bigint' &&
+          typeof o.sender === 'string' &&
+          Coin.isSDK(o.token_desired0) &&
+          Coin.isSDK(o.token_desired1)))
+    );
   },
   isAmino(o: any): o is MsgAddToConcentratedLiquiditySuperfluidPositionAmino {
-    return o && (o.$typeUrl === MsgAddToConcentratedLiquiditySuperfluidPosition.typeUrl || typeof o.position_id === "bigint" && typeof o.sender === "string" && Coin.isAmino(o.token_desired0) && Coin.isAmino(o.token_desired1));
+    return (
+      o &&
+      (o.$typeUrl === MsgAddToConcentratedLiquiditySuperfluidPosition.typeUrl ||
+        (typeof o.position_id === 'bigint' &&
+          typeof o.sender === 'string' &&
+          Coin.isAmino(o.token_desired0) &&
+          Coin.isAmino(o.token_desired1)))
+    );
   },
-  encode(message: MsgAddToConcentratedLiquiditySuperfluidPosition, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: MsgAddToConcentratedLiquiditySuperfluidPosition,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.positionId !== BigInt(0)) {
       writer.uint32(8).uint64(message.positionId);
     }
-    if (message.sender !== "") {
+    if (message.sender !== '') {
       writer.uint32(18).string(message.sender);
     }
     if (message.tokenDesired0 !== undefined) {
@@ -2083,8 +2906,12 @@ export const MsgAddToConcentratedLiquiditySuperfluidPosition = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgAddToConcentratedLiquiditySuperfluidPosition {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgAddToConcentratedLiquiditySuperfluidPosition {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgAddToConcentratedLiquiditySuperfluidPosition();
     while (reader.pos < end) {
@@ -2109,15 +2936,28 @@ export const MsgAddToConcentratedLiquiditySuperfluidPosition = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgAddToConcentratedLiquiditySuperfluidPosition>): MsgAddToConcentratedLiquiditySuperfluidPosition {
+  fromPartial(
+    object: Partial<MsgAddToConcentratedLiquiditySuperfluidPosition>,
+  ): MsgAddToConcentratedLiquiditySuperfluidPosition {
     const message = createBaseMsgAddToConcentratedLiquiditySuperfluidPosition();
-    message.positionId = object.positionId !== undefined && object.positionId !== null ? BigInt(object.positionId.toString()) : BigInt(0);
-    message.sender = object.sender ?? "";
-    message.tokenDesired0 = object.tokenDesired0 !== undefined && object.tokenDesired0 !== null ? Coin.fromPartial(object.tokenDesired0) : undefined;
-    message.tokenDesired1 = object.tokenDesired1 !== undefined && object.tokenDesired1 !== null ? Coin.fromPartial(object.tokenDesired1) : undefined;
+    message.positionId =
+      object.positionId !== undefined && object.positionId !== null
+        ? BigInt(object.positionId.toString())
+        : BigInt(0);
+    message.sender = object.sender ?? '';
+    message.tokenDesired0 =
+      object.tokenDesired0 !== undefined && object.tokenDesired0 !== null
+        ? Coin.fromPartial(object.tokenDesired0)
+        : undefined;
+    message.tokenDesired1 =
+      object.tokenDesired1 !== undefined && object.tokenDesired1 !== null
+        ? Coin.fromPartial(object.tokenDesired1)
+        : undefined;
     return message;
   },
-  fromAmino(object: MsgAddToConcentratedLiquiditySuperfluidPositionAmino): MsgAddToConcentratedLiquiditySuperfluidPosition {
+  fromAmino(
+    object: MsgAddToConcentratedLiquiditySuperfluidPositionAmino,
+  ): MsgAddToConcentratedLiquiditySuperfluidPosition {
     const message = createBaseMsgAddToConcentratedLiquiditySuperfluidPosition();
     if (object.position_id !== undefined && object.position_id !== null) {
       message.positionId = BigInt(object.position_id);
@@ -2133,81 +2973,159 @@ export const MsgAddToConcentratedLiquiditySuperfluidPosition = {
     }
     return message;
   },
-  toAmino(message: MsgAddToConcentratedLiquiditySuperfluidPosition): MsgAddToConcentratedLiquiditySuperfluidPositionAmino {
+  toAmino(
+    message: MsgAddToConcentratedLiquiditySuperfluidPosition,
+  ): MsgAddToConcentratedLiquiditySuperfluidPositionAmino {
     const obj: any = {};
-    obj.position_id = message.positionId !== BigInt(0) ? message.positionId.toString() : undefined;
-    obj.sender = message.sender === "" ? undefined : message.sender;
-    obj.token_desired0 = message.tokenDesired0 ? Coin.toAmino(message.tokenDesired0) : undefined;
-    obj.token_desired1 = message.tokenDesired1 ? Coin.toAmino(message.tokenDesired1) : undefined;
+    obj.position_id =
+      message.positionId !== BigInt(0)
+        ? message.positionId.toString()
+        : undefined;
+    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.token_desired0 = message.tokenDesired0
+      ? Coin.toAmino(message.tokenDesired0)
+      : undefined;
+    obj.token_desired1 = message.tokenDesired1
+      ? Coin.toAmino(message.tokenDesired1)
+      : undefined;
     return obj;
   },
-  fromAminoMsg(object: MsgAddToConcentratedLiquiditySuperfluidPositionAminoMsg): MsgAddToConcentratedLiquiditySuperfluidPosition {
-    return MsgAddToConcentratedLiquiditySuperfluidPosition.fromAmino(object.value);
+  fromAminoMsg(
+    object: MsgAddToConcentratedLiquiditySuperfluidPositionAminoMsg,
+  ): MsgAddToConcentratedLiquiditySuperfluidPosition {
+    return MsgAddToConcentratedLiquiditySuperfluidPosition.fromAmino(
+      object.value,
+    );
   },
-  toAminoMsg(message: MsgAddToConcentratedLiquiditySuperfluidPosition): MsgAddToConcentratedLiquiditySuperfluidPositionAminoMsg {
+  toAminoMsg(
+    message: MsgAddToConcentratedLiquiditySuperfluidPosition,
+  ): MsgAddToConcentratedLiquiditySuperfluidPositionAminoMsg {
     return {
-      type: "osmosis/add-to-cl-superfluid-position",
-      value: MsgAddToConcentratedLiquiditySuperfluidPosition.toAmino(message)
+      type: 'osmosis/add-to-cl-superfluid-position',
+      value: MsgAddToConcentratedLiquiditySuperfluidPosition.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgAddToConcentratedLiquiditySuperfluidPositionProtoMsg): MsgAddToConcentratedLiquiditySuperfluidPosition {
-    return MsgAddToConcentratedLiquiditySuperfluidPosition.decode(message.value);
+  fromProtoMsg(
+    message: MsgAddToConcentratedLiquiditySuperfluidPositionProtoMsg,
+  ): MsgAddToConcentratedLiquiditySuperfluidPosition {
+    return MsgAddToConcentratedLiquiditySuperfluidPosition.decode(
+      message.value,
+    );
   },
-  toProto(message: MsgAddToConcentratedLiquiditySuperfluidPosition): Uint8Array {
-    return MsgAddToConcentratedLiquiditySuperfluidPosition.encode(message).finish();
+  toProto(
+    message: MsgAddToConcentratedLiquiditySuperfluidPosition,
+  ): Uint8Array {
+    return MsgAddToConcentratedLiquiditySuperfluidPosition.encode(
+      message,
+    ).finish();
   },
-  toProtoMsg(message: MsgAddToConcentratedLiquiditySuperfluidPosition): MsgAddToConcentratedLiquiditySuperfluidPositionProtoMsg {
+  toProtoMsg(
+    message: MsgAddToConcentratedLiquiditySuperfluidPosition,
+  ): MsgAddToConcentratedLiquiditySuperfluidPositionProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgAddToConcentratedLiquiditySuperfluidPosition",
-      value: MsgAddToConcentratedLiquiditySuperfluidPosition.encode(message).finish()
+      typeUrl:
+        '/osmosis.superfluid.MsgAddToConcentratedLiquiditySuperfluidPosition',
+      value:
+        MsgAddToConcentratedLiquiditySuperfluidPosition.encode(
+          message,
+        ).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgAddToConcentratedLiquiditySuperfluidPosition.typeUrl, MsgAddToConcentratedLiquiditySuperfluidPosition);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgAddToConcentratedLiquiditySuperfluidPosition.aminoType, MsgAddToConcentratedLiquiditySuperfluidPosition.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgAddToConcentratedLiquiditySuperfluidPosition.typeUrl,
+  MsgAddToConcentratedLiquiditySuperfluidPosition,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgAddToConcentratedLiquiditySuperfluidPosition.aminoType,
+  MsgAddToConcentratedLiquiditySuperfluidPosition.typeUrl,
+);
 function createBaseMsgAddToConcentratedLiquiditySuperfluidPositionResponse(): MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
   return {
     positionId: BigInt(0),
-    amount0: "",
-    amount1: "",
-    newLiquidity: "",
-    lockId: BigInt(0)
+    amount0: '',
+    amount1: '',
+    newLiquidity: '',
+    lockId: BigInt(0),
   };
 }
 export const MsgAddToConcentratedLiquiditySuperfluidPositionResponse = {
-  typeUrl: "/osmosis.superfluid.MsgAddToConcentratedLiquiditySuperfluidPositionResponse",
-  aminoType: "osmosis/add-to-concentrated-liquidity-superfluid-position-response",
+  typeUrl:
+    '/osmosis.superfluid.MsgAddToConcentratedLiquiditySuperfluidPositionResponse',
+  aminoType:
+    'osmosis/add-to-concentrated-liquidity-superfluid-position-response',
   is(o: any): o is MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
-    return o && (o.$typeUrl === MsgAddToConcentratedLiquiditySuperfluidPositionResponse.typeUrl || typeof o.positionId === "bigint" && typeof o.amount0 === "string" && typeof o.amount1 === "string" && typeof o.newLiquidity === "string" && typeof o.lockId === "bigint");
+    return (
+      o &&
+      (o.$typeUrl ===
+        MsgAddToConcentratedLiquiditySuperfluidPositionResponse.typeUrl ||
+        (typeof o.positionId === 'bigint' &&
+          typeof o.amount0 === 'string' &&
+          typeof o.amount1 === 'string' &&
+          typeof o.newLiquidity === 'string' &&
+          typeof o.lockId === 'bigint'))
+    );
   },
-  isSDK(o: any): o is MsgAddToConcentratedLiquiditySuperfluidPositionResponseSDKType {
-    return o && (o.$typeUrl === MsgAddToConcentratedLiquiditySuperfluidPositionResponse.typeUrl || typeof o.position_id === "bigint" && typeof o.amount0 === "string" && typeof o.amount1 === "string" && typeof o.new_liquidity === "string" && typeof o.lock_id === "bigint");
+  isSDK(
+    o: any,
+  ): o is MsgAddToConcentratedLiquiditySuperfluidPositionResponseSDKType {
+    return (
+      o &&
+      (o.$typeUrl ===
+        MsgAddToConcentratedLiquiditySuperfluidPositionResponse.typeUrl ||
+        (typeof o.position_id === 'bigint' &&
+          typeof o.amount0 === 'string' &&
+          typeof o.amount1 === 'string' &&
+          typeof o.new_liquidity === 'string' &&
+          typeof o.lock_id === 'bigint'))
+    );
   },
-  isAmino(o: any): o is MsgAddToConcentratedLiquiditySuperfluidPositionResponseAmino {
-    return o && (o.$typeUrl === MsgAddToConcentratedLiquiditySuperfluidPositionResponse.typeUrl || typeof o.position_id === "bigint" && typeof o.amount0 === "string" && typeof o.amount1 === "string" && typeof o.new_liquidity === "string" && typeof o.lock_id === "bigint");
+  isAmino(
+    o: any,
+  ): o is MsgAddToConcentratedLiquiditySuperfluidPositionResponseAmino {
+    return (
+      o &&
+      (o.$typeUrl ===
+        MsgAddToConcentratedLiquiditySuperfluidPositionResponse.typeUrl ||
+        (typeof o.position_id === 'bigint' &&
+          typeof o.amount0 === 'string' &&
+          typeof o.amount1 === 'string' &&
+          typeof o.new_liquidity === 'string' &&
+          typeof o.lock_id === 'bigint'))
+    );
   },
-  encode(message: MsgAddToConcentratedLiquiditySuperfluidPositionResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: MsgAddToConcentratedLiquiditySuperfluidPositionResponse,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.positionId !== BigInt(0)) {
       writer.uint32(8).uint64(message.positionId);
     }
-    if (message.amount0 !== "") {
+    if (message.amount0 !== '') {
       writer.uint32(18).string(message.amount0);
     }
-    if (message.amount1 !== "") {
+    if (message.amount1 !== '') {
       writer.uint32(26).string(message.amount1);
     }
-    if (message.newLiquidity !== "") {
-      writer.uint32(42).string(Decimal.fromUserInput(message.newLiquidity, 18).atomics);
+    if (message.newLiquidity !== '') {
+      writer
+        .uint32(42)
+        .string(Decimal.fromUserInput(message.newLiquidity, 18).atomics);
     }
     if (message.lockId !== BigInt(0)) {
       writer.uint32(32).uint64(message.lockId);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseMsgAddToConcentratedLiquiditySuperfluidPositionResponse();
+    const message =
+      createBaseMsgAddToConcentratedLiquiditySuperfluidPositionResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -2221,7 +3139,10 @@ export const MsgAddToConcentratedLiquiditySuperfluidPositionResponse = {
           message.amount1 = reader.string();
           break;
         case 5:
-          message.newLiquidity = Decimal.fromAtomics(reader.string(), 18).toString();
+          message.newLiquidity = Decimal.fromAtomics(
+            reader.string(),
+            18,
+          ).toString();
           break;
         case 4:
           message.lockId = reader.uint64();
@@ -2233,17 +3154,29 @@ export const MsgAddToConcentratedLiquiditySuperfluidPositionResponse = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgAddToConcentratedLiquiditySuperfluidPositionResponse>): MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
-    const message = createBaseMsgAddToConcentratedLiquiditySuperfluidPositionResponse();
-    message.positionId = object.positionId !== undefined && object.positionId !== null ? BigInt(object.positionId.toString()) : BigInt(0);
-    message.amount0 = object.amount0 ?? "";
-    message.amount1 = object.amount1 ?? "";
-    message.newLiquidity = object.newLiquidity ?? "";
-    message.lockId = object.lockId !== undefined && object.lockId !== null ? BigInt(object.lockId.toString()) : BigInt(0);
+  fromPartial(
+    object: Partial<MsgAddToConcentratedLiquiditySuperfluidPositionResponse>,
+  ): MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
+    const message =
+      createBaseMsgAddToConcentratedLiquiditySuperfluidPositionResponse();
+    message.positionId =
+      object.positionId !== undefined && object.positionId !== null
+        ? BigInt(object.positionId.toString())
+        : BigInt(0);
+    message.amount0 = object.amount0 ?? '';
+    message.amount1 = object.amount1 ?? '';
+    message.newLiquidity = object.newLiquidity ?? '';
+    message.lockId =
+      object.lockId !== undefined && object.lockId !== null
+        ? BigInt(object.lockId.toString())
+        : BigInt(0);
     return message;
   },
-  fromAmino(object: MsgAddToConcentratedLiquiditySuperfluidPositionResponseAmino): MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
-    const message = createBaseMsgAddToConcentratedLiquiditySuperfluidPositionResponse();
+  fromAmino(
+    object: MsgAddToConcentratedLiquiditySuperfluidPositionResponseAmino,
+  ): MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
+    const message =
+      createBaseMsgAddToConcentratedLiquiditySuperfluidPositionResponse();
     if (object.position_id !== undefined && object.position_id !== null) {
       message.positionId = BigInt(object.position_id);
     }
@@ -2261,71 +3194,134 @@ export const MsgAddToConcentratedLiquiditySuperfluidPositionResponse = {
     }
     return message;
   },
-  toAmino(message: MsgAddToConcentratedLiquiditySuperfluidPositionResponse): MsgAddToConcentratedLiquiditySuperfluidPositionResponseAmino {
+  toAmino(
+    message: MsgAddToConcentratedLiquiditySuperfluidPositionResponse,
+  ): MsgAddToConcentratedLiquiditySuperfluidPositionResponseAmino {
     const obj: any = {};
-    obj.position_id = message.positionId !== BigInt(0) ? message.positionId.toString() : undefined;
-    obj.amount0 = message.amount0 === "" ? undefined : message.amount0;
-    obj.amount1 = message.amount1 === "" ? undefined : message.amount1;
-    obj.new_liquidity = message.newLiquidity === "" ? undefined : message.newLiquidity;
-    obj.lock_id = message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
+    obj.position_id =
+      message.positionId !== BigInt(0)
+        ? message.positionId.toString()
+        : undefined;
+    obj.amount0 = message.amount0 === '' ? undefined : message.amount0;
+    obj.amount1 = message.amount1 === '' ? undefined : message.amount1;
+    obj.new_liquidity =
+      message.newLiquidity === '' ? undefined : message.newLiquidity;
+    obj.lock_id =
+      message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
     return obj;
   },
-  fromAminoMsg(object: MsgAddToConcentratedLiquiditySuperfluidPositionResponseAminoMsg): MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
-    return MsgAddToConcentratedLiquiditySuperfluidPositionResponse.fromAmino(object.value);
+  fromAminoMsg(
+    object: MsgAddToConcentratedLiquiditySuperfluidPositionResponseAminoMsg,
+  ): MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
+    return MsgAddToConcentratedLiquiditySuperfluidPositionResponse.fromAmino(
+      object.value,
+    );
   },
-  toAminoMsg(message: MsgAddToConcentratedLiquiditySuperfluidPositionResponse): MsgAddToConcentratedLiquiditySuperfluidPositionResponseAminoMsg {
+  toAminoMsg(
+    message: MsgAddToConcentratedLiquiditySuperfluidPositionResponse,
+  ): MsgAddToConcentratedLiquiditySuperfluidPositionResponseAminoMsg {
     return {
-      type: "osmosis/add-to-concentrated-liquidity-superfluid-position-response",
-      value: MsgAddToConcentratedLiquiditySuperfluidPositionResponse.toAmino(message)
+      type: 'osmosis/add-to-concentrated-liquidity-superfluid-position-response',
+      value:
+        MsgAddToConcentratedLiquiditySuperfluidPositionResponse.toAmino(
+          message,
+        ),
     };
   },
-  fromProtoMsg(message: MsgAddToConcentratedLiquiditySuperfluidPositionResponseProtoMsg): MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
-    return MsgAddToConcentratedLiquiditySuperfluidPositionResponse.decode(message.value);
+  fromProtoMsg(
+    message: MsgAddToConcentratedLiquiditySuperfluidPositionResponseProtoMsg,
+  ): MsgAddToConcentratedLiquiditySuperfluidPositionResponse {
+    return MsgAddToConcentratedLiquiditySuperfluidPositionResponse.decode(
+      message.value,
+    );
   },
-  toProto(message: MsgAddToConcentratedLiquiditySuperfluidPositionResponse): Uint8Array {
-    return MsgAddToConcentratedLiquiditySuperfluidPositionResponse.encode(message).finish();
+  toProto(
+    message: MsgAddToConcentratedLiquiditySuperfluidPositionResponse,
+  ): Uint8Array {
+    return MsgAddToConcentratedLiquiditySuperfluidPositionResponse.encode(
+      message,
+    ).finish();
   },
-  toProtoMsg(message: MsgAddToConcentratedLiquiditySuperfluidPositionResponse): MsgAddToConcentratedLiquiditySuperfluidPositionResponseProtoMsg {
+  toProtoMsg(
+    message: MsgAddToConcentratedLiquiditySuperfluidPositionResponse,
+  ): MsgAddToConcentratedLiquiditySuperfluidPositionResponseProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgAddToConcentratedLiquiditySuperfluidPositionResponse",
-      value: MsgAddToConcentratedLiquiditySuperfluidPositionResponse.encode(message).finish()
+      typeUrl:
+        '/osmosis.superfluid.MsgAddToConcentratedLiquiditySuperfluidPositionResponse',
+      value:
+        MsgAddToConcentratedLiquiditySuperfluidPositionResponse.encode(
+          message,
+        ).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgAddToConcentratedLiquiditySuperfluidPositionResponse.typeUrl, MsgAddToConcentratedLiquiditySuperfluidPositionResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgAddToConcentratedLiquiditySuperfluidPositionResponse.aminoType, MsgAddToConcentratedLiquiditySuperfluidPositionResponse.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgAddToConcentratedLiquiditySuperfluidPositionResponse.typeUrl,
+  MsgAddToConcentratedLiquiditySuperfluidPositionResponse,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgAddToConcentratedLiquiditySuperfluidPositionResponse.aminoType,
+  MsgAddToConcentratedLiquiditySuperfluidPositionResponse.typeUrl,
+);
 function createBaseMsgUnbondConvertAndStake(): MsgUnbondConvertAndStake {
   return {
     lockId: BigInt(0),
-    sender: "",
-    valAddr: "",
-    minAmtToStake: "",
-    sharesToConvert: Coin.fromPartial({})
+    sender: '',
+    valAddr: '',
+    minAmtToStake: '',
+    sharesToConvert: Coin.fromPartial({}),
   };
 }
 export const MsgUnbondConvertAndStake = {
-  typeUrl: "/osmosis.superfluid.MsgUnbondConvertAndStake",
-  aminoType: "osmosis/unbond-convert-and-stake",
+  typeUrl: '/osmosis.superfluid.MsgUnbondConvertAndStake',
+  aminoType: 'osmosis/unbond-convert-and-stake',
   is(o: any): o is MsgUnbondConvertAndStake {
-    return o && (o.$typeUrl === MsgUnbondConvertAndStake.typeUrl || typeof o.lockId === "bigint" && typeof o.sender === "string" && typeof o.valAddr === "string" && typeof o.minAmtToStake === "string" && Coin.is(o.sharesToConvert));
+    return (
+      o &&
+      (o.$typeUrl === MsgUnbondConvertAndStake.typeUrl ||
+        (typeof o.lockId === 'bigint' &&
+          typeof o.sender === 'string' &&
+          typeof o.valAddr === 'string' &&
+          typeof o.minAmtToStake === 'string' &&
+          Coin.is(o.sharesToConvert)))
+    );
   },
   isSDK(o: any): o is MsgUnbondConvertAndStakeSDKType {
-    return o && (o.$typeUrl === MsgUnbondConvertAndStake.typeUrl || typeof o.lock_id === "bigint" && typeof o.sender === "string" && typeof o.val_addr === "string" && typeof o.min_amt_to_stake === "string" && Coin.isSDK(o.shares_to_convert));
+    return (
+      o &&
+      (o.$typeUrl === MsgUnbondConvertAndStake.typeUrl ||
+        (typeof o.lock_id === 'bigint' &&
+          typeof o.sender === 'string' &&
+          typeof o.val_addr === 'string' &&
+          typeof o.min_amt_to_stake === 'string' &&
+          Coin.isSDK(o.shares_to_convert)))
+    );
   },
   isAmino(o: any): o is MsgUnbondConvertAndStakeAmino {
-    return o && (o.$typeUrl === MsgUnbondConvertAndStake.typeUrl || typeof o.lock_id === "bigint" && typeof o.sender === "string" && typeof o.val_addr === "string" && typeof o.min_amt_to_stake === "string" && Coin.isAmino(o.shares_to_convert));
+    return (
+      o &&
+      (o.$typeUrl === MsgUnbondConvertAndStake.typeUrl ||
+        (typeof o.lock_id === 'bigint' &&
+          typeof o.sender === 'string' &&
+          typeof o.val_addr === 'string' &&
+          typeof o.min_amt_to_stake === 'string' &&
+          Coin.isAmino(o.shares_to_convert)))
+    );
   },
-  encode(message: MsgUnbondConvertAndStake, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: MsgUnbondConvertAndStake,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.lockId !== BigInt(0)) {
       writer.uint32(8).uint64(message.lockId);
     }
-    if (message.sender !== "") {
+    if (message.sender !== '') {
       writer.uint32(18).string(message.sender);
     }
-    if (message.valAddr !== "") {
+    if (message.valAddr !== '') {
       writer.uint32(26).string(message.valAddr);
     }
-    if (message.minAmtToStake !== "") {
+    if (message.minAmtToStake !== '') {
       writer.uint32(34).string(message.minAmtToStake);
     }
     if (message.sharesToConvert !== undefined) {
@@ -2333,8 +3329,12 @@ export const MsgUnbondConvertAndStake = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgUnbondConvertAndStake {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgUnbondConvertAndStake {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgUnbondConvertAndStake();
     while (reader.pos < end) {
@@ -2362,13 +3362,21 @@ export const MsgUnbondConvertAndStake = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgUnbondConvertAndStake>): MsgUnbondConvertAndStake {
+  fromPartial(
+    object: Partial<MsgUnbondConvertAndStake>,
+  ): MsgUnbondConvertAndStake {
     const message = createBaseMsgUnbondConvertAndStake();
-    message.lockId = object.lockId !== undefined && object.lockId !== null ? BigInt(object.lockId.toString()) : BigInt(0);
-    message.sender = object.sender ?? "";
-    message.valAddr = object.valAddr ?? "";
-    message.minAmtToStake = object.minAmtToStake ?? "";
-    message.sharesToConvert = object.sharesToConvert !== undefined && object.sharesToConvert !== null ? Coin.fromPartial(object.sharesToConvert) : undefined;
+    message.lockId =
+      object.lockId !== undefined && object.lockId !== null
+        ? BigInt(object.lockId.toString())
+        : BigInt(0);
+    message.sender = object.sender ?? '';
+    message.valAddr = object.valAddr ?? '';
+    message.minAmtToStake = object.minAmtToStake ?? '';
+    message.sharesToConvert =
+      object.sharesToConvert !== undefined && object.sharesToConvert !== null
+        ? Coin.fromPartial(object.sharesToConvert)
+        : undefined;
     return message;
   },
   fromAmino(object: MsgUnbondConvertAndStakeAmino): MsgUnbondConvertAndStake {
@@ -2382,72 +3390,115 @@ export const MsgUnbondConvertAndStake = {
     if (object.val_addr !== undefined && object.val_addr !== null) {
       message.valAddr = object.val_addr;
     }
-    if (object.min_amt_to_stake !== undefined && object.min_amt_to_stake !== null) {
+    if (
+      object.min_amt_to_stake !== undefined &&
+      object.min_amt_to_stake !== null
+    ) {
       message.minAmtToStake = object.min_amt_to_stake;
     }
-    if (object.shares_to_convert !== undefined && object.shares_to_convert !== null) {
+    if (
+      object.shares_to_convert !== undefined &&
+      object.shares_to_convert !== null
+    ) {
       message.sharesToConvert = Coin.fromAmino(object.shares_to_convert);
     }
     return message;
   },
   toAmino(message: MsgUnbondConvertAndStake): MsgUnbondConvertAndStakeAmino {
     const obj: any = {};
-    obj.lock_id = message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
-    obj.sender = message.sender === "" ? undefined : message.sender;
-    obj.val_addr = message.valAddr === "" ? undefined : message.valAddr;
-    obj.min_amt_to_stake = message.minAmtToStake === "" ? undefined : message.minAmtToStake;
-    obj.shares_to_convert = message.sharesToConvert ? Coin.toAmino(message.sharesToConvert) : undefined;
+    obj.lock_id =
+      message.lockId !== BigInt(0) ? message.lockId.toString() : undefined;
+    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.val_addr = message.valAddr === '' ? undefined : message.valAddr;
+    obj.min_amt_to_stake =
+      message.minAmtToStake === '' ? undefined : message.minAmtToStake;
+    obj.shares_to_convert = message.sharesToConvert
+      ? Coin.toAmino(message.sharesToConvert)
+      : undefined;
     return obj;
   },
-  fromAminoMsg(object: MsgUnbondConvertAndStakeAminoMsg): MsgUnbondConvertAndStake {
+  fromAminoMsg(
+    object: MsgUnbondConvertAndStakeAminoMsg,
+  ): MsgUnbondConvertAndStake {
     return MsgUnbondConvertAndStake.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgUnbondConvertAndStake): MsgUnbondConvertAndStakeAminoMsg {
+  toAminoMsg(
+    message: MsgUnbondConvertAndStake,
+  ): MsgUnbondConvertAndStakeAminoMsg {
     return {
-      type: "osmosis/unbond-convert-and-stake",
-      value: MsgUnbondConvertAndStake.toAmino(message)
+      type: 'osmosis/unbond-convert-and-stake',
+      value: MsgUnbondConvertAndStake.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgUnbondConvertAndStakeProtoMsg): MsgUnbondConvertAndStake {
+  fromProtoMsg(
+    message: MsgUnbondConvertAndStakeProtoMsg,
+  ): MsgUnbondConvertAndStake {
     return MsgUnbondConvertAndStake.decode(message.value);
   },
   toProto(message: MsgUnbondConvertAndStake): Uint8Array {
     return MsgUnbondConvertAndStake.encode(message).finish();
   },
-  toProtoMsg(message: MsgUnbondConvertAndStake): MsgUnbondConvertAndStakeProtoMsg {
+  toProtoMsg(
+    message: MsgUnbondConvertAndStake,
+  ): MsgUnbondConvertAndStakeProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgUnbondConvertAndStake",
-      value: MsgUnbondConvertAndStake.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgUnbondConvertAndStake',
+      value: MsgUnbondConvertAndStake.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgUnbondConvertAndStake.typeUrl, MsgUnbondConvertAndStake);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUnbondConvertAndStake.aminoType, MsgUnbondConvertAndStake.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgUnbondConvertAndStake.typeUrl,
+  MsgUnbondConvertAndStake,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgUnbondConvertAndStake.aminoType,
+  MsgUnbondConvertAndStake.typeUrl,
+);
 function createBaseMsgUnbondConvertAndStakeResponse(): MsgUnbondConvertAndStakeResponse {
   return {
-    totalAmtStaked: ""
+    totalAmtStaked: '',
   };
 }
 export const MsgUnbondConvertAndStakeResponse = {
-  typeUrl: "/osmosis.superfluid.MsgUnbondConvertAndStakeResponse",
-  aminoType: "osmosis/unbond-convert-and-stake-response",
+  typeUrl: '/osmosis.superfluid.MsgUnbondConvertAndStakeResponse',
+  aminoType: 'osmosis/unbond-convert-and-stake-response',
   is(o: any): o is MsgUnbondConvertAndStakeResponse {
-    return o && (o.$typeUrl === MsgUnbondConvertAndStakeResponse.typeUrl || typeof o.totalAmtStaked === "string");
+    return (
+      o &&
+      (o.$typeUrl === MsgUnbondConvertAndStakeResponse.typeUrl ||
+        typeof o.totalAmtStaked === 'string')
+    );
   },
   isSDK(o: any): o is MsgUnbondConvertAndStakeResponseSDKType {
-    return o && (o.$typeUrl === MsgUnbondConvertAndStakeResponse.typeUrl || typeof o.total_amt_staked === "string");
+    return (
+      o &&
+      (o.$typeUrl === MsgUnbondConvertAndStakeResponse.typeUrl ||
+        typeof o.total_amt_staked === 'string')
+    );
   },
   isAmino(o: any): o is MsgUnbondConvertAndStakeResponseAmino {
-    return o && (o.$typeUrl === MsgUnbondConvertAndStakeResponse.typeUrl || typeof o.total_amt_staked === "string");
+    return (
+      o &&
+      (o.$typeUrl === MsgUnbondConvertAndStakeResponse.typeUrl ||
+        typeof o.total_amt_staked === 'string')
+    );
   },
-  encode(message: MsgUnbondConvertAndStakeResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.totalAmtStaked !== "") {
+  encode(
+    message: MsgUnbondConvertAndStakeResponse,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.totalAmtStaked !== '') {
       writer.uint32(10).string(message.totalAmtStaked);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgUnbondConvertAndStakeResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): MsgUnbondConvertAndStakeResponse {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgUnbondConvertAndStakeResponse();
     while (reader.pos < end) {
@@ -2463,44 +3514,68 @@ export const MsgUnbondConvertAndStakeResponse = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgUnbondConvertAndStakeResponse>): MsgUnbondConvertAndStakeResponse {
+  fromPartial(
+    object: Partial<MsgUnbondConvertAndStakeResponse>,
+  ): MsgUnbondConvertAndStakeResponse {
     const message = createBaseMsgUnbondConvertAndStakeResponse();
-    message.totalAmtStaked = object.totalAmtStaked ?? "";
+    message.totalAmtStaked = object.totalAmtStaked ?? '';
     return message;
   },
-  fromAmino(object: MsgUnbondConvertAndStakeResponseAmino): MsgUnbondConvertAndStakeResponse {
+  fromAmino(
+    object: MsgUnbondConvertAndStakeResponseAmino,
+  ): MsgUnbondConvertAndStakeResponse {
     const message = createBaseMsgUnbondConvertAndStakeResponse();
-    if (object.total_amt_staked !== undefined && object.total_amt_staked !== null) {
+    if (
+      object.total_amt_staked !== undefined &&
+      object.total_amt_staked !== null
+    ) {
       message.totalAmtStaked = object.total_amt_staked;
     }
     return message;
   },
-  toAmino(message: MsgUnbondConvertAndStakeResponse): MsgUnbondConvertAndStakeResponseAmino {
+  toAmino(
+    message: MsgUnbondConvertAndStakeResponse,
+  ): MsgUnbondConvertAndStakeResponseAmino {
     const obj: any = {};
-    obj.total_amt_staked = message.totalAmtStaked === "" ? undefined : message.totalAmtStaked;
+    obj.total_amt_staked =
+      message.totalAmtStaked === '' ? undefined : message.totalAmtStaked;
     return obj;
   },
-  fromAminoMsg(object: MsgUnbondConvertAndStakeResponseAminoMsg): MsgUnbondConvertAndStakeResponse {
+  fromAminoMsg(
+    object: MsgUnbondConvertAndStakeResponseAminoMsg,
+  ): MsgUnbondConvertAndStakeResponse {
     return MsgUnbondConvertAndStakeResponse.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgUnbondConvertAndStakeResponse): MsgUnbondConvertAndStakeResponseAminoMsg {
+  toAminoMsg(
+    message: MsgUnbondConvertAndStakeResponse,
+  ): MsgUnbondConvertAndStakeResponseAminoMsg {
     return {
-      type: "osmosis/unbond-convert-and-stake-response",
-      value: MsgUnbondConvertAndStakeResponse.toAmino(message)
+      type: 'osmosis/unbond-convert-and-stake-response',
+      value: MsgUnbondConvertAndStakeResponse.toAmino(message),
     };
   },
-  fromProtoMsg(message: MsgUnbondConvertAndStakeResponseProtoMsg): MsgUnbondConvertAndStakeResponse {
+  fromProtoMsg(
+    message: MsgUnbondConvertAndStakeResponseProtoMsg,
+  ): MsgUnbondConvertAndStakeResponse {
     return MsgUnbondConvertAndStakeResponse.decode(message.value);
   },
   toProto(message: MsgUnbondConvertAndStakeResponse): Uint8Array {
     return MsgUnbondConvertAndStakeResponse.encode(message).finish();
   },
-  toProtoMsg(message: MsgUnbondConvertAndStakeResponse): MsgUnbondConvertAndStakeResponseProtoMsg {
+  toProtoMsg(
+    message: MsgUnbondConvertAndStakeResponse,
+  ): MsgUnbondConvertAndStakeResponseProtoMsg {
     return {
-      typeUrl: "/osmosis.superfluid.MsgUnbondConvertAndStakeResponse",
-      value: MsgUnbondConvertAndStakeResponse.encode(message).finish()
+      typeUrl: '/osmosis.superfluid.MsgUnbondConvertAndStakeResponse',
+      value: MsgUnbondConvertAndStakeResponse.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(MsgUnbondConvertAndStakeResponse.typeUrl, MsgUnbondConvertAndStakeResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUnbondConvertAndStakeResponse.aminoType, MsgUnbondConvertAndStakeResponse.typeUrl);
+GlobalDecoderRegistry.register(
+  MsgUnbondConvertAndStakeResponse.typeUrl,
+  MsgUnbondConvertAndStakeResponse,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  MsgUnbondConvertAndStakeResponse.aminoType,
+  MsgUnbondConvertAndStakeResponse.typeUrl,
+);

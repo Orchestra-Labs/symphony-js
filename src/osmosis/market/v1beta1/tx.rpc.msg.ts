@@ -1,7 +1,12 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
-import { BinaryReader } from "../../../binary";
-import { MsgSwap, MsgSwapResponse, MsgSwapSend, MsgSwapSendResponse } from "./tx";
+import { Rpc } from '../../../helpers';
+import { BinaryReader } from '../../../binary';
+import {
+  MsgSwap,
+  MsgSwapResponse,
+  MsgSwapSend,
+  MsgSwapSendResponse,
+} from './tx';
 /** Msg defines the market Msg service. */
 export interface Msg {
   /**
@@ -24,13 +29,23 @@ export class MsgClientImpl implements Msg {
   }
   swap(request: MsgSwap): Promise<MsgSwapResponse> {
     const data = MsgSwap.encode(request).finish();
-    const promise = this.rpc.request("osmosis.market.v1beta1.Msg", "Swap", data);
+    const promise = this.rpc.request(
+      'osmosis.market.v1beta1.Msg',
+      'Swap',
+      data,
+    );
     return promise.then(data => MsgSwapResponse.decode(new BinaryReader(data)));
   }
   swapSend(request: MsgSwapSend): Promise<MsgSwapSendResponse> {
     const data = MsgSwapSend.encode(request).finish();
-    const promise = this.rpc.request("osmosis.market.v1beta1.Msg", "SwapSend", data);
-    return promise.then(data => MsgSwapSendResponse.decode(new BinaryReader(data)));
+    const promise = this.rpc.request(
+      'osmosis.market.v1beta1.Msg',
+      'SwapSend',
+      data,
+    );
+    return promise.then(data =>
+      MsgSwapSendResponse.decode(new BinaryReader(data)),
+    );
   }
 }
 export const createClientImpl = (rpc: Rpc) => {

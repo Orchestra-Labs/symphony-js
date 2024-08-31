@@ -1,6 +1,6 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { GlobalDecoderRegistry } from "../../../../registry";
+import { BinaryReader, BinaryWriter } from '../../../../binary';
+import { GlobalDecoderRegistry } from '../../../../registry';
 /** BIP44Params is used as path field in ledger item in Record. */
 export interface BIP44Params {
   /** purpose is a constant set to 44' (or 0x8000002C) following the BIP43 recommendation */
@@ -18,7 +18,7 @@ export interface BIP44Params {
   addressIndex: number;
 }
 export interface BIP44ParamsProtoMsg {
-  typeUrl: "/cosmos.crypto.hd.v1.BIP44Params";
+  typeUrl: '/cosmos.crypto.hd.v1.BIP44Params';
   value: Uint8Array;
 }
 /** BIP44Params is used as path field in ledger item in Record. */
@@ -38,7 +38,7 @@ export interface BIP44ParamsAmino {
   address_index?: number;
 }
 export interface BIP44ParamsAminoMsg {
-  type: "crypto/keys/hd/BIP44Params";
+  type: 'crypto/keys/hd/BIP44Params';
   value: BIP44ParamsAmino;
 }
 /** BIP44Params is used as path field in ledger item in Record. */
@@ -55,22 +55,49 @@ function createBaseBIP44Params(): BIP44Params {
     coinType: 0,
     account: 0,
     change: false,
-    addressIndex: 0
+    addressIndex: 0,
   };
 }
 export const BIP44Params = {
-  typeUrl: "/cosmos.crypto.hd.v1.BIP44Params",
-  aminoType: "crypto/keys/hd/BIP44Params",
+  typeUrl: '/cosmos.crypto.hd.v1.BIP44Params',
+  aminoType: 'crypto/keys/hd/BIP44Params',
   is(o: any): o is BIP44Params {
-    return o && (o.$typeUrl === BIP44Params.typeUrl || typeof o.purpose === "number" && typeof o.coinType === "number" && typeof o.account === "number" && typeof o.change === "boolean" && typeof o.addressIndex === "number");
+    return (
+      o &&
+      (o.$typeUrl === BIP44Params.typeUrl ||
+        (typeof o.purpose === 'number' &&
+          typeof o.coinType === 'number' &&
+          typeof o.account === 'number' &&
+          typeof o.change === 'boolean' &&
+          typeof o.addressIndex === 'number'))
+    );
   },
   isSDK(o: any): o is BIP44ParamsSDKType {
-    return o && (o.$typeUrl === BIP44Params.typeUrl || typeof o.purpose === "number" && typeof o.coin_type === "number" && typeof o.account === "number" && typeof o.change === "boolean" && typeof o.address_index === "number");
+    return (
+      o &&
+      (o.$typeUrl === BIP44Params.typeUrl ||
+        (typeof o.purpose === 'number' &&
+          typeof o.coin_type === 'number' &&
+          typeof o.account === 'number' &&
+          typeof o.change === 'boolean' &&
+          typeof o.address_index === 'number'))
+    );
   },
   isAmino(o: any): o is BIP44ParamsAmino {
-    return o && (o.$typeUrl === BIP44Params.typeUrl || typeof o.purpose === "number" && typeof o.coin_type === "number" && typeof o.account === "number" && typeof o.change === "boolean" && typeof o.address_index === "number");
+    return (
+      o &&
+      (o.$typeUrl === BIP44Params.typeUrl ||
+        (typeof o.purpose === 'number' &&
+          typeof o.coin_type === 'number' &&
+          typeof o.account === 'number' &&
+          typeof o.change === 'boolean' &&
+          typeof o.address_index === 'number'))
+    );
   },
-  encode(message: BIP44Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: BIP44Params,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.purpose !== 0) {
       writer.uint32(8).uint32(message.purpose);
     }
@@ -89,7 +116,8 @@ export const BIP44Params = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): BIP44Params {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseBIP44Params();
     while (reader.pos < end) {
@@ -151,7 +179,8 @@ export const BIP44Params = {
     obj.coin_type = message.coinType === 0 ? undefined : message.coinType;
     obj.account = message.account === 0 ? undefined : message.account;
     obj.change = message.change === false ? undefined : message.change;
-    obj.address_index = message.addressIndex === 0 ? undefined : message.addressIndex;
+    obj.address_index =
+      message.addressIndex === 0 ? undefined : message.addressIndex;
     return obj;
   },
   fromAminoMsg(object: BIP44ParamsAminoMsg): BIP44Params {
@@ -159,8 +188,8 @@ export const BIP44Params = {
   },
   toAminoMsg(message: BIP44Params): BIP44ParamsAminoMsg {
     return {
-      type: "crypto/keys/hd/BIP44Params",
-      value: BIP44Params.toAmino(message)
+      type: 'crypto/keys/hd/BIP44Params',
+      value: BIP44Params.toAmino(message),
     };
   },
   fromProtoMsg(message: BIP44ParamsProtoMsg): BIP44Params {
@@ -171,10 +200,13 @@ export const BIP44Params = {
   },
   toProtoMsg(message: BIP44Params): BIP44ParamsProtoMsg {
     return {
-      typeUrl: "/cosmos.crypto.hd.v1.BIP44Params",
-      value: BIP44Params.encode(message).finish()
+      typeUrl: '/cosmos.crypto.hd.v1.BIP44Params',
+      value: BIP44Params.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(BIP44Params.typeUrl, BIP44Params);
-GlobalDecoderRegistry.registerAminoProtoMapping(BIP44Params.aminoType, BIP44Params.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  BIP44Params.aminoType,
+  BIP44Params.typeUrl,
+);

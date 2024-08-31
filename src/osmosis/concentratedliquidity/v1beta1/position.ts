@@ -1,11 +1,19 @@
 //@ts-nocheck
-import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { PeriodLock, PeriodLockAmino, PeriodLockSDKType } from "../../lockup/lock";
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp } from "../../../helpers";
-import { Decimal } from "@cosmjs/math";
-import { GlobalDecoderRegistry } from "../../../registry";
+import { Timestamp } from '../../../google/protobuf/timestamp';
+import {
+  Coin,
+  CoinAmino,
+  CoinSDKType,
+} from '../../../cosmos/base/v1beta1/coin';
+import {
+  PeriodLock,
+  PeriodLockAmino,
+  PeriodLockSDKType,
+} from '../../lockup/lock';
+import { BinaryReader, BinaryWriter } from '../../../binary';
+import { toTimestamp, fromTimestamp } from '../../../helpers';
+import { Decimal } from '@cosmjs/math';
+import { GlobalDecoderRegistry } from '../../../registry';
 /**
  * Position contains position's id, address, pool id, lower tick, upper tick
  * join time, and liquidity.
@@ -20,7 +28,7 @@ export interface Position {
   liquidity: string;
 }
 export interface PositionProtoMsg {
-  typeUrl: "/osmosis.concentratedliquidity.v1beta1.Position";
+  typeUrl: '/osmosis.concentratedliquidity.v1beta1.Position';
   value: Uint8Array;
 }
 /**
@@ -37,7 +45,7 @@ export interface PositionAmino {
   liquidity?: string;
 }
 export interface PositionAminoMsg {
-  type: "osmosis/concentratedliquidity/position";
+  type: 'osmosis/concentratedliquidity/position';
   value: PositionAmino;
 }
 /**
@@ -71,7 +79,7 @@ export interface FullPositionBreakdown {
   forfeitedIncentives: Coin[];
 }
 export interface FullPositionBreakdownProtoMsg {
-  typeUrl: "/osmosis.concentratedliquidity.v1beta1.FullPositionBreakdown";
+  typeUrl: '/osmosis.concentratedliquidity.v1beta1.FullPositionBreakdown';
   value: Uint8Array;
 }
 /**
@@ -92,7 +100,7 @@ export interface FullPositionBreakdownAmino {
   forfeited_incentives?: CoinAmino[];
 }
 export interface FullPositionBreakdownAminoMsg {
-  type: "osmosis/concentratedliquidity/full-position-breakdown";
+  type: 'osmosis/concentratedliquidity/full-position-breakdown';
   value: FullPositionBreakdownAmino;
 }
 /**
@@ -117,7 +125,7 @@ export interface PositionWithPeriodLock {
   locks: PeriodLock;
 }
 export interface PositionWithPeriodLockProtoMsg {
-  typeUrl: "/osmosis.concentratedliquidity.v1beta1.PositionWithPeriodLock";
+  typeUrl: '/osmosis.concentratedliquidity.v1beta1.PositionWithPeriodLock';
   value: Uint8Array;
 }
 export interface PositionWithPeriodLockAmino {
@@ -125,7 +133,7 @@ export interface PositionWithPeriodLockAmino {
   locks?: PeriodLockAmino;
 }
 export interface PositionWithPeriodLockAminoMsg {
-  type: "osmosis/concentratedliquidity/position-with-period-lock";
+  type: 'osmosis/concentratedliquidity/position-with-period-lock';
   value: PositionWithPeriodLockAmino;
 }
 export interface PositionWithPeriodLockSDKType {
@@ -135,31 +143,64 @@ export interface PositionWithPeriodLockSDKType {
 function createBasePosition(): Position {
   return {
     positionId: BigInt(0),
-    address: "",
+    address: '',
     poolId: BigInt(0),
     lowerTick: BigInt(0),
     upperTick: BigInt(0),
     joinTime: new Date(),
-    liquidity: ""
+    liquidity: '',
   };
 }
 export const Position = {
-  typeUrl: "/osmosis.concentratedliquidity.v1beta1.Position",
-  aminoType: "osmosis/concentratedliquidity/position",
+  typeUrl: '/osmosis.concentratedliquidity.v1beta1.Position',
+  aminoType: 'osmosis/concentratedliquidity/position',
   is(o: any): o is Position {
-    return o && (o.$typeUrl === Position.typeUrl || typeof o.positionId === "bigint" && typeof o.address === "string" && typeof o.poolId === "bigint" && typeof o.lowerTick === "bigint" && typeof o.upperTick === "bigint" && Timestamp.is(o.joinTime) && typeof o.liquidity === "string");
+    return (
+      o &&
+      (o.$typeUrl === Position.typeUrl ||
+        (typeof o.positionId === 'bigint' &&
+          typeof o.address === 'string' &&
+          typeof o.poolId === 'bigint' &&
+          typeof o.lowerTick === 'bigint' &&
+          typeof o.upperTick === 'bigint' &&
+          Timestamp.is(o.joinTime) &&
+          typeof o.liquidity === 'string'))
+    );
   },
   isSDK(o: any): o is PositionSDKType {
-    return o && (o.$typeUrl === Position.typeUrl || typeof o.position_id === "bigint" && typeof o.address === "string" && typeof o.pool_id === "bigint" && typeof o.lower_tick === "bigint" && typeof o.upper_tick === "bigint" && Timestamp.isSDK(o.join_time) && typeof o.liquidity === "string");
+    return (
+      o &&
+      (o.$typeUrl === Position.typeUrl ||
+        (typeof o.position_id === 'bigint' &&
+          typeof o.address === 'string' &&
+          typeof o.pool_id === 'bigint' &&
+          typeof o.lower_tick === 'bigint' &&
+          typeof o.upper_tick === 'bigint' &&
+          Timestamp.isSDK(o.join_time) &&
+          typeof o.liquidity === 'string'))
+    );
   },
   isAmino(o: any): o is PositionAmino {
-    return o && (o.$typeUrl === Position.typeUrl || typeof o.position_id === "bigint" && typeof o.address === "string" && typeof o.pool_id === "bigint" && typeof o.lower_tick === "bigint" && typeof o.upper_tick === "bigint" && Timestamp.isAmino(o.join_time) && typeof o.liquidity === "string");
+    return (
+      o &&
+      (o.$typeUrl === Position.typeUrl ||
+        (typeof o.position_id === 'bigint' &&
+          typeof o.address === 'string' &&
+          typeof o.pool_id === 'bigint' &&
+          typeof o.lower_tick === 'bigint' &&
+          typeof o.upper_tick === 'bigint' &&
+          Timestamp.isAmino(o.join_time) &&
+          typeof o.liquidity === 'string'))
+    );
   },
-  encode(message: Position, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: Position,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.positionId !== BigInt(0)) {
       writer.uint32(8).uint64(message.positionId);
     }
-    if (message.address !== "") {
+    if (message.address !== '') {
       writer.uint32(18).string(message.address);
     }
     if (message.poolId !== BigInt(0)) {
@@ -172,15 +213,21 @@ export const Position = {
       writer.uint32(40).int64(message.upperTick);
     }
     if (message.joinTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.joinTime), writer.uint32(50).fork()).ldelim();
+      Timestamp.encode(
+        toTimestamp(message.joinTime),
+        writer.uint32(50).fork(),
+      ).ldelim();
     }
-    if (message.liquidity !== "") {
-      writer.uint32(58).string(Decimal.fromUserInput(message.liquidity, 18).atomics);
+    if (message.liquidity !== '') {
+      writer
+        .uint32(58)
+        .string(Decimal.fromUserInput(message.liquidity, 18).atomics);
     }
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): Position {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePosition();
     while (reader.pos < end) {
@@ -202,10 +249,15 @@ export const Position = {
           message.upperTick = reader.int64();
           break;
         case 6:
-          message.joinTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.joinTime = fromTimestamp(
+            Timestamp.decode(reader, reader.uint32()),
+          );
           break;
         case 7:
-          message.liquidity = Decimal.fromAtomics(reader.string(), 18).toString();
+          message.liquidity = Decimal.fromAtomics(
+            reader.string(),
+            18,
+          ).toString();
           break;
         default:
           reader.skipType(tag & 7);
@@ -216,13 +268,25 @@ export const Position = {
   },
   fromPartial(object: Partial<Position>): Position {
     const message = createBasePosition();
-    message.positionId = object.positionId !== undefined && object.positionId !== null ? BigInt(object.positionId.toString()) : BigInt(0);
-    message.address = object.address ?? "";
-    message.poolId = object.poolId !== undefined && object.poolId !== null ? BigInt(object.poolId.toString()) : BigInt(0);
-    message.lowerTick = object.lowerTick !== undefined && object.lowerTick !== null ? BigInt(object.lowerTick.toString()) : BigInt(0);
-    message.upperTick = object.upperTick !== undefined && object.upperTick !== null ? BigInt(object.upperTick.toString()) : BigInt(0);
+    message.positionId =
+      object.positionId !== undefined && object.positionId !== null
+        ? BigInt(object.positionId.toString())
+        : BigInt(0);
+    message.address = object.address ?? '';
+    message.poolId =
+      object.poolId !== undefined && object.poolId !== null
+        ? BigInt(object.poolId.toString())
+        : BigInt(0);
+    message.lowerTick =
+      object.lowerTick !== undefined && object.lowerTick !== null
+        ? BigInt(object.lowerTick.toString())
+        : BigInt(0);
+    message.upperTick =
+      object.upperTick !== undefined && object.upperTick !== null
+        ? BigInt(object.upperTick.toString())
+        : BigInt(0);
     message.joinTime = object.joinTime ?? undefined;
-    message.liquidity = object.liquidity ?? "";
+    message.liquidity = object.liquidity ?? '';
     return message;
   },
   fromAmino(object: PositionAmino): Position {
@@ -252,13 +316,25 @@ export const Position = {
   },
   toAmino(message: Position): PositionAmino {
     const obj: any = {};
-    obj.position_id = message.positionId !== BigInt(0) ? message.positionId.toString() : undefined;
-    obj.address = message.address === "" ? undefined : message.address;
-    obj.pool_id = message.poolId !== BigInt(0) ? message.poolId.toString() : undefined;
-    obj.lower_tick = message.lowerTick !== BigInt(0) ? message.lowerTick.toString() : undefined;
-    obj.upper_tick = message.upperTick !== BigInt(0) ? message.upperTick.toString() : undefined;
-    obj.join_time = message.joinTime ? Timestamp.toAmino(toTimestamp(message.joinTime)) : undefined;
-    obj.liquidity = message.liquidity === "" ? undefined : message.liquidity;
+    obj.position_id =
+      message.positionId !== BigInt(0)
+        ? message.positionId.toString()
+        : undefined;
+    obj.address = message.address === '' ? undefined : message.address;
+    obj.pool_id =
+      message.poolId !== BigInt(0) ? message.poolId.toString() : undefined;
+    obj.lower_tick =
+      message.lowerTick !== BigInt(0)
+        ? message.lowerTick.toString()
+        : undefined;
+    obj.upper_tick =
+      message.upperTick !== BigInt(0)
+        ? message.upperTick.toString()
+        : undefined;
+    obj.join_time = message.joinTime
+      ? Timestamp.toAmino(toTimestamp(message.joinTime))
+      : undefined;
+    obj.liquidity = message.liquidity === '' ? undefined : message.liquidity;
     return obj;
   },
   fromAminoMsg(object: PositionAminoMsg): Position {
@@ -266,8 +342,8 @@ export const Position = {
   },
   toAminoMsg(message: Position): PositionAminoMsg {
     return {
-      type: "osmosis/concentratedliquidity/position",
-      value: Position.toAmino(message)
+      type: 'osmosis/concentratedliquidity/position',
+      value: Position.toAmino(message),
     };
   },
   fromProtoMsg(message: PositionProtoMsg): Position {
@@ -278,13 +354,16 @@ export const Position = {
   },
   toProtoMsg(message: Position): PositionProtoMsg {
     return {
-      typeUrl: "/osmosis.concentratedliquidity.v1beta1.Position",
-      value: Position.encode(message).finish()
+      typeUrl: '/osmosis.concentratedliquidity.v1beta1.Position',
+      value: Position.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(Position.typeUrl, Position);
-GlobalDecoderRegistry.registerAminoProtoMapping(Position.aminoType, Position.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  Position.aminoType,
+  Position.typeUrl,
+);
 function createBaseFullPositionBreakdown(): FullPositionBreakdown {
   return {
     position: Position.fromPartial({}),
@@ -292,22 +371,69 @@ function createBaseFullPositionBreakdown(): FullPositionBreakdown {
     asset1: Coin.fromPartial({}),
     claimableSpreadRewards: [],
     claimableIncentives: [],
-    forfeitedIncentives: []
+    forfeitedIncentives: [],
   };
 }
 export const FullPositionBreakdown = {
-  typeUrl: "/osmosis.concentratedliquidity.v1beta1.FullPositionBreakdown",
-  aminoType: "osmosis/concentratedliquidity/full-position-breakdown",
+  typeUrl: '/osmosis.concentratedliquidity.v1beta1.FullPositionBreakdown',
+  aminoType: 'osmosis/concentratedliquidity/full-position-breakdown',
   is(o: any): o is FullPositionBreakdown {
-    return o && (o.$typeUrl === FullPositionBreakdown.typeUrl || Position.is(o.position) && Coin.is(o.asset0) && Coin.is(o.asset1) && Array.isArray(o.claimableSpreadRewards) && (!o.claimableSpreadRewards.length || Coin.is(o.claimableSpreadRewards[0])) && Array.isArray(o.claimableIncentives) && (!o.claimableIncentives.length || Coin.is(o.claimableIncentives[0])) && Array.isArray(o.forfeitedIncentives) && (!o.forfeitedIncentives.length || Coin.is(o.forfeitedIncentives[0])));
+    return (
+      o &&
+      (o.$typeUrl === FullPositionBreakdown.typeUrl ||
+        (Position.is(o.position) &&
+          Coin.is(o.asset0) &&
+          Coin.is(o.asset1) &&
+          Array.isArray(o.claimableSpreadRewards) &&
+          (!o.claimableSpreadRewards.length ||
+            Coin.is(o.claimableSpreadRewards[0])) &&
+          Array.isArray(o.claimableIncentives) &&
+          (!o.claimableIncentives.length ||
+            Coin.is(o.claimableIncentives[0])) &&
+          Array.isArray(o.forfeitedIncentives) &&
+          (!o.forfeitedIncentives.length || Coin.is(o.forfeitedIncentives[0]))))
+    );
   },
   isSDK(o: any): o is FullPositionBreakdownSDKType {
-    return o && (o.$typeUrl === FullPositionBreakdown.typeUrl || Position.isSDK(o.position) && Coin.isSDK(o.asset0) && Coin.isSDK(o.asset1) && Array.isArray(o.claimable_spread_rewards) && (!o.claimable_spread_rewards.length || Coin.isSDK(o.claimable_spread_rewards[0])) && Array.isArray(o.claimable_incentives) && (!o.claimable_incentives.length || Coin.isSDK(o.claimable_incentives[0])) && Array.isArray(o.forfeited_incentives) && (!o.forfeited_incentives.length || Coin.isSDK(o.forfeited_incentives[0])));
+    return (
+      o &&
+      (o.$typeUrl === FullPositionBreakdown.typeUrl ||
+        (Position.isSDK(o.position) &&
+          Coin.isSDK(o.asset0) &&
+          Coin.isSDK(o.asset1) &&
+          Array.isArray(o.claimable_spread_rewards) &&
+          (!o.claimable_spread_rewards.length ||
+            Coin.isSDK(o.claimable_spread_rewards[0])) &&
+          Array.isArray(o.claimable_incentives) &&
+          (!o.claimable_incentives.length ||
+            Coin.isSDK(o.claimable_incentives[0])) &&
+          Array.isArray(o.forfeited_incentives) &&
+          (!o.forfeited_incentives.length ||
+            Coin.isSDK(o.forfeited_incentives[0]))))
+    );
   },
   isAmino(o: any): o is FullPositionBreakdownAmino {
-    return o && (o.$typeUrl === FullPositionBreakdown.typeUrl || Position.isAmino(o.position) && Coin.isAmino(o.asset0) && Coin.isAmino(o.asset1) && Array.isArray(o.claimable_spread_rewards) && (!o.claimable_spread_rewards.length || Coin.isAmino(o.claimable_spread_rewards[0])) && Array.isArray(o.claimable_incentives) && (!o.claimable_incentives.length || Coin.isAmino(o.claimable_incentives[0])) && Array.isArray(o.forfeited_incentives) && (!o.forfeited_incentives.length || Coin.isAmino(o.forfeited_incentives[0])));
+    return (
+      o &&
+      (o.$typeUrl === FullPositionBreakdown.typeUrl ||
+        (Position.isAmino(o.position) &&
+          Coin.isAmino(o.asset0) &&
+          Coin.isAmino(o.asset1) &&
+          Array.isArray(o.claimable_spread_rewards) &&
+          (!o.claimable_spread_rewards.length ||
+            Coin.isAmino(o.claimable_spread_rewards[0])) &&
+          Array.isArray(o.claimable_incentives) &&
+          (!o.claimable_incentives.length ||
+            Coin.isAmino(o.claimable_incentives[0])) &&
+          Array.isArray(o.forfeited_incentives) &&
+          (!o.forfeited_incentives.length ||
+            Coin.isAmino(o.forfeited_incentives[0]))))
+    );
   },
-  encode(message: FullPositionBreakdown, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: FullPositionBreakdown,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.position !== undefined) {
       Position.encode(message.position, writer.uint32(10).fork()).ldelim();
     }
@@ -328,8 +454,12 @@ export const FullPositionBreakdown = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FullPositionBreakdown {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): FullPositionBreakdown {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFullPositionBreakdown();
     while (reader.pos < end) {
@@ -345,13 +475,19 @@ export const FullPositionBreakdown = {
           message.asset1 = Coin.decode(reader, reader.uint32());
           break;
         case 4:
-          message.claimableSpreadRewards.push(Coin.decode(reader, reader.uint32()));
+          message.claimableSpreadRewards.push(
+            Coin.decode(reader, reader.uint32()),
+          );
           break;
         case 5:
-          message.claimableIncentives.push(Coin.decode(reader, reader.uint32()));
+          message.claimableIncentives.push(
+            Coin.decode(reader, reader.uint32()),
+          );
           break;
         case 6:
-          message.forfeitedIncentives.push(Coin.decode(reader, reader.uint32()));
+          message.forfeitedIncentives.push(
+            Coin.decode(reader, reader.uint32()),
+          );
           break;
         default:
           reader.skipType(tag & 7);
@@ -362,12 +498,24 @@ export const FullPositionBreakdown = {
   },
   fromPartial(object: Partial<FullPositionBreakdown>): FullPositionBreakdown {
     const message = createBaseFullPositionBreakdown();
-    message.position = object.position !== undefined && object.position !== null ? Position.fromPartial(object.position) : undefined;
-    message.asset0 = object.asset0 !== undefined && object.asset0 !== null ? Coin.fromPartial(object.asset0) : undefined;
-    message.asset1 = object.asset1 !== undefined && object.asset1 !== null ? Coin.fromPartial(object.asset1) : undefined;
-    message.claimableSpreadRewards = object.claimableSpreadRewards?.map(e => Coin.fromPartial(e)) || [];
-    message.claimableIncentives = object.claimableIncentives?.map(e => Coin.fromPartial(e)) || [];
-    message.forfeitedIncentives = object.forfeitedIncentives?.map(e => Coin.fromPartial(e)) || [];
+    message.position =
+      object.position !== undefined && object.position !== null
+        ? Position.fromPartial(object.position)
+        : undefined;
+    message.asset0 =
+      object.asset0 !== undefined && object.asset0 !== null
+        ? Coin.fromPartial(object.asset0)
+        : undefined;
+    message.asset1 =
+      object.asset1 !== undefined && object.asset1 !== null
+        ? Coin.fromPartial(object.asset1)
+        : undefined;
+    message.claimableSpreadRewards =
+      object.claimableSpreadRewards?.map(e => Coin.fromPartial(e)) || [];
+    message.claimableIncentives =
+      object.claimableIncentives?.map(e => Coin.fromPartial(e)) || [];
+    message.forfeitedIncentives =
+      object.forfeitedIncentives?.map(e => Coin.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: FullPositionBreakdownAmino): FullPositionBreakdown {
@@ -381,28 +529,39 @@ export const FullPositionBreakdown = {
     if (object.asset1 !== undefined && object.asset1 !== null) {
       message.asset1 = Coin.fromAmino(object.asset1);
     }
-    message.claimableSpreadRewards = object.claimable_spread_rewards?.map(e => Coin.fromAmino(e)) || [];
-    message.claimableIncentives = object.claimable_incentives?.map(e => Coin.fromAmino(e)) || [];
-    message.forfeitedIncentives = object.forfeited_incentives?.map(e => Coin.fromAmino(e)) || [];
+    message.claimableSpreadRewards =
+      object.claimable_spread_rewards?.map(e => Coin.fromAmino(e)) || [];
+    message.claimableIncentives =
+      object.claimable_incentives?.map(e => Coin.fromAmino(e)) || [];
+    message.forfeitedIncentives =
+      object.forfeited_incentives?.map(e => Coin.fromAmino(e)) || [];
     return message;
   },
   toAmino(message: FullPositionBreakdown): FullPositionBreakdownAmino {
     const obj: any = {};
-    obj.position = message.position ? Position.toAmino(message.position) : undefined;
+    obj.position = message.position
+      ? Position.toAmino(message.position)
+      : undefined;
     obj.asset0 = message.asset0 ? Coin.toAmino(message.asset0) : undefined;
     obj.asset1 = message.asset1 ? Coin.toAmino(message.asset1) : undefined;
     if (message.claimableSpreadRewards) {
-      obj.claimable_spread_rewards = message.claimableSpreadRewards.map(e => e ? Coin.toAmino(e) : undefined);
+      obj.claimable_spread_rewards = message.claimableSpreadRewards.map(e =>
+        e ? Coin.toAmino(e) : undefined,
+      );
     } else {
       obj.claimable_spread_rewards = message.claimableSpreadRewards;
     }
     if (message.claimableIncentives) {
-      obj.claimable_incentives = message.claimableIncentives.map(e => e ? Coin.toAmino(e) : undefined);
+      obj.claimable_incentives = message.claimableIncentives.map(e =>
+        e ? Coin.toAmino(e) : undefined,
+      );
     } else {
       obj.claimable_incentives = message.claimableIncentives;
     }
     if (message.forfeitedIncentives) {
-      obj.forfeited_incentives = message.forfeitedIncentives.map(e => e ? Coin.toAmino(e) : undefined);
+      obj.forfeited_incentives = message.forfeitedIncentives.map(e =>
+        e ? Coin.toAmino(e) : undefined,
+      );
     } else {
       obj.forfeited_incentives = message.forfeitedIncentives;
     }
@@ -413,8 +572,8 @@ export const FullPositionBreakdown = {
   },
   toAminoMsg(message: FullPositionBreakdown): FullPositionBreakdownAminoMsg {
     return {
-      type: "osmosis/concentratedliquidity/full-position-breakdown",
-      value: FullPositionBreakdown.toAmino(message)
+      type: 'osmosis/concentratedliquidity/full-position-breakdown',
+      value: FullPositionBreakdown.toAmino(message),
     };
   },
   fromProtoMsg(message: FullPositionBreakdownProtoMsg): FullPositionBreakdown {
@@ -425,32 +584,53 @@ export const FullPositionBreakdown = {
   },
   toProtoMsg(message: FullPositionBreakdown): FullPositionBreakdownProtoMsg {
     return {
-      typeUrl: "/osmosis.concentratedliquidity.v1beta1.FullPositionBreakdown",
-      value: FullPositionBreakdown.encode(message).finish()
+      typeUrl: '/osmosis.concentratedliquidity.v1beta1.FullPositionBreakdown',
+      value: FullPositionBreakdown.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(FullPositionBreakdown.typeUrl, FullPositionBreakdown);
-GlobalDecoderRegistry.registerAminoProtoMapping(FullPositionBreakdown.aminoType, FullPositionBreakdown.typeUrl);
+GlobalDecoderRegistry.register(
+  FullPositionBreakdown.typeUrl,
+  FullPositionBreakdown,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  FullPositionBreakdown.aminoType,
+  FullPositionBreakdown.typeUrl,
+);
 function createBasePositionWithPeriodLock(): PositionWithPeriodLock {
   return {
     position: Position.fromPartial({}),
-    locks: PeriodLock.fromPartial({})
+    locks: PeriodLock.fromPartial({}),
   };
 }
 export const PositionWithPeriodLock = {
-  typeUrl: "/osmosis.concentratedliquidity.v1beta1.PositionWithPeriodLock",
-  aminoType: "osmosis/concentratedliquidity/position-with-period-lock",
+  typeUrl: '/osmosis.concentratedliquidity.v1beta1.PositionWithPeriodLock',
+  aminoType: 'osmosis/concentratedliquidity/position-with-period-lock',
   is(o: any): o is PositionWithPeriodLock {
-    return o && (o.$typeUrl === PositionWithPeriodLock.typeUrl || Position.is(o.position) && PeriodLock.is(o.locks));
+    return (
+      o &&
+      (o.$typeUrl === PositionWithPeriodLock.typeUrl ||
+        (Position.is(o.position) && PeriodLock.is(o.locks)))
+    );
   },
   isSDK(o: any): o is PositionWithPeriodLockSDKType {
-    return o && (o.$typeUrl === PositionWithPeriodLock.typeUrl || Position.isSDK(o.position) && PeriodLock.isSDK(o.locks));
+    return (
+      o &&
+      (o.$typeUrl === PositionWithPeriodLock.typeUrl ||
+        (Position.isSDK(o.position) && PeriodLock.isSDK(o.locks)))
+    );
   },
   isAmino(o: any): o is PositionWithPeriodLockAmino {
-    return o && (o.$typeUrl === PositionWithPeriodLock.typeUrl || Position.isAmino(o.position) && PeriodLock.isAmino(o.locks));
+    return (
+      o &&
+      (o.$typeUrl === PositionWithPeriodLock.typeUrl ||
+        (Position.isAmino(o.position) && PeriodLock.isAmino(o.locks)))
+    );
   },
-  encode(message: PositionWithPeriodLock, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: PositionWithPeriodLock,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.position !== undefined) {
       Position.encode(message.position, writer.uint32(10).fork()).ldelim();
     }
@@ -459,8 +639,12 @@ export const PositionWithPeriodLock = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PositionWithPeriodLock {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): PositionWithPeriodLock {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePositionWithPeriodLock();
     while (reader.pos < end) {
@@ -481,8 +665,14 @@ export const PositionWithPeriodLock = {
   },
   fromPartial(object: Partial<PositionWithPeriodLock>): PositionWithPeriodLock {
     const message = createBasePositionWithPeriodLock();
-    message.position = object.position !== undefined && object.position !== null ? Position.fromPartial(object.position) : undefined;
-    message.locks = object.locks !== undefined && object.locks !== null ? PeriodLock.fromPartial(object.locks) : undefined;
+    message.position =
+      object.position !== undefined && object.position !== null
+        ? Position.fromPartial(object.position)
+        : undefined;
+    message.locks =
+      object.locks !== undefined && object.locks !== null
+        ? PeriodLock.fromPartial(object.locks)
+        : undefined;
     return message;
   },
   fromAmino(object: PositionWithPeriodLockAmino): PositionWithPeriodLock {
@@ -497,7 +687,9 @@ export const PositionWithPeriodLock = {
   },
   toAmino(message: PositionWithPeriodLock): PositionWithPeriodLockAmino {
     const obj: any = {};
-    obj.position = message.position ? Position.toAmino(message.position) : undefined;
+    obj.position = message.position
+      ? Position.toAmino(message.position)
+      : undefined;
     obj.locks = message.locks ? PeriodLock.toAmino(message.locks) : undefined;
     return obj;
   },
@@ -506,11 +698,13 @@ export const PositionWithPeriodLock = {
   },
   toAminoMsg(message: PositionWithPeriodLock): PositionWithPeriodLockAminoMsg {
     return {
-      type: "osmosis/concentratedliquidity/position-with-period-lock",
-      value: PositionWithPeriodLock.toAmino(message)
+      type: 'osmosis/concentratedliquidity/position-with-period-lock',
+      value: PositionWithPeriodLock.toAmino(message),
     };
   },
-  fromProtoMsg(message: PositionWithPeriodLockProtoMsg): PositionWithPeriodLock {
+  fromProtoMsg(
+    message: PositionWithPeriodLockProtoMsg,
+  ): PositionWithPeriodLock {
     return PositionWithPeriodLock.decode(message.value);
   },
   toProto(message: PositionWithPeriodLock): Uint8Array {
@@ -518,10 +712,16 @@ export const PositionWithPeriodLock = {
   },
   toProtoMsg(message: PositionWithPeriodLock): PositionWithPeriodLockProtoMsg {
     return {
-      typeUrl: "/osmosis.concentratedliquidity.v1beta1.PositionWithPeriodLock",
-      value: PositionWithPeriodLock.encode(message).finish()
+      typeUrl: '/osmosis.concentratedliquidity.v1beta1.PositionWithPeriodLock',
+      value: PositionWithPeriodLock.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(PositionWithPeriodLock.typeUrl, PositionWithPeriodLock);
-GlobalDecoderRegistry.registerAminoProtoMapping(PositionWithPeriodLock.aminoType, PositionWithPeriodLock.typeUrl);
+GlobalDecoderRegistry.register(
+  PositionWithPeriodLock.typeUrl,
+  PositionWithPeriodLock,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  PositionWithPeriodLock.aminoType,
+  PositionWithPeriodLock.typeUrl,
+);

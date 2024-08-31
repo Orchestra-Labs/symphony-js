@@ -1,14 +1,14 @@
 //@ts-nocheck
-import { FeeToken, FeeTokenAmino, FeeTokenSDKType } from "./feetoken";
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
+import { FeeToken, FeeTokenAmino, FeeTokenSDKType } from './feetoken';
+import { BinaryReader, BinaryWriter } from '../../../binary';
+import { GlobalDecoderRegistry } from '../../../registry';
 /** GenesisState defines the txfees module's genesis state. */
 export interface GenesisState {
   basedenom: string;
   feetokens: FeeToken[];
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: "/osmosis.txfees.v1beta1.GenesisState";
+  typeUrl: '/osmosis.txfees.v1beta1.GenesisState';
   value: Uint8Array;
 }
 /** GenesisState defines the txfees module's genesis state. */
@@ -17,7 +17,7 @@ export interface GenesisStateAmino {
   feetokens?: FeeTokenAmino[];
 }
 export interface GenesisStateAminoMsg {
-  type: "osmosis/txfees/genesis-state";
+  type: 'osmosis/txfees/genesis-state';
   value: GenesisStateAmino;
 }
 /** GenesisState defines the txfees module's genesis state. */
@@ -27,24 +27,45 @@ export interface GenesisStateSDKType {
 }
 function createBaseGenesisState(): GenesisState {
   return {
-    basedenom: "",
-    feetokens: []
+    basedenom: '',
+    feetokens: [],
   };
 }
 export const GenesisState = {
-  typeUrl: "/osmosis.txfees.v1beta1.GenesisState",
-  aminoType: "osmosis/txfees/genesis-state",
+  typeUrl: '/osmosis.txfees.v1beta1.GenesisState',
+  aminoType: 'osmosis/txfees/genesis-state',
   is(o: any): o is GenesisState {
-    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.basedenom === "string" && Array.isArray(o.feetokens) && (!o.feetokens.length || FeeToken.is(o.feetokens[0])));
+    return (
+      o &&
+      (o.$typeUrl === GenesisState.typeUrl ||
+        (typeof o.basedenom === 'string' &&
+          Array.isArray(o.feetokens) &&
+          (!o.feetokens.length || FeeToken.is(o.feetokens[0]))))
+    );
   },
   isSDK(o: any): o is GenesisStateSDKType {
-    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.basedenom === "string" && Array.isArray(o.feetokens) && (!o.feetokens.length || FeeToken.isSDK(o.feetokens[0])));
+    return (
+      o &&
+      (o.$typeUrl === GenesisState.typeUrl ||
+        (typeof o.basedenom === 'string' &&
+          Array.isArray(o.feetokens) &&
+          (!o.feetokens.length || FeeToken.isSDK(o.feetokens[0]))))
+    );
   },
   isAmino(o: any): o is GenesisStateAmino {
-    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.basedenom === "string" && Array.isArray(o.feetokens) && (!o.feetokens.length || FeeToken.isAmino(o.feetokens[0])));
+    return (
+      o &&
+      (o.$typeUrl === GenesisState.typeUrl ||
+        (typeof o.basedenom === 'string' &&
+          Array.isArray(o.feetokens) &&
+          (!o.feetokens.length || FeeToken.isAmino(o.feetokens[0]))))
+    );
   },
-  encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.basedenom !== "") {
+  encode(
+    message: GenesisState,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.basedenom !== '') {
       writer.uint32(10).string(message.basedenom);
     }
     for (const v of message.feetokens) {
@@ -53,7 +74,8 @@ export const GenesisState = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): GenesisState {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseGenesisState();
     while (reader.pos < end) {
@@ -74,8 +96,9 @@ export const GenesisState = {
   },
   fromPartial(object: Partial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
-    message.basedenom = object.basedenom ?? "";
-    message.feetokens = object.feetokens?.map(e => FeeToken.fromPartial(e)) || [];
+    message.basedenom = object.basedenom ?? '';
+    message.feetokens =
+      object.feetokens?.map(e => FeeToken.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: GenesisStateAmino): GenesisState {
@@ -88,9 +111,11 @@ export const GenesisState = {
   },
   toAmino(message: GenesisState): GenesisStateAmino {
     const obj: any = {};
-    obj.basedenom = message.basedenom === "" ? undefined : message.basedenom;
+    obj.basedenom = message.basedenom === '' ? undefined : message.basedenom;
     if (message.feetokens) {
-      obj.feetokens = message.feetokens.map(e => e ? FeeToken.toAmino(e) : undefined);
+      obj.feetokens = message.feetokens.map(e =>
+        e ? FeeToken.toAmino(e) : undefined,
+      );
     } else {
       obj.feetokens = message.feetokens;
     }
@@ -101,8 +126,8 @@ export const GenesisState = {
   },
   toAminoMsg(message: GenesisState): GenesisStateAminoMsg {
     return {
-      type: "osmosis/txfees/genesis-state",
-      value: GenesisState.toAmino(message)
+      type: 'osmosis/txfees/genesis-state',
+      value: GenesisState.toAmino(message),
     };
   },
   fromProtoMsg(message: GenesisStateProtoMsg): GenesisState {
@@ -113,10 +138,13 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: "/osmosis.txfees.v1beta1.GenesisState",
-      value: GenesisState.encode(message).finish()
+      typeUrl: '/osmosis.txfees.v1beta1.GenesisState',
+      value: GenesisState.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
-GlobalDecoderRegistry.registerAminoProtoMapping(GenesisState.aminoType, GenesisState.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  GenesisState.aminoType,
+  GenesisState.typeUrl,
+);

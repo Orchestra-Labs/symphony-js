@@ -1,14 +1,14 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { bytesFromBase64, base64FromBytes } from "../../helpers";
-import { GlobalDecoderRegistry } from "../../registry";
+import { BinaryReader, BinaryWriter } from '../../binary';
+import { bytesFromBase64, base64FromBytes } from '../../helpers';
+import { GlobalDecoderRegistry } from '../../registry';
 /** PublicKey defines the keys available for use with Validators */
 export interface PublicKey {
   ed25519?: Uint8Array;
   secp256k1?: Uint8Array;
 }
 export interface PublicKeyProtoMsg {
-  typeUrl: "/tendermint.crypto.PublicKey";
+  typeUrl: '/tendermint.crypto.PublicKey';
   value: Uint8Array;
 }
 /** PublicKey defines the keys available for use with Validators */
@@ -17,7 +17,7 @@ export interface PublicKeyAmino {
   secp256k1?: string;
 }
 export interface PublicKeyAminoMsg {
-  type: "/tendermint.crypto.PublicKey";
+  type: '/tendermint.crypto.PublicKey';
   value: PublicKeyAmino;
 }
 /** PublicKey defines the keys available for use with Validators */
@@ -28,11 +28,11 @@ export interface PublicKeySDKType {
 function createBasePublicKey(): PublicKey {
   return {
     ed25519: undefined,
-    secp256k1: undefined
+    secp256k1: undefined,
   };
 }
 export const PublicKey = {
-  typeUrl: "/tendermint.crypto.PublicKey",
+  typeUrl: '/tendermint.crypto.PublicKey',
   is(o: any): o is PublicKey {
     return o && o.$typeUrl === PublicKey.typeUrl;
   },
@@ -42,7 +42,10 @@ export const PublicKey = {
   isAmino(o: any): o is PublicKeyAmino {
     return o && o.$typeUrl === PublicKey.typeUrl;
   },
-  encode(message: PublicKey, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: PublicKey,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.ed25519 !== undefined) {
       writer.uint32(10).bytes(message.ed25519);
     }
@@ -52,7 +55,8 @@ export const PublicKey = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): PublicKey {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePublicKey();
     while (reader.pos < end) {
@@ -89,8 +93,12 @@ export const PublicKey = {
   },
   toAmino(message: PublicKey): PublicKeyAmino {
     const obj: any = {};
-    obj.ed25519 = message.ed25519 ? base64FromBytes(message.ed25519) : undefined;
-    obj.secp256k1 = message.secp256k1 ? base64FromBytes(message.secp256k1) : undefined;
+    obj.ed25519 = message.ed25519
+      ? base64FromBytes(message.ed25519)
+      : undefined;
+    obj.secp256k1 = message.secp256k1
+      ? base64FromBytes(message.secp256k1)
+      : undefined;
     return obj;
   },
   fromAminoMsg(object: PublicKeyAminoMsg): PublicKey {
@@ -104,9 +112,9 @@ export const PublicKey = {
   },
   toProtoMsg(message: PublicKey): PublicKeyProtoMsg {
     return {
-      typeUrl: "/tendermint.crypto.PublicKey",
-      value: PublicKey.encode(message).finish()
+      typeUrl: '/tendermint.crypto.PublicKey',
+      value: PublicKey.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(PublicKey.typeUrl, PublicKey);

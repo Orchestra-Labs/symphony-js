@@ -1,8 +1,8 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
-import { BinaryReader } from "../../../binary";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
-import { QueryParamsRequest, QueryParamsResponse } from "./query";
+import { Rpc } from '../../../helpers';
+import { BinaryReader } from '../../../binary';
+import { QueryClient, createProtobufRpcClient } from '@cosmjs/stargate';
+import { QueryParamsRequest, QueryParamsResponse } from './query';
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Params queries the parameters of x/consensus_param module. */
@@ -16,8 +16,14 @@ export class QueryClientImpl implements Query {
   }
   params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.consensus.v1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new BinaryReader(data)));
+    const promise = this.rpc.request(
+      'cosmos.consensus.v1.Query',
+      'Params',
+      data,
+    );
+    return promise.then(data =>
+      QueryParamsResponse.decode(new BinaryReader(data)),
+    );
   }
 }
 export const createRpcQueryExtension = (base: QueryClient) => {
@@ -26,6 +32,6 @@ export const createRpcQueryExtension = (base: QueryClient) => {
   return {
     params(request?: QueryParamsRequest): Promise<QueryParamsResponse> {
       return queryService.params(request);
-    }
+    },
   };
 };

@@ -1,8 +1,12 @@
 //@ts-nocheck
-import { Duration, DurationAmino, DurationSDKType } from "../../google/protobuf/duration";
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { Decimal } from "@cosmjs/math";
-import { GlobalDecoderRegistry } from "../../registry";
+import {
+  Duration,
+  DurationAmino,
+  DurationSDKType,
+} from '../../google/protobuf/duration';
+import { BinaryReader, BinaryWriter } from '../../binary';
+import { Decimal } from '@cosmjs/math';
+import { GlobalDecoderRegistry } from '../../registry';
 export interface Params {
   /**
    * authorized_tick_spacing is an array of uint64s that represents the tick
@@ -50,7 +54,7 @@ export interface Params {
   hookGasLimit: bigint;
 }
 export interface ParamsProtoMsg {
-  typeUrl: "/osmosis.concentratedliquidity.Params";
+  typeUrl: '/osmosis.concentratedliquidity.Params';
   value: Uint8Array;
 }
 export interface ParamsAmino {
@@ -100,7 +104,7 @@ export interface ParamsAmino {
   hook_gas_limit?: string;
 }
 export interface ParamsAminoMsg {
-  type: "osmosis/concentratedliquidity/params";
+  type: 'osmosis/concentratedliquidity/params';
   value: ParamsAmino;
 }
 export interface ParamsSDKType {
@@ -117,27 +121,93 @@ function createBaseParams(): Params {
   return {
     authorizedTickSpacing: [],
     authorizedSpreadFactors: [],
-    balancerSharesRewardDiscount: "",
+    balancerSharesRewardDiscount: '',
     authorizedQuoteDenoms: [],
     authorizedUptimes: [],
     isPermissionlessPoolCreationEnabled: false,
     unrestrictedPoolCreatorWhitelist: [],
-    hookGasLimit: BigInt(0)
+    hookGasLimit: BigInt(0),
   };
 }
 export const Params = {
-  typeUrl: "/osmosis.concentratedliquidity.Params",
-  aminoType: "osmosis/concentratedliquidity/params",
+  typeUrl: '/osmosis.concentratedliquidity.Params',
+  aminoType: 'osmosis/concentratedliquidity/params',
   is(o: any): o is Params {
-    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.authorizedTickSpacing) && (!o.authorizedTickSpacing.length || typeof o.authorizedTickSpacing[0] === "bigint") && Array.isArray(o.authorizedSpreadFactors) && (!o.authorizedSpreadFactors.length || typeof o.authorizedSpreadFactors[0] === "string") && typeof o.balancerSharesRewardDiscount === "string" && Array.isArray(o.authorizedQuoteDenoms) && (!o.authorizedQuoteDenoms.length || typeof o.authorizedQuoteDenoms[0] === "string") && Array.isArray(o.authorizedUptimes) && (!o.authorizedUptimes.length || Duration.is(o.authorizedUptimes[0])) && typeof o.isPermissionlessPoolCreationEnabled === "boolean" && Array.isArray(o.unrestrictedPoolCreatorWhitelist) && (!o.unrestrictedPoolCreatorWhitelist.length || typeof o.unrestrictedPoolCreatorWhitelist[0] === "string") && typeof o.hookGasLimit === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === Params.typeUrl ||
+        (Array.isArray(o.authorizedTickSpacing) &&
+          (!o.authorizedTickSpacing.length ||
+            typeof o.authorizedTickSpacing[0] === 'bigint') &&
+          Array.isArray(o.authorizedSpreadFactors) &&
+          (!o.authorizedSpreadFactors.length ||
+            typeof o.authorizedSpreadFactors[0] === 'string') &&
+          typeof o.balancerSharesRewardDiscount === 'string' &&
+          Array.isArray(o.authorizedQuoteDenoms) &&
+          (!o.authorizedQuoteDenoms.length ||
+            typeof o.authorizedQuoteDenoms[0] === 'string') &&
+          Array.isArray(o.authorizedUptimes) &&
+          (!o.authorizedUptimes.length ||
+            Duration.is(o.authorizedUptimes[0])) &&
+          typeof o.isPermissionlessPoolCreationEnabled === 'boolean' &&
+          Array.isArray(o.unrestrictedPoolCreatorWhitelist) &&
+          (!o.unrestrictedPoolCreatorWhitelist.length ||
+            typeof o.unrestrictedPoolCreatorWhitelist[0] === 'string') &&
+          typeof o.hookGasLimit === 'bigint'))
+    );
   },
   isSDK(o: any): o is ParamsSDKType {
-    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.authorized_tick_spacing) && (!o.authorized_tick_spacing.length || typeof o.authorized_tick_spacing[0] === "bigint") && Array.isArray(o.authorized_spread_factors) && (!o.authorized_spread_factors.length || typeof o.authorized_spread_factors[0] === "string") && typeof o.balancer_shares_reward_discount === "string" && Array.isArray(o.authorized_quote_denoms) && (!o.authorized_quote_denoms.length || typeof o.authorized_quote_denoms[0] === "string") && Array.isArray(o.authorized_uptimes) && (!o.authorized_uptimes.length || Duration.isSDK(o.authorized_uptimes[0])) && typeof o.is_permissionless_pool_creation_enabled === "boolean" && Array.isArray(o.unrestricted_pool_creator_whitelist) && (!o.unrestricted_pool_creator_whitelist.length || typeof o.unrestricted_pool_creator_whitelist[0] === "string") && typeof o.hook_gas_limit === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === Params.typeUrl ||
+        (Array.isArray(o.authorized_tick_spacing) &&
+          (!o.authorized_tick_spacing.length ||
+            typeof o.authorized_tick_spacing[0] === 'bigint') &&
+          Array.isArray(o.authorized_spread_factors) &&
+          (!o.authorized_spread_factors.length ||
+            typeof o.authorized_spread_factors[0] === 'string') &&
+          typeof o.balancer_shares_reward_discount === 'string' &&
+          Array.isArray(o.authorized_quote_denoms) &&
+          (!o.authorized_quote_denoms.length ||
+            typeof o.authorized_quote_denoms[0] === 'string') &&
+          Array.isArray(o.authorized_uptimes) &&
+          (!o.authorized_uptimes.length ||
+            Duration.isSDK(o.authorized_uptimes[0])) &&
+          typeof o.is_permissionless_pool_creation_enabled === 'boolean' &&
+          Array.isArray(o.unrestricted_pool_creator_whitelist) &&
+          (!o.unrestricted_pool_creator_whitelist.length ||
+            typeof o.unrestricted_pool_creator_whitelist[0] === 'string') &&
+          typeof o.hook_gas_limit === 'bigint'))
+    );
   },
   isAmino(o: any): o is ParamsAmino {
-    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.authorized_tick_spacing) && (!o.authorized_tick_spacing.length || typeof o.authorized_tick_spacing[0] === "bigint") && Array.isArray(o.authorized_spread_factors) && (!o.authorized_spread_factors.length || typeof o.authorized_spread_factors[0] === "string") && typeof o.balancer_shares_reward_discount === "string" && Array.isArray(o.authorized_quote_denoms) && (!o.authorized_quote_denoms.length || typeof o.authorized_quote_denoms[0] === "string") && Array.isArray(o.authorized_uptimes) && (!o.authorized_uptimes.length || Duration.isAmino(o.authorized_uptimes[0])) && typeof o.is_permissionless_pool_creation_enabled === "boolean" && Array.isArray(o.unrestricted_pool_creator_whitelist) && (!o.unrestricted_pool_creator_whitelist.length || typeof o.unrestricted_pool_creator_whitelist[0] === "string") && typeof o.hook_gas_limit === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === Params.typeUrl ||
+        (Array.isArray(o.authorized_tick_spacing) &&
+          (!o.authorized_tick_spacing.length ||
+            typeof o.authorized_tick_spacing[0] === 'bigint') &&
+          Array.isArray(o.authorized_spread_factors) &&
+          (!o.authorized_spread_factors.length ||
+            typeof o.authorized_spread_factors[0] === 'string') &&
+          typeof o.balancer_shares_reward_discount === 'string' &&
+          Array.isArray(o.authorized_quote_denoms) &&
+          (!o.authorized_quote_denoms.length ||
+            typeof o.authorized_quote_denoms[0] === 'string') &&
+          Array.isArray(o.authorized_uptimes) &&
+          (!o.authorized_uptimes.length ||
+            Duration.isAmino(o.authorized_uptimes[0])) &&
+          typeof o.is_permissionless_pool_creation_enabled === 'boolean' &&
+          Array.isArray(o.unrestricted_pool_creator_whitelist) &&
+          (!o.unrestricted_pool_creator_whitelist.length ||
+            typeof o.unrestricted_pool_creator_whitelist[0] === 'string') &&
+          typeof o.hook_gas_limit === 'bigint'))
+    );
   },
-  encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: Params,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     writer.uint32(10).fork();
     for (const v of message.authorizedTickSpacing) {
       writer.uint64(v);
@@ -146,8 +216,13 @@ export const Params = {
     for (const v of message.authorizedSpreadFactors) {
       writer.uint32(18).string(Decimal.fromUserInput(v!, 18).atomics);
     }
-    if (message.balancerSharesRewardDiscount !== "") {
-      writer.uint32(26).string(Decimal.fromUserInput(message.balancerSharesRewardDiscount, 18).atomics);
+    if (message.balancerSharesRewardDiscount !== '') {
+      writer
+        .uint32(26)
+        .string(
+          Decimal.fromUserInput(message.balancerSharesRewardDiscount, 18)
+            .atomics,
+        );
     }
     for (const v of message.authorizedQuoteDenoms) {
       writer.uint32(34).string(v!);
@@ -167,7 +242,8 @@ export const Params = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): Params {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseParams();
     while (reader.pos < end) {
@@ -184,16 +260,23 @@ export const Params = {
           }
           break;
         case 2:
-          message.authorizedSpreadFactors.push(Decimal.fromAtomics(reader.string(), 18).toString());
+          message.authorizedSpreadFactors.push(
+            Decimal.fromAtomics(reader.string(), 18).toString(),
+          );
           break;
         case 3:
-          message.balancerSharesRewardDiscount = Decimal.fromAtomics(reader.string(), 18).toString();
+          message.balancerSharesRewardDiscount = Decimal.fromAtomics(
+            reader.string(),
+            18,
+          ).toString();
           break;
         case 4:
           message.authorizedQuoteDenoms.push(reader.string());
           break;
         case 5:
-          message.authorizedUptimes.push(Duration.decode(reader, reader.uint32()));
+          message.authorizedUptimes.push(
+            Duration.decode(reader, reader.uint32()),
+          );
           break;
         case 6:
           message.isPermissionlessPoolCreationEnabled = reader.bool();
@@ -213,29 +296,52 @@ export const Params = {
   },
   fromPartial(object: Partial<Params>): Params {
     const message = createBaseParams();
-    message.authorizedTickSpacing = object.authorizedTickSpacing?.map(e => BigInt(e.toString())) || [];
-    message.authorizedSpreadFactors = object.authorizedSpreadFactors?.map(e => e) || [];
-    message.balancerSharesRewardDiscount = object.balancerSharesRewardDiscount ?? "";
-    message.authorizedQuoteDenoms = object.authorizedQuoteDenoms?.map(e => e) || [];
-    message.authorizedUptimes = object.authorizedUptimes?.map(e => Duration.fromPartial(e)) || [];
-    message.isPermissionlessPoolCreationEnabled = object.isPermissionlessPoolCreationEnabled ?? false;
-    message.unrestrictedPoolCreatorWhitelist = object.unrestrictedPoolCreatorWhitelist?.map(e => e) || [];
-    message.hookGasLimit = object.hookGasLimit !== undefined && object.hookGasLimit !== null ? BigInt(object.hookGasLimit.toString()) : BigInt(0);
+    message.authorizedTickSpacing =
+      object.authorizedTickSpacing?.map(e => BigInt(e.toString())) || [];
+    message.authorizedSpreadFactors =
+      object.authorizedSpreadFactors?.map(e => e) || [];
+    message.balancerSharesRewardDiscount =
+      object.balancerSharesRewardDiscount ?? '';
+    message.authorizedQuoteDenoms =
+      object.authorizedQuoteDenoms?.map(e => e) || [];
+    message.authorizedUptimes =
+      object.authorizedUptimes?.map(e => Duration.fromPartial(e)) || [];
+    message.isPermissionlessPoolCreationEnabled =
+      object.isPermissionlessPoolCreationEnabled ?? false;
+    message.unrestrictedPoolCreatorWhitelist =
+      object.unrestrictedPoolCreatorWhitelist?.map(e => e) || [];
+    message.hookGasLimit =
+      object.hookGasLimit !== undefined && object.hookGasLimit !== null
+        ? BigInt(object.hookGasLimit.toString())
+        : BigInt(0);
     return message;
   },
   fromAmino(object: ParamsAmino): Params {
     const message = createBaseParams();
-    message.authorizedTickSpacing = object.authorized_tick_spacing?.map(e => BigInt(e)) || [];
-    message.authorizedSpreadFactors = object.authorized_spread_factors?.map(e => e) || [];
-    if (object.balancer_shares_reward_discount !== undefined && object.balancer_shares_reward_discount !== null) {
-      message.balancerSharesRewardDiscount = object.balancer_shares_reward_discount;
+    message.authorizedTickSpacing =
+      object.authorized_tick_spacing?.map(e => BigInt(e)) || [];
+    message.authorizedSpreadFactors =
+      object.authorized_spread_factors?.map(e => e) || [];
+    if (
+      object.balancer_shares_reward_discount !== undefined &&
+      object.balancer_shares_reward_discount !== null
+    ) {
+      message.balancerSharesRewardDiscount =
+        object.balancer_shares_reward_discount;
     }
-    message.authorizedQuoteDenoms = object.authorized_quote_denoms?.map(e => e) || [];
-    message.authorizedUptimes = object.authorized_uptimes?.map(e => Duration.fromAmino(e)) || [];
-    if (object.is_permissionless_pool_creation_enabled !== undefined && object.is_permissionless_pool_creation_enabled !== null) {
-      message.isPermissionlessPoolCreationEnabled = object.is_permissionless_pool_creation_enabled;
+    message.authorizedQuoteDenoms =
+      object.authorized_quote_denoms?.map(e => e) || [];
+    message.authorizedUptimes =
+      object.authorized_uptimes?.map(e => Duration.fromAmino(e)) || [];
+    if (
+      object.is_permissionless_pool_creation_enabled !== undefined &&
+      object.is_permissionless_pool_creation_enabled !== null
+    ) {
+      message.isPermissionlessPoolCreationEnabled =
+        object.is_permissionless_pool_creation_enabled;
     }
-    message.unrestrictedPoolCreatorWhitelist = object.unrestricted_pool_creator_whitelist?.map(e => e) || [];
+    message.unrestrictedPoolCreatorWhitelist =
+      object.unrestricted_pool_creator_whitelist?.map(e => e) || [];
     if (object.hook_gas_limit !== undefined && object.hook_gas_limit !== null) {
       message.hookGasLimit = BigInt(object.hook_gas_limit);
     }
@@ -244,33 +350,50 @@ export const Params = {
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
     if (message.authorizedTickSpacing) {
-      obj.authorized_tick_spacing = message.authorizedTickSpacing.map(e => e.toString());
+      obj.authorized_tick_spacing = message.authorizedTickSpacing.map(e =>
+        e.toString(),
+      );
     } else {
       obj.authorized_tick_spacing = message.authorizedTickSpacing;
     }
     if (message.authorizedSpreadFactors) {
-      obj.authorized_spread_factors = message.authorizedSpreadFactors.map(e => e);
+      obj.authorized_spread_factors = message.authorizedSpreadFactors.map(
+        e => e,
+      );
     } else {
       obj.authorized_spread_factors = message.authorizedSpreadFactors;
     }
-    obj.balancer_shares_reward_discount = message.balancerSharesRewardDiscount === "" ? undefined : message.balancerSharesRewardDiscount;
+    obj.balancer_shares_reward_discount =
+      message.balancerSharesRewardDiscount === ''
+        ? undefined
+        : message.balancerSharesRewardDiscount;
     if (message.authorizedQuoteDenoms) {
       obj.authorized_quote_denoms = message.authorizedQuoteDenoms.map(e => e);
     } else {
       obj.authorized_quote_denoms = message.authorizedQuoteDenoms;
     }
     if (message.authorizedUptimes) {
-      obj.authorized_uptimes = message.authorizedUptimes.map(e => e ? Duration.toAmino(e) : undefined);
+      obj.authorized_uptimes = message.authorizedUptimes.map(e =>
+        e ? Duration.toAmino(e) : undefined,
+      );
     } else {
       obj.authorized_uptimes = message.authorizedUptimes;
     }
-    obj.is_permissionless_pool_creation_enabled = message.isPermissionlessPoolCreationEnabled === false ? undefined : message.isPermissionlessPoolCreationEnabled;
+    obj.is_permissionless_pool_creation_enabled =
+      message.isPermissionlessPoolCreationEnabled === false
+        ? undefined
+        : message.isPermissionlessPoolCreationEnabled;
     if (message.unrestrictedPoolCreatorWhitelist) {
-      obj.unrestricted_pool_creator_whitelist = message.unrestrictedPoolCreatorWhitelist.map(e => e);
+      obj.unrestricted_pool_creator_whitelist =
+        message.unrestrictedPoolCreatorWhitelist.map(e => e);
     } else {
-      obj.unrestricted_pool_creator_whitelist = message.unrestrictedPoolCreatorWhitelist;
+      obj.unrestricted_pool_creator_whitelist =
+        message.unrestrictedPoolCreatorWhitelist;
     }
-    obj.hook_gas_limit = message.hookGasLimit !== BigInt(0) ? message.hookGasLimit.toString() : undefined;
+    obj.hook_gas_limit =
+      message.hookGasLimit !== BigInt(0)
+        ? message.hookGasLimit.toString()
+        : undefined;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {
@@ -278,8 +401,8 @@ export const Params = {
   },
   toAminoMsg(message: Params): ParamsAminoMsg {
     return {
-      type: "osmosis/concentratedliquidity/params",
-      value: Params.toAmino(message)
+      type: 'osmosis/concentratedliquidity/params',
+      value: Params.toAmino(message),
     };
   },
   fromProtoMsg(message: ParamsProtoMsg): Params {
@@ -290,10 +413,13 @@ export const Params = {
   },
   toProtoMsg(message: Params): ParamsProtoMsg {
     return {
-      typeUrl: "/osmosis.concentratedliquidity.Params",
-      value: Params.encode(message).finish()
+      typeUrl: '/osmosis.concentratedliquidity.Params',
+      value: Params.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(Params.typeUrl, Params);
-GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  Params.aminoType,
+  Params.typeUrl,
+);

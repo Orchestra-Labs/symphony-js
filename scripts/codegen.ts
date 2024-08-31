@@ -2,24 +2,22 @@ import telescope from '@cosmology/telescope';
 import { join } from 'path';
 import { sync as rimraf } from 'rimraf';
 
-const protoDirs = [
-  join(__dirname, '/../proto')
-];
-const outPath = join(__dirname, '/../codegen');
+const protoDirs = [join(__dirname, '/../proto')];
+const outPath = join(__dirname, '/../src');
 rimraf(outPath);
 
 telescope({
   protoDirs,
   outPath,
   options: {
-    env: "v-next",
+    env: 'v-next',
     tsDisable: {
-      disableAll: true
+      disableAll: true,
     },
     interfaces: {
       enabled: true,
       useUnionTypes: true,
-      useGlobalDecoderRegistry: true
+      useGlobalDecoderRegistry: true,
     },
     prototypes: {
       addTypeUrlToDecoders: true,
@@ -55,7 +53,7 @@ telescope({
           'google.api',
           'ibc.core.port.v1',
           'ibc.core.types.v1',
-        ]
+        ],
       },
       methods: {
         fromJSON: false,
@@ -71,10 +69,10 @@ telescope({
         toAmino: true,
         fromAmino: true,
         fromProto: true,
-        toProto: true
+        toProto: true,
       },
       parser: {
-        keepCase: false
+        keepCase: false,
       },
       typingsFormat: {
         duration: 'duration',
@@ -83,9 +81,9 @@ telescope({
         useDeepPartial: false,
         num64: 'bigint',
         customTypes: {
-          useCosmosSDKDec: true
-        }
-      }
+          useCosmosSDKDec: true,
+        },
+      },
     },
     aminoEncoding: {
       enabled: true,
@@ -93,24 +91,24 @@ telescope({
         // BUG in telescope? why no workie?
         // maybe because it assumes that SDK annotations are the truth!
         '/cosmos.gov.v1beta1.MsgVote': {
-          aminoType: 'cosmos-sdk/MsgVote'
-        }
-      }
+          aminoType: 'cosmos-sdk/MsgVote',
+        },
+      },
     },
     lcdClients: {
-      enabled: true
+      enabled: true,
     },
     rpcClients: {
       enabled: true,
       camelCase: true,
-      useConnectComet: true
-    }
-  }
+      useConnectComet: true,
+    },
+  },
 })
   .then(() => {
     console.log('✨ all done!');
   })
-  .catch((e) => {
+  .catch(e => {
     console.error(e);
     process.exit(1);
   });

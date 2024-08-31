@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { FeeToken, FeeTokenAmino, FeeTokenSDKType } from "./feetoken";
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
+import { FeeToken, FeeTokenAmino, FeeTokenSDKType } from './feetoken';
+import { BinaryReader, BinaryWriter } from '../../../binary';
+import { GlobalDecoderRegistry } from '../../../registry';
 /**
  * UpdateFeeTokenProposal is a gov Content type for adding new whitelisted fee
  * token(s). It must specify a denom along with gamm pool ID to use as a spot
@@ -10,13 +10,13 @@ import { GlobalDecoderRegistry } from "../../../registry";
  * set to 0, it will remove the denom from the whitelisted set.
  */
 export interface UpdateFeeTokenProposal {
-  $typeUrl?: "/osmosis.txfees.v1beta1.UpdateFeeTokenProposal";
+  $typeUrl?: '/osmosis.txfees.v1beta1.UpdateFeeTokenProposal';
   title: string;
   description: string;
   feetokens: FeeToken[];
 }
 export interface UpdateFeeTokenProposalProtoMsg {
-  typeUrl: "/osmosis.txfees.v1beta1.UpdateFeeTokenProposal";
+  typeUrl: '/osmosis.txfees.v1beta1.UpdateFeeTokenProposal';
   value: Uint8Array;
 }
 /**
@@ -32,7 +32,7 @@ export interface UpdateFeeTokenProposalAmino {
   feetokens?: FeeTokenAmino[];
 }
 export interface UpdateFeeTokenProposalAminoMsg {
-  type: "osmosis/UpdateFeeTokenProposal";
+  type: 'osmosis/UpdateFeeTokenProposal';
   value: UpdateFeeTokenProposalAmino;
 }
 /**
@@ -43,36 +43,60 @@ export interface UpdateFeeTokenProposalAminoMsg {
  * set to 0, it will remove the denom from the whitelisted set.
  */
 export interface UpdateFeeTokenProposalSDKType {
-  $typeUrl?: "/osmosis.txfees.v1beta1.UpdateFeeTokenProposal";
+  $typeUrl?: '/osmosis.txfees.v1beta1.UpdateFeeTokenProposal';
   title: string;
   description: string;
   feetokens: FeeTokenSDKType[];
 }
 function createBaseUpdateFeeTokenProposal(): UpdateFeeTokenProposal {
   return {
-    $typeUrl: "/osmosis.txfees.v1beta1.UpdateFeeTokenProposal",
-    title: "",
-    description: "",
-    feetokens: []
+    $typeUrl: '/osmosis.txfees.v1beta1.UpdateFeeTokenProposal',
+    title: '',
+    description: '',
+    feetokens: [],
   };
 }
 export const UpdateFeeTokenProposal = {
-  typeUrl: "/osmosis.txfees.v1beta1.UpdateFeeTokenProposal",
-  aminoType: "osmosis/UpdateFeeTokenProposal",
+  typeUrl: '/osmosis.txfees.v1beta1.UpdateFeeTokenProposal',
+  aminoType: 'osmosis/UpdateFeeTokenProposal',
   is(o: any): o is UpdateFeeTokenProposal {
-    return o && (o.$typeUrl === UpdateFeeTokenProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.feetokens) && (!o.feetokens.length || FeeToken.is(o.feetokens[0])));
+    return (
+      o &&
+      (o.$typeUrl === UpdateFeeTokenProposal.typeUrl ||
+        (typeof o.title === 'string' &&
+          typeof o.description === 'string' &&
+          Array.isArray(o.feetokens) &&
+          (!o.feetokens.length || FeeToken.is(o.feetokens[0]))))
+    );
   },
   isSDK(o: any): o is UpdateFeeTokenProposalSDKType {
-    return o && (o.$typeUrl === UpdateFeeTokenProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.feetokens) && (!o.feetokens.length || FeeToken.isSDK(o.feetokens[0])));
+    return (
+      o &&
+      (o.$typeUrl === UpdateFeeTokenProposal.typeUrl ||
+        (typeof o.title === 'string' &&
+          typeof o.description === 'string' &&
+          Array.isArray(o.feetokens) &&
+          (!o.feetokens.length || FeeToken.isSDK(o.feetokens[0]))))
+    );
   },
   isAmino(o: any): o is UpdateFeeTokenProposalAmino {
-    return o && (o.$typeUrl === UpdateFeeTokenProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.feetokens) && (!o.feetokens.length || FeeToken.isAmino(o.feetokens[0])));
+    return (
+      o &&
+      (o.$typeUrl === UpdateFeeTokenProposal.typeUrl ||
+        (typeof o.title === 'string' &&
+          typeof o.description === 'string' &&
+          Array.isArray(o.feetokens) &&
+          (!o.feetokens.length || FeeToken.isAmino(o.feetokens[0]))))
+    );
   },
-  encode(message: UpdateFeeTokenProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.title !== "") {
+  encode(
+    message: UpdateFeeTokenProposal,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.title !== '') {
       writer.uint32(10).string(message.title);
     }
-    if (message.description !== "") {
+    if (message.description !== '') {
       writer.uint32(18).string(message.description);
     }
     for (const v of message.feetokens) {
@@ -80,8 +104,12 @@ export const UpdateFeeTokenProposal = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): UpdateFeeTokenProposal {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): UpdateFeeTokenProposal {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseUpdateFeeTokenProposal();
     while (reader.pos < end) {
@@ -105,9 +133,10 @@ export const UpdateFeeTokenProposal = {
   },
   fromPartial(object: Partial<UpdateFeeTokenProposal>): UpdateFeeTokenProposal {
     const message = createBaseUpdateFeeTokenProposal();
-    message.title = object.title ?? "";
-    message.description = object.description ?? "";
-    message.feetokens = object.feetokens?.map(e => FeeToken.fromPartial(e)) || [];
+    message.title = object.title ?? '';
+    message.description = object.description ?? '';
+    message.feetokens =
+      object.feetokens?.map(e => FeeToken.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: UpdateFeeTokenProposalAmino): UpdateFeeTokenProposal {
@@ -123,10 +152,13 @@ export const UpdateFeeTokenProposal = {
   },
   toAmino(message: UpdateFeeTokenProposal): UpdateFeeTokenProposalAmino {
     const obj: any = {};
-    obj.title = message.title === "" ? undefined : message.title;
-    obj.description = message.description === "" ? undefined : message.description;
+    obj.title = message.title === '' ? undefined : message.title;
+    obj.description =
+      message.description === '' ? undefined : message.description;
     if (message.feetokens) {
-      obj.feetokens = message.feetokens.map(e => e ? FeeToken.toAmino(e) : undefined);
+      obj.feetokens = message.feetokens.map(e =>
+        e ? FeeToken.toAmino(e) : undefined,
+      );
     } else {
       obj.feetokens = message.feetokens;
     }
@@ -137,11 +169,13 @@ export const UpdateFeeTokenProposal = {
   },
   toAminoMsg(message: UpdateFeeTokenProposal): UpdateFeeTokenProposalAminoMsg {
     return {
-      type: "osmosis/UpdateFeeTokenProposal",
-      value: UpdateFeeTokenProposal.toAmino(message)
+      type: 'osmosis/UpdateFeeTokenProposal',
+      value: UpdateFeeTokenProposal.toAmino(message),
     };
   },
-  fromProtoMsg(message: UpdateFeeTokenProposalProtoMsg): UpdateFeeTokenProposal {
+  fromProtoMsg(
+    message: UpdateFeeTokenProposalProtoMsg,
+  ): UpdateFeeTokenProposal {
     return UpdateFeeTokenProposal.decode(message.value);
   },
   toProto(message: UpdateFeeTokenProposal): Uint8Array {
@@ -149,10 +183,16 @@ export const UpdateFeeTokenProposal = {
   },
   toProtoMsg(message: UpdateFeeTokenProposal): UpdateFeeTokenProposalProtoMsg {
     return {
-      typeUrl: "/osmosis.txfees.v1beta1.UpdateFeeTokenProposal",
-      value: UpdateFeeTokenProposal.encode(message).finish()
+      typeUrl: '/osmosis.txfees.v1beta1.UpdateFeeTokenProposal',
+      value: UpdateFeeTokenProposal.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(UpdateFeeTokenProposal.typeUrl, UpdateFeeTokenProposal);
-GlobalDecoderRegistry.registerAminoProtoMapping(UpdateFeeTokenProposal.aminoType, UpdateFeeTokenProposal.typeUrl);
+GlobalDecoderRegistry.register(
+  UpdateFeeTokenProposal.typeUrl,
+  UpdateFeeTokenProposal,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  UpdateFeeTokenProposal.aminoType,
+  UpdateFeeTokenProposal.typeUrl,
+);

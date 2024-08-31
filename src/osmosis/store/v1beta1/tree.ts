@@ -1,19 +1,19 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
-import { bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { BinaryReader, BinaryWriter } from '../../../binary';
+import { GlobalDecoderRegistry } from '../../../registry';
+import { bytesFromBase64, base64FromBytes } from '../../../helpers';
 export interface Node {
   children: Child[];
 }
 export interface NodeProtoMsg {
-  typeUrl: "/osmosis.store.v1beta1.Node";
+  typeUrl: '/osmosis.store.v1beta1.Node';
   value: Uint8Array;
 }
 export interface NodeAmino {
   children?: ChildAmino[];
 }
 export interface NodeAminoMsg {
-  type: "osmosis/store/node";
+  type: 'osmosis/store/node';
   value: NodeAmino;
 }
 export interface NodeSDKType {
@@ -24,7 +24,7 @@ export interface Child {
   accumulation: string;
 }
 export interface ChildProtoMsg {
-  typeUrl: "/osmosis.store.v1beta1.Child";
+  typeUrl: '/osmosis.store.v1beta1.Child';
   value: Uint8Array;
 }
 export interface ChildAmino {
@@ -32,7 +32,7 @@ export interface ChildAmino {
   accumulation?: string;
 }
 export interface ChildAminoMsg {
-  type: "osmosis/store/child";
+  type: 'osmosis/store/child';
   value: ChildAmino;
 }
 export interface ChildSDKType {
@@ -43,14 +43,14 @@ export interface Leaf {
   leaf?: Child;
 }
 export interface LeafProtoMsg {
-  typeUrl: "/osmosis.store.v1beta1.Leaf";
+  typeUrl: '/osmosis.store.v1beta1.Leaf';
   value: Uint8Array;
 }
 export interface LeafAmino {
   leaf?: ChildAmino;
 }
 export interface LeafAminoMsg {
-  type: "osmosis/store/leaf";
+  type: 'osmosis/store/leaf';
   value: LeafAmino;
 }
 export interface LeafSDKType {
@@ -58,29 +58,48 @@ export interface LeafSDKType {
 }
 function createBaseNode(): Node {
   return {
-    children: []
+    children: [],
   };
 }
 export const Node = {
-  typeUrl: "/osmosis.store.v1beta1.Node",
-  aminoType: "osmosis/store/node",
+  typeUrl: '/osmosis.store.v1beta1.Node',
+  aminoType: 'osmosis/store/node',
   is(o: any): o is Node {
-    return o && (o.$typeUrl === Node.typeUrl || Array.isArray(o.children) && (!o.children.length || Child.is(o.children[0])));
+    return (
+      o &&
+      (o.$typeUrl === Node.typeUrl ||
+        (Array.isArray(o.children) &&
+          (!o.children.length || Child.is(o.children[0]))))
+    );
   },
   isSDK(o: any): o is NodeSDKType {
-    return o && (o.$typeUrl === Node.typeUrl || Array.isArray(o.children) && (!o.children.length || Child.isSDK(o.children[0])));
+    return (
+      o &&
+      (o.$typeUrl === Node.typeUrl ||
+        (Array.isArray(o.children) &&
+          (!o.children.length || Child.isSDK(o.children[0]))))
+    );
   },
   isAmino(o: any): o is NodeAmino {
-    return o && (o.$typeUrl === Node.typeUrl || Array.isArray(o.children) && (!o.children.length || Child.isAmino(o.children[0])));
+    return (
+      o &&
+      (o.$typeUrl === Node.typeUrl ||
+        (Array.isArray(o.children) &&
+          (!o.children.length || Child.isAmino(o.children[0]))))
+    );
   },
-  encode(message: Node, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: Node,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     for (const v of message.children) {
       Child.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): Node {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseNode();
     while (reader.pos < end) {
@@ -109,7 +128,9 @@ export const Node = {
   toAmino(message: Node): NodeAmino {
     const obj: any = {};
     if (message.children) {
-      obj.children = message.children.map(e => e ? Child.toAmino(e) : undefined);
+      obj.children = message.children.map(e =>
+        e ? Child.toAmino(e) : undefined,
+      );
     } else {
       obj.children = message.children;
     }
@@ -120,8 +141,8 @@ export const Node = {
   },
   toAminoMsg(message: Node): NodeAminoMsg {
     return {
-      type: "osmosis/store/node",
-      value: Node.toAmino(message)
+      type: 'osmosis/store/node',
+      value: Node.toAmino(message),
     };
   },
   fromProtoMsg(message: NodeProtoMsg): Node {
@@ -132,42 +153,61 @@ export const Node = {
   },
   toProtoMsg(message: Node): NodeProtoMsg {
     return {
-      typeUrl: "/osmosis.store.v1beta1.Node",
-      value: Node.encode(message).finish()
+      typeUrl: '/osmosis.store.v1beta1.Node',
+      value: Node.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(Node.typeUrl, Node);
 GlobalDecoderRegistry.registerAminoProtoMapping(Node.aminoType, Node.typeUrl);
 function createBaseChild(): Child {
   return {
     index: new Uint8Array(),
-    accumulation: ""
+    accumulation: '',
   };
 }
 export const Child = {
-  typeUrl: "/osmosis.store.v1beta1.Child",
-  aminoType: "osmosis/store/child",
+  typeUrl: '/osmosis.store.v1beta1.Child',
+  aminoType: 'osmosis/store/child',
   is(o: any): o is Child {
-    return o && (o.$typeUrl === Child.typeUrl || (o.index instanceof Uint8Array || typeof o.index === "string") && typeof o.accumulation === "string");
+    return (
+      o &&
+      (o.$typeUrl === Child.typeUrl ||
+        ((o.index instanceof Uint8Array || typeof o.index === 'string') &&
+          typeof o.accumulation === 'string'))
+    );
   },
   isSDK(o: any): o is ChildSDKType {
-    return o && (o.$typeUrl === Child.typeUrl || (o.index instanceof Uint8Array || typeof o.index === "string") && typeof o.accumulation === "string");
+    return (
+      o &&
+      (o.$typeUrl === Child.typeUrl ||
+        ((o.index instanceof Uint8Array || typeof o.index === 'string') &&
+          typeof o.accumulation === 'string'))
+    );
   },
   isAmino(o: any): o is ChildAmino {
-    return o && (o.$typeUrl === Child.typeUrl || (o.index instanceof Uint8Array || typeof o.index === "string") && typeof o.accumulation === "string");
+    return (
+      o &&
+      (o.$typeUrl === Child.typeUrl ||
+        ((o.index instanceof Uint8Array || typeof o.index === 'string') &&
+          typeof o.accumulation === 'string'))
+    );
   },
-  encode(message: Child, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: Child,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.index.length !== 0) {
       writer.uint32(10).bytes(message.index);
     }
-    if (message.accumulation !== "") {
+    if (message.accumulation !== '') {
       writer.uint32(18).string(message.accumulation);
     }
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): Child {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseChild();
     while (reader.pos < end) {
@@ -189,7 +229,7 @@ export const Child = {
   fromPartial(object: Partial<Child>): Child {
     const message = createBaseChild();
     message.index = object.index ?? new Uint8Array();
-    message.accumulation = object.accumulation ?? "";
+    message.accumulation = object.accumulation ?? '';
     return message;
   },
   fromAmino(object: ChildAmino): Child {
@@ -205,7 +245,8 @@ export const Child = {
   toAmino(message: Child): ChildAmino {
     const obj: any = {};
     obj.index = message.index ? base64FromBytes(message.index) : undefined;
-    obj.accumulation = message.accumulation === "" ? undefined : message.accumulation;
+    obj.accumulation =
+      message.accumulation === '' ? undefined : message.accumulation;
     return obj;
   },
   fromAminoMsg(object: ChildAminoMsg): Child {
@@ -213,8 +254,8 @@ export const Child = {
   },
   toAminoMsg(message: Child): ChildAminoMsg {
     return {
-      type: "osmosis/store/child",
-      value: Child.toAmino(message)
+      type: 'osmosis/store/child',
+      value: Child.toAmino(message),
     };
   },
   fromProtoMsg(message: ChildProtoMsg): Child {
@@ -225,21 +266,21 @@ export const Child = {
   },
   toProtoMsg(message: Child): ChildProtoMsg {
     return {
-      typeUrl: "/osmosis.store.v1beta1.Child",
-      value: Child.encode(message).finish()
+      typeUrl: '/osmosis.store.v1beta1.Child',
+      value: Child.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(Child.typeUrl, Child);
 GlobalDecoderRegistry.registerAminoProtoMapping(Child.aminoType, Child.typeUrl);
 function createBaseLeaf(): Leaf {
   return {
-    leaf: undefined
+    leaf: undefined,
   };
 }
 export const Leaf = {
-  typeUrl: "/osmosis.store.v1beta1.Leaf",
-  aminoType: "osmosis/store/leaf",
+  typeUrl: '/osmosis.store.v1beta1.Leaf',
+  aminoType: 'osmosis/store/leaf',
   is(o: any): o is Leaf {
     return o && o.$typeUrl === Leaf.typeUrl;
   },
@@ -249,14 +290,18 @@ export const Leaf = {
   isAmino(o: any): o is LeafAmino {
     return o && o.$typeUrl === Leaf.typeUrl;
   },
-  encode(message: Leaf, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: Leaf,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.leaf !== undefined) {
       Child.encode(message.leaf, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): Leaf {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseLeaf();
     while (reader.pos < end) {
@@ -274,7 +319,10 @@ export const Leaf = {
   },
   fromPartial(object: Partial<Leaf>): Leaf {
     const message = createBaseLeaf();
-    message.leaf = object.leaf !== undefined && object.leaf !== null ? Child.fromPartial(object.leaf) : undefined;
+    message.leaf =
+      object.leaf !== undefined && object.leaf !== null
+        ? Child.fromPartial(object.leaf)
+        : undefined;
     return message;
   },
   fromAmino(object: LeafAmino): Leaf {
@@ -294,8 +342,8 @@ export const Leaf = {
   },
   toAminoMsg(message: Leaf): LeafAminoMsg {
     return {
-      type: "osmosis/store/leaf",
-      value: Leaf.toAmino(message)
+      type: 'osmosis/store/leaf',
+      value: Leaf.toAmino(message),
     };
   },
   fromProtoMsg(message: LeafProtoMsg): Leaf {
@@ -306,10 +354,10 @@ export const Leaf = {
   },
   toProtoMsg(message: Leaf): LeafProtoMsg {
     return {
-      typeUrl: "/osmosis.store.v1beta1.Leaf",
-      value: Leaf.encode(message).finish()
+      typeUrl: '/osmosis.store.v1beta1.Leaf',
+      value: Leaf.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(Leaf.typeUrl, Leaf);
 GlobalDecoderRegistry.registerAminoProtoMapping(Leaf.aminoType, Leaf.typeUrl);

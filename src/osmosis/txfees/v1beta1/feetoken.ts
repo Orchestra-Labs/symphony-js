@@ -1,6 +1,6 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
+import { BinaryReader, BinaryWriter } from '../../../binary';
+import { GlobalDecoderRegistry } from '../../../registry';
 /**
  * FeeToken is a struct that specifies a coin denom, and pool ID pair.
  * This marks the token as eligible for use as a tx fee asset in Osmosis.
@@ -12,7 +12,7 @@ export interface FeeToken {
   poolID: bigint;
 }
 export interface FeeTokenProtoMsg {
-  typeUrl: "/osmosis.txfees.v1beta1.FeeToken";
+  typeUrl: '/osmosis.txfees.v1beta1.FeeToken';
   value: Uint8Array;
 }
 /**
@@ -26,7 +26,7 @@ export interface FeeTokenAmino {
   poolID?: string;
 }
 export interface FeeTokenAminoMsg {
-  type: "osmosis/txfees/fee-token";
+  type: 'osmosis/txfees/fee-token';
   value: FeeTokenAmino;
 }
 /**
@@ -41,24 +41,39 @@ export interface FeeTokenSDKType {
 }
 function createBaseFeeToken(): FeeToken {
   return {
-    denom: "",
-    poolID: BigInt(0)
+    denom: '',
+    poolID: BigInt(0),
   };
 }
 export const FeeToken = {
-  typeUrl: "/osmosis.txfees.v1beta1.FeeToken",
-  aminoType: "osmosis/txfees/fee-token",
+  typeUrl: '/osmosis.txfees.v1beta1.FeeToken',
+  aminoType: 'osmosis/txfees/fee-token',
   is(o: any): o is FeeToken {
-    return o && (o.$typeUrl === FeeToken.typeUrl || typeof o.denom === "string" && typeof o.poolID === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === FeeToken.typeUrl ||
+        (typeof o.denom === 'string' && typeof o.poolID === 'bigint'))
+    );
   },
   isSDK(o: any): o is FeeTokenSDKType {
-    return o && (o.$typeUrl === FeeToken.typeUrl || typeof o.denom === "string" && typeof o.poolID === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === FeeToken.typeUrl ||
+        (typeof o.denom === 'string' && typeof o.poolID === 'bigint'))
+    );
   },
   isAmino(o: any): o is FeeTokenAmino {
-    return o && (o.$typeUrl === FeeToken.typeUrl || typeof o.denom === "string" && typeof o.poolID === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === FeeToken.typeUrl ||
+        (typeof o.denom === 'string' && typeof o.poolID === 'bigint'))
+    );
   },
-  encode(message: FeeToken, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.denom !== "") {
+  encode(
+    message: FeeToken,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.denom !== '') {
       writer.uint32(10).string(message.denom);
     }
     if (message.poolID !== BigInt(0)) {
@@ -67,7 +82,8 @@ export const FeeToken = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): FeeToken {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFeeToken();
     while (reader.pos < end) {
@@ -88,8 +104,11 @@ export const FeeToken = {
   },
   fromPartial(object: Partial<FeeToken>): FeeToken {
     const message = createBaseFeeToken();
-    message.denom = object.denom ?? "";
-    message.poolID = object.poolID !== undefined && object.poolID !== null ? BigInt(object.poolID.toString()) : BigInt(0);
+    message.denom = object.denom ?? '';
+    message.poolID =
+      object.poolID !== undefined && object.poolID !== null
+        ? BigInt(object.poolID.toString())
+        : BigInt(0);
     return message;
   },
   fromAmino(object: FeeTokenAmino): FeeToken {
@@ -104,8 +123,9 @@ export const FeeToken = {
   },
   toAmino(message: FeeToken): FeeTokenAmino {
     const obj: any = {};
-    obj.denom = message.denom === "" ? undefined : message.denom;
-    obj.poolID = message.poolID !== BigInt(0) ? message.poolID.toString() : undefined;
+    obj.denom = message.denom === '' ? undefined : message.denom;
+    obj.poolID =
+      message.poolID !== BigInt(0) ? message.poolID.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: FeeTokenAminoMsg): FeeToken {
@@ -113,8 +133,8 @@ export const FeeToken = {
   },
   toAminoMsg(message: FeeToken): FeeTokenAminoMsg {
     return {
-      type: "osmosis/txfees/fee-token",
-      value: FeeToken.toAmino(message)
+      type: 'osmosis/txfees/fee-token',
+      value: FeeToken.toAmino(message),
     };
   },
   fromProtoMsg(message: FeeTokenProtoMsg): FeeToken {
@@ -125,10 +145,13 @@ export const FeeToken = {
   },
   toProtoMsg(message: FeeToken): FeeTokenProtoMsg {
     return {
-      typeUrl: "/osmosis.txfees.v1beta1.FeeToken",
-      value: FeeToken.encode(message).finish()
+      typeUrl: '/osmosis.txfees.v1beta1.FeeToken',
+      value: FeeToken.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(FeeToken.typeUrl, FeeToken);
-GlobalDecoderRegistry.registerAminoProtoMapping(FeeToken.aminoType, FeeToken.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  FeeToken.aminoType,
+  FeeToken.typeUrl,
+);

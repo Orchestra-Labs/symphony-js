@@ -1,6 +1,6 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { GlobalDecoderRegistry } from "../../../../registry";
+import { BinaryReader, BinaryWriter } from '../../../../binary';
+import { GlobalDecoderRegistry } from '../../../../registry';
 /** Module is the config object of the capability module. */
 export interface Module {
   /**
@@ -10,7 +10,7 @@ export interface Module {
   sealKeeper: boolean;
 }
 export interface ModuleProtoMsg {
-  typeUrl: "/cosmos.capability.module.v1.Module";
+  typeUrl: '/cosmos.capability.module.v1.Module';
   value: Uint8Array;
 }
 /** Module is the config object of the capability module. */
@@ -22,7 +22,7 @@ export interface ModuleAmino {
   seal_keeper?: boolean;
 }
 export interface ModuleAminoMsg {
-  type: "cosmos-sdk/Module";
+  type: 'cosmos-sdk/Module';
   value: ModuleAmino;
 }
 /** Module is the config object of the capability module. */
@@ -31,29 +31,39 @@ export interface ModuleSDKType {
 }
 function createBaseModule(): Module {
   return {
-    sealKeeper: false
+    sealKeeper: false,
   };
 }
 export const Module = {
-  typeUrl: "/cosmos.capability.module.v1.Module",
-  aminoType: "cosmos-sdk/Module",
+  typeUrl: '/cosmos.capability.module.v1.Module',
+  aminoType: 'cosmos-sdk/Module',
   is(o: any): o is Module {
-    return o && (o.$typeUrl === Module.typeUrl || typeof o.sealKeeper === "boolean");
+    return (
+      o && (o.$typeUrl === Module.typeUrl || typeof o.sealKeeper === 'boolean')
+    );
   },
   isSDK(o: any): o is ModuleSDKType {
-    return o && (o.$typeUrl === Module.typeUrl || typeof o.seal_keeper === "boolean");
+    return (
+      o && (o.$typeUrl === Module.typeUrl || typeof o.seal_keeper === 'boolean')
+    );
   },
   isAmino(o: any): o is ModuleAmino {
-    return o && (o.$typeUrl === Module.typeUrl || typeof o.seal_keeper === "boolean");
+    return (
+      o && (o.$typeUrl === Module.typeUrl || typeof o.seal_keeper === 'boolean')
+    );
   },
-  encode(message: Module, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: Module,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.sealKeeper === true) {
       writer.uint32(8).bool(message.sealKeeper);
     }
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): Module {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseModule();
     while (reader.pos < end) {
@@ -83,7 +93,8 @@ export const Module = {
   },
   toAmino(message: Module): ModuleAmino {
     const obj: any = {};
-    obj.seal_keeper = message.sealKeeper === false ? undefined : message.sealKeeper;
+    obj.seal_keeper =
+      message.sealKeeper === false ? undefined : message.sealKeeper;
     return obj;
   },
   fromAminoMsg(object: ModuleAminoMsg): Module {
@@ -91,8 +102,8 @@ export const Module = {
   },
   toAminoMsg(message: Module): ModuleAminoMsg {
     return {
-      type: "cosmos-sdk/Module",
-      value: Module.toAmino(message)
+      type: 'cosmos-sdk/Module',
+      value: Module.toAmino(message),
     };
   },
   fromProtoMsg(message: ModuleProtoMsg): Module {
@@ -103,10 +114,13 @@ export const Module = {
   },
   toProtoMsg(message: Module): ModuleProtoMsg {
     return {
-      typeUrl: "/cosmos.capability.module.v1.Module",
-      value: Module.encode(message).finish()
+      typeUrl: '/cosmos.capability.module.v1.Module',
+      value: Module.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(Module.typeUrl, Module);
-GlobalDecoderRegistry.registerAminoProtoMapping(Module.aminoType, Module.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  Module.aminoType,
+  Module.typeUrl,
+);

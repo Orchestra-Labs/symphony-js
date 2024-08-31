@@ -1,39 +1,47 @@
 //@ts-nocheck
-import { MsgSetValidatorSetPreference, MsgDelegateToValidatorSet, MsgUndelegateFromValidatorSet, MsgUndelegateFromRebalancedValidatorSet, MsgRedelegateValidatorSet, MsgWithdrawDelegationRewards, MsgDelegateBondedTokens } from "./tx";
+import {
+  MsgSetValidatorSetPreference,
+  MsgDelegateToValidatorSet,
+  MsgUndelegateFromValidatorSet,
+  MsgUndelegateFromRebalancedValidatorSet,
+  MsgRedelegateValidatorSet,
+  MsgWithdrawDelegationRewards,
+  MsgDelegateBondedTokens,
+} from './tx';
 export const AminoConverter = {
-  "/osmosis.valsetpref.v1beta1.MsgSetValidatorSetPreference": {
-    aminoType: "osmosis/MsgSetValidatorSetPreference",
+  '/osmosis.valsetpref.v1beta1.MsgSetValidatorSetPreference': {
+    aminoType: 'osmosis/MsgSetValidatorSetPreference',
     toAmino: MsgSetValidatorSetPreference.toAmino,
-    fromAmino: MsgSetValidatorSetPreference.fromAmino
+    fromAmino: MsgSetValidatorSetPreference.fromAmino,
   },
-  "/osmosis.valsetpref.v1beta1.MsgDelegateToValidatorSet": {
-    aminoType: "osmosis/MsgDelegateToValidatorSet",
+  '/osmosis.valsetpref.v1beta1.MsgDelegateToValidatorSet': {
+    aminoType: 'osmosis/MsgDelegateToValidatorSet',
     toAmino: MsgDelegateToValidatorSet.toAmino,
-    fromAmino: MsgDelegateToValidatorSet.fromAmino
+    fromAmino: MsgDelegateToValidatorSet.fromAmino,
   },
-  "/osmosis.valsetpref.v1beta1.MsgUndelegateFromValidatorSet": {
-    aminoType: "osmosis/MsgUndelegateFromValidatorSet",
+  '/osmosis.valsetpref.v1beta1.MsgUndelegateFromValidatorSet': {
+    aminoType: 'osmosis/MsgUndelegateFromValidatorSet',
     toAmino: MsgUndelegateFromValidatorSet.toAmino,
-    fromAmino: MsgUndelegateFromValidatorSet.fromAmino
+    fromAmino: MsgUndelegateFromValidatorSet.fromAmino,
   },
-  "/osmosis.valsetpref.v1beta1.MsgUndelegateFromRebalancedValidatorSet": {
-    aminoType: "osmosis/MsgUndelegateFromRebalValset",
+  '/osmosis.valsetpref.v1beta1.MsgUndelegateFromRebalancedValidatorSet': {
+    aminoType: 'osmosis/MsgUndelegateFromRebalValset',
     toAmino: MsgUndelegateFromRebalancedValidatorSet.toAmino,
-    fromAmino: MsgUndelegateFromRebalancedValidatorSet.fromAmino
+    fromAmino: MsgUndelegateFromRebalancedValidatorSet.fromAmino,
   },
-  "/osmosis.valsetpref.v1beta1.MsgRedelegateValidatorSet": {
-    aminoType: "osmosis/MsgRedelegateValidatorSet",
+  '/osmosis.valsetpref.v1beta1.MsgRedelegateValidatorSet': {
+    aminoType: 'osmosis/MsgRedelegateValidatorSet',
     toAmino: MsgRedelegateValidatorSet.toAmino,
-    fromAmino: MsgRedelegateValidatorSet.fromAmino
+    fromAmino: MsgRedelegateValidatorSet.fromAmino,
   },
-  "/osmosis.valsetpref.v1beta1.MsgWithdrawDelegationRewards": {
-    aminoType: "osmosis/MsgWithdrawDelegationRewards",
+  '/osmosis.valsetpref.v1beta1.MsgWithdrawDelegationRewards': {
+    aminoType: 'osmosis/MsgWithdrawDelegationRewards',
     toAmino: MsgWithdrawDelegationRewards.toAmino,
-    fromAmino: MsgWithdrawDelegationRewards.fromAmino
+    fromAmino: MsgWithdrawDelegationRewards.fromAmino,
   },
-  "/osmosis.valsetpref.v1beta1.MsgDelegateBondedTokens": {
-    aminoType: "osmosis/valsetpref/delegate-bonded-tokens",
+  '/osmosis.valsetpref.v1beta1.MsgDelegateBondedTokens': {
+    aminoType: 'osmosis/valsetpref/delegate-bonded-tokens',
     toAmino: MsgDelegateBondedTokens.toAmino,
-    fromAmino: MsgDelegateBondedTokens.fromAmino
-  }
+    fromAmino: MsgDelegateBondedTokens.fromAmino,
+  },
 };

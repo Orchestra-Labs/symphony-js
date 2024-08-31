@@ -1,22 +1,22 @@
 //@ts-nocheck
-import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
-import { bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { Any, AnyAmino, AnySDKType } from '../../../google/protobuf/any';
+import { BinaryReader, BinaryWriter } from '../../../binary';
+import { GlobalDecoderRegistry } from '../../../registry';
+import { bytesFromBase64, base64FromBytes } from '../../../helpers';
 /**
  * BaseAccount defines a base account type. It contains all the necessary fields
  * for basic account functionality. Any custom account type should extend this
  * type for additional functionality (e.g. vesting).
  */
 export interface BaseAccount {
-  $typeUrl?: "/cosmos.auth.v1beta1.BaseAccount";
+  $typeUrl?: '/cosmos.auth.v1beta1.BaseAccount';
   address: string;
   pubKey?: Any;
   accountNumber: bigint;
   sequence: bigint;
 }
 export interface BaseAccountProtoMsg {
-  typeUrl: "/cosmos.auth.v1beta1.BaseAccount";
+  typeUrl: '/cosmos.auth.v1beta1.BaseAccount';
   value: Uint8Array;
 }
 /**
@@ -31,7 +31,7 @@ export interface BaseAccountAmino {
   sequence?: string;
 }
 export interface BaseAccountAminoMsg {
-  type: "cosmos-sdk/BaseAccount";
+  type: 'cosmos-sdk/BaseAccount';
   value: BaseAccountAmino;
 }
 /**
@@ -40,7 +40,7 @@ export interface BaseAccountAminoMsg {
  * type for additional functionality (e.g. vesting).
  */
 export interface BaseAccountSDKType {
-  $typeUrl?: "/cosmos.auth.v1beta1.BaseAccount";
+  $typeUrl?: '/cosmos.auth.v1beta1.BaseAccount';
   address: string;
   pub_key?: AnySDKType;
   account_number: bigint;
@@ -48,13 +48,13 @@ export interface BaseAccountSDKType {
 }
 /** ModuleAccount defines an account for modules that holds coins on a pool. */
 export interface ModuleAccount {
-  $typeUrl?: "/cosmos.auth.v1beta1.ModuleAccount";
+  $typeUrl?: '/cosmos.auth.v1beta1.ModuleAccount';
   baseAccount?: BaseAccount;
   name: string;
   permissions: string[];
 }
 export interface ModuleAccountProtoMsg {
-  typeUrl: "/cosmos.auth.v1beta1.ModuleAccount";
+  typeUrl: '/cosmos.auth.v1beta1.ModuleAccount';
   value: Uint8Array;
 }
 /** ModuleAccount defines an account for modules that holds coins on a pool. */
@@ -64,19 +64,19 @@ export interface ModuleAccountAmino {
   permissions?: string[];
 }
 export interface ModuleAccountAminoMsg {
-  type: "cosmos-sdk/ModuleAccount";
+  type: 'cosmos-sdk/ModuleAccount';
   value: ModuleAccountAmino;
 }
 /** ModuleAccount defines an account for modules that holds coins on a pool. */
 export interface ModuleAccountSDKType {
-  $typeUrl?: "/cosmos.auth.v1beta1.ModuleAccount";
+  $typeUrl?: '/cosmos.auth.v1beta1.ModuleAccount';
   base_account?: BaseAccountSDKType;
   name: string;
   permissions: string[];
 }
 /**
  * ModuleCredential represents a unclaimable pubkey for base accounts controlled by modules.
- * 
+ *
  * Since: cosmos-sdk 0.47
  */
 export interface ModuleCredential {
@@ -89,12 +89,12 @@ export interface ModuleCredential {
   derivationKeys: Uint8Array[];
 }
 export interface ModuleCredentialProtoMsg {
-  typeUrl: "/cosmos.auth.v1beta1.ModuleCredential";
+  typeUrl: '/cosmos.auth.v1beta1.ModuleCredential';
   value: Uint8Array;
 }
 /**
  * ModuleCredential represents a unclaimable pubkey for base accounts controlled by modules.
- * 
+ *
  * Since: cosmos-sdk 0.47
  */
 export interface ModuleCredentialAmino {
@@ -107,12 +107,12 @@ export interface ModuleCredentialAmino {
   derivation_keys?: string[];
 }
 export interface ModuleCredentialAminoMsg {
-  type: "cosmos-sdk/ModuleCredential";
+  type: 'cosmos-sdk/ModuleCredential';
   value: ModuleCredentialAmino;
 }
 /**
  * ModuleCredential represents a unclaimable pubkey for base accounts controlled by modules.
- * 
+ *
  * Since: cosmos-sdk 0.47
  */
 export interface ModuleCredentialSDKType {
@@ -128,7 +128,7 @@ export interface Params {
   sigVerifyCostSecp256k1: bigint;
 }
 export interface ParamsProtoMsg {
-  typeUrl: "/cosmos.auth.v1beta1.Params";
+  typeUrl: '/cosmos.auth.v1beta1.Params';
   value: Uint8Array;
 }
 /** Params defines the parameters for the auth module. */
@@ -140,7 +140,7 @@ export interface ParamsAmino {
   sig_verify_cost_secp256k1?: string;
 }
 export interface ParamsAminoMsg {
-  type: "cosmos-sdk/x/auth/Params";
+  type: 'cosmos-sdk/x/auth/Params';
   value: ParamsAmino;
 }
 /** Params defines the parameters for the auth module. */
@@ -153,27 +153,48 @@ export interface ParamsSDKType {
 }
 function createBaseBaseAccount(): BaseAccount {
   return {
-    $typeUrl: "/cosmos.auth.v1beta1.BaseAccount",
-    address: "",
+    $typeUrl: '/cosmos.auth.v1beta1.BaseAccount',
+    address: '',
     pubKey: undefined,
     accountNumber: BigInt(0),
-    sequence: BigInt(0)
+    sequence: BigInt(0),
   };
 }
 export const BaseAccount = {
-  typeUrl: "/cosmos.auth.v1beta1.BaseAccount",
-  aminoType: "cosmos-sdk/BaseAccount",
+  typeUrl: '/cosmos.auth.v1beta1.BaseAccount',
+  aminoType: 'cosmos-sdk/BaseAccount',
   is(o: any): o is BaseAccount {
-    return o && (o.$typeUrl === BaseAccount.typeUrl || typeof o.address === "string" && typeof o.accountNumber === "bigint" && typeof o.sequence === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === BaseAccount.typeUrl ||
+        (typeof o.address === 'string' &&
+          typeof o.accountNumber === 'bigint' &&
+          typeof o.sequence === 'bigint'))
+    );
   },
   isSDK(o: any): o is BaseAccountSDKType {
-    return o && (o.$typeUrl === BaseAccount.typeUrl || typeof o.address === "string" && typeof o.account_number === "bigint" && typeof o.sequence === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === BaseAccount.typeUrl ||
+        (typeof o.address === 'string' &&
+          typeof o.account_number === 'bigint' &&
+          typeof o.sequence === 'bigint'))
+    );
   },
   isAmino(o: any): o is BaseAccountAmino {
-    return o && (o.$typeUrl === BaseAccount.typeUrl || typeof o.address === "string" && typeof o.account_number === "bigint" && typeof o.sequence === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === BaseAccount.typeUrl ||
+        (typeof o.address === 'string' &&
+          typeof o.account_number === 'bigint' &&
+          typeof o.sequence === 'bigint'))
+    );
   },
-  encode(message: BaseAccount, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.address !== "") {
+  encode(
+    message: BaseAccount,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.address !== '') {
       writer.uint32(10).string(message.address);
     }
     if (message.pubKey !== undefined) {
@@ -188,7 +209,8 @@ export const BaseAccount = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): BaseAccount {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseBaseAccount();
     while (reader.pos < end) {
@@ -215,10 +237,19 @@ export const BaseAccount = {
   },
   fromPartial(object: Partial<BaseAccount>): BaseAccount {
     const message = createBaseBaseAccount();
-    message.address = object.address ?? "";
-    message.pubKey = object.pubKey !== undefined && object.pubKey !== null ? Any.fromPartial(object.pubKey) : undefined;
-    message.accountNumber = object.accountNumber !== undefined && object.accountNumber !== null ? BigInt(object.accountNumber.toString()) : BigInt(0);
-    message.sequence = object.sequence !== undefined && object.sequence !== null ? BigInt(object.sequence.toString()) : BigInt(0);
+    message.address = object.address ?? '';
+    message.pubKey =
+      object.pubKey !== undefined && object.pubKey !== null
+        ? Any.fromPartial(object.pubKey)
+        : undefined;
+    message.accountNumber =
+      object.accountNumber !== undefined && object.accountNumber !== null
+        ? BigInt(object.accountNumber.toString())
+        : BigInt(0);
+    message.sequence =
+      object.sequence !== undefined && object.sequence !== null
+        ? BigInt(object.sequence.toString())
+        : BigInt(0);
     return message;
   },
   fromAmino(object: BaseAccountAmino): BaseAccount {
@@ -239,10 +270,14 @@ export const BaseAccount = {
   },
   toAmino(message: BaseAccount): BaseAccountAmino {
     const obj: any = {};
-    obj.address = message.address === "" ? undefined : message.address;
+    obj.address = message.address === '' ? undefined : message.address;
     obj.pub_key = message.pubKey ? Any.toAmino(message.pubKey) : undefined;
-    obj.account_number = message.accountNumber !== BigInt(0) ? message.accountNumber.toString() : undefined;
-    obj.sequence = message.sequence !== BigInt(0) ? message.sequence.toString() : undefined;
+    obj.account_number =
+      message.accountNumber !== BigInt(0)
+        ? message.accountNumber.toString()
+        : undefined;
+    obj.sequence =
+      message.sequence !== BigInt(0) ? message.sequence.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: BaseAccountAminoMsg): BaseAccount {
@@ -250,8 +285,8 @@ export const BaseAccount = {
   },
   toAminoMsg(message: BaseAccount): BaseAccountAminoMsg {
     return {
-      type: "cosmos-sdk/BaseAccount",
-      value: BaseAccount.toAmino(message)
+      type: 'cosmos-sdk/BaseAccount',
+      value: BaseAccount.toAmino(message),
     };
   },
   fromProtoMsg(message: BaseAccountProtoMsg): BaseAccount {
@@ -262,38 +297,65 @@ export const BaseAccount = {
   },
   toProtoMsg(message: BaseAccount): BaseAccountProtoMsg {
     return {
-      typeUrl: "/cosmos.auth.v1beta1.BaseAccount",
-      value: BaseAccount.encode(message).finish()
+      typeUrl: '/cosmos.auth.v1beta1.BaseAccount',
+      value: BaseAccount.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(BaseAccount.typeUrl, BaseAccount);
-GlobalDecoderRegistry.registerAminoProtoMapping(BaseAccount.aminoType, BaseAccount.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  BaseAccount.aminoType,
+  BaseAccount.typeUrl,
+);
 function createBaseModuleAccount(): ModuleAccount {
   return {
-    $typeUrl: "/cosmos.auth.v1beta1.ModuleAccount",
+    $typeUrl: '/cosmos.auth.v1beta1.ModuleAccount',
     baseAccount: undefined,
-    name: "",
-    permissions: []
+    name: '',
+    permissions: [],
   };
 }
 export const ModuleAccount = {
-  typeUrl: "/cosmos.auth.v1beta1.ModuleAccount",
-  aminoType: "cosmos-sdk/ModuleAccount",
+  typeUrl: '/cosmos.auth.v1beta1.ModuleAccount',
+  aminoType: 'cosmos-sdk/ModuleAccount',
   is(o: any): o is ModuleAccount {
-    return o && (o.$typeUrl === ModuleAccount.typeUrl || typeof o.name === "string" && Array.isArray(o.permissions) && (!o.permissions.length || typeof o.permissions[0] === "string"));
+    return (
+      o &&
+      (o.$typeUrl === ModuleAccount.typeUrl ||
+        (typeof o.name === 'string' &&
+          Array.isArray(o.permissions) &&
+          (!o.permissions.length || typeof o.permissions[0] === 'string')))
+    );
   },
   isSDK(o: any): o is ModuleAccountSDKType {
-    return o && (o.$typeUrl === ModuleAccount.typeUrl || typeof o.name === "string" && Array.isArray(o.permissions) && (!o.permissions.length || typeof o.permissions[0] === "string"));
+    return (
+      o &&
+      (o.$typeUrl === ModuleAccount.typeUrl ||
+        (typeof o.name === 'string' &&
+          Array.isArray(o.permissions) &&
+          (!o.permissions.length || typeof o.permissions[0] === 'string')))
+    );
   },
   isAmino(o: any): o is ModuleAccountAmino {
-    return o && (o.$typeUrl === ModuleAccount.typeUrl || typeof o.name === "string" && Array.isArray(o.permissions) && (!o.permissions.length || typeof o.permissions[0] === "string"));
+    return (
+      o &&
+      (o.$typeUrl === ModuleAccount.typeUrl ||
+        (typeof o.name === 'string' &&
+          Array.isArray(o.permissions) &&
+          (!o.permissions.length || typeof o.permissions[0] === 'string')))
+    );
   },
-  encode(message: ModuleAccount, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: ModuleAccount,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.baseAccount !== undefined) {
-      BaseAccount.encode(message.baseAccount, writer.uint32(10).fork()).ldelim();
+      BaseAccount.encode(
+        message.baseAccount,
+        writer.uint32(10).fork(),
+      ).ldelim();
     }
-    if (message.name !== "") {
+    if (message.name !== '') {
       writer.uint32(18).string(message.name);
     }
     for (const v of message.permissions) {
@@ -302,7 +364,8 @@ export const ModuleAccount = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): ModuleAccount {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseModuleAccount();
     while (reader.pos < end) {
@@ -326,8 +389,11 @@ export const ModuleAccount = {
   },
   fromPartial(object: Partial<ModuleAccount>): ModuleAccount {
     const message = createBaseModuleAccount();
-    message.baseAccount = object.baseAccount !== undefined && object.baseAccount !== null ? BaseAccount.fromPartial(object.baseAccount) : undefined;
-    message.name = object.name ?? "";
+    message.baseAccount =
+      object.baseAccount !== undefined && object.baseAccount !== null
+        ? BaseAccount.fromPartial(object.baseAccount)
+        : undefined;
+    message.name = object.name ?? '';
     message.permissions = object.permissions?.map(e => e) || [];
     return message;
   },
@@ -344,8 +410,10 @@ export const ModuleAccount = {
   },
   toAmino(message: ModuleAccount): ModuleAccountAmino {
     const obj: any = {};
-    obj.base_account = message.baseAccount ? BaseAccount.toAmino(message.baseAccount) : undefined;
-    obj.name = message.name === "" ? undefined : message.name;
+    obj.base_account = message.baseAccount
+      ? BaseAccount.toAmino(message.baseAccount)
+      : undefined;
+    obj.name = message.name === '' ? undefined : message.name;
     if (message.permissions) {
       obj.permissions = message.permissions.map(e => e);
     } else {
@@ -358,8 +426,8 @@ export const ModuleAccount = {
   },
   toAminoMsg(message: ModuleAccount): ModuleAccountAminoMsg {
     return {
-      type: "cosmos-sdk/ModuleAccount",
-      value: ModuleAccount.toAmino(message)
+      type: 'cosmos-sdk/ModuleAccount',
+      value: ModuleAccount.toAmino(message),
     };
   },
   fromProtoMsg(message: ModuleAccountProtoMsg): ModuleAccount {
@@ -370,33 +438,63 @@ export const ModuleAccount = {
   },
   toProtoMsg(message: ModuleAccount): ModuleAccountProtoMsg {
     return {
-      typeUrl: "/cosmos.auth.v1beta1.ModuleAccount",
-      value: ModuleAccount.encode(message).finish()
+      typeUrl: '/cosmos.auth.v1beta1.ModuleAccount',
+      value: ModuleAccount.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(ModuleAccount.typeUrl, ModuleAccount);
-GlobalDecoderRegistry.registerAminoProtoMapping(ModuleAccount.aminoType, ModuleAccount.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  ModuleAccount.aminoType,
+  ModuleAccount.typeUrl,
+);
 function createBaseModuleCredential(): ModuleCredential {
   return {
-    moduleName: "",
-    derivationKeys: []
+    moduleName: '',
+    derivationKeys: [],
   };
 }
 export const ModuleCredential = {
-  typeUrl: "/cosmos.auth.v1beta1.ModuleCredential",
-  aminoType: "cosmos-sdk/ModuleCredential",
+  typeUrl: '/cosmos.auth.v1beta1.ModuleCredential',
+  aminoType: 'cosmos-sdk/ModuleCredential',
   is(o: any): o is ModuleCredential {
-    return o && (o.$typeUrl === ModuleCredential.typeUrl || typeof o.moduleName === "string" && Array.isArray(o.derivationKeys) && (!o.derivationKeys.length || o.derivationKeys[0] instanceof Uint8Array || typeof o.derivationKeys[0] === "string"));
+    return (
+      o &&
+      (o.$typeUrl === ModuleCredential.typeUrl ||
+        (typeof o.moduleName === 'string' &&
+          Array.isArray(o.derivationKeys) &&
+          (!o.derivationKeys.length ||
+            o.derivationKeys[0] instanceof Uint8Array ||
+            typeof o.derivationKeys[0] === 'string')))
+    );
   },
   isSDK(o: any): o is ModuleCredentialSDKType {
-    return o && (o.$typeUrl === ModuleCredential.typeUrl || typeof o.module_name === "string" && Array.isArray(o.derivation_keys) && (!o.derivation_keys.length || o.derivation_keys[0] instanceof Uint8Array || typeof o.derivation_keys[0] === "string"));
+    return (
+      o &&
+      (o.$typeUrl === ModuleCredential.typeUrl ||
+        (typeof o.module_name === 'string' &&
+          Array.isArray(o.derivation_keys) &&
+          (!o.derivation_keys.length ||
+            o.derivation_keys[0] instanceof Uint8Array ||
+            typeof o.derivation_keys[0] === 'string')))
+    );
   },
   isAmino(o: any): o is ModuleCredentialAmino {
-    return o && (o.$typeUrl === ModuleCredential.typeUrl || typeof o.module_name === "string" && Array.isArray(o.derivation_keys) && (!o.derivation_keys.length || o.derivation_keys[0] instanceof Uint8Array || typeof o.derivation_keys[0] === "string"));
+    return (
+      o &&
+      (o.$typeUrl === ModuleCredential.typeUrl ||
+        (typeof o.module_name === 'string' &&
+          Array.isArray(o.derivation_keys) &&
+          (!o.derivation_keys.length ||
+            o.derivation_keys[0] instanceof Uint8Array ||
+            typeof o.derivation_keys[0] === 'string')))
+    );
   },
-  encode(message: ModuleCredential, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.moduleName !== "") {
+  encode(
+    message: ModuleCredential,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.moduleName !== '') {
       writer.uint32(10).string(message.moduleName);
     }
     for (const v of message.derivationKeys) {
@@ -405,7 +503,8 @@ export const ModuleCredential = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): ModuleCredential {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseModuleCredential();
     while (reader.pos < end) {
@@ -426,7 +525,7 @@ export const ModuleCredential = {
   },
   fromPartial(object: Partial<ModuleCredential>): ModuleCredential {
     const message = createBaseModuleCredential();
-    message.moduleName = object.moduleName ?? "";
+    message.moduleName = object.moduleName ?? '';
     message.derivationKeys = object.derivationKeys?.map(e => e) || [];
     return message;
   },
@@ -435,12 +534,14 @@ export const ModuleCredential = {
     if (object.module_name !== undefined && object.module_name !== null) {
       message.moduleName = object.module_name;
     }
-    message.derivationKeys = object.derivation_keys?.map(e => bytesFromBase64(e)) || [];
+    message.derivationKeys =
+      object.derivation_keys?.map(e => bytesFromBase64(e)) || [];
     return message;
   },
   toAmino(message: ModuleCredential): ModuleCredentialAmino {
     const obj: any = {};
-    obj.module_name = message.moduleName === "" ? undefined : message.moduleName;
+    obj.module_name =
+      message.moduleName === '' ? undefined : message.moduleName;
     if (message.derivationKeys) {
       obj.derivation_keys = message.derivationKeys.map(e => base64FromBytes(e));
     } else {
@@ -453,8 +554,8 @@ export const ModuleCredential = {
   },
   toAminoMsg(message: ModuleCredential): ModuleCredentialAminoMsg {
     return {
-      type: "cosmos-sdk/ModuleCredential",
-      value: ModuleCredential.toAmino(message)
+      type: 'cosmos-sdk/ModuleCredential',
+      value: ModuleCredential.toAmino(message),
     };
   },
   fromProtoMsg(message: ModuleCredentialProtoMsg): ModuleCredential {
@@ -465,35 +566,65 @@ export const ModuleCredential = {
   },
   toProtoMsg(message: ModuleCredential): ModuleCredentialProtoMsg {
     return {
-      typeUrl: "/cosmos.auth.v1beta1.ModuleCredential",
-      value: ModuleCredential.encode(message).finish()
+      typeUrl: '/cosmos.auth.v1beta1.ModuleCredential',
+      value: ModuleCredential.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(ModuleCredential.typeUrl, ModuleCredential);
-GlobalDecoderRegistry.registerAminoProtoMapping(ModuleCredential.aminoType, ModuleCredential.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  ModuleCredential.aminoType,
+  ModuleCredential.typeUrl,
+);
 function createBaseParams(): Params {
   return {
     maxMemoCharacters: BigInt(0),
     txSigLimit: BigInt(0),
     txSizeCostPerByte: BigInt(0),
     sigVerifyCostEd25519: BigInt(0),
-    sigVerifyCostSecp256k1: BigInt(0)
+    sigVerifyCostSecp256k1: BigInt(0),
   };
 }
 export const Params = {
-  typeUrl: "/cosmos.auth.v1beta1.Params",
-  aminoType: "cosmos-sdk/x/auth/Params",
+  typeUrl: '/cosmos.auth.v1beta1.Params',
+  aminoType: 'cosmos-sdk/x/auth/Params',
   is(o: any): o is Params {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.maxMemoCharacters === "bigint" && typeof o.txSigLimit === "bigint" && typeof o.txSizeCostPerByte === "bigint" && typeof o.sigVerifyCostEd25519 === "bigint" && typeof o.sigVerifyCostSecp256k1 === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === Params.typeUrl ||
+        (typeof o.maxMemoCharacters === 'bigint' &&
+          typeof o.txSigLimit === 'bigint' &&
+          typeof o.txSizeCostPerByte === 'bigint' &&
+          typeof o.sigVerifyCostEd25519 === 'bigint' &&
+          typeof o.sigVerifyCostSecp256k1 === 'bigint'))
+    );
   },
   isSDK(o: any): o is ParamsSDKType {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.max_memo_characters === "bigint" && typeof o.tx_sig_limit === "bigint" && typeof o.tx_size_cost_per_byte === "bigint" && typeof o.sig_verify_cost_ed25519 === "bigint" && typeof o.sig_verify_cost_secp256k1 === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === Params.typeUrl ||
+        (typeof o.max_memo_characters === 'bigint' &&
+          typeof o.tx_sig_limit === 'bigint' &&
+          typeof o.tx_size_cost_per_byte === 'bigint' &&
+          typeof o.sig_verify_cost_ed25519 === 'bigint' &&
+          typeof o.sig_verify_cost_secp256k1 === 'bigint'))
+    );
   },
   isAmino(o: any): o is ParamsAmino {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.max_memo_characters === "bigint" && typeof o.tx_sig_limit === "bigint" && typeof o.tx_size_cost_per_byte === "bigint" && typeof o.sig_verify_cost_ed25519 === "bigint" && typeof o.sig_verify_cost_secp256k1 === "bigint");
+    return (
+      o &&
+      (o.$typeUrl === Params.typeUrl ||
+        (typeof o.max_memo_characters === 'bigint' &&
+          typeof o.tx_sig_limit === 'bigint' &&
+          typeof o.tx_size_cost_per_byte === 'bigint' &&
+          typeof o.sig_verify_cost_ed25519 === 'bigint' &&
+          typeof o.sig_verify_cost_secp256k1 === 'bigint'))
+    );
   },
-  encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    message: Params,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     if (message.maxMemoCharacters !== BigInt(0)) {
       writer.uint32(8).uint64(message.maxMemoCharacters);
     }
@@ -512,7 +643,8 @@ export const Params = {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): Params {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseParams();
     while (reader.pos < end) {
@@ -542,39 +674,85 @@ export const Params = {
   },
   fromPartial(object: Partial<Params>): Params {
     const message = createBaseParams();
-    message.maxMemoCharacters = object.maxMemoCharacters !== undefined && object.maxMemoCharacters !== null ? BigInt(object.maxMemoCharacters.toString()) : BigInt(0);
-    message.txSigLimit = object.txSigLimit !== undefined && object.txSigLimit !== null ? BigInt(object.txSigLimit.toString()) : BigInt(0);
-    message.txSizeCostPerByte = object.txSizeCostPerByte !== undefined && object.txSizeCostPerByte !== null ? BigInt(object.txSizeCostPerByte.toString()) : BigInt(0);
-    message.sigVerifyCostEd25519 = object.sigVerifyCostEd25519 !== undefined && object.sigVerifyCostEd25519 !== null ? BigInt(object.sigVerifyCostEd25519.toString()) : BigInt(0);
-    message.sigVerifyCostSecp256k1 = object.sigVerifyCostSecp256k1 !== undefined && object.sigVerifyCostSecp256k1 !== null ? BigInt(object.sigVerifyCostSecp256k1.toString()) : BigInt(0);
+    message.maxMemoCharacters =
+      object.maxMemoCharacters !== undefined &&
+      object.maxMemoCharacters !== null
+        ? BigInt(object.maxMemoCharacters.toString())
+        : BigInt(0);
+    message.txSigLimit =
+      object.txSigLimit !== undefined && object.txSigLimit !== null
+        ? BigInt(object.txSigLimit.toString())
+        : BigInt(0);
+    message.txSizeCostPerByte =
+      object.txSizeCostPerByte !== undefined &&
+      object.txSizeCostPerByte !== null
+        ? BigInt(object.txSizeCostPerByte.toString())
+        : BigInt(0);
+    message.sigVerifyCostEd25519 =
+      object.sigVerifyCostEd25519 !== undefined &&
+      object.sigVerifyCostEd25519 !== null
+        ? BigInt(object.sigVerifyCostEd25519.toString())
+        : BigInt(0);
+    message.sigVerifyCostSecp256k1 =
+      object.sigVerifyCostSecp256k1 !== undefined &&
+      object.sigVerifyCostSecp256k1 !== null
+        ? BigInt(object.sigVerifyCostSecp256k1.toString())
+        : BigInt(0);
     return message;
   },
   fromAmino(object: ParamsAmino): Params {
     const message = createBaseParams();
-    if (object.max_memo_characters !== undefined && object.max_memo_characters !== null) {
+    if (
+      object.max_memo_characters !== undefined &&
+      object.max_memo_characters !== null
+    ) {
       message.maxMemoCharacters = BigInt(object.max_memo_characters);
     }
     if (object.tx_sig_limit !== undefined && object.tx_sig_limit !== null) {
       message.txSigLimit = BigInt(object.tx_sig_limit);
     }
-    if (object.tx_size_cost_per_byte !== undefined && object.tx_size_cost_per_byte !== null) {
+    if (
+      object.tx_size_cost_per_byte !== undefined &&
+      object.tx_size_cost_per_byte !== null
+    ) {
       message.txSizeCostPerByte = BigInt(object.tx_size_cost_per_byte);
     }
-    if (object.sig_verify_cost_ed25519 !== undefined && object.sig_verify_cost_ed25519 !== null) {
+    if (
+      object.sig_verify_cost_ed25519 !== undefined &&
+      object.sig_verify_cost_ed25519 !== null
+    ) {
       message.sigVerifyCostEd25519 = BigInt(object.sig_verify_cost_ed25519);
     }
-    if (object.sig_verify_cost_secp256k1 !== undefined && object.sig_verify_cost_secp256k1 !== null) {
+    if (
+      object.sig_verify_cost_secp256k1 !== undefined &&
+      object.sig_verify_cost_secp256k1 !== null
+    ) {
       message.sigVerifyCostSecp256k1 = BigInt(object.sig_verify_cost_secp256k1);
     }
     return message;
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
-    obj.max_memo_characters = message.maxMemoCharacters !== BigInt(0) ? message.maxMemoCharacters.toString() : undefined;
-    obj.tx_sig_limit = message.txSigLimit !== BigInt(0) ? message.txSigLimit.toString() : undefined;
-    obj.tx_size_cost_per_byte = message.txSizeCostPerByte !== BigInt(0) ? message.txSizeCostPerByte.toString() : undefined;
-    obj.sig_verify_cost_ed25519 = message.sigVerifyCostEd25519 !== BigInt(0) ? message.sigVerifyCostEd25519.toString() : undefined;
-    obj.sig_verify_cost_secp256k1 = message.sigVerifyCostSecp256k1 !== BigInt(0) ? message.sigVerifyCostSecp256k1.toString() : undefined;
+    obj.max_memo_characters =
+      message.maxMemoCharacters !== BigInt(0)
+        ? message.maxMemoCharacters.toString()
+        : undefined;
+    obj.tx_sig_limit =
+      message.txSigLimit !== BigInt(0)
+        ? message.txSigLimit.toString()
+        : undefined;
+    obj.tx_size_cost_per_byte =
+      message.txSizeCostPerByte !== BigInt(0)
+        ? message.txSizeCostPerByte.toString()
+        : undefined;
+    obj.sig_verify_cost_ed25519 =
+      message.sigVerifyCostEd25519 !== BigInt(0)
+        ? message.sigVerifyCostEd25519.toString()
+        : undefined;
+    obj.sig_verify_cost_secp256k1 =
+      message.sigVerifyCostSecp256k1 !== BigInt(0)
+        ? message.sigVerifyCostSecp256k1.toString()
+        : undefined;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {
@@ -582,8 +760,8 @@ export const Params = {
   },
   toAminoMsg(message: Params): ParamsAminoMsg {
     return {
-      type: "cosmos-sdk/x/auth/Params",
-      value: Params.toAmino(message)
+      type: 'cosmos-sdk/x/auth/Params',
+      value: Params.toAmino(message),
     };
   },
   fromProtoMsg(message: ParamsProtoMsg): Params {
@@ -594,10 +772,13 @@ export const Params = {
   },
   toProtoMsg(message: Params): ParamsProtoMsg {
     return {
-      typeUrl: "/cosmos.auth.v1beta1.Params",
-      value: Params.encode(message).finish()
+      typeUrl: '/cosmos.auth.v1beta1.Params',
+      value: Params.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(Params.typeUrl, Params);
-GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  Params.aminoType,
+  Params.typeUrl,
+);

@@ -1,7 +1,11 @@
 //@ts-nocheck
-import { DenomPairTakerFee, DenomPairTakerFeeAmino, DenomPairTakerFeeSDKType } from "./tx";
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
+import {
+  DenomPairTakerFee,
+  DenomPairTakerFeeAmino,
+  DenomPairTakerFeeSDKType,
+} from './tx';
+import { BinaryReader, BinaryWriter } from '../../../binary';
+import { GlobalDecoderRegistry } from '../../../registry';
 /**
  * DenomPairTakerFeeProposal is a type for adding/removing a custom taker fee(s)
  * for one or more denom pairs.
@@ -12,7 +16,7 @@ export interface DenomPairTakerFeeProposal {
   denomPairTakerFee: DenomPairTakerFee[];
 }
 export interface DenomPairTakerFeeProposalProtoMsg {
-  typeUrl: "/osmosis.poolmanager.v1beta1.DenomPairTakerFeeProposal";
+  typeUrl: '/osmosis.poolmanager.v1beta1.DenomPairTakerFeeProposal';
   value: Uint8Array;
 }
 /**
@@ -25,7 +29,7 @@ export interface DenomPairTakerFeeProposalAmino {
   denom_pair_taker_fee?: DenomPairTakerFeeAmino[];
 }
 export interface DenomPairTakerFeeProposalAminoMsg {
-  type: "osmosis/poolmanager/denom-pair-taker-fee-proposal";
+  type: 'osmosis/poolmanager/denom-pair-taker-fee-proposal';
   value: DenomPairTakerFeeProposalAmino;
 }
 /**
@@ -39,28 +43,55 @@ export interface DenomPairTakerFeeProposalSDKType {
 }
 function createBaseDenomPairTakerFeeProposal(): DenomPairTakerFeeProposal {
   return {
-    title: "",
-    description: "",
-    denomPairTakerFee: []
+    title: '',
+    description: '',
+    denomPairTakerFee: [],
   };
 }
 export const DenomPairTakerFeeProposal = {
-  typeUrl: "/osmosis.poolmanager.v1beta1.DenomPairTakerFeeProposal",
-  aminoType: "osmosis/poolmanager/denom-pair-taker-fee-proposal",
+  typeUrl: '/osmosis.poolmanager.v1beta1.DenomPairTakerFeeProposal',
+  aminoType: 'osmosis/poolmanager/denom-pair-taker-fee-proposal',
   is(o: any): o is DenomPairTakerFeeProposal {
-    return o && (o.$typeUrl === DenomPairTakerFeeProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.denomPairTakerFee) && (!o.denomPairTakerFee.length || DenomPairTakerFee.is(o.denomPairTakerFee[0])));
+    return (
+      o &&
+      (o.$typeUrl === DenomPairTakerFeeProposal.typeUrl ||
+        (typeof o.title === 'string' &&
+          typeof o.description === 'string' &&
+          Array.isArray(o.denomPairTakerFee) &&
+          (!o.denomPairTakerFee.length ||
+            DenomPairTakerFee.is(o.denomPairTakerFee[0]))))
+    );
   },
   isSDK(o: any): o is DenomPairTakerFeeProposalSDKType {
-    return o && (o.$typeUrl === DenomPairTakerFeeProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.denom_pair_taker_fee) && (!o.denom_pair_taker_fee.length || DenomPairTakerFee.isSDK(o.denom_pair_taker_fee[0])));
+    return (
+      o &&
+      (o.$typeUrl === DenomPairTakerFeeProposal.typeUrl ||
+        (typeof o.title === 'string' &&
+          typeof o.description === 'string' &&
+          Array.isArray(o.denom_pair_taker_fee) &&
+          (!o.denom_pair_taker_fee.length ||
+            DenomPairTakerFee.isSDK(o.denom_pair_taker_fee[0]))))
+    );
   },
   isAmino(o: any): o is DenomPairTakerFeeProposalAmino {
-    return o && (o.$typeUrl === DenomPairTakerFeeProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Array.isArray(o.denom_pair_taker_fee) && (!o.denom_pair_taker_fee.length || DenomPairTakerFee.isAmino(o.denom_pair_taker_fee[0])));
+    return (
+      o &&
+      (o.$typeUrl === DenomPairTakerFeeProposal.typeUrl ||
+        (typeof o.title === 'string' &&
+          typeof o.description === 'string' &&
+          Array.isArray(o.denom_pair_taker_fee) &&
+          (!o.denom_pair_taker_fee.length ||
+            DenomPairTakerFee.isAmino(o.denom_pair_taker_fee[0]))))
+    );
   },
-  encode(message: DenomPairTakerFeeProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.title !== "") {
+  encode(
+    message: DenomPairTakerFeeProposal,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
+    if (message.title !== '') {
       writer.uint32(10).string(message.title);
     }
-    if (message.description !== "") {
+    if (message.description !== '') {
       writer.uint32(18).string(message.description);
     }
     for (const v of message.denomPairTakerFee) {
@@ -68,8 +99,12 @@ export const DenomPairTakerFeeProposal = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): DenomPairTakerFeeProposal {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number,
+  ): DenomPairTakerFeeProposal {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseDenomPairTakerFeeProposal();
     while (reader.pos < end) {
@@ -82,7 +117,9 @@ export const DenomPairTakerFeeProposal = {
           message.description = reader.string();
           break;
         case 3:
-          message.denomPairTakerFee.push(DenomPairTakerFee.decode(reader, reader.uint32()));
+          message.denomPairTakerFee.push(
+            DenomPairTakerFee.decode(reader, reader.uint32()),
+          );
           break;
         default:
           reader.skipType(tag & 7);
@@ -91,11 +128,15 @@ export const DenomPairTakerFeeProposal = {
     }
     return message;
   },
-  fromPartial(object: Partial<DenomPairTakerFeeProposal>): DenomPairTakerFeeProposal {
+  fromPartial(
+    object: Partial<DenomPairTakerFeeProposal>,
+  ): DenomPairTakerFeeProposal {
     const message = createBaseDenomPairTakerFeeProposal();
-    message.title = object.title ?? "";
-    message.description = object.description ?? "";
-    message.denomPairTakerFee = object.denomPairTakerFee?.map(e => DenomPairTakerFee.fromPartial(e)) || [];
+    message.title = object.title ?? '';
+    message.description = object.description ?? '';
+    message.denomPairTakerFee =
+      object.denomPairTakerFee?.map(e => DenomPairTakerFee.fromPartial(e)) ||
+      [];
     return message;
   },
   fromAmino(object: DenomPairTakerFeeProposalAmino): DenomPairTakerFeeProposal {
@@ -106,41 +147,60 @@ export const DenomPairTakerFeeProposal = {
     if (object.description !== undefined && object.description !== null) {
       message.description = object.description;
     }
-    message.denomPairTakerFee = object.denom_pair_taker_fee?.map(e => DenomPairTakerFee.fromAmino(e)) || [];
+    message.denomPairTakerFee =
+      object.denom_pair_taker_fee?.map(e => DenomPairTakerFee.fromAmino(e)) ||
+      [];
     return message;
   },
   toAmino(message: DenomPairTakerFeeProposal): DenomPairTakerFeeProposalAmino {
     const obj: any = {};
-    obj.title = message.title === "" ? undefined : message.title;
-    obj.description = message.description === "" ? undefined : message.description;
+    obj.title = message.title === '' ? undefined : message.title;
+    obj.description =
+      message.description === '' ? undefined : message.description;
     if (message.denomPairTakerFee) {
-      obj.denom_pair_taker_fee = message.denomPairTakerFee.map(e => e ? DenomPairTakerFee.toAmino(e) : undefined);
+      obj.denom_pair_taker_fee = message.denomPairTakerFee.map(e =>
+        e ? DenomPairTakerFee.toAmino(e) : undefined,
+      );
     } else {
       obj.denom_pair_taker_fee = message.denomPairTakerFee;
     }
     return obj;
   },
-  fromAminoMsg(object: DenomPairTakerFeeProposalAminoMsg): DenomPairTakerFeeProposal {
+  fromAminoMsg(
+    object: DenomPairTakerFeeProposalAminoMsg,
+  ): DenomPairTakerFeeProposal {
     return DenomPairTakerFeeProposal.fromAmino(object.value);
   },
-  toAminoMsg(message: DenomPairTakerFeeProposal): DenomPairTakerFeeProposalAminoMsg {
+  toAminoMsg(
+    message: DenomPairTakerFeeProposal,
+  ): DenomPairTakerFeeProposalAminoMsg {
     return {
-      type: "osmosis/poolmanager/denom-pair-taker-fee-proposal",
-      value: DenomPairTakerFeeProposal.toAmino(message)
+      type: 'osmosis/poolmanager/denom-pair-taker-fee-proposal',
+      value: DenomPairTakerFeeProposal.toAmino(message),
     };
   },
-  fromProtoMsg(message: DenomPairTakerFeeProposalProtoMsg): DenomPairTakerFeeProposal {
+  fromProtoMsg(
+    message: DenomPairTakerFeeProposalProtoMsg,
+  ): DenomPairTakerFeeProposal {
     return DenomPairTakerFeeProposal.decode(message.value);
   },
   toProto(message: DenomPairTakerFeeProposal): Uint8Array {
     return DenomPairTakerFeeProposal.encode(message).finish();
   },
-  toProtoMsg(message: DenomPairTakerFeeProposal): DenomPairTakerFeeProposalProtoMsg {
+  toProtoMsg(
+    message: DenomPairTakerFeeProposal,
+  ): DenomPairTakerFeeProposalProtoMsg {
     return {
-      typeUrl: "/osmosis.poolmanager.v1beta1.DenomPairTakerFeeProposal",
-      value: DenomPairTakerFeeProposal.encode(message).finish()
+      typeUrl: '/osmosis.poolmanager.v1beta1.DenomPairTakerFeeProposal',
+      value: DenomPairTakerFeeProposal.encode(message).finish(),
     };
-  }
+  },
 };
-GlobalDecoderRegistry.register(DenomPairTakerFeeProposal.typeUrl, DenomPairTakerFeeProposal);
-GlobalDecoderRegistry.registerAminoProtoMapping(DenomPairTakerFeeProposal.aminoType, DenomPairTakerFeeProposal.typeUrl);
+GlobalDecoderRegistry.register(
+  DenomPairTakerFeeProposal.typeUrl,
+  DenomPairTakerFeeProposal,
+);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  DenomPairTakerFeeProposal.aminoType,
+  DenomPairTakerFeeProposal.typeUrl,
+);

@@ -1,6 +1,6 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { GlobalDecoderRegistry } from "../../../../registry";
+import { BinaryReader, BinaryWriter } from '../../../../binary';
+import { GlobalDecoderRegistry } from '../../../../registry';
 /**
  * Module defines the ORM module which adds providers to the app container for
  * module-scoped DB's. In the future it may provide gRPC services for interacting
@@ -8,7 +8,7 @@ import { GlobalDecoderRegistry } from "../../../../registry";
  */
 export interface Module {}
 export interface ModuleProtoMsg {
-  typeUrl: "/cosmos.orm.module.v1alpha1.Module";
+  typeUrl: '/cosmos.orm.module.v1alpha1.Module';
   value: Uint8Array;
 }
 /**
@@ -18,7 +18,7 @@ export interface ModuleProtoMsg {
  */
 export interface ModuleAmino {}
 export interface ModuleAminoMsg {
-  type: "cosmos-sdk/Module";
+  type: 'cosmos-sdk/Module';
   value: ModuleAmino;
 }
 /**
@@ -31,8 +31,8 @@ function createBaseModule(): Module {
   return {};
 }
 export const Module = {
-  typeUrl: "/cosmos.orm.module.v1alpha1.Module",
-  aminoType: "cosmos-sdk/Module",
+  typeUrl: '/cosmos.orm.module.v1alpha1.Module',
+  aminoType: 'cosmos-sdk/Module',
   is(o: any): o is Module {
     return o && o.$typeUrl === Module.typeUrl;
   },
@@ -42,11 +42,15 @@ export const Module = {
   isAmino(o: any): o is ModuleAmino {
     return o && o.$typeUrl === Module.typeUrl;
   },
-  encode(_: Module, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(
+    _: Module,
+    writer: BinaryWriter = BinaryWriter.create(),
+  ): BinaryWriter {
     return writer;
   },
   decode(input: BinaryReader | Uint8Array, length?: number): Module {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseModule();
     while (reader.pos < end) {
@@ -76,8 +80,8 @@ export const Module = {
   },
   toAminoMsg(message: Module): ModuleAminoMsg {
     return {
-      type: "cosmos-sdk/Module",
-      value: Module.toAmino(message)
+      type: 'cosmos-sdk/Module',
+      value: Module.toAmino(message),
     };
   },
   fromProtoMsg(message: ModuleProtoMsg): Module {
@@ -88,10 +92,13 @@ export const Module = {
   },
   toProtoMsg(message: Module): ModuleProtoMsg {
     return {
-      typeUrl: "/cosmos.orm.module.v1alpha1.Module",
-      value: Module.encode(message).finish()
+      typeUrl: '/cosmos.orm.module.v1alpha1.Module',
+      value: Module.encode(message).finish(),
     };
-  }
+  },
 };
 GlobalDecoderRegistry.register(Module.typeUrl, Module);
-GlobalDecoderRegistry.registerAminoProtoMapping(Module.aminoType, Module.typeUrl);
+GlobalDecoderRegistry.registerAminoProtoMapping(
+  Module.aminoType,
+  Module.typeUrl,
+);
