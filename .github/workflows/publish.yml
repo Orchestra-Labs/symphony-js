@@ -11,7 +11,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write # allow GITHUB_TOKEN to publish packages
     steps:
       - name: Checkout code
@@ -20,7 +20,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: 'lts/*' # Use the latest LTS (Long Term Support) version
 
       - name: Ensure package-lock.json exists
         run: |
