@@ -9,8 +9,18 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm publish
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js for NPM
+        uses: actions/setup-node@v1.2.0
+        with:
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Publish to npm
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
