@@ -1,18 +1,19 @@
 {
   "name": "@orchestra_labs/symphonyjs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Typescript Protobuf Messages for Symphony chain",
   "author": "Orchestra-Labs",
-  "main": "src/index.ts",
+  "main": "src/index.js",
   "module": "esm/index.js",
   "types": "index.d.ts",
   "homepage": "https://github.com/Orchestra-Labs/symphony-js",
   "license": "SEE LICENSE IN LICENSE",
   "publishConfig": {
-    "access": "public"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public",
+    "directory": "dist"
   },
   "scripts": {
-    "build": "tsc && npm format",
     "codegen": "ts-node ./scripts/codegen.ts && pnpm format",
     "test-query": "ts-node ./scripts/symphony.ts",
     "format": "prettier '{**/*,*}.{js,ts,jsx,tsx,vue,astro}' --write"
