@@ -2,25 +2,25 @@ name: Publish to npm
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v*'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write # allow GITHUB_TOKEN to publish packages
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js for NPM
-        uses: actions/setup-node@v1.2.0
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
         with:
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Publish to npm
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          node-version: '20'
+      - run: npm ci
+      - run: npm test
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          registry: 'https://npm.pkg.github.com'
