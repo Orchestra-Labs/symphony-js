@@ -12,9 +12,9 @@
     "access": "public"
   },
   "scripts": {
-    "patch": " npm version patch  &&  git push origin main --follow-tags",
-    "minor": " npm version minor  &&  git push origin main --follow-tags",
-    "major": " npm version major  &&  git push origin main --follow-tags",
+    "patch": " npm version patch  &&  git push",
+    "minor": " npm version minor  &&  git push",
+    "major": " npm version major  &&  git push",
     "codegen": "ts-node ./scripts/codegen.ts && npm format",
     "test-query": "ts-node ./scripts/symphony.ts",
     "format": "prettier '{**/*,*}.{js,ts,jsx,tsx,vue,astro}' --write"
