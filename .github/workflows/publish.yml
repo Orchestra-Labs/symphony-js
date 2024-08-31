@@ -60,3 +60,10 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create and push tag
+        run: |
+          TAG_NAME="v$(jq -r .version package.json)"
+          echo "Creating tag $TAG_NAME"
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
