@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Typescript Protobuf Messages for Symphony chain",
   "author": "Orchestra-Labs",
-  "main": "index.js",
+  "main": "src/index.ts",
   "module": "esm/index.js",
   "types": "index.d.ts",
   "homepage": "https://github.com/Orchestra-Labs/symphony-js",
