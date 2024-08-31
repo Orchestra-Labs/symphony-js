@@ -10,6 +10,8 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
 
@@ -45,6 +47,14 @@ jobs:
 
       - name: Configure npm authentication
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      # Not necessary for publish to NPM.  Used for GitHub records
+      - name: Create and push tag
+        run: |
+          TAG_NAME="v$(jq -r .version package.json)"
+          echo "Creating tag $TAG_NAME"
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
 
       - name: Publish to npm
         run: npm publish
