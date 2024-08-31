@@ -9,12 +9,11 @@
   "homepage": "https://github.com/Orchestra-Labs/symphony-js",
   "license": "SEE LICENSE IN LICENSE",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
     "access": "public",
     "directory": "dist"
   },
   "scripts": {
-    "codegen": "ts-node ./scripts/codegen.ts && pnpm format",
+    "codegen": "ts-node ./scripts/codegen.ts && npm format",
     "test-query": "ts-node ./scripts/symphony.ts",
     "format": "prettier '{**/*,*}.{js,ts,jsx,tsx,vue,astro}' --write"
   },
