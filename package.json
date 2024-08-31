@@ -9,8 +9,8 @@
   "homepage": "https://github.com/Orchestra-Labs/symphony-js",
   "license": "SEE LICENSE IN LICENSE",
   "publishConfig": {
-    "access": "public",
-    "directory": "dist"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "scripts": {
     "codegen": "ts-node ./scripts/codegen.ts && npm format",
