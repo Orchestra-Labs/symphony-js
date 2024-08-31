@@ -1,12 +1,12 @@
 {
-  "name": "symphony-js",
+  "name": "symphonyjs",
   "version": "1.0.0",
   "description": "Typescript Protobuf Messages for Symphony chain",
   "author": "Orchestra-Labs",
   "main": "index.js",
   "module": "esm/index.js",
   "types": "index.d.ts",
-  "homepage": "https://github.com/Orchestra-Labs/symphony-js",
+  "homepage": "https://github.com/Orchestra-Labs/symphonyjs",
   "license": "SEE LICENSE IN LICENSE",
   "publishConfig": {
     "access": "public",
@@ -19,10 +19,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Orchestra-Labs/symphony-js"
+    "url": "git+https://github.com/Orchestra-Labs/symphonyjs.git"
   },
   "bugs": {
-    "url": "https://github.com/Orchestra-Labs/symphony-js/issues"
+    "url": "https://github.com/Orchestra-Labs/symphonyjs/issues"
   },
   "dependencies": {
     "@cosmjs/tendermint-rpc": "^0.32.4",
