@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      packages: write # allow GITHUB_TOKEN to publish packages
+      packages: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,10 +23,12 @@ jobs:
           node-version: 'lts/*' # Use the latest LTS (Long Term Support) version
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
+
+      - name: Build the package
+        run: pnpm build
 
       - name: Publish to npm
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          registry: 'https://npm.pkg.github.com'
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
