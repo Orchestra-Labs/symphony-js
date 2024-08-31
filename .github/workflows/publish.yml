@@ -3,7 +3,7 @@ name: Publish to npm
 on:
   push:
     branches:
-      - main'
+      - main
     tags:
       - 'v*'
 
@@ -15,15 +15,10 @@ jobs:
 
       - name: Check triggers
         run: |
-          echo $(git rev-parse --abbrev-ref HEAD)
-          if [ "$(git rev-parse --abbrev-ref HEAD)" != "main" ]; then
-            echo "Not on main branch. Exiting..."
-            exit 1
-          fi
-          if [ -z "${GITHUB_REF##*refs/tags/v*}" ]; then
-            echo "Triggered by a tag push to main. Proceeding..."
-          else
-            echo "No matching tag found. Exiting..."
+          echo "${GITHUB_REF}"
+          echo "${GITHUB_REF##*refs/tags/v*}"
+          if [[ "${GITHUB_REF}" != "refs/heads/main" || -z "${GITHUB_REF##*refs/tags/v*}" ]]; then
+            echo "Not on main branch or no matching tag found. Exiting..."
             exit 1
           fi
 
