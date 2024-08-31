@@ -15,6 +15,7 @@ jobs:
 
       - name: Check triggers
         run: |
+          echo $(git rev-parse --abbrev-ref HEAD)
           if [ "$(git rev-parse --abbrev-ref HEAD)" != "main" ]; then
             echo "Not on main branch. Exiting..."
             exit 1
