@@ -28,7 +28,7 @@ jobs:
             exit 1
           fi
 
-      - name: Extract Node.js version from package.json
+      - name: Extract Node.js version from @types/node in package.json
         id: extract_node_version
         run: |
           NODE_VERSION=$(jq -r '.devDependencies["@types/node"]' package.json | grep -oP '\d+\.\d+\.\d+' | cut -d '.' -f 1)
@@ -50,3 +50,10 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create and push tag
+        run: |
+          TAG_NAME="v$(jq -r .version package.json)"
+          echo "Creating tag $TAG_NAME"
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
