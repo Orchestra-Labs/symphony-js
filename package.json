@@ -3,15 +3,19 @@
   "version": "1.0.17",
   "description": "Typescript Protobuf Messages for Symphony chain",
   "author": "Orchestra-Labs",
-  "main": "src/index.js",
+  "main": "index.js",
   "module": "esm/index.js",
   "types": "index.d.ts",
   "homepage": "https://github.com/Orchestra-Labs/symphony-js",
   "license": "SEE LICENSE IN LICENSE",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "dist"
   },
   "scripts": {
+    "clean": "rm -rf dist/**",
+    "copy": "cp -f README.md package.json dist",
+    "build": "npm run clean; tsc; tsc -p tsconfig.esm.json; npm run copy",
     "patch": " npm version patch  &&  git push",
     "minor": " npm version minor  &&  git push",
     "major": " npm version major  &&  git push",
@@ -50,6 +54,18 @@
     "minimatch": "^10.0.1",
     "rimraf": "3.0.2",
     "ts-node": "^10.4.0",
+    "@chain-registry/client": "1.31.2",
+    "@chain-registry/types": "0.16.0",
+    "@protobufs/confio": "^0.0.6",
+    "@protobufs/cosmos": "^0.1.0",
+    "@protobufs/cosmos_proto": "^0.0.10",
+    "@protobufs/cosmwasm": "^0.1.1",
+    "@protobufs/gogoproto": "^0.0.10",
+    "@protobufs/google": "^0.0.10",
+    "@protobufs/ibc": "^0.1.0",
+    "@protobufs/osmosis": "^0.4.0",
+    "@protobufs/tendermint": "^0.0.10",
     "typescript": "^5.1.6"
-  }
+  },
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
 }
