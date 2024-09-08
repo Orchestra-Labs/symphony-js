@@ -57,6 +57,6 @@ jobs:
           git push origin $TAG_NAME
 
       - name: Publish to npm
-        run: npm publish
+        run: npm run build && cd dist && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
